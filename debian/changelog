@@ -3,7 +3,7 @@ jwhois (2.4.3-1) unstable; urgency=low
   * New upstream release:
    - Add option to not follow redirections.
    - Updates to default configuration.
-     (Closes: Bug#86245, #86563)
+     (Closes: Bug#86245, #86167, #86563)
    - Updates to documentation.
      (Closes: Bug#84180)
   * Removed misunderstood dpkg-statoverride usage from maintainer scripts.
