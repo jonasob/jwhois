@@ -2,13 +2,13 @@
 # Copyright © 1999
 # Peter Karlsson <peter@softwolves.pp.se>, 1999.
 #
-# $Id: sv.po,v 1.5 1999/12/02 13:33:07 peter Exp $
+# $Id: sv.po,v 1.6 1999/12/02 19:13:29 peter Exp $
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.3.1\n"
-"POT-Creation-Date: 1999-12-01 20:58+0100\n"
-"PO-Revision-Date: 1999-12-01 18:26+0100\n"
+"POT-Creation-Date: 1999-12-02 19:40+0100\n"
+"PO-Revision-Date: 1999-12-02 20:10+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -86,15 +86,27 @@ msgstr "Systemfel"
 msgid "Unknown error"
 msgstr "Okänt fel"
 
-#: src/init.c:82
+#: src/init.c:77
+msgid "Copyright (C) 1999 Jonas Öberg"
+msgstr "Copyright © 1999 Jonas Öberg"
+
+#: src/init.c:78
+msgid ""
+"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
+"redistribute it under the terms of the GNU General Public License."
+msgstr ""
+"Detta program är fri programvara UTAN NÅGON SOM HELST GARANTI; du kan\n"
+"distribuera det under villkoren i GNU General Public License."
+
+#: src/init.c:81
 msgid "version"
 msgstr "version"
 
-#: src/init.c:84
+#: src/init.c:85
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Användning: jwhois [FLAGGOR] [FRÅGA]"
 
-#: src/init.c:86
+#: src/init.c:87
 msgid ""
 "  --version               display version number and patch level\n"
 "  --help                  display this help\n"
@@ -110,7 +122,7 @@ msgstr ""
 "  -p PORT, --port=PORT    använd portnummer PORT (i samband med VÄRD)\n"
 "  -v, --verbose           berättande debugutdata\n"
 
-#: src/init.c:94
+#: src/init.c:95
 msgid ""
 "  -f, --force-lookup      force lookup even if the entry is cached\n"
 "  -d, --disable-cache     disable cache functions\n"
@@ -118,7 +130,7 @@ msgstr ""
 "  -f, --force-lookup      framtvinga uppslagning även om posten finns i cache\n"
 "  -d, --disable-cache     stäng av cachefunktionaliteten\n"
 
-#: src/init.c:97
+#: src/init.c:98
 msgid "Report bugs to jonas@coyote.org"
 msgstr ""
 "Rapportera fel till <jonas@coyote.org>\n"
