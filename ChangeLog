@@ -1,3 +1,7 @@
+2001-11-19  Jonas Oberg <jonas@gnu.org>
+
+	* doc/sv/Makefile.am: Added installation instructions
+
 2001-11-18  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhos.conf, src/http.c: Added support for extra form

@@ -23,3 +23,4 @@ man_MANS = jwhois.1
 
 EXTRA_DIST = $(man_MANS)
 SUBDIRS = sv
+
