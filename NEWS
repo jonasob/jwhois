@@ -1,6 +1,17 @@
+Changes in jwhois 2.1
+
+ * Default configuration file location changed from DATADIR to SYSCONFDIR
+   (normally /usr/local/etc/ or /etc/). jwhois will still search in DATADIR
+   if it can't find a configuration file for backwards compatibility.
+ * Added more information to the texinfo manual about RIPE extensions to
+   the WHOIS protocol.
+ * Added RIPE/APNIC and ARIN handles to the example configuration file.
+ * Added support for specifying port numbers, both on command line and
+   in configuration file.
+
 Changes in jwhois 2.0
 
  * jwhois-server is dropped from the package and will later be replaced
-   by jwhoisd which will be bundled separately
- * jwhois is now written in C code
- * configuration file format has changed
+   by jwhoisd which will be bundled separately.
+ * jwhois is now written in C code.
+ * configuration file format has changed.
