@@ -27,5 +27,5 @@ CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
          -DLOCALSTATEDIR="\"$(localstatedir)\"" \
          -DLOCALEDIR="\"$(localedir)\""
 
-INCLUDES = -I$(top_srcdir)/include
+INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir)/intl
 LIBS = @INTLLIBS@ @LIBS@
