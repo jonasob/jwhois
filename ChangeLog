@@ -3,7 +3,7 @@
 	* po/: es.po fr.po hu.po id.po it.po nl.po pl.po pt_BR.po ro.po
 	  tr.po zh_TW.po: Imported latest versions from TP.
 	* examples/jwhois.conf: Various updates (Christian Kurz,
-	  Christer Mjellem Strand)
+	  Christer Mjellem Strand, Chris Lewis)
 
 2004-05-21  Jonas Oberg <jonas@gnu.org>
 
