@@ -63,9 +63,9 @@ find_cidr(wq, block)
 {
   struct in_addr ip;
   struct in_addr ipmaskip;
-  unsigned int ipmask;
   struct jconfig *j;
-  unsigned int bits, res, a0, a1, a2, a3, ret;
+  unsigned int ipmask, bits, res, ret, match_bits;
+  unsigned int a0, a1, a2, a3;
   char *host = NULL;
 
   res = sscanf(wq->query, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
@@ -73,6 +73,8 @@ find_cidr(wq, block)
   else if (res == 2) a2 = a3 = 0;
   else if (res == 1) a1 = a2 = a3 = 0;
   else if (res != 4) return NULL;
+
+  match_bits = 0;
 
 #ifdef WORDS_BIGENDIAN
   ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
@@ -86,8 +88,11 @@ find_cidr(wq, block)
       if (strcasecmp(j->key, "type") != 0) {
 	if (!strcasecmp(j->key, "default"))
 	  {
-	    ipmaskip.s_addr = 0;
-	    ipmask = 0;
+            if (!match_bits)
+              {
+                ipmaskip.s_addr = 0;
+                ipmask = 0;
+              }
 	  }
 	else
 	  {
@@ -95,7 +100,7 @@ find_cidr(wq, block)
 			 &bits);
 	    if (res != 5 || bits < 0 || bits > 32)
 	      {
-		printf("[%s: %s %d]",
+		printf("[%s: %s %d]\n",
 		       config,
 		       _("Invalid netmask on line"),
 		       j->line);
@@ -109,10 +114,11 @@ find_cidr(wq, block)
             ipmask = (0xffffffff<<(32-bits));
 #endif
 	  }
-	if ((ip.s_addr & ipmask) == (ipmaskip.s_addr & ipmask))
+	if (((ip.s_addr & ipmask) == (ipmaskip.s_addr & ipmask))
+            && (bits > match_bits))
 	  {
 	    host = j->value;
-            break;
+            match_bits = bits;
 	  }
       }
     }
