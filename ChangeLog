@@ -1,3 +1,8 @@
+2001-02-21  peter karlsson <peter@softwolves.pp.se>
+
+  	* example/jwhois.conf: Change .za entry (whois.co.za only provides
+	a web interface) (Lee Maguire, Debian bug#86167)
+
 2001-02-19  peter karlsson <peter@softwolves.pp.se>
 
   	* example/jwhois.conf: Changed .cz, .si, .su, and added CZ handle
