@@ -1,4 +1,4 @@
-jwhois (3.0.3-1) unstable; urgency=low
+jwhois (3.1.0-1) unstable; urgency=low
 
   * New upstream release:
    - Matches in jwhois.conf are now "best match".
@@ -10,7 +10,7 @@ jwhois (3.0.3-1) unstable; urgency=low
     (Closes: Bug#126640)
   * For more info, see upstream NEWS file.
 
- -- peter karlsson <peterk@debian.org>  UNRELEASED
+ -- peter karlsson <peterk@debian.org>  Wed, 09 Jan 2002 21:00:00 +0100
 
 jwhois (3.0.2-2) unstable; urgency=low
 
