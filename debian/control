@@ -7,7 +7,7 @@ Standards-Version: 3.2.1
 
 Package: jwhois
 Architecture: any
-Depends: ${shlibs:Depends}, adduser
+Depends: ${shlibs:Depends}, adduser, dpkg (>= 1.7.0)
 Conflicts: suidmanager (<< 0.50)
 Description: Improved Caching Whois client
  This is jwhois, an improved Whois client capable of
