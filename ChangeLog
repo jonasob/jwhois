@@ -1,3 +1,8 @@
+2002-08-03  Lee Maguire <lee@hexkey.co.uk>
+
+	* example/jwhois.conf: updated regexp to match ARIN netblock
+	  records (closes Debian bug#154832)
+
 2002-08-02  Peter Karlsson <peter@softwolves.pp.se>
 
 	* po/id.po, po/pt_BR.po: Updated translations from TP.
