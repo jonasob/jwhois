@@ -71,7 +71,11 @@ int cfexpire;
 
 void help(void)
 {
+#ifdef CACHE
   printf("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
+#else
+  printf("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
+#endif
 	 ", Copyright (C) 1999 Jonas Öberg\n",
 	 "This is free software with ABSOLUTELY NO WARRANTY.\n\n",
 	 "Usage: jwhois [OPTIONS] [QUERIES...]\n",
