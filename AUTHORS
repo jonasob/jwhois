@@ -1,2 +1,3 @@
-jwhois is written by Jonas Öberg <jonas@gnu.org>
-Debian packaging and some modifications by Peter Karlsson <peterk@debian.org>
+jwhois is written and maintained by Jonas Öberg <jonas@gnu.org>
+Debian packaging, some modifications and HTTP support by Peter
+Karlsson <peterk@debian.org>
