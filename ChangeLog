@@ -1,10 +1,16 @@
+2001-08-27  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Rewrite whois.internic.net default domain
+          queries
+	  (Lee Maguire, Debian bug #84161)
+
 2001-08-27  Jonas Oberg  <jonas@gnu.org>
 
 	* Added support for having query-format on every rule instead
 	of globally for every host. Also introduced new rule format in
 	jwhois.conf consisting of a block of options for each rule instead
 	of just a hostname.
-	
+
 2001-08-08  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Fixed 164.0.0.0/8 mapping, .hk and .cn lookup,
