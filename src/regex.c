@@ -72,6 +72,13 @@ char *malloc ();
 char *realloc ();
 #endif
 
+#ifdef HAVE_INTTYPES_H
+# include <inttypes.h>
+#else
+# ifdef HAVE_STDINT_H
+#  include <stdint.h>
+# endif
+#endif
 
 /* Define the syntax stuff for \<, \>, etc.  */
 
@@ -3764,7 +3771,8 @@ re_match_2 (bufp, string1, size1, string2, size2, pos, regs, stop)
                           regstart[r] = old_regstart[r];
 
                           /* xx why this test?  */
-                          if ((int) old_regend[r] >= (int) regstart[r])
+                          if ((uintptr_t) old_regend[r] >=
+                              (uintptr_t) regstart[r])
                             regend[r] = old_regend[r];
                         }     
                     }
@@ -3915,7 +3923,7 @@ re_match_2 (bufp, string1, size1, string2, size2, pos, regs, stop)
           DEBUG_PRINT1 ("EXECUTING on_failure_keep_string_jump");
           
           EXTRACT_NUMBER_AND_INCR (mcnt, p);
-          DEBUG_PRINT3 (" %d (to 0x%x):\n", mcnt, p + mcnt);
+          DEBUG_PRINT3 (" %d (to %p):\n", mcnt, p + mcnt);
 
           PUSH_FAILURE_POINT (p + mcnt, NULL, -2);
           break;

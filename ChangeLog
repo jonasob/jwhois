@@ -1,3 +1,12 @@
+2002-01-09  Jonas Oberg  <jonas@gnu.org>
+
+	* src/lookup.c (find_regex): Fix searches where domain is "default".
+
+	* configure.in: Test for inttypes.h and stdint.h
+
+	* src/regex.c: Include inttypes.h or stdint.h and use (uintptr_t)
+	to compare integers.
+
 2001-01-06  Jonas Oberg  <jonas@gnu.org>
 
 	* src/lookup.c (lookup_host): Fixed whois-servers.net support.

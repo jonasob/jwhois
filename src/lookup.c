@@ -157,14 +157,18 @@ find_regex(struct s_whois_query *wq, const char *block)
   while ((j = jconfig_next_all(block)) != NULL)
     {
       if ((strcasecmp(j->key, "default") == 0
-           || strcasecmp(j->domain+strlen(block)+1, ".*") == 0)
+           || strcasecmp(j->domain+strlen(block)+1, ".*") == 0
+           || strcasecmp(j->domain+strlen(block)+1, "default") == 0)
           && !best_match)
         {
           if (strlen(j->domain) > strlen(block))
             {
               j2 = jconfig_getone(j->domain, "whois-server");
               if (j2)
-                match = j2->value;
+                {
+                  wq->domain = j->domain;
+                  match = j2->value;
+                }
             }
           else
             {
@@ -200,10 +204,10 @@ find_regex(struct s_whois_query *wq, const char *block)
                               strlen(wq->query), &regs);
 	      if (ind >= 0 && regs.num_regs >= 1)
 		{
-		  wq->domain = j->domain;
 		  j2 = jconfig_getone(j->domain, "whois-server");
 		  if (j2 && (regs.end[1] - regs.start[1]) >= best_match)
                     {
+		      wq->domain = j->domain;
                       best_match = regs.end[1] - regs.start[1];
                       match = j2->value;
                     }
@@ -480,10 +484,7 @@ lookup_query_format(struct s_whois_query *wq)
   struct jconfig *j = NULL;
 
   if (wq->domain)
-    {
-      jconfig_set();
-      j = jconfig_getone(wq->domain, "query-format");
-    }
+    j = jconfig_getone(wq->domain, "query-format");
   if (!j)
     {
       ret = (char *)get_whois_server_option(wq->host, "query-format");
