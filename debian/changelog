@@ -4,8 +4,8 @@ jwhois (3.2.2-1) unstable; urgency=low
    - Fixes problem with redirected .org lookups.
    (Closes: Bug#179782)
    - Changes to default configuration.
-   (Closes: Bug#181343, #182525, #186748, #197348, #197349, #198023,
-            Bug#198024, #198990, #199124, #186112)
+   (Closes: Bug#181343, #182525, #186746, #197348, #197349, #197350,
+            Bug#198023, #198024, #198990, #199124, #186112)
   * Build against libgdbm-dev instead of libgdbmg1-dev.
 
  -- Peter Karlsson <peterk@debian.org>  Mon, 30 Jun 2003 19:00:00 +0100
