@@ -18,11 +18,17 @@ case "$1" in
     # 2.4.2-1 -- 2.4.2-3, which adds a statoverride with the jwhois
     # group. Dpkg does not like to have a leftover statoverride with
     # a non-existing group.
-    dpkg-statoverride --remove /usr/bin/jwhois || echo "Failed removing statoverride for /usr/bin/jwhois"
-    dpkg-statoverride --remove /var/cache/jwhois || echo "Failed removing statoverride for /var/cache/jwhois"
-    if getent group jwhois > /dev/null; then
-      groupdel jwhois || echo "Failed removing group \`jwhois'"
+    jwhoisoverride=1
+    dpkg-statoverride --list /usr/bin/jwhois > /dev/null || jwhoisoverride=0
+    if test "$jwhoisoverride" = "1"; then
+      dpkg-statoverride --remove /usr/bin/jwhois || echo "Failed removing statoverride for /usr/bin/jwhois"
     fi
+    cacheoverride=1
+    dpkg-statoverride --list /var/cache/jwhois > /dev/null || cacheoverride=0
+    if test "$cacheoverride" = "1"; then
+      dpkg-statoverride --remove /var/cache/jwhois || echo "Failed removing statoverride for /var/cache/jwhois"
+    fi
+    groupdel jwhois || echo "Failed removing group \`jwhois'"
     ;;
   upgrade)
     if dpkg --compare-versions "$2" ge 2.4.2-1; then

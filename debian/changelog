@@ -2,10 +2,15 @@ jwhois (2.4.3-1) unstable; urgency=low
 
   * New upstream release:
    - Add option to not follow redirections.
+
+ -- peter karlsson <peterk@debian.org>  UNRELEASED
+
+jwhois (2.4.2-5) unstable; urgency=low
+
   * Fix postinst script so that the cache file is always owned by root.
     (Closes: Bug#95013)
 
- -- peter karlsson <peterk@debian.org>  UNRELEASED
+ -- peter karlsson <peterk@debian.org>  Sat, 28 Apr 2001 10:25:00 +0200
 
 jwhois (2.4.2-4) unstable; urgency=low
 

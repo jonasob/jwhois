@@ -21,7 +21,7 @@ fi
 
 groupexist=1
 getent group jwhois > /dev/null || groupexist=0
-if test "$groupexist" = "0" then
+if test "$groupexist" = "0"; then
   # Group did not exist
   addgroup --system jwhois || echo "Failed to create jwhois group, cache functionality may be impaired."
 fi
@@ -62,10 +62,12 @@ if test "$cacheoverride" = "0"; then
 
     if test -e /var/cache/jwhois/jwhois.db; then
       chown root.jwhois /var/cache/jwhois/jwhois.db || echo "Failed setting cache file ownership, cache functionality may be impaired."
+      chmod 0660 /var/cache/jwhois/jwhois.db || echo "Failed setting cache permissions, cache functionality may be impaired."
     else
       if touch /var/cache/jwhois/jwhois.db; then
         if test -f /var/cache/jwhois/jwhois.db; then
           chown root.jwhois /var/cache/jwhois/jwhois.db || echo "Failed setting cache file ownership, cache functionality may be impaired."
+          chmod 0660 /var/cache/jwhois/jwhois.db || echo "Failed setting cache permissions, cache functionality may be impaired."
         else
           echo "Cache file is not a regular file, cache functionality may be impaired."
         fi
