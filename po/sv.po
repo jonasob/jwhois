@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.0\n"
-"POT-Creation-Date: 2001-10-10 12:42+0200\n"
+"POT-Creation-Date: 2001-12-01 10:46+0100\n"
 "PO-Revision-Date: 2001-09-29 11:04+0200\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "Language-Team: svenska <sv@li.org>\n"
@@ -136,25 +136,25 @@ msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"-W %s\" tillåter inte något argument\n"
 
-#: src/http.c:67
+#: src/http.c:68
 msgid "HTTP configuration is incomplete:"
 msgstr "HTTP-inställning är ej komplett:"
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
-#: src/http.c:138
+#: src/http.c:69 src/http.c:70 src/http.c:71 src/http.c:89 src/http.c:98
+#: src/http.c:141
 msgid "Option is missing:"
 msgstr "Inställning saknas:"
 
-#: src/http.c:80
+#: src/http.c:81
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
 
 #. Go on and do something
-#: src/http.c:168 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
+#: src/http.c:171 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
 msgid "Querying"
 msgstr "Frågar"
 
-#: src/http.c:194
+#: src/http.c:197
 msgid "Unable to run web browser"
 msgstr "Kan inte starta webbläsare"
 

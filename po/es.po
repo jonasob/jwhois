@@ -1,0 +1,357 @@
+# Mensajes en español para jwhois-3.0.2.
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Cristian Othón Martínez Vera <cfuga@itam.mx>, 2001.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jwhois 3.0.2\n"
+"POT-Creation-Date: 2001-12-01 10:46+0100\n"
+"PO-Revision-Date: 2001-12-03 11:44-0600\n"
+"Last-Translator: Cristian Othón Martínez Vera <cfuga@itam.mx>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# No temas escribir "inválido". La palabra existe y significa lo mismo
+# que no válido, y además en una sola palabra. sv
+# De acuerdo. Me había quedado con la preocupación original de Enrique
+# Melero. Lo cambiaré en toda la traducción. cfuga.
+#: src/cache.c:139
+msgid "Invalid expire time"
+msgstr "Tiempo de expiración inválido"
+
+#: src/cache.c:152 src/init.c:263 src/init.c:272
+msgid "Unable to open"
+msgstr "No se puede abrir"
+
+#: src/cache.c:161
+msgid "Unable to store data in cache]\n"
+msgstr "No se pueden guardar datos en el caché]\n"
+
+#: src/dns.c:88
+msgid "host not found"
+msgstr "no se encontró el anfitrión"
+
+#: src/gai_strerror.c:70
+msgid "Address family for hostname not supported"
+msgstr "No hay soporte de familia de direcciones para el nombre de anfitrión"
+
+#: src/gai_strerror.c:72
+msgid "Temporary failure in name resolution"
+msgstr "Fallo temporal en la resolución del nombre"
+
+#: src/gai_strerror.c:74
+msgid "Bad value for ai_flags"
+msgstr "Valor erróneo para ai_flags"
+
+# O también irrecuperable. sv
+# Me gusta tu sugerencia. cfuga
+#: src/gai_strerror.c:76
+msgid "Non-recoverable failure in name resolution"
+msgstr "Fallo irrecuperable en la resolución del nombre"
+
+#: src/gai_strerror.c:78
+msgid "ai_family not supported"
+msgstr "no se da soporte a ai_family"
+
+#: src/gai_strerror.c:80
+msgid "Memory allocation failure"
+msgstr "Fallo en la asignación de memoria"
+
+# del anfitrión. sv
+# Corregido. CFuga
+#: src/gai_strerror.c:82
+msgid "No address associated with hostname"
+msgstr "No hay una dirección asociada con el nombre del anfitrión"
+
+#: src/gai_strerror.c:84
+msgid "Name or service not known"
+msgstr "Nombre o servicio desconocidos"
+
+#: src/gai_strerror.c:86
+msgid "Servname not supported for ai_socktype"
+msgstr "No hay soporte de nombre de servidor para ai_socktype"
+
+#: src/gai_strerror.c:88
+msgid "ai_socktype not supported"
+msgstr "no hay soporte para ai_socktype"
+
+#: src/gai_strerror.c:90
+msgid "System error"
+msgstr "Error del sistema"
+
+#: src/gai_strerror.c:92
+msgid "Unknown error"
+msgstr "Error desconocido"
+
+#: src/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: la opción `%s' es ambigua\n"
+
+# no admite ningún argumento. sv
+# Corregido. cfuga
+#: src/getopt.c:703
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: la opción `--%s' no admite ningún argumento\n"
+
+# ídem. sv
+# Corregido. cfuga
+#: src/getopt.c:708
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: la opción `%c%s' no admite ningún argumento\n"
+
+# Si estamos utilizando `ningún argumento', ¿no sería buena idea usar
+# `algún argumento' aquí? cfuga
+#: src/getopt.c:726 src/getopt.c:899
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: la opción `%s' requiere un argumento\n"
+
+#. --option
+#: src/getopt.c:755
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: no se reconoce la opción `--%s'\n"
+
+#. +option or -option
+#: src/getopt.c:759
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: no se reconoce la opción `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:785
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: opción ilegal -- %c\n"
+
+# inválida. sv
+# Corregido. cfuga
+#: src/getopt.c:788
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: opción inválida --  %c\n"
+
+# Si estamos utilizando `ningún argumento', ¿no sería buena idea usar
+# `algún argumento' aquí? cfuga
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:818 src/getopt.c:948
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: la opción requiere un argumento -- %c\n"
+
+#: src/getopt.c:865
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: la opción `-W %s' es ambigua\n"
+
+#: src/getopt.c:883
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: la opción `-W %s' no permite ningún argumento\n"
+
+#: src/http.c:68
+msgid "HTTP configuration is incomplete:"
+msgstr "La configuración de HTTP está incompleta:"
+
+#: src/http.c:69 src/http.c:70 src/http.c:71 src/http.c:89 src/http.c:98
+#: src/http.c:141
+msgid "Option is missing:"
+msgstr "Falta la opción:"
+
+#: src/http.c:81
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
+msgstr "La opción http-method debe ser \"GET\" o \"POST\".\n"
+
+#. Go on and do something
+#: src/http.c:171 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
+msgid "Querying"
+msgstr "Preguntando"
+
+#: src/http.c:197
+msgid "Unable to run web browser"
+msgstr "No se puede ejecutar el navegador web"
+
+#: src/init.c:111
+msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+
+# Creo que redistribuírlo no lleva tilde, en cualquier caso sugiero
+# usar una forma impersonal aún cuando el original esté en tercera
+# persona: "puede redistribuirse bajo los términos...".
+# Otra cosa: Es Licencia Pública General *de* GNU. sv
+# En ambos puntos tienes razón. Hice las correcciones mencionadas. cfuga
+#: src/init.c:112
+msgid ""
+"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
+"redistribute it under the terms of the GNU General Public License."
+msgstr ""
+"Este programa es software libre sin ABSOLUTAMENTE NINGUNA GARANTÍA;\n"
+"puede redistribuirse bajo los términos de la Licencia Pública General de GNU."
+
+#: src/init.c:115
+msgid "version"
+msgstr "versión"
+
+# Modo de empleo: - sv
+# Sabía que me faltaba algo. :-) cfuga
+#: src/init.c:119
+msgid "Usage: jwhois [OPTIONS] [QUERY]"
+msgstr "Modo de empleo: jwhois [OPCIONES] [PREGUNTA]"
+
+# FIXME: faltan tres espacios después de --version.
+# Díselo al autor :-) - sv
+# Corregido en la traducción, el autor tendrá que escucharme. cfuga
+#: src/init.c:121
+msgid ""
+"  --version               display version number and patch level\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
+msgstr ""
+"  --version                  muestra el número de la versión y el nivel de parches\n"
+"  --help                     muestra esta ayuda\n"
+"  -v, --verbose              salida de depuración con detalle\n"
+"  -c FICH, --config=FICH     usa FICHero como fichero de configuración\n"
+"  -h ANF, --host=ANF         pregunta explícitamente por el ANFitrión\n"
+"  -n, --no-redirect          desactiva la redirección de contenido\n"
+"  -s, --no-whoisservers      desactiva el soporte al servicio de whois-servers.net\n"
+"  -a, --raw                  desactiva el reformato de la pregunta\n"
+"  -i, --display-redirections muestra todas las redirecciones en vez de ocultarlas\n"
+"  -p PUERTO, --port=PUERTO   usa el número de puerto PUERTO (junto con ANFitrión)\n"
+"  -r, --rwhois               forza que se haga una pregunta rwhois\n"
+"  --rwhois-display=MOSTRAR   establece la opción de muestra en preguntas whois\n"
+"  --rwhois-limit=LÍMITE      establece el número máximo de coincidencias a entregar\n"
+
+# fuerza. sv
+# Corregido. cfuga
+#: src/init.c:136
+msgid ""
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
+msgstr ""
+"  -f, --force-lookup         fuerza la búsqueda aún si la entrada está en caché\n"
+"  -d, --disable-cache        desactiva las funciones de caché\n"
+
+# Comunicar bichos (bueno, si no pones bichos no pasa nada). sv
+# Aún no he escuchado a mucha gente utilizar `bichos' en lugar de `bugs'.
+# Por ahora se quedará así. cfuga
+#: src/init.c:139
+msgid "Report bugs to bug-jwhois@gnu.org"
+msgstr "Reportar `bugs' a bug-jwhois@gnu.org"
+
+#: src/init.c:226
+msgid "Invalid limit"
+msgstr "Límite inválido"
+
+#: src/init.c:240
+msgid "Invalid port number"
+msgstr "Número de puerto inválido"
+
+#: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
+#: src/jwhois.c:92 src/utils.c:96 src/utils.c:106 src/whois.c:72
+msgid "Error allocating memory"
+msgstr "Error en la asignación de memoria"
+
+#: src/jconfig.c:282 src/jconfig.c:336
+msgid "String out of bounds on line"
+msgstr "Cadena fuera de los límites en la línea"
+
+#: src/jconfig.c:308
+msgid "End of file looking for '\"' on line"
+msgstr "Fin del fichero al buscar '\"' en la línea"
+
+#: src/jconfig.c:365
+msgid "Unexpected end of file on line"
+msgstr "Fin de archivo inesperado en la línea"
+
+#: src/jconfig.c:433
+msgid "Multiple keys on line"
+msgstr "Múltiples llaves en la línea"
+
+# Falta una llave. Más sencillo y menos literal. sv
+# Me gusta la sugerencia. Hecho. cfuga
+#: src/jconfig.c:443
+msgid "Missing key on line"
+msgstr "Falta una llave en la línea"
+
+#: src/jwhois.c:119
+msgid "Fatal error searching for host to query"
+msgstr "Error fatal al buscar un anfitrión para la pregunta"
+
+#: src/jwhois.c:132
+msgid "Error reading cache"
+msgstr "Error al leer del caché"
+
+#: src/jwhois.c:137
+msgid "Cached"
+msgstr "En caché"
+
+#: src/jwhois.c:151
+msgid "Error writing to cache"
+msgstr "Error al escribir al caché"
+
+#: src/lookup.c:102
+msgid "Invalid netmask on line"
+msgstr "Máscara de red no válida en la línea"
+
+#: src/lookup.c:349 src/lookup.c:353
+msgid "Redirected to"
+msgstr "Redirigido a"
+
+#: src/rwhois.c:136 src/whois.c:66
+msgid "[Unable to connect to remote host]\n"
+msgstr "[No se puede conectar al anfitrión remoto]\n"
+
+#: src/rwhois.c:157
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
+msgstr "[RWHOIS: Error de protocolo mientras se enviaba la opción -rwhois]\n"
+
+#: src/rwhois.c:195
+msgid "Server does not support display command"
+msgstr "El servidor no da soporte para mostrar comandos"
+
+#: src/rwhois.c:210
+msgid "Invalid limit in configuration file"
+msgstr "Límite inválido en el fichero de configuración"
+
+#: src/rwhois.c:234
+msgid "Server does not support limit"
+msgstr "El servidor no da soporte para límite"
+
+#: src/rwhois.c:278
+msgid "Unknown referral"
+msgstr "Referente desconocido"
+
+#: src/rwhois.c:372
+msgid "Following referral to"
+msgstr "Siguiendo al referente a"
+
+#: src/rwhois.c:404
+msgid "[Host terminated connection prematurely]\n"
+msgstr "[El anfitrión terminó la conexión prematuramente]\n"
+
+#: src/rwhois.c:480
+msgid "Unhandled reply"
+msgstr "Respuesta sin manejar"
+
+#: src/utils.c:236
+msgid "Error creating socket"
+msgstr "Error al crear el `socket'"
+
+#: src/whois.c:84
+msgid "Error reading data from"
+msgstr "Error al leer datos de"
