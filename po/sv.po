@@ -1,12 +1,12 @@
 # Swedish messages for jwhois
-# Copyright © 1999,2001-2002
-# Peter Karlsson <peter@softwolves.pp.se>, 2002.
+# Copyright © 1999,2001-2003
+# Peter Karlsson <peter@softwolves.pp.se>, 2003.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.1\n"
 "POT-Creation-Date: 2003-01-31 19:39+0100\n"
-"PO-Revision-Date: 2003-01-31 19:44+0100\n"
+"PO-Revision-Date: 2003-02-03 18:45+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr "Ogiltigt slutdatum"
 
 #: src/cache.c:153 src/init.c:266 src/init.c:275
 msgid "Unable to open"
-msgstr "Kan ej öppna"
+msgstr "Kan inte öppna"
 
 #: src/cache.c:162
 msgid "Unable to store data in cache]\n"
@@ -152,7 +152,7 @@ msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
 #. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
-msgstr ""
+msgstr "Kan inte skapa temporär fil"
 
 #. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
