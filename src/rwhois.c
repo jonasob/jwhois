@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 2001  Free Software Foundation, Inc.
+    Copyright (C) 2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -33,6 +33,7 @@
 #include <jwhois.h>
 #include <jconfig.h>
 #include <whois.h>
+#include <utils.h>
 
 
 #ifdef ENABLE_NLS
@@ -105,6 +106,10 @@ static struct {
   {NULL, 0}
 };
 
+int rwhois_read_line(FILE *, char *, char **);
+int rwhois_insert_referral(const char *, struct s_referrals **);
+int rwhois_parse_line(const char *, char **);
+
 
 /*
  *  This function takes a filedescriptor as an argument, makes an rwhois
@@ -115,10 +120,7 @@ static struct {
  *              0 Success
  */
 int
-rwhois_query_internal(wq, text, referrals)
-     struct s_whois_query *wq;
-     char **text;
-     struct s_referrals **referrals;
+rwhois_query_internal(struct s_whois_query *wq, char **text, struct s_referrals **referrals)
 {
   int sockfd, ret, limit;
   FILE *f;
@@ -265,9 +267,7 @@ rwhois_query_internal(wq, text, referrals)
  *  the refferals structure passed to it with the correct values.
  */
 int
-rwhois_insert_referral(reply, referrals)
-     char *reply;
-     struct s_referrals **referrals;
+rwhois_insert_referral(const char *reply, struct s_referrals **referrals)
 {
   struct s_referrals *s;
   char *tmpptr, *ret = NULL;
@@ -334,9 +334,7 @@ rwhois_insert_referral(reply, referrals)
  *              0 Success
  */
 int
-rwhois_query(wq, text)
-     struct s_whois_query *wq;
-     char **text;
+rwhois_query(struct s_whois_query *wq, char **text)
 {
   struct s_referrals *referrals, *s;
   struct s_referrals *authareas, *a;
@@ -394,10 +392,7 @@ rwhois_query(wq, text)
  *  in the indicated pointer.
  */
 int
-rwhois_read_line(f, ptr, text)
-     FILE *f;
-     char *ptr;
-     char **text;
+rwhois_read_line(FILE *f, char *ptr, char **text)
 {
   if (feof(f))
     {
@@ -417,13 +412,9 @@ rwhois_read_line(f, ptr, text)
  *  This parses the reply sent by the server.
  */
 int
-rwhois_parse_line(reply, text)
-     char *reply;
-     char **text;
+rwhois_parse_line(const char *reply, char **text)
 {
   char *capab, *tmpptr;
-  char *ret;
-  int len;
 
   tmpptr = (char *)strchr(reply, '\n');
   if (tmpptr)

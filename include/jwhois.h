@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,6 +21,14 @@
 
 #ifndef HAVE_MEMCPY
 # define memcpy(d, s, n) bcopy ((s), (d), (n))
+#endif
+
+#ifndef HAVE_STRCASECMP
+int strcasecmp(const char *s1, const char *s2)
+#endif
+
+#ifndef HAVE_STRNCASECMP
+int strncasecmp(const char *s1, const char *s2, size_t i)
 #endif
 
 #ifndef IPPORT_WHOIS

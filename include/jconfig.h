@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -28,12 +28,13 @@ struct jconfig {
 };
 
 void jconfig_set(void);
-struct jconfig *jconfig_next(char *);
-struct jconfig *jconfig_next_all(char *);
+struct jconfig *jconfig_next(const char *);
+struct jconfig *jconfig_next_all(const char *);
 void jconfig_end(void);
-struct jconfig *jconfig_getone(char *, char *);
+struct jconfig *jconfig_getone(const char *, const char *);
 
-int jconfig_add(char *, char *, char *, int);
+int jconfig_add(const char *, const char *, const char *, int);
 void jconfig_free(void);
+void jconfig_parse_file(FILE *);
 
 #endif

@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 2001-2002  Free Software Foundation, Inc.
+    Copyright (C) 2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,16 +16,10 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#ifndef _WHOIS_H
-#define _WHOIS_H
+#ifndef _DNS_H
+#define _DNS_H
 
-struct s_whois_query {
-  char *host;
-  int port;
-  char *query;
-  char *domain;
-};
+int lookup_host_saddr(struct sockaddr_in *res, const char *host, int port);
+int lookup_host_addrinfo(struct addrinfo **res, const char *host, int port);
 
-int whois_query(struct s_whois_query *, char **);
-
-#endif /* _WHOIS_H */
+#endif

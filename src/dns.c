@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999  Free Software Foundation, Inc.
+    Copyright (C) 1999-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -38,6 +38,10 @@
 #endif
 
 #include <jwhois.h>
+#include <dns.h>
+#if defined(HAVE_GETADDRINFO) && !defined(HAVE_GAI_STRERROR)
+#include <gai_strerror.h>
+#endif
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
@@ -55,10 +59,7 @@
  *           0   Success
  */
 int
-lookup_host_saddr(res, host, port)
-     struct sockaddr_in  *res;
-     char *host;
-     int port;
+lookup_host_saddr(struct sockaddr_in *res, const char *host, int port)
 {
   int ret;
   struct hostent *hostent;
@@ -105,10 +106,7 @@ lookup_host_saddr(res, host, port)
  *             0    Success
  */
 int
-lookup_host_addrinfo(res, host, port)
-     struct addrinfo **res;
-     char *host;
-     int port;
+lookup_host_addrinfo(struct addrinfo **res, const char *host, int port)
 {
   struct addrinfo hints;
   char ascport[10] = "whois";

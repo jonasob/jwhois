@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999,2001  Free Software Foundation, Inc.
+    Copyright (C) 1999-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -42,6 +42,11 @@
 #include <jwhois.h>
 #include <jconfig.h>
 #include <whois.h>
+#include <dns.h>
+#include <utils.h>
+
+#include <string.h>
+#include <ctype.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
@@ -49,8 +54,6 @@
 #else
 # define _(s)  (s)
 #endif
-
-char *create_string(const char *fmt, ...);
 
 /*
  *  This creates a string.  Text book example :-)
@@ -84,9 +87,7 @@ create_string(const char *fmt, ...)
  *  This adds text to a buffer.
  */
 int
-add_text_to_buffer(buffer, text)
-     char **buffer;
-     char *text;
+add_text_to_buffer(char **buffer, const char *text)
 {
   if (!*buffer)
     {
@@ -116,12 +117,11 @@ add_text_to_buffer(buffer, text)
  *  file and return the base domain value for the given hostname.
  */
 char *
-get_whois_server_domain_path(hostname)
-     char *hostname;
+get_whois_server_domain_path(const char *hostname)
 {
   struct jconfig *j;
   struct re_pattern_buffer      rpb;
-  char *error, *base;
+  char *error;
   int ind, i;
   char case_fold[256];
 
@@ -130,14 +130,14 @@ get_whois_server_domain_path(hostname)
 
   jconfig_set();
 
-  while (j = jconfig_next_all("jwhois|server-options"))
+  while ((j = jconfig_next_all("jwhois|server-options")) != NULL)
     {
       rpb.allocated = 0;
       rpb.buffer = (unsigned char *)NULL;
       rpb.translate = case_fold;
       rpb.fastmap = (char *)NULL;
-      if (error = (char *)re_compile_pattern(j->domain+22,
-					     strlen(j->domain+22), &rpb))
+      if ((error = (char *)re_compile_pattern(j->domain+22,
+					     strlen(j->domain+22), &rpb)) != 0)
 	{
 	  return NULL;
 	}
@@ -160,9 +160,7 @@ get_whois_server_domain_path(hostname)
  *  file and return the value of the key corresponding to the given hostname.
  */
 char *
-get_whois_server_option(hostname, key)
-     char *hostname;
-     char *key;
+get_whois_server_option(const char *hostname, const char *key)
 {
   struct jconfig *j;
   char *base;
@@ -185,13 +183,11 @@ get_whois_server_option(hostname, key)
  *  returns a file descriptor or -1 if error.
  */
 int
-make_connect(host, port)
-     char *host;
-     int port;
+make_connect(const char *host, int port)
 {
   int sockfd, error;
 #ifdef HAVE_GETADDRINFO
-  struct addrinfo hints, *res;
+  struct addrinfo *res;
   struct sockaddr *sa;
 #else
   struct sockaddr_in remote;
@@ -253,8 +249,7 @@ make_connect(host, port)
  *  to hold only the query without hostname.
  */
 int
-split_host_from_query(wq)
-  struct s_whois_query *wq;
+split_host_from_query(struct s_whois_query *wq)
 {
   char *tmpptr;
 

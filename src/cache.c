@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999  Free Software Foundation, Inc.
+    Copyright (C) 1999-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -67,6 +67,7 @@
 
 #include <jconfig.h>
 #include <jwhois.h>
+#include <cache.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
@@ -100,7 +101,7 @@
  *  to a newer format if such exists. Returns -1 on error. 0 on success.
  */
 int
-cache_init()
+cache_init(void)
 {
   int iret;
   char *ret, *ret2;
@@ -163,6 +164,7 @@ cache_init()
     }
   dbm_close(dbf);
 #endif
+  return 0;
 }
 
 /*
@@ -170,22 +172,19 @@ cache_init()
  *  Returns 0 on success and -1 on failure.
  */
 int
-cache_store(key, text)
-     char *key;
-     char *text;
+cache_store(char *key, const char *text)
 {
 #ifndef NOCACHE
   datum dbkey;
   datum dbstore;
-  int count, ret;
-  char data[MAXBUFSIZE];
+  int ret;
 #ifdef HAVE_GDBM_OPEN
   GDBM_FILE dbf;
 #else
   DBM *dbf;
 #endif
   time_t *timeptr;
-  char *ptr, *tptr;
+  char *ptr;
 
   if (cache)
     {
@@ -215,6 +214,7 @@ cache_store(key, text)
 	}
     }
 #endif
+  return 0;
 }
 
 /*
@@ -223,9 +223,7 @@ cache_store(key, text)
  *  returns the number of bytes in text, else 0 or -1 on error.
  */
 int
-cache_read(key, text)
-     char *key;
-     char **text;
+cache_read(char *key, char **text)
 {
 #ifndef NOCACHE
   datum dbkey;

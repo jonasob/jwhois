@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999,2001  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -26,6 +26,9 @@
 
 #include <jconfig.h>
 #include <jwhois.h>
+
+#include <string.h>
+#include <ctype.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
@@ -60,9 +63,7 @@ jconfig_end(void)
  *  and key supplied to the function.
  */
 struct jconfig *
-jconfig_getone(domain, key)
-     char *domain;
-     char *key;
+jconfig_getone(const char *domain, const char *key)
 {
   struct jconfig *ptr;
 
@@ -92,8 +93,7 @@ jconfig_getone(domain, key)
  *  matches the specified domain.
  */
 struct jconfig *
-jconfig_next(domain)
-     char *domain;
+jconfig_next(const char *domain)
 {
   struct jconfig *ptr;
   
@@ -120,8 +120,7 @@ jconfig_next(domain)
  *  it returns matches also for substrings of domain.
  */
 struct jconfig *
-jconfig_next_all(domain)
-     char *domain;
+jconfig_next_all(const char *domain)
 {
   struct jconfig *ptr;
   
@@ -148,16 +147,12 @@ jconfig_next_all(domain)
  *  this pair was found.
  */
 int
-jconfig_add(domain, key, value, line)
-     char *domain;
-     char *key;
-     char *value;
-     int line;
+jconfig_add(const char *domain, const char *key, const char *value, int line)
 {
   struct jconfig *ptr;
-  char *tmps;
 
   /*
+  char *tmps;
   while (isspace(*value)) value++;
   while (isspace(*domain)) domain++;
   while (isspace(*key)) key++;
@@ -238,9 +233,7 @@ jconfig_free(void)
  *  necessary space.
  */
 char *
-jconfig_safe_strcat(s1, s2)
-     char *s1;
-     char *s2;
+jconfig_safe_strcat(char *s1, const char *s2)
 {
   char *s3;
 
@@ -261,9 +254,7 @@ jconfig_safe_strcat(s1, s2)
  *  from `in'.
  */
 char *
-jconfig_get_quoted(in, line)
-     FILE *in;
-     int *line;
+jconfig_get_quoted(FILE *in, int *line)
 {
   char *s1 = NULL;
   int ch, nextch, len = 0;
@@ -280,7 +271,7 @@ jconfig_get_quoted(in, line)
       if (len >= (MAXBUFSIZE-1))
 	{
 	  printf("[%s: %s %d]\n", config, _("String out of bounds on line"),
-		 line);
+		 *line);
 	  exit(1);
 	}
 
@@ -299,14 +290,14 @@ jconfig_get_quoted(in, line)
 	  return s1;
 	case '\n':
 	  s1[len++] = ch;
-	  line++;
+	  (*line) ++;
 	  break;
 	default:
 	  s1[len++] = ch;
 	}
     }
   printf("[%s: %s %d]\n", config, _("End of file looking for '\"' on line"),
-	 line);
+	 *line);
   exit(1);
 }
 
@@ -315,9 +306,7 @@ jconfig_get_quoted(in, line)
  *  from `in'.
  */
 char *
-jconfig_get_unquoted(in, line)
-     FILE *in;
-     int *line;
+jconfig_get_unquoted(FILE *in, int *line)
 {
   char *s1 = NULL;
   int ch, nextch, len = 0;
@@ -334,7 +323,7 @@ jconfig_get_unquoted(in, line)
       if (len >= (MAXBUFSIZE-1))
 	{
 	  printf("[%s: %s %d]\n", config, _("String out of bounds on line"),
-		 line);
+		 *line);
 	  exit(1);
 	}
 
@@ -356,14 +345,14 @@ jconfig_get_unquoted(in, line)
 	  return s1;
 	case '\n':
 	  s1[len++] = ch;
-	  line++;
+	  (*line) ++;
 	  break;
 	default:
 	  s1[len++] = ch;
 	}
     }
   printf("[%s: %s %d]\n", config, _("Unexpected end of file on line"),
-	 line);
+	 *line);
   exit(1);
 }
 
@@ -371,13 +360,12 @@ jconfig_get_unquoted(in, line)
  *  Parses a configuration file and adds found information to the
  *  config structure using jconfig_add.
  */
-int
-jconfig_parse_file(in)
-     FILE *in;
+void
+jconfig_parse_file(FILE *in)
 {
   int ch, line = 1, nextch;
   char *domain = NULL, *token = NULL, *key = NULL;
-  char *t1, *t2;
+  char /* *t1, */ *t2;
 
   domain = malloc(MAXBUFSIZE);
   if (!domain)

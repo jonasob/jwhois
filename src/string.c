@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999  Free Software Foundation, Inc.
+    Copyright (C) 1999,2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -27,9 +27,7 @@
 #ifndef HAVE_STRCASECMP
 
 int
-strcasecmp (s1, s2)
-     const char s1;
-     const char s2;
+strcasecmp (const char *s1, const char *s2)
 {
   const unsigned char *p1 = (const unsigned char *)s1;
   const unsigned char *p2 = (const unsigned char *)s2;
@@ -55,10 +53,7 @@ strcasecmp (s1, s2)
 #ifndef HAVE_STRNCASECMP
 
 int
-strncasecmp (s1, s2)
-     const char s1;
-     const char s2;
-     int i;
+strncasecmp (const char *s1, const char *s2, size_t i)
 {
   const unsigned char *p1 = (const unsigned char *)s1;
   const unsigned char *p2 = (const unsigned char *)s2;

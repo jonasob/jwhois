@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999,2001  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -45,6 +45,13 @@
 #include <regex.h>
 #include <whois.h>
 #include <http.h>
+#include <cache.h>
+#include <init.h>
+#include <lookup.h>
+#include <rwhois.h>
+#include <utils.h>
+
+#include <string.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
@@ -53,13 +60,13 @@
 # define _(s)  (s)
 #endif
 
+int jwhois_query(struct s_whois_query *, char **);
+
 int
-main(argc, argv)
-     int argc;
-     char **argv;
+main(int argc, char **argv)
 {
-  int optind, count = 0, port = 0, ret;
-  char *qstring = NULL, *host, *text, *tmp, *tmp2;
+  int optind, count = 0, ret;
+  char *qstring = NULL, *text;
   struct s_whois_query wq;
 
 #ifdef ENABLE_NLS
@@ -165,9 +172,7 @@ main(argc, argv)
  *  follows it there. A return value of -1 is always a fatal error.
  */
 int
-jwhois_query(wq, text)
-     struct s_whois_query *wq;
-     char **text;
+jwhois_query(struct s_whois_query *wq, char **text)
 {
   char *tmp, *tmp2, *oldquery;
   int ret;
@@ -209,9 +214,7 @@ jwhois_query(wq, text)
       exit(1);
     }
   if (ret > 0)
-    jwhois_query(wq, text);
+    return jwhois_query(wq, text);
   else
     return 0;
 }
-
-

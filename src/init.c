@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999,2001  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -25,6 +25,11 @@
 #endif
 
 #include <getopt.h>
+#include <init.h>
+#include <utils.h>
+#include <jconfig.h>
+
+#include <string.h>
 
 #define DO_HELP    0x01
 #define DO_VERSION 0x02
@@ -118,7 +123,7 @@ redistribute it under the terms of the GNU General Public License.");
     {
       printf("%s\n", _("Usage: jwhois [OPTIONS] [QUERY]"));
       
-      printf(_("  --version               display version number and patch level\n\
+      printf(_("  --version                  display version number and patch level\n\
   --help                     display this help\n\
   -v, --verbose              verbose debug output\n\
   -c FILE, --config=FILE     use FILE as configuration file\n\
@@ -141,12 +146,10 @@ redistribute it under the terms of the GNU General Public License.");
 }
 
 int
-parse_args(argc, argv)
-  int *argc;
-  char ***argv;
+parse_args(int *argc, char ***argv)
 {
   int optch, option_index;
-  char *ret, *ret2;
+  char *ret;
   FILE *in;
   
   cache = 1;

@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 2001  Free Software Foundation, Inc.
+    Copyright (C) 2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,7 +29,11 @@
 #include <jwhois.h>
 #include <jconfig.h>
 #include <whois.h>
+#include <lookup.h>
+#include <utils.h>
 
+#include <string.h>
+#include <unistd.h>
 #include <errno.h>
 
 #ifdef ENABLE_NLS
@@ -38,6 +42,8 @@
 #else
 # define _(s)  (s)
 #endif
+
+int whois_read(int, char **, const char *);
 
 /*
  *  This function takes a filedescriptor as an argument, makes an whois
@@ -48,12 +54,10 @@
  *              0 Success
  */
 int
-whois_query(wq, text)
-     struct s_whois_query *wq;
-     char **text;
+whois_query(struct s_whois_query *wq, char **text)
 {
   int ret, sockfd;
-  char *tmpqstring, *tmp, *tmp2;
+  char *tmpqstring;
 
   printf("[%s %s]\n", _("Querying"), wq->host);
 
@@ -106,15 +110,11 @@ whois_query(wq, text)
  *  memory or -1 upon error.
  */
 int
-whois_read(fd, ptr, host)
-     int fd;
-     char **ptr;
-     char *host;
+whois_read(int fd, char **ptr, const char *host)
 {
   unsigned int count, start_count;
   int ret;
   char data[MAXBUFSIZE];
-  char *tmpptr;
 
   count = 0;
 

@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999,2001  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -44,6 +44,12 @@
 #include <jwhois.h>
 #include <jconfig.h>
 #include <whois.h>
+#include <lookup.h>
+#include <utils.h>
+#include <jconfig.h>
+
+#include <string.h>
+#include <ctype.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
@@ -52,19 +58,19 @@
 # define _(s)  (s)
 #endif
 
+int lookup_whois_servers(const char *, struct s_whois_query *);
+
 /*
  *  Looks up an IP address `val' against `block' and returns a pointer
  *  if an entry is found, otherwise NULL.
  */
 char *
-find_cidr(wq, block)
-     struct s_whois_query *wq;
-     char *block;
+find_cidr(struct s_whois_query *wq, const char *block)
 {
   struct in_addr ip;
   struct in_addr ipmaskip;
   struct jconfig *j;
-  unsigned int ipmask, bits, res, ret, match_bits;
+  unsigned int ipmask, bits, res, match_bits;
   unsigned int a0, a1, a2, a3;
   char *host = NULL;
 
@@ -83,7 +89,7 @@ find_cidr(wq, block)
 #endif
 
   jconfig_set();
-  while (j = jconfig_next(block))
+  while ((j = jconfig_next(block)) != NULL)
     {
       if (strcasecmp(j->key, "type") != 0) {
 	if (!strcasecmp(j->key, "default"))
@@ -133,14 +139,12 @@ find_cidr(wq, block)
  *  be a hostname though, but can be any general string.
  */
 char *
-find_regex(wq, block)
-     struct s_whois_query *wq;
-     char *block;
+find_regex(struct s_whois_query *wq, const char *block)
 {
   struct jconfig *j, *j2;
-  struct re_pattern_buffer      rpb, rpb2;
+  struct re_pattern_buffer rpb;
   struct re_registers regs;
-  char *error, *ret, *match = NULL, *pattern;
+  char *error, *match = NULL, *pattern;
   int ind, i, best_match;
   char case_fold[256];
 
@@ -150,7 +154,7 @@ find_regex(wq, block)
   best_match = 0;
 
   jconfig_set();
-  while (j = jconfig_next_all(block))
+  while ((j = jconfig_next_all(block)) != NULL)
     {
       if ((strcasecmp(j->key, "default") == 0
            || strcasecmp(j->domain+strlen(block)+1, ".*") == 0)
@@ -187,8 +191,8 @@ find_regex(wq, block)
                         strlen(j->domain+strlen(block)+1)+1);
               strncat(pattern, "\\)", 3);
 
-	      if (error = (char *)re_compile_pattern(pattern, strlen(pattern),
-						     &rpb))
+	      if ((error = (char *)re_compile_pattern(pattern, strlen(pattern),
+						      &rpb)) != 0)
 		{
 		  return NULL;
 		}
@@ -220,8 +224,8 @@ find_regex(wq, block)
 
               strncat(pattern, "\\)", 3);
               
-	      if (error = (char *)re_compile_pattern(pattern, strlen(pattern),
-                                                     &rpb))
+	      if ((error = (char *)re_compile_pattern(pattern, strlen(pattern),
+                                                      &rpb)) != 0)
 		{
 		  return NULL;
 		}
@@ -257,9 +261,7 @@ find_regex(wq, block)
  *           0    Success.
  */
 int
-lookup_host(wq, block)
-     struct s_whois_query *wq;
-     char *block;
+lookup_host(struct s_whois_query *wq, const char *block)
 {
   char deepfreeze[512];
   char *tmpdeep, *tmphost;
@@ -332,11 +334,9 @@ lookup_host(wq, block)
  *           1    Match found
  */
 int
-lookup_redirect(wq, text)
-     struct s_whois_query *wq;
-     char *text;
+lookup_redirect(struct s_whois_query *wq, const char *text)
 {
-  int num, i, error, ind;
+  int ind;
   char *bptr = NULL, *strptr, *ascport, *ret, *tmphost;
   struct re_pattern_buffer rpb;
   struct re_registers regs;
@@ -353,7 +353,7 @@ lookup_redirect(wq, text)
 
   jconfig_set();
 
-  while (j = jconfig_next(domain))
+  while ((j = jconfig_next(domain)) != NULL)
     {
       if (strncasecmp(j->key, "whois-redirect", 14) == 0)
 	{
@@ -429,9 +429,7 @@ lookup_redirect(wq, text)
  *           0   Success
  */
 int
-lookup_whois_servers(val, wq)
-  char *val;
-  struct s_whois_query *wq;
+lookup_whois_servers(const char *val, struct s_whois_query *wq)
 {
   char *hostname;
   struct hostent *hostent;
@@ -476,8 +474,7 @@ lookup_whois_servers(val, wq)
  * it simply returns qstring.
  */
 char *
-lookup_query_format(wq)
-     struct s_whois_query *wq;
+lookup_query_format(struct s_whois_query *wq)
 {
   char *ret = NULL, *tmpqstring, *tmpptr;
   struct jconfig *j = NULL;

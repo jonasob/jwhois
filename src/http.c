@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 2001  Free Software Foundation, Inc.
+    Copyright (C) 2001-2002  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -55,11 +56,9 @@ int http_query(struct s_whois_query *wq, char **text)
     char *url;
     char *browser;
     char *browser_arg;
-    int socket;
     int isget = 1;
     int to_browser[2];
     int from_browser[2];
-    int i;
     struct jconfig *j;
 
     /* Check host configuration */
