@@ -1,9 +1,12 @@
 2001-02-13  peter karlsson <peter@softwolves.pp.se>
 
-	* example/jwhois.conf: Changed .br, .hu, .ie, .ro. Added .kg, .ws
+	* example/jwhois.conf: Changed .br, .hu, .ie, .ro. Added .je, .kg
 	(Lee Maguire)
 
 	* po/sv.po: Updated (again).
+
+	* src/jwhois.c: If creating an IPv6 socket fails, and there were
+	more DNS hits, try next entry in the hope that it is IPv4.
 
 2001-02-12  peter karlsson <peter@softwolves.pp.se>
 
