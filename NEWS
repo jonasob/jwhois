@@ -19,7 +19,6 @@ Changes in jwhois 2.1
 
 Changes in jwhois 2.0
 
- * jwhois-server is dropped from the package and will later be replaced
-   by jwhoisd which will be bundled separately.
+ * jwhois-server is dropped from the packag
  * jwhois is now written in C code.
  * configuration file format has changed.
