@@ -32,5 +32,5 @@ LIBS = @INTLLIBS@ @LIBS@
 
 install-exec-hook:
 	if test "@cache@" = "yes" ; then \
-	@CHGRP@ @GROUP@ $(bindir)/jwhois; \
-	@CHMOD@ g+s $(bindir)/jwhois; fi
+	@CHGRP@ @GROUP@ $(DESTDIR)$(bindir)/jwhois; \
+	@CHMOD@ g+s $(DESTDIR)$(bindir)/jwhois; fi
