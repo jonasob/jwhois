@@ -1,2 +1,0 @@
- * Doesn't compile with gettext under cygwin
- * Spends 95% CPU on unreachable servers

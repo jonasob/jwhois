@@ -27,7 +27,7 @@
 @ifinfo
 This file documents @sc{jwhois}, a Whois client.
 
-Copyright (C) 1999-2001  Free Software Foundation, Inc.
+Copyright (C) 1999-2002  Free Software Foundation, Inc.
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -50,13 +50,13 @@ notice identical to this one.
 
 @titlepage
 @title jwhois
-@subtitle Version 3.0
-@subtitle 6 September 2001
+@subtitle Version 3.1
+@subtitle 9 January 2002
 @author Jonas Öberg @code{(jonas@@gnu.org)}
 
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1999-2001  Free Software Foundation, Inc.
+Copyright @copyright{} 1999-2002  Free Software Foundation, Inc.
 
 @sp 2
 Permission is granted to make and distribute verbatim copies of
@@ -73,7 +73,7 @@ notice identical to this one.
 @node Top, Introduction, (dir), (dir)
 
 This file documents the GNU jwhois package, en extended Whois client.
-This is edition 3.0, for jwhois version 3.0, last updated 6 september 2001.
+This is edition 3.1, for jwhois version 3.1, last updated 9 january 2002.
 
 @menu
 * Introduction::                Introduction
@@ -317,6 +317,10 @@ If a @option{query-format} is specified both on an individual
 rule and on a server option, the most @option{query-format}
 for the individual rule will be used since it is most specific.
 
+The special keyword @samp{default} can be used to mark an entry
+as valid for all keys. The most specific rule will be used when
+searching for a host to query.
+
 Examples:
 
 @example
@@ -326,7 +330,7 @@ whois-servers @{
 	"\\([0-9]+\\.\\)+[0-9]+" = "struct cidr-blocks";
         ".*-[A-Z]+$" = "struct handles";
 
-        ".*" = "whois.internic.net";
+        default = "whois.internic.net";
 @};
 handles @{
         type = regex;

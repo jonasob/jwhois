@@ -1,3 +1,9 @@
+Changes in jwhois 3.1.0
+
+ * Various bugfixes
+ * Added keyword "default" to configuration file format
+ * Various changes to jwhois.conf
+
 Changes in jwhois 3.0.2
 
  * Various bugfixes
