@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU jwhois 3.2.0\n"
+"Project-Id-Version: GNU jwhois 3.2.1\n"
 "POT-Creation-Date: 2003-01-31 19:39+0100\n"
-"PO-Revision-Date: 2002-08-06 08:00-0500\n"
+"PO-Revision-Date: 2003-02-03 08:00-0500\n"
 "Last-Translator: Michel Robitaille <robitail@IRO.UMontreal.CA>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -153,7 +153,7 @@ msgstr "L'option de http-method doit être « GET » ou « POST ».\n"
 #. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
-msgstr ""
+msgstr "Incapable de créer un fichier temporaire"
 
 #. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
@@ -166,7 +166,7 @@ msgstr "Incapable de lancer le fureteur du web"
 
 #: src/init.c:116
 msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
-msgstr "Copyright © 1999-2003  Free Software Foundation, Inc."
+msgstr "Copyright © 1999,2003  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
@@ -195,38 +195,31 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
 "  --version                    afficher le nom et la version du logiciel\n"
 "  --help                       afficher l'aide-mémoire\n"
-"  -v, --verbose                fournir des explications lors de la mise au "
-"point\n"
+"  -v, --verbose                fournir des explications lors de la mise au point\n"
 "  -c FICHIER, --config=FICHIER utiliser le FICHIER de configuration\n"
 "  -h HÔTE, --host=HÔTE         adresser les requêtes à l'HÔTE\n"
 "  -n, --no-redirect            déasactiver les redirections\n"
 "  -s, --no-whoisservers        désactivier les services whois-servers.net\n"
 "  -a, --raw                    désactiver le reformattage de requête\n"
-"  -i, --display-redirections   afficher toutes les redirections au lieu de "
-"les cacher\n"
-"  -p PORT, --port=PORT         utiliser le numéro de PORT (utilisé avec "
-"l'HÔTE)\n"
+"  -i, --display-redirections   afficher toutes les redirections au lieu de les cacher\n"
+"  -p PORT, --port=PORT         utiliser le numéro de PORT (utilisé avec l'HÔTE)\n"
 "  -r, --rwhois                 forcer les requêtes de type rwhois\n"
-"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes "
-"de type rwhois\n"
-"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à "
-"retourner\n"
+"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes de type rwhois\n"
+"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à retourner\n"
 
 #: src/init.c:141
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup           forcer la recherche même si l'entrée est dans "
-"la cache\n"
+"  -f, --force-lookup           forcer la recherche même si l'entrée est dans la cache\n"
 "  -d, --disable-cache          désactiver les fonctions de la cache\n"
 
 #: src/init.c:144
