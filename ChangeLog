@@ -1,3 +1,8 @@
+2001-05-16  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Added mappings for {80,81,217,218}/8 to
+	  cidr-blocks (Lee Maguire, Debian bug#97699)
+
 2001-03-27  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jwhois.c (main): Fix so that specifying a host doesn't imply forcing a query
