@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2000-01-25 10:04+0100\n"
+"POT-Creation-Date: 2001-01-09 20:11+0100\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -188,10 +188,10 @@ msgstr "ошибка чтения данных из"
 msgid "error writing to cache"
 msgstr "фатальная ошибка записи в кэш"
 
-#: src/lookup.c:94
+#: src/lookup.c:101
 msgid "invalid netmask on line"
 msgstr "неверный параметр netmask в строке"
 
-#: src/lookup.c:355 src/lookup.c:359
+#: src/lookup.c:366 src/lookup.c:370
 msgid "redirected to"
 msgstr "перенаправлено к"

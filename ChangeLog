@@ -1,3 +1,8 @@
+2001-01-11  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Added .bv, .ck, .fm, .id, .nz, .pw, .sj, .ws
+	Removed .md, .pl and changed .ca (Dan Fandrich)
+
 2001-01-09  Jonas Oberg  <jonas@gnu.org>
 
 	* Released 2.4.2

@@ -2,12 +2,12 @@
 # Copyright © 1999
 # Peter Karlsson <peter@softwolves.pp.se>, 1999.
 #
-# $Id: sv.po,v 1.12 2001/01/09 18:25:28 jonas Exp $
+# $Id: sv.po,v 1.13 2001/01/11 20:53:30 jonas Exp $
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4\n"
-"POT-Creation-Date: 2000-01-25 10:04+0100\n"
+"POT-Creation-Date: 2001-01-09 20:11+0100\n"
 "PO-Revision-Date: 1999-12-20 19:30+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
@@ -190,11 +190,11 @@ msgstr "fel vid läsning av data från"
 msgid "error writing to cache"
 msgstr "fel vid skrivning till cache"
 
-#: src/lookup.c:94
+#: src/lookup.c:101
 msgid "invalid netmask on line"
 msgstr "ogiltig nätmask på rad"
 
-#: src/lookup.c:355 src/lookup.c:359
+#: src/lookup.c:366 src/lookup.c:370
 msgid "redirected to"
 msgstr "omdirigerad till"
 
