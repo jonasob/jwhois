@@ -2,12 +2,12 @@
 # Copyright © 1999
 # Peter Karlsson <peter@softwolves.pp.se>, 1999.
 #
-# $Id: sv.po,v 1.7 1999/12/14 06:50:21 peter Exp $
+# $Id: sv.po,v 1.8 1999/12/19 02:14:43 jonas Exp $
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.3.1\n"
-"POT-Creation-Date: 1999-12-02 19:40+0100\n"
+"POT-Creation-Date: 1999-12-18 23:12+0100\n"
 "PO-Revision-Date: 1999-12-02 20:10+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
@@ -38,57 +38,57 @@ msgstr "kan inte lagra data i databasen"
 msgid "host not found"
 msgstr "värden kunde inte hittas"
 
-#: src/gai_strerror.c:71
+#: src/gai_strerror.c:70
 msgid "Address family for hostname not supported"
 msgstr "Adressfamiljen stöds inte för värdnamnet"
 
-#: src/gai_strerror.c:73
+#: src/gai_strerror.c:72
 msgid "Temporary failure in name resolution"
 msgstr "Temporärt fel i namnuppslagning"
 
-#: src/gai_strerror.c:75
+#: src/gai_strerror.c:74
 msgid "Bad value for ai_flags"
 msgstr "Felaktigt värde för ai_flags"
 
-#: src/gai_strerror.c:77
+#: src/gai_strerror.c:76
 msgid "Non-recoverable failure in name resolution"
 msgstr "Ej korrigerbart fel vid namnuppslagning"
 
-#: src/gai_strerror.c:79
+#: src/gai_strerror.c:78
 msgid "ai_family not supported"
 msgstr "ai_family stöds ej"
 
-#: src/gai_strerror.c:81
+#: src/gai_strerror.c:80
 msgid "Memory allocation failure"
 msgstr "Minnesallokeringsfel"
 
-#: src/gai_strerror.c:83
+#: src/gai_strerror.c:82
 msgid "No address associated with hostname"
 msgstr "Ingen adress är kopplad till värdnamnet"
 
-#: src/gai_strerror.c:85
+#: src/gai_strerror.c:84
 msgid "Name or service not known"
 msgstr "Namn eller service okänd"
 
-#: src/gai_strerror.c:87
+#: src/gai_strerror.c:86
 msgid "Servname not supported for ai_socktype"
 msgstr "Servnamn stöds ej för ai_socktype"
 
-#: src/gai_strerror.c:89
+#: src/gai_strerror.c:88
 msgid "ai_socktype not supported"
 msgstr "ai_socktype stöds ej"
 
-#: src/gai_strerror.c:91
+#: src/gai_strerror.c:90
 msgid "System error"
 msgstr "Systemfel"
 
-#: src/gai_strerror.c:93
+#: src/gai_strerror.c:92
 msgid "Unknown error"
 msgstr "Okänt fel"
 
 #: src/init.c:77
-msgid "Copyright (C) 1999 Jonas Öberg"
-msgstr "Copyright © 1999 Jonas Öberg"
+msgid "Copyright (C) 1999  Free Software Foundation, Inc."
+msgstr "Copyright C 1999  Free Software Foundation, Inc."
 
 #: src/init.c:78
 msgid ""
@@ -127,11 +127,13 @@ msgid ""
 "  -f, --force-lookup      force lookup even if the entry is cached\n"
 "  -d, --disable-cache     disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup      framtvinga uppslagning även om posten finns i cache\n"
+"  -f, --force-lookup      framtvinga uppslagning även om posten finns i "
+"cache\n"
 "  -d, --disable-cache     stäng av cachefunktionaliteten\n"
 
 #: src/init.c:98
-msgid "Report bugs to jonas@coyote.org"
+#, fuzzy
+msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
 "Rapportera fel till <jonas@coyote.org>\n"
 "Skicka anmärkningar på översättningen till <peter@softwolves.pp.se>."
@@ -141,7 +143,7 @@ msgid "invalid port number"
 msgstr "felaktigt portnummer"
 
 #: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
-#: src/jwhois.c:137
+#: src/jwhois.c:165
 msgid "error allocating memory"
 msgstr "fel vid allokering av minne"
 
@@ -169,30 +171,33 @@ msgstr "saknad nyckel på rad"
 msgid "error creating socket"
 msgstr "fel vid skapande av uttag (socket)"
 
-#: src/jwhois.c:163
+#: src/jwhois.c:195
 msgid "fatal error searching for host to query"
 msgstr "allvarligt fel under sökning värd att fråga"
 
-#: src/jwhois.c:174
+#: src/jwhois.c:206
 msgid "fatal error reading cache"
 msgstr "allvarligt fel vid läsning av cache"
 
-#: src/jwhois.c:179
+#: src/jwhois.c:211
 msgid "cached"
 msgstr "cachad"
 
-#: src/jwhois.c:198
+#: src/jwhois.c:230
 msgid "error reading data from"
 msgstr "fel vid läsning av data från"
 
-#: src/jwhois.c:211
+#: src/jwhois.c:243
 msgid "fatal error writing to cache"
 msgstr "allvarligt fel vid skrivning till cache"
 
-#: src/lookup.c:91
+#: src/lookup.c:94
 msgid "invalid netmask on line"
 msgstr "ogiltig nätmask på rad"
 
-#: src/lookup.c:348 src/lookup.c:356
+#: src/lookup.c:355 src/lookup.c:359
 msgid "redirected to"
 msgstr "omdirigerad till"
+
+#~ msgid "Copyright (C) 1999 Jonas Öberg"
+#~ msgstr "Copyright © 1999 Jonas Öberg"

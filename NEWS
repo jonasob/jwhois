@@ -1,3 +1,8 @@
+Changes in jwhois 2.4
+
+ * Made it possible to use queries of the type foo@HOST
+ * Lots of information added to the example configuration file
+
 Changes in jwhois 2.3.1
 
  * Fixed a nasty bug that sometimes caused two extra bytes of output

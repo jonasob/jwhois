@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-12-02 19:40+0100\n"
+"POT-Creation-Date: 1999-12-18 23:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,56 +38,56 @@ msgstr ""
 msgid "host not found"
 msgstr ""
 
-#: src/gai_strerror.c:71
+#: src/gai_strerror.c:70
 msgid "Address family for hostname not supported"
 msgstr ""
 
-#: src/gai_strerror.c:73
+#: src/gai_strerror.c:72
 msgid "Temporary failure in name resolution"
 msgstr ""
 
-#: src/gai_strerror.c:75
+#: src/gai_strerror.c:74
 msgid "Bad value for ai_flags"
 msgstr ""
 
-#: src/gai_strerror.c:77
+#: src/gai_strerror.c:76
 msgid "Non-recoverable failure in name resolution"
 msgstr ""
 
-#: src/gai_strerror.c:79
+#: src/gai_strerror.c:78
 msgid "ai_family not supported"
 msgstr ""
 
-#: src/gai_strerror.c:81
+#: src/gai_strerror.c:80
 msgid "Memory allocation failure"
 msgstr ""
 
-#: src/gai_strerror.c:83
+#: src/gai_strerror.c:82
 msgid "No address associated with hostname"
 msgstr ""
 
-#: src/gai_strerror.c:85
+#: src/gai_strerror.c:84
 msgid "Name or service not known"
 msgstr ""
 
-#: src/gai_strerror.c:87
+#: src/gai_strerror.c:86
 msgid "Servname not supported for ai_socktype"
 msgstr ""
 
-#: src/gai_strerror.c:89
+#: src/gai_strerror.c:88
 msgid "ai_socktype not supported"
 msgstr ""
 
-#: src/gai_strerror.c:91
+#: src/gai_strerror.c:90
 msgid "System error"
 msgstr ""
 
-#: src/gai_strerror.c:93
+#: src/gai_strerror.c:92
 msgid "Unknown error"
 msgstr ""
 
 #: src/init.c:77
-msgid "Copyright (C) 1999 Jonas Öberg"
+msgid "Copyright (C) 1999  Free Software Foundation, Inc."
 msgstr ""
 
 #: src/init.c:78
@@ -121,7 +121,7 @@ msgid ""
 msgstr ""
 
 #: src/init.c:98
-msgid "Report bugs to jonas@coyote.org"
+msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
 
 #: src/init.c:157
@@ -129,7 +129,7 @@ msgid "invalid port number"
 msgstr ""
 
 #: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
-#: src/jwhois.c:137
+#: src/jwhois.c:165
 msgid "error allocating memory"
 msgstr ""
 
@@ -157,30 +157,30 @@ msgstr ""
 msgid "error creating socket"
 msgstr ""
 
-#: src/jwhois.c:163
+#: src/jwhois.c:195
 msgid "fatal error searching for host to query"
 msgstr ""
 
-#: src/jwhois.c:174
+#: src/jwhois.c:206
 msgid "fatal error reading cache"
 msgstr ""
 
-#: src/jwhois.c:179
+#: src/jwhois.c:211
 msgid "cached"
 msgstr ""
 
-#: src/jwhois.c:198
+#: src/jwhois.c:230
 msgid "error reading data from"
 msgstr ""
 
-#: src/jwhois.c:211
+#: src/jwhois.c:243
 msgid "fatal error writing to cache"
 msgstr ""
 
-#: src/lookup.c:91
+#: src/lookup.c:94
 msgid "invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:352 src/lookup.c:356
+#: src/lookup.c:355 src/lookup.c:359
 msgid "redirected to"
 msgstr ""
