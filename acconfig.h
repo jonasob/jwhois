@@ -16,8 +16,8 @@
 /* Define if you have the getaddrinfo function.  */
 #undef HAVE_GETADDRINFO
 
-/* Define if you want the cache functionality */
-#undef WITH_CACHE
+/* Define if you want to disable cache functionality */
+#undef NOCACHE
 
 /* Define if you have the dbm_open function.  */
 #undef HAVE_DBM_OPEN

@@ -45,17 +45,21 @@
 # include <sys/fcntl.h>
 #endif
 
-#if defined(WITH_CACHE) && defined(HAVE_GDBM_OPEN)
+#if !defined(NOCACHE) && defined(HAVE_GDBM_OPEN)
 # ifdef HAVE_GDBM_H
 #  include <gdbm.h>
 # endif
 #else
-# if defined(WITH_CACHE) && defined(HAVE_DBM_OPEN)
+# if !defined(NOCACHE) && defined(HAVE_DBM_OPEN)
 #  ifdef HAVE_NDBM_H
 #   include <ndbm.h>
 #  else
 #   ifdef HAVE_DBM_H
 #    include <dbm.h>
+#   else
+#    ifdef HAVE_DB1_NDBM_H
+#     include <db1/ndbm.h>
+#    endif
 #   endif
 #  endif
 # endif
@@ -66,7 +70,7 @@
 
 #define DBM_MODE           S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP
 
-#if defined(WITH_CACHE) && defined(HAVE_GDBM_OPEN)
+#if !defined(NOCACHE) && defined(HAVE_GDBM_OPEN)
 #define dbm_open(a,b,c)    gdbm_open(a, 0, b, c, 0)
 #define DBM_COPTIONS       GDBM_WRCREAT
 #define DBM_WOPTIONS       GDBM_WRITER
@@ -76,7 +80,7 @@
 #define dbm_close(a)       gdbm_close(a)
 #define dbm_fetch(a,b)     gdbm_fetch(a,b)
 #else
-# if defined(WITH_CACHE) && defined(HAVE_DBM_OPEN)
+# if !defined(NOCACHE) && defined(HAVE_DBM_OPEN)
 # define DBM_COPTIONS       O_RDWR|O_CREAT
 # define DBM_WOPTIONS       O_RDWR
 # define DBM_ROPTIONS       O_RDONLY
@@ -94,7 +98,7 @@ cache_init()
   int iret;
   char *ret, *ret2;
   struct jconfig *j;
-#ifdef WITH_CACHE
+#ifndef NOCACHE
   datum dbkey = {"#jwhois#cacheversion#1", 22};
   datum dbstore = {"1", 1};
 #ifdef HAVE_GDBM_OPEN
@@ -108,7 +112,7 @@ cache_init()
   jconfig_set();
   j = jconfig_getone("jwhois", "cachefile");
   if (!j)
-    cfname = CACHEFILE;
+    cfname = LOCALSTATEDIR "/jwhois.db";
   else
     cfname = j->value;
 
@@ -165,7 +169,7 @@ cache_store(key, text)
      char *key;
      char *text;
 {
-#ifdef WITH_CACHE
+#ifndef NOCACHE
   datum dbkey;
   datum dbstore;
   int count, ret;
@@ -219,7 +223,7 @@ cache_read(key, text)
      char *key;
      char **text;
 {
-#ifdef WITH_CACHE
+#ifndef NOCACHE
   datum dbkey;
   datum dbstore;
 #ifdef HAVE_GDBM_OPEN
@@ -233,7 +237,7 @@ cache_read(key, text)
   if (!cache)
     return 0;
 
-#ifdef WITH_CACHE
+#ifndef NOCACHE
   dbkey.dptr = key;
   dbkey.dsize = strlen(key);
 
@@ -258,5 +262,5 @@ cache_read(key, text)
   return (dbstore.dsize-sizeof(time_t));
 #else
   return 0;
-#endif /* WITH_CACHE */
+#endif /* !NOCACHE */
 }

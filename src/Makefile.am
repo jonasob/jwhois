@@ -22,7 +22,9 @@ bin_PROGRAMS = jwhois
 jwhois_SOURCES = dns.c lookup.c init.c utils.c gai_strerror.c regex.c \
 	getopt.c getopt1.c jconfig.c lexer.l string.c cache.c jwhois.c
 
-CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(datadir)\""
+CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
+         -DDATADIR="\"$(datadir)\"" -DLOCALSTATEDIR="\"$(localstatedir)\""
+
 INCLUDES = -I$(top_srcdir)/include
 
 install-exec-hook:

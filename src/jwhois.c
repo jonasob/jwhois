@@ -153,7 +153,7 @@ int main(argc, argv)
 	}
     }
 
-#ifdef WITH_CACHE
+#ifndef NOCACHE
   if (!forcelookup && cache) {
     if (verbose) printf("[Debug: Looking up entry in cache]\n");
     ret = cache_read(qstring, &text);
@@ -190,7 +190,7 @@ int main(argc, argv)
       if ((ret < 0) || (ret == 0)) break;
     }
       
-#ifdef WITH_CACHE
+#ifndef NOCACHE
   if (cache) {
     if (verbose) printf("[Debug: Storing in cache]\n");
     ret = cache_store(qstring, text);

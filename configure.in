@@ -18,19 +18,13 @@ dnl Process this file with autoconf to produce a configure script.
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 AC_INIT(src/jconfig.c)
-AM_INIT_AUTOMAKE(jwhois,2.3pre3)
+AM_INIT_AUTOMAKE(jwhois,2.3pre4)
 AM_CONFIG_HEADER(config.h)
 
 AC_ARG_ENABLE(DEFAULTHOST,
 [  --enable-DEFAULTHOST=HOST   default whois host (default whois.internic.net)],
 [AC_DEFINE_UNQUOTED(DEFAULTHOST, "$enable_DEFAULTHOST")],
 [AC_DEFINE(DEFAULTHOST, "whois.internic.net")])
-
-AC_ARG_ENABLE(CACHEFILE,
-[  --enable-CACHEFILE=FILENAME default filename for the cache function
-                                   (default /var/lib/jwhois.db)],
-[AC_DEFINE_UNQUOTED(CACHEFILE, "$enable_CACHEFILE")],
-[AC_DEFINE(CACHEFILE, "/var/lib/jwhois.db")])
 
 AC_ARG_ENABLE(CACHEEXPIRE,
 [  --enable-CACHEEXPIRE=HOURS  default expire time in hours for cached objects
@@ -46,14 +40,14 @@ AC_ARG_ENABLE(GROUP,
 AC_SUBST(GROUP)
 
 AC_ARG_WITH(cache,
-[  --with-cache                enable cache manager (see README for more info)],
-[if test x$withval = xyes; then
-  AC_DEFINE(WITH_CACHE,1)
-  cache=yes
- elif test x$withval = xno; then
+[  --without-cache             disable cache manager (see README for more info)],
+[if test x$withval = xno; then
+  AC_DEFINE(NOCACHE,1)
   cache=no
+ elif test x$withval = xyes; then
+  cache=yes
  fi],
-[cache=no])
+[cache=yes])
 AC_SUBST(cache)
 
 AC_PROG_INSTALL
@@ -83,15 +77,30 @@ AC_STDC_HEADERS
 AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h sys/time.h sys/stat.h sys/fcntl.h)
 AC_HEADER_TIME
 
+found=no
 if test x$cache = xyes; then
-  AC_CHECK_FUNC(dbm_open, AC_DEFINE(HAVE_DBM_OPEN),
-    AC_CHECK_LIB(gdbm, gdbm_open, [AC_DEFINE(HAVE_GDBM_OPEN)
-	LIBS="-lgdbm $LIBS"],
-      AC_CHECK_LIB(ndbm, dbm_open, [AC_DEFINE(HAVE_DBM_OPEN)
-	LIBS="-lndbm $LIBS"],[
-	AC_MSG_WARN("You don\'t have any dbm libraries installed.. disabling cache functions")
-	AC_DEFINE(WITH_CACHE,0)])))
-  AC_CHECK_HEADERS(gdbm.h ndbm.h dbm.h)
+  AC_CHECK_FUNC(dbm_open,
+    [AC_DEFINE(HAVE_DBM_OPEN)
+    found=yes])
+  if test x$found = xno; then
+    AC_CHECK_LIB(gdbm, gdbm_open,
+      [AC_DEFINE(HAVE_GDBM_OPEN)
+      LIBS="-lgdbm $LIBS"
+      found=yes])
+  fi
+  if test x$found = xno; then
+    AC_CHECK_LIB(ndbm, dbm_open,
+      [AC_DEFINE(HAVE_DBM_OPEN)
+      LIBS="-lndbm $LIBS"
+      found=yes])
+  fi
+  if test x$found = xno; then
+    AC_MSG_WARN("You don\'t have any dbm libraries installed -- disabling cache functions")
+    AC_DEFINE(NOCACHE,1)
+    cache=no
+  else
+    AC_CHECK_HEADERS(gdbm.h ndbm.h dbm.h db1/ndbm.h)
+  fi
 fi
 
 OLDCFLAGS=$CFLAGS

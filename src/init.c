@@ -53,7 +53,7 @@ int cfexpire;
 
 void help(void)
 {
-#ifdef WITH_CACHE
+#ifndef NOCACHE
   printf("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
 #else
   printf("%s%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
@@ -67,7 +67,7 @@ void help(void)
 	 "  -h HOST, --host=HOST    explicitly query HOST\n",
 	 "  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n",
 	 "                          query instead of concatenating then together\n",
-#ifdef WITH_CACHE
+#ifndef NOCACHE
 	 "  -f, --force-lookup      force lookup even if the entry is cached\n",
 	 "  -d, --disable-cache     disable cache functions\n",
 #endif
