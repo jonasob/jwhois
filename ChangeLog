@@ -1,3 +1,8 @@
+2002-07-19  Lee Maguire <lee@hexkey.co.uk>
+
+	* example/jwhois.conf: Added .sr (Suriname), .tv (Tuvalu),
+	  .fed.us (US Federal) and FRNIC handles.
+
 2002-07-18  Lee Maguire <lee@hexkey.co.uk>
 
 	* example/jwhois.conf: Added a block of "centralnic" pseudo
