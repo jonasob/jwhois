@@ -1,3 +1,8 @@
+2001-08-08  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Fixed 164.0.0.0/8 mapping
+	  (Lee Maguire, Debian bug#106245)
+
 2001-07-19  peter karlsson <peter@softwolves.pp.se>
 
   	* example/jwhois.conf: Added mappings for 200.128/9 to cidr-blocks
