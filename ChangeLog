@@ -1,5 +1,11 @@
 2002-03-19  peter karlsson <peter@softwolves.pp.se>
 
+	* src/lookup.c: Added code to split domain name for advanced
+	  queries.
+	* src/jwhois.c: Fix a memory leak.
+
+2002-03-19  peter karlsson <peter@softwolves.pp.se>
+
 	* examples/jwhois.conf: Updated .mt data.
 	  (Lee Maguire, Debian bug#138488)
 
