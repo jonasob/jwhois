@@ -73,10 +73,13 @@ void help(void)
 	 "\n\nReport bugs to jonas@coyote.org\n");
 }
 
-int query_host(host, port, val)
+/*
+ *  Makes a query to a host for `val'.
+ */
+void query_host(val, host, port)
+     char *val;
      char *host;
      int port;
-     char *val;
 {
   int sockfd, ret;
   struct protoent *pent;
@@ -91,7 +94,7 @@ int query_host(host, port, val)
       exit(1);
     }
   remote.sin_family = AF_INET;
-  remote.sin_port = port;
+  remote.sin_port = htons(port);
 #ifdef HAVE_INET_ATON
   ret = inet_aton(host, &remote.sin_addr.s_addr);
 #else
@@ -133,13 +136,72 @@ int query_host(host, port, val)
   close(sockfd);
 }
 
-void make_query(val)
+
+/*
+ *  Looks up an IP address `val' against ip-blocks and returns a pointer
+ *  if an entry is found, otherwise NULL.
+ */
+char *find_ip(val)
      char *val;
 {
+  struct in_addr ip;
+  struct in_addr ipmask;
   struct jconfig *j;
-  struct re_pattern_buffer	rpb;
-  char *error, *host = DEFAULTHOST, *ret, *tmphost;
-  int ind, port;
+  unsigned int bits, res, a0, a1, a2, a3, ret;
+  char *host = NULL;
+
+  res = sscanf(val, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
+  if (res != 4)
+    {
+      fprintf(stderr, "Invalid IP-number (%s)", val);
+      exit(1);
+    }
+  ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+
+  jconfig_set();
+  while (j = jconfig_next("jwhois.ip-blocks"))
+    {
+      if (!strcasecmp(j->key, "default"))
+	{
+	  ipmask.s_addr = 0;
+	}
+      else
+	{
+	  res = sscanf(j->key, "%d.%d.%d.%d/%d", &a0, &a1, &a2, &a3,
+		       &bits);
+	  if (res != 5)
+	    {
+	      fprintf(stderr, "Invalid netmask (%s) near line %d in"
+		      " configuration file",
+		      j->key, j->line);
+	      exit(1);
+	    }
+	  ipmask.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+	  ipmask.s_addr &= (0xffffffff>>bits);
+	}
+      if ((ip.s_addr & ipmask.s_addr) == ipmask.s_addr)
+	{
+	  host = j->value;
+	}
+    }
+  jconfig_end();
+
+  return host;
+}
+
+/*
+ *  Traverses the configuration file, looking for a match to `val'.
+ *  Sets host and port if one is found and returns 1.
+ */
+int find_host(val, host, port)
+     char *val;
+     char **host;
+     int *port;
+{
+  struct jconfig *j;
+  struct re_pattern_buffer      rpb;
+  char *error, *ret, *foundhost = NULL, *tmphost;
+  int ind;
 
   jconfig_set();
   while (j = jconfig_next("jwhois.whois-servers"))
@@ -155,7 +217,9 @@ void make_query(val)
       ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
       if (ind == 0)
 	{
-	  host = j->value;
+	  foundhost = j->value;
+	  if (strcasecmp(foundhost, "ip") == 0)
+	    foundhost = find_ip(val);
 	}
       else if (ind == -2)
 	{
@@ -164,13 +228,16 @@ void make_query(val)
 	}
     }
   jconfig_end();
-  
-  port = htons(IPPORT_WHOIS);
-  if (strchr(host, ':'))
+
+  if (!foundhost) return 0;
+
+  *host = foundhost;
+  *port = IPPORT_WHOIS;
+  if (strchr(foundhost, ':'))
     {
-      tmphost = (char *)strchr(host, ':');
+      tmphost = (char *)strchr(foundhost, ':');
 #ifdef HAVE_STRTOL
-      port = htons(strtol((char *)(tmphost+1), &ret, 10));
+      *port = strtol((char *)(tmphost+1), &ret, 10);
       if (*ret != '\0')
 	{
 	  fprintf(stderr, "%s: %s %s %s\n",
@@ -181,12 +248,11 @@ void make_query(val)
 	  exit(1);
 	}
 #else
-      port = htons(atoi((char *)(tmphost+1)));
+      *port = atoi((char *)(tmphost+1));
 #endif
       *tmphost = '\0';
     }
-  query_host(host,port,val);
-  return;
+  return 1;
 }
 
 int main(argc, argv)
@@ -196,8 +262,6 @@ int main(argc, argv)
   int optch, option_index, port;
   char *config = NULL, *host = NULL, *errmsg, *ret;
   FILE *in;
-  
-  port = htons(IPPORT_WHOIS);
   
   while (1)
     {
@@ -224,7 +288,7 @@ int main(argc, argv)
 	  strncpy(host, optarg, strlen(optarg)+1);					break;
 	case 'p':
 #ifdef HAVE_STRTOL
-	  port = htons(strtol(optarg, &ret, 10));
+	  port = strtol(optarg, &ret, 10);
 	  if (*ret != '\0')
 	    {
 	      fprintf(stderr, "%s: %s (%s)\n",
@@ -234,7 +298,7 @@ int main(argc, argv)
 	      exit(1);
 	    }
 #else
-	  port = htons(atoi(optarg));
+	  port = atoi(optarg);
 #endif
 	  break;
 	}
@@ -272,11 +336,15 @@ int main(argc, argv)
     {
       if (host)
 	{
-	  query_host(host, port, argv[optind++]);
+	  query_host(argv[optind++], host, port);
 	}
       else
 	{
-	  make_query(argv[optind++]);
+	  if (find_host(argv[optind++], &host, &port)) {
+	    query_host(argv[optind-1], host, port);
+	  }
+	  else
+	    query_host(argv[optind-1], DEFAULTHOST, IPPORT_WHOIS);
 	}
     }
   

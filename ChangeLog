@@ -1,3 +1,19 @@
+1999-10-02  Jonas Oberg  <jor@circuitous-route.coyote.org>
+
+	* Released version 2.2pre0
+
+	* example/jwhois.conf: Added initial support for IP CIDR block
+
+	* src/jwhois.c (find_ip): Added support for IP CIDR blocks
+
+	* src/regex.c, src/getopt.c, src/getopt1.c: Added conditionals
+	(#ifdef HAVE_foo)
+
+	* configure.in: Added check for getopt_long, regexec and removed
+	linking against libfl,libl
+
+	* src/lexer.l: Added %option noyywrap
+
 Sun Sep 26 11:15:40 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* Released version 2.1

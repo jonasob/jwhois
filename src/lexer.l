@@ -49,6 +49,7 @@ int includes_ptr = 0;
 TOKEN	[A-Za-z0-9-]*
 
 %x BLOCK VALUE INCLUDE
+%option noyywrap
 %%
 <*>[ \t]*			/* eat up whitespace */
 <*>[\n]				line++;

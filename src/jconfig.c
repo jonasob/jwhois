@@ -70,7 +70,6 @@ int jconfig_add(domain, key, value, line)
      int line;
 {
   struct jconfig *ptr;
-  
   ptr = malloc(sizeof(struct jconfig));
   if (!ptr)
     {

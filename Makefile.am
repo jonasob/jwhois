@@ -19,5 +19,5 @@
 ##
 
 EXTRA_DIST = include/ example/
-SUBDIRS = doc lib src
+SUBDIRS = doc src
 
