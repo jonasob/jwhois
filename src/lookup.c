@@ -301,7 +301,7 @@ lookup_host(struct s_whois_query *wq, const char *block)
   if (enable_whoisservers)
     if (strncasecmp(wq->host, "whois-servers", 13) == 0) {
       printf("[%s %s]\n", _("Querying"), whoisservers);
-      return lookup_whois_servers(wq);
+      return lookup_whois_servers(wq->query, wq);
     }
 
   wq->port = 0;

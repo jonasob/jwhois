@@ -1,0 +1,323 @@
+# Messages français pour jwhois.
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Michel Robitaille <robitail@IRO.UMontreal.CA>, 2000
+# Dominique Boucher a été le traducteur de 1996 à 2000
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU jwhois 3.0.2\n"
+"POT-Creation-Date: 2001-12-01 10:46+0100\n"
+"PO-Revision-Date: 2001-12-17 12:00-0500\n"
+"Last-Translator: Michel Robitaille <robitail@IRO.UMontreal.CA>\n"
+"Language-Team: French <traduc@traduc.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/cache.c:139
+msgid "Invalid expire time"
+msgstr "Temps d'expiration invalide"
+
+#: src/cache.c:152 src/init.c:263 src/init.c:272
+msgid "Unable to open"
+msgstr "Incapable d'ouvrir"
+
+#: src/cache.c:161
+msgid "Unable to store data in cache]\n"
+msgstr "Incapable de stocker les données dans la cache]\n"
+
+#: src/dns.c:88
+msgid "host not found"
+msgstr "hôte non repéré"
+
+#: src/gai_strerror.c:70
+msgid "Address family for hostname not supported"
+msgstr "Famille d'adresses non supportées chez l'hôte"
+
+#: src/gai_strerror.c:72
+msgid "Temporary failure in name resolution"
+msgstr "Échec temporaire dans la résolution de nom"
+
+#: src/gai_strerror.c:74
+msgid "Bad value for ai_flags"
+msgstr "Valeur erronée pour ai_flags"
+
+#: src/gai_strerror.c:76
+msgid "Non-recoverable failure in name resolution"
+msgstr "Erreur irrécupérable dans la résolution de nom"
+
+#: src/gai_strerror.c:78
+msgid "ai_family not supported"
+msgstr "ai_family non supporté"
+
+#: src/gai_strerror.c:80
+msgid "Memory allocation failure"
+msgstr "Mémoire épuisée"
+
+#: src/gai_strerror.c:82
+msgid "No address associated with hostname"
+msgstr "Aucune adresse associée avec le nom de l'hôte"
+
+#: src/gai_strerror.c:84
+msgid "Name or service not known"
+msgstr "Nom ou service inconnu"
+
+#: src/gai_strerror.c:86
+msgid "Servname not supported for ai_socktype"
+msgstr "Servname non supporté pour ai_socktype"
+
+#: src/gai_strerror.c:88
+msgid "ai_socktype not supported"
+msgstr "ai_socktype non supporté"
+
+#: src/gai_strerror.c:90
+msgid "System error"
+msgstr "Erreur système"
+
+#: src/gai_strerror.c:92
+msgid "Unknown error"
+msgstr "Erreur inconnue"
+
+#: src/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: l'option `%s' est ambiguë\n"
+
+#: src/getopt.c:703
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: l'option `--%s' ne permet pas d'argument\n"
+
+#: src/getopt.c:708
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: l'option `%c%s' ne permet pas d'argument\n"
+
+#: src/getopt.c:726 src/getopt.c:899
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: l'option `%s' requiert un argument\n"
+
+#. --option
+#: src/getopt.c:755
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: option `--%s' non reconnue\n"
+
+#. +option or -option
+#: src/getopt.c:759
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: option `%c%s' non reconnue\n"
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:785
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: option -- %c illégale\n"
+
+#: src/getopt.c:788
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: option -- %c invalide\n"
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:818 src/getopt.c:948
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: option -- %c requiert un argument\n"
+
+#: src/getopt.c:865
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: l'option `-W %s' est ambiguë\n"
+
+#: src/getopt.c:883
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: l'option `-W %s' ne permet pas d'argument\n"
+
+#: src/http.c:68
+msgid "HTTP configuration is incomplete:"
+msgstr "Configuration HTTP est incomplète:"
+
+#: src/http.c:69 src/http.c:70 src/http.c:71 src/http.c:89 src/http.c:98
+#: src/http.c:141
+msgid "Option is missing:"
+msgstr "Option manquante:"
+
+#: src/http.c:81
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
+msgstr "L'option de http-method doit être \"GET\" ou \"POST\".\n"
+
+#. Go on and do something
+#: src/http.c:171 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
+msgid "Querying"
+msgstr "Requête en cours"
+
+#: src/http.c:197
+msgid "Unable to run web browser"
+msgstr "Incapable de lancer le fureteur du web"
+
+#: src/init.c:111
+msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+
+#: src/init.c:112
+msgid ""
+"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
+"redistribute it under the terms of the GNU General Public License."
+msgstr ""
+"Ce programme est un logiciel libre avec AUCUNE GARANTIE ABSOLUE;\n"
+"vous pouvez le redistriber selon les termes de la GNU General Public License."
+
+#: src/init.c:115
+msgid "version"
+msgstr "version"
+
+#: src/init.c:119
+msgid "Usage: jwhois [OPTIONS] [QUERY]"
+msgstr "Usage: jwhois [OPTIONS] [REQUÊTE]"
+
+#: src/init.c:121
+msgid ""
+"  --version               display version number and patch level\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
+msgstr ""
+"  --version                    afficher le nom et la version du logiciel\n"
+"  --help                       afficher l'aide-mémoire\n"
+"  -v, --verbose                fournir des explications lors de la mise au point\n"
+"  -c FICHIER, --config=FICHIER utiliser le FICHIER de configuration\n"
+"  -h HÔTE, --host=HÔTE         adresser les requête à l'HÔTE\n"
+"  -n, --no-redirect            déasactiver les redirections\n"
+"  -s, --no-whoisservers        désactivier les services whois-servers.net\n"
+"  -a, --raw                    désactiver le reformattage de requête\n"
+"  -i, --display-redirections   afficher toutes les redirections au lieu de les cacher\n"
+"  -p PORT, --port=PORT         utiliser le numéro de PORT (avec l'HÔTE)\n"
+"  -r, --rwhois                 forcer les requêtes de type rwhois\n"
+"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes de type rwhois\n"
+"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à retourner\n"
+
+#: src/init.c:136
+msgid ""
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
+msgstr ""
+"  -f, --force-lookup           forcer la recherche même si l'entrée est dans la cache\n"
+"  -d, --disable-cache          désactiver les fonctions de la cache\n"
+
+#: src/init.c:139
+msgid "Report bugs to bug-jwhois@gnu.org"
+msgstr "Rapporter toutes anomalies à bug-jwhois@gnu.org"
+
+#: src/init.c:226
+msgid "Invalid limit"
+msgstr "Limite invalide"
+
+#: src/init.c:240
+msgid "Invalid port number"
+msgstr "Numéro de port invalide"
+
+#: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
+#: src/jwhois.c:92 src/utils.c:96 src/utils.c:106 src/whois.c:72
+msgid "Error allocating memory"
+msgstr "Erreur d'allocation mémoire"
+
+#: src/jconfig.c:282 src/jconfig.c:336
+msgid "String out of bounds on line"
+msgstr "Chaîne hors bornes en ligne"
+
+#: src/jconfig.c:308
+msgid "End of file looking for '\"' on line"
+msgstr "Fin de fichier recherche de '\"' en ligne"
+
+#: src/jconfig.c:365
+msgid "Unexpected end of file on line"
+msgstr "Fin de fichier inattendue en ligne"
+
+#: src/jconfig.c:433
+msgid "Multiple keys on line"
+msgstr "Clés mutliples en ligne"
+
+#: src/jconfig.c:443
+msgid "Missing key on line"
+msgstr "Clé manquante en ligne"
+
+#: src/jwhois.c:119
+msgid "Fatal error searching for host to query"
+msgstr "Erreur fatale recherche de l'hôte pour lancer la requête"
+
+#: src/jwhois.c:132
+msgid "Error reading cache"
+msgstr "Erreur de lecture de la cache"
+
+#: src/jwhois.c:137
+msgid "Cached"
+msgstr "Dans la cache"
+
+#: src/jwhois.c:151
+msgid "Error writing to cache"
+msgstr "Erreur d'écriture dans la cache"
+
+#: src/lookup.c:102
+msgid "Invalid netmask on line"
+msgstr "netmasque invalide en ligne"
+
+#: src/lookup.c:349 src/lookup.c:353
+msgid "Redirected to"
+msgstr "Redirigé vers"
+
+#: src/rwhois.c:136 src/whois.c:66
+msgid "[Unable to connect to remote host]\n"
+msgstr "[Incapable de se connecter à l'hôte]\n"
+
+#: src/rwhois.c:157
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
+msgstr "[RWHOIS: erreur de protocol durant l'envoie de l'option -rwhois]\n"
+
+#: src/rwhois.c:195
+msgid "Server does not support display command"
+msgstr "Le serveur de supporte pas la commande d'affichage."
+
+#: src/rwhois.c:210
+msgid "Invalid limit in configuration file"
+msgstr "Limite invalide dans el fichier de configuration"
+
+#: src/rwhois.c:234
+msgid "Server does not support limit"
+msgstr "Le serveur ne supporte pas la limite."
+
+#: src/rwhois.c:278
+msgid "Unknown referral"
+msgstr "Reférence inconnue"
+
+#: src/rwhois.c:372
+msgid "Following referral to"
+msgstr "Poursuite de la référence vers"
+
+#: src/rwhois.c:404
+msgid "[Host terminated connection prematurely]\n"
+msgstr "[Fin prématurée de la connexion par l'hôte]\n"
+
+#: src/rwhois.c:480
+msgid "Unhandled reply"
+msgstr "Réponse non traitée"
+
+#: src/utils.c:236
+msgid "Error creating socket"
+msgstr "Erreur de création du socket"
+
+#: src/whois.c:84
+msgid "Error reading data from"
+msgstr "Erreur de lecture des données à partir de"
