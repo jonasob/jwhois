@@ -136,7 +136,7 @@ cache_init()
   if (*ret2 != '\0')
     {
       if (verbose)
-	printf("[Cache: Invalid expire time (%s)]\n", ret);
+	printf("[Cache: %s: %s]\n", _("Invalid expire time"), ret);
       cfexpire = 168;
     }
 #else
@@ -149,7 +149,7 @@ cache_init()
   dbf = dbm_open(cfname, DBM_COPTIONS, DBM_MODE);
   if (!dbf)
     {
-      if (verbose) printf("[Cache: Unable to open %s]\n",
+      if (verbose) printf("[Cache: %s %s]\n", _("Unable to open"),
 			  cfname);
       cache = 0;
       return -1;
@@ -157,7 +157,8 @@ cache_init()
   iret = dbm_store(dbf, dbkey, dbstore, DBM_IOPTIONS);
   if (iret < 0)
     {
-      if (verbose) printf("[Cache: Unable to store data in cache]\n");
+      if (verbose) printf("[Cache: %s]\n",
+			  _("Unable to store data in cache]\n"));
       cache = 0;
     }
   dbm_close(dbf);

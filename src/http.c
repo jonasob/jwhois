@@ -151,11 +151,11 @@ int http_query(struct s_whois_query *wq, char **text)
         url = command[4];
     }
 
-    if (verbose)
+    if (verbose>1)
     {
         int i;
 
-        fputs(_("[Running "), stdout);
+        fputs("[Running ", stdout);
         for (i = 1; command[i]; i ++)
         {
             fputs(command[i], stdout);

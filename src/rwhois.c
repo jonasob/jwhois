@@ -191,7 +191,8 @@ rwhois_query_internal(wq, text, referrals)
 	  while (ret != REP_OK && ret != REP_ERROR);
 	}
       else
-	if (verbose) printf("[RWHOIS: Server does not support display command]\n");
+	if (verbose) printf("[RWHOIS: %s]\n",
+			    _("Server does not support display command"));
     }
 
   if (rwhois_limit)
@@ -230,7 +231,7 @@ rwhois_query_internal(wq, text, referrals)
 	  while (ret != REP_OK && ret != REP_ERROR);
 	}
       else
-	if (verbose) printf("[RWHOIS: Server does not support limit]\n");
+	if (verbose) printf("[RWHOIS: %s]\n", _("Server does not support limit"));
     }
 
   if (verbose>1)
@@ -274,7 +275,7 @@ rwhois_insert_referral(reply, referrals)
 
   if (strncasecmp(strchr(reply, ' ')+1, "rwhois://", 9) != 0)
     {
-      if (verbose) printf("[RWHOIS: Unknown referral: %s]\n", strchr(reply, ' ')+1);
+      if (verbose) printf("[RWHOIS: %s: %s]\n", _("Unknown referral"), strchr(reply, ' ')+1);
       return -1;
     }
   if (!*referrals)
@@ -367,7 +368,8 @@ rwhois_query(wq, text)
 	      wq->host = referrals->host;
 	      wq->port = referrals->port;
 	      if (verbose)
-		printf("[RWHOIS: Following referral to %s:%d (autharea=%s)]\n",
+		printf("[RWHOIS: %s %s:%d (autharea=%s)]\n",
+		       _("Following referral to"),
 		       wq->host, wq->port, referrals->autharea);
 
 	      ret = rwhois_query(wq, text);
@@ -474,7 +476,9 @@ rwhois_parse_line(reply, text)
       if (!tmpptr)
 	return REP_ERROR;
       *tmpptr = '\0';
-      if (verbose) printf("[RWHOIS: Unhandled reply: %s]\n", reply+1);
+      if (verbose) printf("[RWHOIS: %s: %s]\n",
+			  _("Unhandled reply"),
+			  reply+1);
       return REP_CONT;
     }
   add_text_to_buffer(text, create_string("%s\n", reply));

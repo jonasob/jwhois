@@ -97,10 +97,10 @@ find_cidr(wq, block)
 			 &bits);
 	    if (res != 5 || bits < 0 || bits > 32)
 	      {
-		if (verbose) printf("[%s: %s %d]",
-				    config,
-				    _("Invalid netmask on line"),
-				    j->line);
+		printf("[%s: %s %d]",
+		       config,
+		       _("Invalid netmask on line"),
+		       j->line);
 		return NULL;
 	      }
 	    if (b == 0xdeadbeef) {
