@@ -12,6 +12,10 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
+	test -f aclocal.m4 || aclocal -I macros
+	test -f configure || autoconf
+	test -f config.h.in || autoheader
+	test -f Makefile.in || automake
 	./configure --prefix=/usr --mandir=\$${prefix}/share/man --sysconfdir=/etc --infodir=\$${prefix}/share/info --datadir=\$${prefix}/share/jwhois --with-cache --localstatedir=/var/cache/jwhois
 	# Add here commands to compile the package.
 	$(MAKE)
@@ -65,13 +69,13 @@ binary-arch: build install
 #	dh_link
 	dh_strip
 	dh_compress
+	dh_fixperms
 #	# You may want to make some executables suid here.
 	chmod 2755 debian/tmp/usr/bin/jwhois
 	chgrp users debian/tmp/usr/bin/jwhois
 	chmod 0775 debian/tmp/var/cache/jwhois
 	chgrp users debian/tmp/var/cache/jwhois
 	dh_suidregister /usr/bin/jwhois /var/cache/jwhois
-	dh_fixperms
 #	dh_makeshlibs
 	dh_installdeb
 #	dh_perl
