@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4\n"
-"POT-Creation-Date: 2001-08-28 20:30+0200\n"
-"PO-Revision-Date: 2001-08-28 20:31+0100\n"
+"POT-Creation-Date: 2001-08-28 21:28+0200\n"
+"PO-Revision-Date: 2001-08-28 21:38+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -83,6 +83,94 @@ msgstr "Systemfel"
 #: src/gai_strerror.c:92
 msgid "Unknown error"
 msgstr "Okänt fel"
+
+#: src/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: flaggan \"%s\" är tvetydig\n"
+
+#: src/getopt.c:703
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: flaggan \"--%s\" tillåter inte något argument\n"
+
+#: src/getopt.c:708
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: flaggan \"%c%s\" tillåter inte något argument\n"
+
+#: src/getopt.c:726 src/getopt.c:899
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: flaggan \"%s\" kräver ett argument\n"
+
+#. --option
+#: src/getopt.c:755
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: okänd flagga \"--%s\"\n"
+
+#. +option or -option
+#: src/getopt.c:759
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: okänd flagga \"%c%s\"\n"
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:785
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: ogiltig flagga -- %c\n"
+
+#: src/getopt.c:788
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: ogiltig flagga -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:818 src/getopt.c:948
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: flaggan kräver ett argument -- %c\n"
+
+#: src/getopt.c:865
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
+
+#: src/getopt.c:883
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: flaggan \"-W %s\" tillåter inte något argument\n"
+
+#: src/http.c:66
+#, c-format
+msgid "Web configuration for server %s is incomplete:\n"
+msgstr "Webbinställningar för servern %s är ej kompletta:\n"
+
+#: src/http.c:68 src/http.c:69 src/http.c:70
+#, c-format
+msgid "Option %s is missing.\n"
+msgstr "Inställningen %s saknas.\n"
+
+#: src/http.c:80
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
+msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
+
+#: src/http.c:88 src/http.c:97 src/http.c:138
+#, c-format
+msgid "Option %s is not configured: Cannot run web browser."
+msgstr "Inställningen %s ej konfigurerad: Kan inte köra webbläsare."
+
+#. Go on and do something
+#: src/http.c:168 src/lookup.c:254 src/rwhois.c:124 src/whois.c:58
+msgid "Querying"
+msgstr "Frågar"
+
+#. Drats!
+#: src/http.c:192
+msgid "Unable to run web browser."
+msgstr "Kan inte starta webbläsare."
 
 #: src/init.c:111
 msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
@@ -165,7 +253,7 @@ msgid "unable to open"
 msgstr "kan ej öppna"
 
 #: src/jconfig.c:250 src/jconfig.c:272 src/jconfig.c:326 src/jconfig.c:383
-#: src/jwhois.c:89
+#: src/jwhois.c:89 src/whois.c:79
 msgid "error allocating memory"
 msgstr "fel vid allokering av minne"
 
@@ -209,35 +297,22 @@ msgstr "fel vid skrivning till cache"
 msgid "invalid netmask on line"
 msgstr "ogiltig nätmask på rad"
 
-#. Go on and do something
-#: src/http.c:168 src/lookup.c:254
-msgid "Querying"
-msgstr "Frågar"
-
 #: src/lookup.c:359 src/lookup.c:363
 msgid "Redirected to"
 msgstr "Omdirigerad till"
 
-#: src/http.c:66
-#, c-format
-msgid "Web configuration for server %s is incomplete:\n"
-msgstr "Webbinställningar för servern %s är ej kompletta:\n"
+#: src/rwhois.c:206
+msgid "Invalid limit in configuration file"
+msgstr "Ogiltig gräns i konfigurationsfilen"
 
-#: src/http.c:68 src/http.c:69 src/http.c:70
-#, c-format
-msgid "Option %s is missing.\n"
-msgstr "Inställningen %s saknas.\n"
+#: src/rwhois.c:311
+msgid "[Host terminated connection prematurely]\n"
+msgstr "[Värden avbröt förbindelsen i förtid]\n"
 
-#: src/http.c:80
-msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
+#: src/utils.c:234
+msgid "error creating socket"
+msgstr "fel vid skapande av uttag (socket)"
 
-#: src/http.c:88 src/http.c:97 src/http.c:138
-#, c-format
-msgid "Option %s is not configured: Cannot run web browser."
-msgstr "Inställningen %s ej konfigurerad: Kan inte köra webbläsare."
-
-#. Drats!
-#: src/http.c:192
-msgid "Unable to run web browser."
-msgstr "Kan inte starta webbläsare."
+#: src/whois.c:88
+msgid "error reading data from"
+msgstr "fel vid läsning av data från"

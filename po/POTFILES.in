@@ -1,8 +1,15 @@
 src/cache.c
 src/dns.c
 src/gai_strerror.c
+src/getopt1.c
+src/getopt.c
+src/http.c
 src/init.c
 src/jconfig.c
 src/jwhois.c
 src/lookup.c
-src/http.c
+src/regex.c
+src/rwhois.c
+src/string.c
+src/utils.c
+src/whois.c

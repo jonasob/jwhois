@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2001-08-28 20:30+0200\n"
+"POT-Creation-Date: 2001-08-28 21:28+0200\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -89,6 +89,95 @@ msgstr "Системная ошибка"
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
+#: src/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr ""
+
+#: src/getopt.c:703
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: src/getopt.c:708
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: src/getopt.c:726 src/getopt.c:899
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr ""
+
+#. --option
+#: src/getopt.c:755
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr ""
+
+#. +option or -option
+#: src/getopt.c:759
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr ""
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:785
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr ""
+
+#: src/getopt.c:788
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr ""
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:818 src/getopt.c:948
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr ""
+
+#: src/getopt.c:865
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr ""
+
+#: src/getopt.c:883
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: src/http.c:66
+#, c-format
+msgid "Web configuration for server %s is incomplete:\n"
+msgstr ""
+
+#: src/http.c:68 src/http.c:69 src/http.c:70
+#, c-format
+msgid "Option %s is missing.\n"
+msgstr ""
+
+#: src/http.c:80
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
+msgstr ""
+
+#: src/http.c:88 src/http.c:97 src/http.c:138
+#, c-format
+msgid "Option %s is not configured: Cannot run web browser."
+msgstr ""
+
+#. Go on and do something
+#: src/http.c:168 src/lookup.c:254 src/rwhois.c:124 src/whois.c:58
+msgid "Querying"
+msgstr ""
+
+#. Drats!
+#: src/http.c:192
+#, fuzzy
+msgid "Unable to run web browser."
+msgstr "невозможно открыть"
+
 #: src/init.c:111
 msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
 msgstr ""
@@ -155,7 +244,7 @@ msgid "unable to open"
 msgstr "невозможно открыть"
 
 #: src/jconfig.c:250 src/jconfig.c:272 src/jconfig.c:326 src/jconfig.c:383
-#: src/jwhois.c:89
+#: src/jwhois.c:89 src/whois.c:79
 msgid "error allocating memory"
 msgstr "ошибка при выделении памяти"
 
@@ -199,40 +288,26 @@ msgstr "фатальная ошибка записи в кэш"
 msgid "invalid netmask on line"
 msgstr "неверный параметр netmask в строке"
 
-#. Go on and do something
-#: src/http.c:168 src/lookup.c:254
-msgid "Querying"
-msgstr ""
-
 #: src/lookup.c:359 src/lookup.c:363
 #, fuzzy
 msgid "Redirected to"
 msgstr "перенаправлено к"
 
-#: src/http.c:66
-#, c-format
-msgid "Web configuration for server %s is incomplete:\n"
+#: src/rwhois.c:206
+msgid "Invalid limit in configuration file"
 msgstr ""
 
-#: src/http.c:68 src/http.c:69 src/http.c:70
-#, c-format
-msgid "Option %s is missing.\n"
+#: src/rwhois.c:311
+msgid "[Host terminated connection prematurely]\n"
 msgstr ""
 
-#: src/http.c:80
-msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr ""
+#: src/utils.c:234
+msgid "error creating socket"
+msgstr "ошибка создания сокета"
 
-#: src/http.c:88 src/http.c:97 src/http.c:138
-#, c-format
-msgid "Option %s is not configured: Cannot run web browser."
-msgstr ""
-
-#. Drats!
-#: src/http.c:192
-#, fuzzy
-msgid "Unable to run web browser."
-msgstr "невозможно открыть"
+#: src/whois.c:88
+msgid "error reading data from"
+msgstr "ошибка чтения данных из"
 
 #~ msgid ""
 #~ "  --version               display version number and patch level\n"
@@ -250,9 +325,3 @@ msgstr "невозможно открыть"
 #~ "  -p PORT, --port=PORT    использовать номер порта PORT (совместно с "
 #~ "HOST)\n"
 #~ "  -v, --verbose           Подробный отладочный вывод\n"
-
-#~ msgid "error creating socket"
-#~ msgstr "ошибка создания сокета"
-
-#~ msgid "error reading data from"
-#~ msgstr "ошибка чтения данных из"
