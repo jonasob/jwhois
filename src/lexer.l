@@ -40,15 +40,36 @@ char *new;
 					if (!new) { free(a); perror(PACKAGE); exit(1); } } \
 			if (!new) { perror(PACKAGE); exit(1); } \
 				else { a = new; }
+
+#define INCLUDE_DEPTH	10
+YY_BUFFER_STATE includes[INCLUDE_DEPTH];
+int includes_ptr = 0;
 %}
 
 TOKEN	[A-Za-z0-9-]*
 
-%x BLOCK VALUE
+%x BLOCK VALUE INCLUDE
 %%
 <*>[ \t]*			/* eat up whitespace */
 <*>[\n]				line++;
 <*>"#"[^\n]*			/* eat up comments */
+<BLOCK>"include"		BEGIN(INCLUDE);
+
+<INCLUDE>[^ \t\n;]+	{
+	if (includes_ptr >= INCLUDE_DEPTH) {
+		fprintf(stderr, "Includes in configuration files nested too deep\n");
+		exit(1);
+	}
+	includes[includes_ptr++] = YY_CURRENT_BUFFER;
+	yyin = fopen(yytext, "r");
+	if (!yyin) {
+		perror(yytext);
+		exit(1);
+	}
+	yy_switch_to_buffer(yy_create_buffer(yyin,YY_BUF_SIZE));
+	BEGIN(BLOCK);
+}
+<INCLUDE>";"                    /* eat up */
 
 <VALUE>"\""[[:print:]]*"\""	{
 	ALLOCATE(value);
@@ -85,7 +106,7 @@ TOKEN	[A-Za-z0-9-]*
 }
 
 <VALUE>";"		{
-	if (!jconfig_add(name, token, value)) {
+	if (!jconfig_add(name, token, value, line)) {
 		perror(PACKAGE);
 		exit(1);
 	}
@@ -105,6 +126,15 @@ TOKEN	[A-Za-z0-9-]*
 	}
 }
 <BLOCK>";"		/* eat up */
+<<EOF>>	{
+	if (--includes_ptr < 0) {
+		yyterminate();
+	} else {
+		yy_delete_buffer(YY_CURRENT_BUFFER);
+		yy_switch_to_buffer(includes[includes_ptr]);
+	}
+}
+
 <*>.	{
 	printf("%s: configuration syntax error near character '%s' on line %d\n",PACKAGE,yytext,line);
 }

@@ -1,5 +1,14 @@
 Sun Sep 26 11:15:40 1999  Jonas Oberg  <jonas@coyote.org>
 
+	* configure.in: Added check for strcasecmp
+
+	* src/string.c (strcasecmp): Added function.
+
+	* src/jconfig.c (jconfig_add): Added support for line numbers.
+	(jconfig_next): Now handles comparations correctly.
+
+	* src/lexer.l: Counting line numbers for each option.
+
 	* src/jwhois.c (main): Changed default location of configuration
 	file to SYSCONFDIR.
 

@@ -40,6 +40,6 @@ AC_CHECK_FUNCS(inet_aton memcpy strtol)
 AC_STDC_HEADERS
 AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h)
 
-AC_CHECK_FUNCS(strstr)
+AC_CHECK_FUNCS(strcasecmp)
 
 AC_OUTPUT(Makefile doc/Makefile src/Makefile lib/Makefile)
