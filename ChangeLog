@@ -1,3 +1,11 @@
+Sun Dec 12 03:58:23 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* example/jwhois.conf: Added lots of data from Oren Tirosh
+
+	* configure.in: Added check for malloc.h
+
+	* src/lookup.c: Added include of malloc.h
+
 Thu Dec  2 19:28:35 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* src/init.c (help_version): Added this to replace version and help
