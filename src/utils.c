@@ -38,13 +38,14 @@ fdread(fd, ptr)
 {
   unsigned int count, ret;
   char data[MAXBUFSIZE];
+  char *tmpptr;
 
   count = 0;
   *ptr = NULL;
 
   do
     {
-      ret = read(fd, data, MAXBUFSIZE);
+      ret = read(fd, data, MAXBUFSIZE-1);
       count += ret;
       if (!*ptr)
 	*ptr = malloc(count+1);
@@ -56,6 +57,9 @@ fdread(fd, ptr)
     }
   while (ret != 0);
 
+  tmpptr = *ptr;
+  tmpptr += count;
+  *tmpptr = '\0';
   if (verbose) printf("[Debug: fdread()=%d]\n", count);
   return count;
 }

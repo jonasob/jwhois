@@ -17,7 +17,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 PACKAGE = jwhois
-VERSION = 2.3
+VERSION = 2.3.1
 
 SHELL = /bin/sh
 

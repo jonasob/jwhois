@@ -284,8 +284,8 @@ lookup_redirect(search_host, block, text, host, port)
   struct re_pattern_buffer rpb;
   struct re_registers regs;
 
-  if (verbose) printf("[Debug: lookup_redirect(\"%s\", \"%s\", ...)]\n",
-		      search_host, block);
+  if (verbose) printf("[Debug: lookup_redirect(\"%s\", ...,\"%s\", ...)]\n",
+		      search_host, text);
 
   bptr = malloc(strlen(text)+1);
   if (!bptr)
@@ -312,6 +312,7 @@ lookup_redirect(search_host, block, text, host, port)
 	  if (re_compile_pattern(matches[i], strlen(matches[i]), &rpb))
 	    return -1;
 	  ind = re_search(&rpb, strptr, strlen(strptr), 0, 0, &regs);
+          if (verbose) printf("[Debug: re_search(...,\"%s\",,,) = %d\n", strptr, ind);
 	  if (ind == 0)
 	    {
 	      *host = malloc(regs.end[1]-regs.start[1]+2);
@@ -322,6 +323,7 @@ lookup_redirect(search_host, block, text, host, port)
 		      regs.end[1]-regs.start[1]);
 	      tmphost = *host + regs.end[1]-regs.start[1];
 	      *tmphost = '\0';
+              if (verbose) printf("[Debug: matched: %s]\n", *host);
 
 	      if (regs.num_regs >= 2)
 		{

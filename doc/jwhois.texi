@@ -225,7 +225,7 @@ special value @option{default} which matches everything.
 @example
 whois-servers @{
         type = regex;
-        ".*-[A-Z]+$" = struct handles;
+        ".*-[A-Z]+$" = "struct handles";
         ".*" = "whois.internic.net";
 @};
 handles @{

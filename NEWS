@@ -1,3 +1,10 @@
+Changes in jwhois 2.3.1
+
+ * Fixed a nasty bug that sometimes caused two extra bytes of output
+   to be appended
+ * Fixed the sample jwhois.conf
+ * Added distribution of debian/ and macros/
+
 Changes in jwhois 2.3
 
  * Support for redirection of a query to another server based on
@@ -8,6 +15,7 @@ Changes in jwhois 2.3
    single \.
  * ${datadir} no longer searched for global configuration file
  * i18n support added
+ * Must enclose struct foo in "
 
 Changes in jwhois 2.2
 

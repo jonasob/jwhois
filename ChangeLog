@@ -1,4 +1,17 @@
+Wed Dec 01 16:18:54 1999  Joans Oberg  <jonas@coyote.org>
+
+	* Bumped to 2.3.1
+
+        * src/utils.c (readfd): Fixed nasty bug (didn't \0 terminate)
+
+	* Makefile.am: Added debian/ and macros/ to EXTRA_DISTS
+
+	* example/jwhois.conf: Fixed content-redirect to look the way it
+	should
+
 Sun Nov 28 20:57:34 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Bumped to 2.3
 
 	* doc/jwhois.texi: Rewrote parts for new release
 

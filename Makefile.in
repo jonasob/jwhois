@@ -89,7 +89,7 @@ cache = @cache@
 l = @l@
 localedir = @localedir@
 
-EXTRA_DIST = include/ example/
+EXTRA_DIST = include/ example/ macros/ debian/
 SUBDIRS = doc src po intl
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs

@@ -18,6 +18,6 @@
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 
-EXTRA_DIST = include/ example/
+EXTRA_DIST = include/ example/ macros/ debian/
 SUBDIRS = doc src po intl
 
