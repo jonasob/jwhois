@@ -1,3 +1,7 @@
+2003-01-14  Peter Karlsson <peter@softwolves.pp.se>
+
+	* changelog.in, po/nl.po: New Dutch translation from TP.
+
 2002-12-15  Peter Karlsson <peter@softwolves.pp.se>
 
 	* examples/jwhois.conf: Corrected typo in .lt (Lithuania) entry.
