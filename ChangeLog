@@ -1,6 +1,17 @@
 2002-08-02  Peter Karlsson <peter@softwolves.pp.se>
 
 	* po/id.po, po/pt_BR.po: Updated translations from TP.
+	* Imported bugfixes for building/running jwhois 3.2.0 on SGI IRIX
+	  6.5 and HP-UX 11.0 from Chris Wood <chris@seismo.usbr.gov>:
+	 - src/Makefile.am: add -I$(top_srcdir)/intl to find <libintl.h>
+	 - src/cache.c: dbm_fetch() pointer causes bus error when
+	   dereferenced
+	 - src/gai_strerror.c: empty init for values[] causes compiler error
+	* src/jconfig.c, src/lookup.c: Imported fixes for memory leaks and
+	  out-of-bounds pointers identified by Insure++ from Chris Wood
+	  <chris@seismo.usbr.gov>.
+	* doc/jwhois.texi: Fixed a syntax error committed earlier.
+	* include/utils.h: Include whois.h to remove compiler warning.
 
 2002-08-01  Lee Maguire <lee@hexkey.co.uk>
 
