@@ -1,3 +1,7 @@
+1999-10-04  Jonas Oberg  <jonas@coyote.org>
+
+	* Released 2.2pre3
+
 1999-10-03  Jonas Oberg  <jor@circuitous-route.coyote.org>
 
 	* src/jwhois.c (query_host): Converted to getaddrinfo and
@@ -25,8 +29,7 @@
 
 	* src/jwhois.c (find_ip): Added support for IP CIDR blocks
 
-	* src/regex.c, src/getopt.c, src/getopt1.c: Added conditionals
-	(#ifdef HAVE_foo)
+	* src/getopt.c, src/getopt1.c: Added conditionals
 
 	* configure.in: Added check for getopt_long, regexec and removed
 	linking against libfl,libl

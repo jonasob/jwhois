@@ -18,9 +18,6 @@
 /* Define if you have the memcpy function.  */
 #undef HAVE_MEMCPY
 
-/* Define if you have the regexec function.  */
-#undef HAVE_REGEXEC
-
 /* Define if you have the strcasecmp function.  */
 #undef HAVE_STRCASECMP
 
