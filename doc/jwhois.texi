@@ -130,6 +130,10 @@ This option forces the client to look up an entry from the
 source Whois server, even if a current copy is available in
 the system cache.
 
+@item -n
+@item --no-redirect
+This option disables the content redirect feature
+
 @item -d
 @item --disable-cache
 This disables the cache functionality.
