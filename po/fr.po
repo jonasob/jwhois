@@ -1,13 +1,13 @@
 # Messages français pour jwhois.
 # Copyright © 2001 Free Software Foundation, Inc.
-# Michel Robitaille <robitail@IRO.UMontreal.CA>, since/depuis 2000
+# Michel Robitaille <robitail@IRO.UMontreal.CA>, traducteur since/depuis 2000
 # Dominique Boucher a été le traducteur de 1996 à 2000
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU jwhois 3.2.0\n"
 "POT-Creation-Date: 2002-04-14 00:11+0100\n"
-"PO-Revision-Date: 2002-05-06 20:00-0500\n"
+"PO-Revision-Date: 2002-08-04 08:00-0500\n"
 "Last-Translator: Michel Robitaille <robitail@IRO.UMontreal.CA>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -141,7 +141,8 @@ msgstr "%s: l'option « -W %s » ne permet pas d'argument\n"
 msgid "HTTP configuration is incomplete:"
 msgstr "Configuration HTTP est incomplète:"
 
-#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99 src/http.c:157
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr "Option manquante:"
 
@@ -228,7 +229,9 @@ msgstr "Limite invalide"
 msgid "Invalid port number"
 msgstr "Numéro de port invalide"
 
-#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373 src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Erreur d'allocation mémoire"
 
