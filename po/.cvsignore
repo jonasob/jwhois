@@ -1,0 +1,7 @@
+Makefile
+Makefile.in
+Makefile.in.in
+POTFILES
+ru.gmo
+sv.gmo
+.cvsignore

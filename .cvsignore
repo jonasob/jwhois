@@ -1,0 +1,13 @@
+configure
+Makefile
+config.h
+config.h.in
+Makefile.in
+aclocal.m4
+ABOUT-NLS
+stamp-h*
+config.status
+config.log
+config.cache
+.cvsignore
+jwhois.spec
