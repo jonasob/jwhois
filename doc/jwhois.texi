@@ -394,12 +394,12 @@ for the individual rule will be used since it is most specific.
 For more advanced query rewrites, it is also possible to access
 subfields of the domain query. These subfields are counted from
 the left or the right, starting at 1 (one). To select the fields,
-the syntax @samp{${start-end}} (left to right) or @samp{${start+end}}
+the syntax @samp{$@{start-end@}} (left to right) or @samp{$@{start+end@}}
 (right to left). Either of the start or end fields can be omitted,
 and the two formats cannot be combined in one query. You can also
 select a single field (counting from the left) by using the format
-@samp{${fieldnumber}}. To do this when counting from the right, you
-need to write @samp{${fieldnumber+fieldnumber}}. Please note that
+@samp{$@{fieldnumber@}}. To do this when counting from the right, you
+need to write @samp{$@{fieldnumber+fieldnumber@}}. Please note that
 the first field number is always the leftmost field, so the
 numerical values are swapped when counting right to left.
 
