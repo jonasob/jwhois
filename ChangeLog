@@ -1,3 +1,7 @@
+2002-07-30  Lee Maguire <lee@hexkey.co.uk>
+	* example/jwhois.conf: 200/8 is now handled by LACNIC
+	  (Latin American and Caribbean IP address Regional Registry)
+
 2002-07-24  Lee Maguire <lee@hexkey.co.uk>
 	* example/jwhois.conf: Updated ng (Nigeria), is (Iceland),
 	  ug (Uganda).
