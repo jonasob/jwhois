@@ -2,6 +2,11 @@
 
 #DEBHELPER#
 
+if command -v suidunregister >/dev/null 2>&1 && [ -e /etc/suid.conf ]; then
+  suidunregister -s jwhois /usr/bin/jwhois
+  suidunregister -s jwhois /var/cache/jwhois
+fi
+
 case "$1" in
   remove)
     rm -f /var/cache/jwhois/jwhois.db.db
@@ -10,6 +15,7 @@ case "$1" in
   purge)
     rm -f /var/cache/jwhois
     rmdir /var/cache/jwhois 2> /dev/null || true
+    groupdel jwhois || echo "Failed removing group \`jwhois'"
     ;;
   upgrade)
     ;;
