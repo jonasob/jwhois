@@ -1,5 +1,8 @@
 Sun Dec 12 03:58:23 1999  Jonas Oberg  <jonas@coyote.org>
 
+	* src/jwhois.c (split_host_from_query): Added
+	(main): Added possibility to make 'foo@bar.org' queries
+
 	* example/jwhois.conf: Added lots of data from Oren Tirosh
 
 	* configure.in: Added check for malloc.h

@@ -134,6 +134,10 @@ Enables verbose debugging output where available.
 
 @end table
 
+The query can optionally contain the character @samp{@} followed by
+a host name to direct the search to that host. This works exactly like
+specifying the host with @samp{--host}.
+
 @node RIPE Extensions, Site Configuration, Invocation, Top
 @chapter RIPE Extensions
 

@@ -109,11 +109,39 @@ make_connect(host, port)
   return sockfd;
 }
 
-int main(argc, argv)
+/*
+ *  This function takes a string gotten from the commandline, splits
+ *  out a hostname if one is found after an '@' sign which is not escaped
+ *  by '\'.  Returns 1 is successful, else 0. qstrins is reformatted
+ *  to hold only the query without hostname.
+ */
+int
+split_host_from_query(qstring, host)
+     char *qstring;
+     char **host;
+{
+  char *tmpptr;
+
+  tmpptr = (char *)strchr(qstring, '@');
+  if (!tmpptr)
+    return 0;
+
+  tmpptr--;
+  if (*tmpptr == '\\')
+    return 0;
+  tmpptr++;
+  *tmpptr = '\0';
+  tmpptr++;
+  *host = tmpptr;
+  return 1;
+}
+
+int
+main(argc, argv)
      int argc;
      char **argv;
 {
-  int optind, count = 0, port, ret, sockfd;
+  int optind, count = 0, port = 0, ret, sockfd;
   char *qstring = NULL, *host, *text;
 
 #ifdef HAVE_LIBINTL_H
@@ -154,6 +182,10 @@ int main(argc, argv)
       forcelookup = 1;
       host = ghost;
       port = gport;
+    }
+  else if (split_host_from_query(qstring, &host))
+    {
+      if (verbose) printf("[Debug: Calling %s directly]\n", host);
     }
   else
     {
