@@ -1,8 +1,8 @@
-This is Debian GNU/Linux's prepackaged version of GNU jwhois, an improved
-whois client. It was downloaded from ftp://ftp.gnu.org/pub/gnu/jwhois
-
-jwhois is written by Jonas Öberg <jonas@gnu.org>
-Debian packaging and some modifications by Peter Karlsson <peterk@debian.org>
+Package: GNU jwhois
+Obtained from: ftp://ftp.gnu.org/pub/gnu/jwhois
+Packaged for Debian by: peter karlsson <peterk@debian.org>
+Upstream authors: Jonas Öberg <jonas@gnu.org>,
+                  peter karlsson <peterk@debian.org>
 
 Copyright (C) 1999-2001 Free Software Foundation, Inc.
 
