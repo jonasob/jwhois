@@ -7,8 +7,8 @@ public Whois server records. Any changes to either host listed in that
 example configuration file should be reported to the maintainer so that
 the change can be included in future releases.
 
-   The configuration file should reside in the /usr/local/share directory,
-or the directory that you specified using the --datadir switch to the
+   The configuration file should reside in the /usr/local/etc directory,
+or the directory that you specified using the --sysconfdir switch to the
 configure script.
 
 

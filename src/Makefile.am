@@ -23,5 +23,5 @@ jwhois_LDADD = ../lib/libjwhois.a
 jwhois_DEPENDENCIES = ../lib/libjwhois.a
 jwhois_SOURCES = jwhois.c lexer.l jconfig.c
 
-CFLAGS = -DDATADIR="\"$(datadir)\""
+CFLAGS = -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(datadir)\""
 INCLUDES = -I$(top_srcdir)/include

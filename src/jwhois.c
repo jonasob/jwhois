@@ -230,7 +230,10 @@ int main(int argc, char **argv)
 			exit(1);
 		}
 	} else {
-		in = fopen(DATADIR "/jwhois.conf", "r");
+		in = fopen(SYSCONFDIR "/jwhois.conf", "r");
+		if (!in) {
+		  in = fopen(DATADIR "/jwhois.conf", "r");
+		}
 	}
 	if (in)
 		parse_config(in);

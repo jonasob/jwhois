@@ -1,3 +1,13 @@
+Sun Sep 26 11:15:40 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (main): Changed default location of configuration
+	file to SYSCONFDIR.
+
+	* doc/jwhois.texi (RIPE Extensions): Added information on RIPE
+	extensions and how to use them.
+
+	* example/jwhois.conf: Added RIPE, ARIN and APNIC handles
+
 Thu Aug 19 16:21:07 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* src/jwhois.c (help, query_host, make_query, main): added support

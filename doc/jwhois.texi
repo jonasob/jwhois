@@ -69,6 +69,7 @@ notice identical to this one.
 @menu
 * Introduction::                Introduction
 * Invocation::                  How to invoke jwhois
+* RIPE Extensions::             Extensions for RIPE databases
 * Site Configuration::          Defining a list of Whois servers
 * Reporting bugs::              Reporting bugs
 @end menu
@@ -109,14 +110,40 @@ Specifies a port number to use when querying a HOST
 
 @end table
 
+@node RIPE Extensions, Site Configuration, Invocation, Top
+@chapter RIPE Extensions
+
+RIPE (Réseaux IP Européens) has defined a number of options that can be
+used against a RIPE-compatible whois server (ripe.net, apnic.net and
+others).  Unfortunately, there is really no way of telling whether a
+host we are connecting to is RIPE-compatible or not.  RIPE extensions
+are therefor not directly incorporated into the @sc{jwhois} client.
+A list of the options can be found in RIPE Document 157 which you can get
+from the RIPE ftp server, @url{ftp://ftp.ripe.net/ripe/docs/}.
+
+It is possible to use these options together with @sc{jwhois} by changing
+the format of the query slightly. If you were to search for all entries in
+the RIPE database which lists the admin-c, tech-c or zone-c as CO19-RIPE,
+you could use the following command syntax:
+
+@example
+$ jwhois -h whois.ripe.net -- "-i admin-c,tech-c,zone-c CO19-RIPE"
+@end example
+
+@samp{--} is used to separate the RIPE options from the jwhois options.
+
 @node Site Configuration, Reporting bugs, Invocation, Top
 @chapter Site Configuration
 
 @sc{jwhois} is configurable via its @file{jwhois.conf} file. This file
-is looked for in the datadir that was specified when compiling the
-program (default is @file{/usr/local/share}). An example configuration file
-that includes most known Whois servers can be found in the @code{example}
-subdirectory of the official distribution.
+is looked for in the sysconfdir that was specified when compiling the
+program (default is @file{/usr/local/etc}). If this file can not be
+found, it will look for it in datadir (default is @file{/usr/local/share}).
+If no configuration file can be found, @sc{jwhois} will default all queries
+to @url{whois.internic.net}.
+
+An example configuration file that includes most known Whois servers can be
+found in the @code{example} subdirectory of the official distribution.
 
 In the @samp{whois-servers} block, the configuration file matches
 regular expressions to a Whois server name. When reading this list
@@ -139,7 +166,7 @@ matched against this regular expression would instead be matched against
 the last expression, thus making the query go to the @samp{whois.internic.net}
 Whois server.
 
-The host names can be postfixed with @samp{:port} to specify an alternative
+The host name can be postfixed with @samp{:port} to specify an alternative
 port number to use when querying that host.
 
 @node Reporting bugs,  , Site Configuration, Top
