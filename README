@@ -3,7 +3,7 @@ to query based on a flexible configuration file using either regular
 expressions or CIDR blocks.
 
 Please send bug reports, suggestions, improvements, rewrites and other
-material to jonas@coyote.org.
+material to bug-jwhois@gnu.org.
 
 
  1.  Configuration file
@@ -78,4 +78,4 @@ files that it need.  Use the verbose flag to see if this is indeed the problem.
 5. Obtaining JWHOIS
 ===================
 JWHOIS can be obtained via anonymous FTP from
-ftp://ftp.coyote.org/pub/jwhois/
+ftp://ftp.gnu.org/gnu/jwhois/

@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999  Jonas Öberg
+    Copyright (C) 1999  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -74,7 +74,7 @@ int cfexpire;
 
 void help_version(int onlyversion)
 {
-  char *COPYRIGHT = _("Copyright (C) 1999 Jonas Öberg");
+  char *COPYRIGHT = _("Copyright (C) 1999  Free Software Foundation, Inc.");
   char *LICENSE =  _("This program is free software with ABSOLUTELY NO WARRANTY; you may\n\
 redistribute it under the terms of the GNU General Public License.");
 
@@ -95,7 +95,7 @@ redistribute it under the terms of the GNU General Public License.");
    printf(_("  -f, --force-lookup      force lookup even if the entry is cached\n\
   -d, --disable-cache     disable cache functions\n"));
 #endif
-   printf("\n\n%s\n", _("Report bugs to jonas@coyote.org"));
+   printf("\n\n%s\n", _("Report bugs to bug-jwhois@gnu.org"));
     }
 }
 

@@ -27,7 +27,7 @@
 @ifinfo
 This file documents @sc{jwhois}, a Whois client.
 
-Copyright (C) 1999 Jonas Öberg
+Copyright (C) 1999  Free Software Foundation, Inc.
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -54,7 +54,7 @@ notice identical to this one.
 @author by Jonas Öberg
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1999 Jonas Öberg
+Copyright @copyright{} 1999  Free Software Foundation, Inc.
 
 @sp 2
 Permission is granted to make and distribute verbatim copies of
@@ -278,7 +278,7 @@ the next time it is requested. The expire time is measured in hours.
 @node Reporting bugs,  , Cache Functionality, Top
 @chapter Reporting bugs
 
-Email bug reports to @code{jonas@@coyote.org}.
+Email bug reports to @code{bug-jwhois@@gnu.org}.
 
 @contents
 @bye
