@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-01-09 20:11+0100\n"
+"POT-Creation-Date: 2001-01-28 14:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "using defaults"
 msgstr ""
 
-#: src/cache.c:155 src/init.c:180 src/init.c:189
+#: src/cache.c:155 src/init.c:189 src/init.c:198
 msgid "unable to open"
 msgstr ""
 
@@ -86,50 +86,51 @@ msgstr ""
 msgid "Unknown error"
 msgstr ""
 
-#: src/init.c:77
+#: src/init.c:81
 msgid "Copyright (C) 1999  Free Software Foundation, Inc."
 msgstr ""
 
-#: src/init.c:78
+#: src/init.c:82
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
 
-#: src/init.c:81
+#: src/init.c:85
 msgid "version"
 msgstr ""
 
-#: src/init.c:85
+#: src/init.c:89
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr ""
 
-#: src/init.c:87
+#: src/init.c:91
 msgid ""
 "  --version               display version number and patch level\n"
 "  --help                  display this help\n"
 "  -c FILE, --config=FILE  use FILE as configuration file\n"
 "  -h HOST, --host=HOST    explicitly query HOST\n"
+"  -n, --no-redirect       disable content redirection\n"
 "  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
 "  -v, --verbose           verbose debug output\n"
 msgstr ""
 
-#: src/init.c:95
+#: src/init.c:100
 msgid ""
 "  -f, --force-lookup      force lookup even if the entry is cached\n"
 "  -d, --disable-cache     disable cache functions\n"
 msgstr ""
 
-#: src/init.c:98
+#: src/init.c:103
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
 
-#: src/init.c:157
+#: src/init.c:166
 msgid "invalid port number"
 msgstr ""
 
 #: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
-#: src/jwhois.c:165
+#: src/jwhois.c:166
 msgid "error allocating memory"
 msgstr ""
 
@@ -157,23 +158,23 @@ msgstr ""
 msgid "error creating socket"
 msgstr ""
 
-#: src/jwhois.c:195
+#: src/jwhois.c:196
 msgid "fatal error searching for host to query"
 msgstr ""
 
-#: src/jwhois.c:206
+#: src/jwhois.c:207
 msgid "error reading cache"
 msgstr ""
 
-#: src/jwhois.c:211
+#: src/jwhois.c:212
 msgid "cached"
 msgstr ""
 
-#: src/jwhois.c:231
+#: src/jwhois.c:232
 msgid "error reading data from"
 msgstr ""
 
-#: src/jwhois.c:244
+#: src/jwhois.c:248
 msgid "error writing to cache"
 msgstr ""
 

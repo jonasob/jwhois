@@ -123,7 +123,7 @@ parse_args(argc, argv)
 
   while (1)
     {
-      optch = getopt_long(*argc, *argv, "vfdc:h:p:", long_options, &option_index);
+      optch = getopt_long(*argc, *argv, "nvfdc:h:p:", long_options, &option_index);
       if (optch == EOF)
 	break;
       
