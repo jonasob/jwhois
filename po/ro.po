@@ -1,187 +1,188 @@
-# jwhois: translation to Brazilian Portuguese (pt_BR)
-# Copyright (C) 2002 Free Software Foundation, Inc.
-# Alexandre Folle de Menezes <afmenez@terra.com.br>, 2002.
+# Mesajele în limba românã pentru pachetul jwhois.
+# Copyright (C) 2003 Free Software Foundation, Inc.
+# Eugen Hoanca <eugenh@urban-grafx.ro>, 2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.2.1\n"
+"Project-Id-Version: jwhois-3.2.1\n"
 "POT-Creation-Date: 2003-01-31 19:39+0100\n"
-"PO-Revision-Date: 2003-02-04 00:15-0300\n"
-"Last-Translator: Alexandre Folle de Menezes <afmenez@terra.com.br>\n"
-"Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
+"PO-Revision-Date: 2003-05-04 09:51+0300\n"
+"Last-Translator: Eugen Hoanca <eugenh@urban-grafx.ro>\n"
+"Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/cache.c:140
 msgid "Invalid expire time"
-msgstr "Horário de expiração inválido"
+msgstr "Timp de expirare invalid"
 
 #: src/cache.c:153 src/init.c:266 src/init.c:275
 msgid "Unable to open"
-msgstr "Impossível abrir"
+msgstr "Nu s-a putut deschide"
 
 #: src/cache.c:162
 msgid "Unable to store data in cache]\n"
-msgstr "Impossível guardar dados no cache]\n"
+msgstr "Nu s-au putut stoca datele în cache]\n"
 
 #: src/dns.c:91
 msgid "host not found"
-msgstr "host não encontrado"
+msgstr "nu s-a gãsit host-ul"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
-msgstr "Família de endereços para o hostname não é suportada"
+msgstr "Familie de adrese pentru hostname nesuportatã"
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
-msgstr "Falha temporária na resolução de nomes"
+msgstr "Eroare temporarã în rezoluþia numelui"
 
 #: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
-msgstr "Valor ilegal para ai_flags"
+msgstr "Valoare greºitã pentru ai_flags"
 
 #: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
-msgstr "Falha irrecuperável na resolução de nomes"
+msgstr "Eroare ireversibilã în rezoluþia numelui"
 
 #: src/gai_strerror.c:69
 msgid "ai_family not supported"
-msgstr "ai_family não é suportado"
+msgstr "ai_family nesuportatã"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "Falha de alocação de memória"
+msgstr "Eroare în alocarea memoriei"
 
 #: src/gai_strerror.c:73
 msgid "No address associated with hostname"
-msgstr "Nenhum endereço associado com o hostname"
+msgstr "Nici o adresã asociatã cu hostname"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "Nome ou serviço desconhecido"
+msgstr "Nume sau serviciu necunoscut"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
-msgstr "Servname não é suportado para ai_socktype"
+msgstr "Servname nesuportat poentru ai_socktype"
 
 #: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
-msgstr "ai_socktype não é suportado"
+msgstr "ai_socktype nesuportat"
 
 #: src/gai_strerror.c:81
 msgid "System error"
-msgstr "Erro de sistema"
+msgstr "Eroare de sistem"
 
 #: src/gai_strerror.c:83
 msgid "Unknown error"
-msgstr "Erro desconhecido"
+msgstr "Eroare necunoscutã"
 
 #: src/getopt.c:678
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: opção `%s' é ambígua\n"
+msgstr "%s: opþiunea `%s' este ambiguã\n"
 
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: opção `--%s' não permite argumentos\n"
+msgstr "%s: opþiunea `--%s' nu permite un parametru\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: opção `%c%s' não permite argumentos\n"
+msgstr "%s: opþiunea `%c%s' nu permite un parametru\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: opção `%s' exige um argumento\n"
+msgstr "%s: opþiunea `%s' necesitã un parametru\n"
 
 #. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: opção `--%s' não reconhecida\n"
+msgstr "%s: opþiune necunoscutã `--%s'\n"
 
 #. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: opção `%c%s' não reconhecida\n"
+msgstr "%s: opþiune necunoscutã `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: opção ilegal -- %c\n"
+msgstr "%s: opþiune ilegalã -- %c\n"
 
 #: src/getopt.c:788
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: opção inválida -- %c\n"
+msgstr "%s: opþiune invalidã -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: opção exige um argumento -- %c\n"
+msgstr "%s: opþiunea necesitã un parametru -- %c\n"
 
 #: src/getopt.c:865
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: opção `-W %s' é ambígua\n"
+msgstr "%s: opþiunea `-W %s' este ambiguã\n"
 
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: opção `-W %s' não permite argumentos\n"
+msgstr "%s: opþiunea `-W %s' nu permite un parametru\n"
 
 #: src/http.c:71
 msgid "HTTP configuration is incomplete:"
-msgstr "Configuração HTTP está incompleta:"
+msgstr "Configuraþia HTTP este incompletã:"
 
 #: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
 #: src/http.c:166
 msgid "Option is missing:"
-msgstr "Opção faltando:"
+msgstr "Opþiunea lipseºte:"
 
 #: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "Opção http-method deve ser \"GET\" ou \"POST\".\n"
+msgstr "Opþiunea http-method trebuie sã fie \"GET\" sau \"POST\".\n"
 
 #. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
-msgstr "Impossível criar arquivo temporário"
+msgstr "Nu s-a putut crea fiºierul temporar"
 
 #. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
-msgstr "Consulta"
+msgstr "Interogare"
 
 #: src/http.c:272
 msgid "Unable to run web browser"
-msgstr "Impossível rodar o navegador web"
+msgstr "Nu s-a putut rula browserul de web"
 
 #: src/init.c:116
 msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
-msgstr "Copyright © 1999-2003  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999-2003  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"Este programa é software livre SEM NENHUMA GARANTIA; você pode\n"
-"redistribuí-lo nos termos da Licensa Pública Geral GNU."
+"Acest program este free software fãrã ABSOLUT NICI O GARANÞIE; puteþi sã-l\n"
+"redistribuiþi sub termenii Licenþei Publice Generale GNU."
 
 #: src/init.c:120
 msgid "version"
-msgstr "versão"
+msgstr "versiunea"
 
 #: src/init.c:124
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr "Uso: jwhois [OPTIONS] [QUERY]"
+msgstr "Folosire: jwhois [OPÞIUNI] [INTEROGARE]"
 
 #: src/init.c:126
 msgid ""
@@ -199,132 +200,130 @@ msgid ""
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  exibe número de versão e nível de patch\n"
-"  --help                     exibe esta ajuda\n"
-"  -v, --verbose              saída de depuração verborrágica\n"
-"  -c ARQ, --config=ARQ       usa ARQ como arquivo de configuração\n"
-"  -h HOST, --host=HOST       consulta HOST explicitamente\n"
-"  -n, --no-redirect          desabilita rejeição de conteúdo\n"
-"  -s, --no-whoisservers      desabilita suporte ao serviço whois-servers.net\n"
-"  -a, --raw                  desabilita reformatação da consulta\n"
-"  -i, --display-redirections exibe todos os redirecionamentos ao invés de\n"
-"                             escondê-los\n"
-"  -p PORT, --port=PORTA      usa a a porta PORTA (em conjunto com HOST)\n"
-"  -r, --rwhois               força a execução de uma consulta rwhois\n"
-"  --rwhois-display=DISPLAY   seta a opção display nas consultas rwhois\n"
-"  --rwhois-limit=LIMIT       seta o número máximo de resultados a retornar\n"
+"  --version                  afiºeazã numãrul versiunii ºi nivelul de patch\n"
+"  --help                     afiºeazã acest ajutor\n"
+"  -v, --verbose              ieºire detaliatã pentru depanare\n"
+"  -c FILE, --config=FIªIER   foloseºte FIªIER ca fiºier de configurare\n"
+"  -h HOST, --host=HOST       interogheazã HOST în mod explicit\n"
+"  -n, --no-redirect          dezactiveazã redirectarea de conþinut\n"
+"  -s, --no-whoisservers      dezactiveazã serviciul whois-servers.net\n"
+"  -a, --raw                  dezactiveazã reformatarea interogãrii\n"
+"  -i, --display-redirections afiºeazã toate redirectãrile în loc sã le ascundã\n"
+"  -p PORT, --port=PORT       foloseºte numãrul de port PORT (în folosire cu HOST)\n"
+"  -r, --rwhois               forþeazã efectuarea unei interogãri rwhois\n"
+"  --rwhois-display=AFIªARE   seteazã opþiuni de afiºare în interogare rwhois\n"
+"  --rwhois-limit=LIMITÃ      seteazã numãrul maxim de potriviri de raportat\n"
 
 #: src/init.c:141
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         força a consulta mesmo que a entrada esteja\n"
-"                             no cache\n"
-"  -d, --disable-cache        desabilita as funções de cache\n"
+"  -f, --force-lookup         forþeazã lookup chiar dacã intrarea e în cache\n"
+"  -d, --disable-cache        dezactiveazã funcþiile de caching\n"
 
 #: src/init.c:144
 msgid "Report bugs to bug-jwhois@gnu.org"
-msgstr "Reporte bugs para bug-jwhois@gnu.org"
+msgstr "Raportaþi bug-uri la bug-jwhois@gnu.org"
 
 #: src/init.c:229
 msgid "Invalid limit"
-msgstr "Limite inválido"
+msgstr "Limitã invalidã"
 
 #: src/init.c:243
 msgid "Invalid port number"
-msgstr "Número de porta inválido"
+msgstr "Numãr port invalid"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
 #: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
 #: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
-msgstr "Erro alocando memória"
+msgstr "Eroare în alocarea memoriei"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
-msgstr "String fora dos limites na linha"
+msgstr "ªiruri în afara limitelor (out of bounds) pe linia"
 
 #: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
-msgstr "Final do arquivo procurando por '\"' na linha"
+msgstr "Sfârºit de fiºier cãutând '\"' pe linia"
 
 #: src/jconfig.c:354
 msgid "Unexpected end of file on line"
-msgstr "Final do arquivo não esperado na linha"
+msgstr "Sfârºit de fiºier neaºteptat pe linia"
 
 #: src/jconfig.c:423
 msgid "Multiple keys on line"
-msgstr "Chaves múltiplas na linha"
+msgstr "Chei(keys) multiple pe linia"
 
 #: src/jconfig.c:433
 msgid "Missing key on line"
-msgstr "Chave faltando na linha"
+msgstr "Cheie(key) lipsã pe linia"
 
 #: src/jwhois.c:126
 msgid "Fatal error searching for host to query"
-msgstr "Erro fatal procurando por host para consultar"
+msgstr "Eroare fatalã în cãutarea host-ului de interogat"
 
 #: src/jwhois.c:139
 msgid "Error reading cache"
-msgstr "Erro lendo o cache"
+msgstr "Eroare în citirea cache-ului"
 
 #: src/jwhois.c:144
 msgid "Cached"
-msgstr "Em cache"
+msgstr "În cache(cached)"
 
 #: src/jwhois.c:158
 msgid "Error writing to cache"
-msgstr "Erro escrevendo no cache"
+msgstr "Eroare în scrierea în cache"
 
 #: src/lookup.c:111
 msgid "Invalid netmask on line"
-msgstr "Máscara de rede inválida na linha"
+msgstr "Netmask invalid în linia"
 
 #: src/lookup.c:435 src/lookup.c:439
 msgid "Redirected to"
-msgstr "Redirecionado para"
+msgstr "Redirectat spre"
 
 #: src/rwhois.c:138 src/whois.c:70
 msgid "[Unable to connect to remote host]\n"
-msgstr "[Impossível conectar ao host remoto]\n"
+msgstr "[Nu m-am putut conecta la host-ul remote]\n"
 
 #: src/rwhois.c:159
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
-msgstr "[RWHOIS: Erro de protocolo durante envio da opção -rwhois]\n"
+msgstr "[RWHOIS: Eroare de protocol în trimiterea opþiunilor rwhois]\n"
 
 #: src/rwhois.c:197
 msgid "Server does not support display command"
-msgstr "O servidor não suporta o comando display"
+msgstr "Serverul nu permite comandã de afiºare"
 
 #: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
-msgstr "Limite inválido no arquivo de configuração"
+msgstr "Limitã invalidã în fiºierul de configurare"
 
 #: src/rwhois.c:236
 msgid "Server does not support limit"
-msgstr "O servidor não suporta limite"
+msgstr "Serverul nu permite limitã"
 
 #: src/rwhois.c:278
 msgid "Unknown referral"
-msgstr "Referência inválida"
+msgstr "Referral necunoscut"
 
 #: src/rwhois.c:370
 msgid "Following referral to"
-msgstr "Seguindo referência para"
+msgstr "Se urmeazã referral cãtre"
 
 #: src/rwhois.c:399
 msgid "[Host terminated connection prematurely]\n"
-msgstr "[O host encerrou a conexão prematuramente]\n"
+msgstr "[Host-ul a închis prematur conexiunea]\n"
 
 #: src/rwhois.c:475
 msgid "Unhandled reply"
-msgstr "Resposta não tratada"
+msgstr "Rãspuns nemanevrabil"
 
 #: src/utils.c:232
 msgid "Error creating socket"
-msgstr "Erro criando o socket"
+msgstr "Eroare în crearea de socket"
 
 #: src/whois.c:88
 msgid "Error reading data from"
-msgstr "Erro lendo dados de"
+msgstr "Eroare în citirea datelor din"
