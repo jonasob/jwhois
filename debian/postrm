@@ -1,0 +1,20 @@
+#!/bin/sh -e
+
+#DEBHELPER#
+
+case "$1" in
+  remove)
+    rm -f /var/cache/jwhois/jwhois.db.db
+    rmdir /var/cache/jwhois 2> /dev/null || true
+    ;;
+  purge)
+    rm -f /var/cache/jwhois
+    rmdir /var/cache/jwhois 2> /dev/null || true
+    ;;
+  upgrade)
+    ;;
+  *)
+    echo "postrm called with unknown argument \`$1'" >&2
+    exit 0
+    ;;
+esac
