@@ -2,11 +2,13 @@ jwhois (3.0.0-1) unstable; urgency=low
 
   * New upstream release:
    - Add option to not follow redirections.
-   - Updates to default configuration.
+   - Lots of updates to default configuration.
     (Closes: Bug#105807, #106245, #106255, #107260, #107353)
-   - Added rewrite possibilites for queries.
+   - Support for rewriting queries before sending.
     (Closes: Bug#84192, #84161, #105888)
-   - Added support for querying via HTTP.
+   - Support for querying via http (requires Lynx) and rwhois.
+   - Support for whois-servers.net.
+   - for more info, see upstream NEWS file.
   * Upped Standards-Version to 3.5.4.
 
  -- peter karlsson <peterk@debian.org>  UNRELEASED
