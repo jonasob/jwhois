@@ -10,6 +10,7 @@
 	* include/jwhois.h: Fixed syntax errors (Miloslav Trmac)
 	* src/jwhois.c: Fixed double free on double redirection
 	  (Miloslav Trmac)
+	* TODO: IDNA wanted.
 
 2004-05-21  Jonas Oberg <jonas@gnu.org>
 

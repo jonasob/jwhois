@@ -10,3 +10,4 @@
  * John Green <j.green@ukerna.ac.uk>: Sent patch to make rwhois work on
 solaris 2.7
 
+* IDNA support.
