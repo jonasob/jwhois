@@ -2,7 +2,7 @@
 # Copyright © 1999
 # Peter Karlsson <peter@softwolves.pp.se>, 1999.
 #
-# $Id: sv.po,v 1.2 1999/12/01 19:59:29 jonas Exp $
+# $Id: sv.po,v 1.3 1999/12/01 22:52:23 peter Exp $
 #, fuzzy
 msgid ""
 msgstr ""
@@ -103,18 +103,20 @@ msgid ""
 "  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
 "  -v, --verbose           verbose debug output\n"
 msgstr ""
-"  --version             visa versionsnummer och patchnivå\n"
-"  --help                visa denna hjälptext\n"
-"  -c FIL, --config=FIL  använd FIL som konfigurationsfil\n"
-"  -h VÄRD, --host=VÄRD  fråga explicit VÄRD\n"
-"  -p PORT, --port=PORT  använd portnummer PORT (i samband med VÄRD)\n"
-"  -v, --verbose         berättande debugutdata\n"
+"  --version               visa versionsnummer och patchnivå\n"
+"  --help                  visa denna hjälptext\n"
+"  -c FIL, --config=FIL    använd FIL som konfigurationsfil\n"
+"  -h VÄRD, --host=VÄRD    fråga explicit VÄRD\n"
+"  -p PORT, --port=PORT    använd portnummer PORT (i samband med VÄRD)\n"
+"  -v, --verbose           berättande debugutdata\n"
 
 #: src/init.c:94
 msgid ""
 "  -f, --force-lookup      force lookup even if the entry is cached\n"
 "  -d, --disable-cache     disable cache functions\n"
 msgstr ""
+"  -f, --force-lookup      framtvinga uppslagning även om posten finns i cache\n"
+"  -d, --disable-cache     stäng av cachefunktionaliteten\n"
 
 #: src/init.c:97
 msgid "Report bugs to jonas@coyote.org"
