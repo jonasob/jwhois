@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2001-01-09 20:11+0100\n"
+"POT-Creation-Date: 2001-08-28 20:19+0200\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -15,15 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/cache.c:140
-msgid "invalid expire time"
+#, fuzzy
+msgid "Invalid expire time"
 msgstr "неверное время обновления"
 
 #: src/cache.c:141
 msgid "using defaults"
 msgstr "использование умолчаний"
 
-#: src/cache.c:155 src/init.c:180 src/init.c:189
-msgid "unable to open"
+#: src/cache.c:155
+#, fuzzy
+msgid "Unable to open"
 msgstr "невозможно открыть"
 
 #: src/cache.c:156 src/cache.c:165
@@ -31,10 +33,11 @@ msgid "disabling cache"
 msgstr "запрещение кэша"
 
 #: src/cache.c:164
-msgid "unable to store data in database"
+#, fuzzy
+msgid "Unable to store data in database"
 msgstr "невозможно сохранить данные в базе данных"
 
-#: src/dns.c:89
+#: src/dns.c:88
 msgid "host not found"
 msgstr "хост не найден"
 
@@ -86,11 +89,11 @@ msgstr "Системная ошибка"
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
-#: src/init.c:77
-msgid "Copyright (C) 1999  Free Software Foundation, Inc."
+#: src/init.c:111
+msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
 msgstr ""
 
-#: src/init.c:78
+#: src/init.c:112
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -99,99 +102,156 @@ msgstr ""
 "ОТСУТСТВИЕМ ГАРАНТИИ; вы можете распространять её под условиями\n"
 "Генеральной Общедоступной Лицензии GNU."
 
-#: src/init.c:81
+#: src/init.c:115
 msgid "version"
 msgstr "версия"
 
-#: src/init.c:85
+#: src/init.c:119
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Использование: jwhois [ПАРАМЕТРЫ] [ЗАПРОС]"
 
-#: src/init.c:87
+#: src/init.c:121
 msgid ""
 "  --version               display version number and patch level\n"
-"  --help                  display this help\n"
-"  -c FILE, --config=FILE  use FILE as configuration file\n"
-"  -h HOST, --host=HOST    explicitly query HOST\n"
-"  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
-"  -v, --verbose           verbose debug output\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version               отобразить номера версии и патча\n"
-"  --help                  отобразить эту подсказку\n"
-"  -c FILE, --config=FILE  использовать FILE как конфигурационный файл\n"
-"  -h HOST, --host=HOST    запрашивать именно этот HOST\n"
-"  -p PORT, --port=PORT    использовать номер порта PORT (совместно с HOST)\n"
-"  -v, --verbose           Подробный отладочный вывод\n"
 
-#: src/init.c:95
+#: src/init.c:136
+#, fuzzy
 msgid ""
-"  -f, --force-lookup      force lookup even if the entry is cached\n"
-"  -d, --disable-cache     disable cache functions\n"
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
 msgstr ""
 "  -f, --force-lookup      просматривать, даже если запись кэширована\n"
 "  -d, --disable-cache     запретить функции кэша\n"
 
-#: src/init.c:98
+#: src/init.c:139
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Сообщать об ошибкаx на bug-jwhois@gnu.org"
 
-#: src/init.c:157
-msgid "invalid port number"
+#: src/init.c:226
+msgid "Invalid limit"
+msgstr ""
+
+#: src/init.c:240
+#, fuzzy
+msgid "Invalid port number"
 msgstr "неверный номер порта"
 
-#: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
-#: src/jwhois.c:165
+#: src/init.c:263 src/init.c:272
+msgid "unable to open"
+msgstr "невозможно открыть"
+
+#: src/jconfig.c:250 src/jconfig.c:272 src/jconfig.c:326 src/jconfig.c:383
+#: src/jwhois.c:89
 msgid "error allocating memory"
 msgstr "ошибка при выделении памяти"
 
-#: src/jconfig.c:238 src/jconfig.c:292
+#: src/jconfig.c:280 src/jconfig.c:334
 msgid "string out of bounds on line"
 msgstr "строка вышла за границы"
 
-#: src/jconfig.c:264
+#: src/jconfig.c:306
 msgid "end of file looking for '\"' on line"
 msgstr ""
 
-#: src/jconfig.c:321
+#: src/jconfig.c:363
 msgid "unexpected end of file on line"
 msgstr "неожиданный конец файла в строке"
 
-#: src/jconfig.c:380
+#: src/jconfig.c:431
 msgid "multiple keys on line"
 msgstr "множественные ключи в строке"
 
-#: src/jconfig.c:390
+#: src/jconfig.c:441
 msgid "missing key on line"
 msgstr "отсутствует ключ в строке"
 
-#: src/jwhois.c:98
-msgid "error creating socket"
-msgstr "ошибка создания сокета"
-
-#: src/jwhois.c:195
+#: src/jwhois.c:119
 msgid "fatal error searching for host to query"
 msgstr "фатальная ошибка при поиске хоста для запроса"
 
-#: src/jwhois.c:206
+#: src/jwhois.c:130
 msgid "error reading cache"
 msgstr "фатальная ошибка при чтении кэша"
 
-#: src/jwhois.c:211
+#: src/jwhois.c:135
 msgid "cached"
 msgstr "кэшировано"
 
-#: src/jwhois.c:231
-msgid "error reading data from"
-msgstr "ошибка чтения данных из"
-
-#: src/jwhois.c:244
+#: src/jwhois.c:161
 msgid "error writing to cache"
 msgstr "фатальная ошибка записи в кэш"
 
-#: src/lookup.c:101
+#: src/lookup.c:102
 msgid "invalid netmask on line"
 msgstr "неверный параметр netmask в строке"
 
-#: src/lookup.c:366 src/lookup.c:370
-msgid "redirected to"
+#. Go on and do something
+#: src/http.c:168 src/lookup.c:254
+msgid "Querying"
+msgstr ""
+
+#: src/lookup.c:359 src/lookup.c:363
+#, fuzzy
+msgid "Redirected to"
 msgstr "перенаправлено к"
+
+#: src/http.c:66
+#, c-format
+msgid "Web configuration for server %s is incomplete:\n"
+msgstr ""
+
+#: src/http.c:68 src/http.c:69 src/http.c:70
+#, c-format
+msgid "Option %s is missing"
+msgstr ""
+
+#: src/http.c:80
+msgid "Option http-method must be \"GET\" or \"POST\"."
+msgstr ""
+
+#: src/http.c:88 src/http.c:97 src/http.c:138
+#, c-format
+msgid "Option %s is not configured: Cannot run web browser."
+msgstr ""
+
+#. Drats!
+#: src/http.c:192
+msgid "Unable to run web browser"
+msgstr ""
+
+#~ msgid ""
+#~ "  --version               display version number and patch level\n"
+#~ "  --help                  display this help\n"
+#~ "  -c FILE, --config=FILE  use FILE as configuration file\n"
+#~ "  -h HOST, --host=HOST    explicitly query HOST\n"
+#~ "  -p PORT, --port=PORT    use port number PORT (in conjunction with "
+#~ "HOST)\n"
+#~ "  -v, --verbose           verbose debug output\n"
+#~ msgstr ""
+#~ "  --version               отобразить номера версии и патча\n"
+#~ "  --help                  отобразить эту подсказку\n"
+#~ "  -c FILE, --config=FILE  использовать FILE как конфигурационный файл\n"
+#~ "  -h HOST, --host=HOST    запрашивать именно этот HOST\n"
+#~ "  -p PORT, --port=PORT    использовать номер порта PORT (совместно с "
+#~ "HOST)\n"
+#~ "  -v, --verbose           Подробный отладочный вывод\n"
+
+#~ msgid "error creating socket"
+#~ msgstr "ошибка создания сокета"
+
+#~ msgid "error reading data from"
+#~ msgstr "ошибка чтения данных из"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-08-26 21:19+0200\n"
+"POT-Creation-Date: 2001-08-28 20:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,51 +144,80 @@ msgstr ""
 msgid "unable to open"
 msgstr ""
 
-#: src/jconfig.c:248 src/jconfig.c:270 src/jconfig.c:324 src/jconfig.c:381
-#: src/jwhois.c:78
+#: src/jconfig.c:250 src/jconfig.c:272 src/jconfig.c:326 src/jconfig.c:383
+#: src/jwhois.c:89
 msgid "error allocating memory"
 msgstr ""
 
-#: src/jconfig.c:278 src/jconfig.c:332
+#: src/jconfig.c:280 src/jconfig.c:334
 msgid "string out of bounds on line"
 msgstr ""
 
-#: src/jconfig.c:304
+#: src/jconfig.c:306
 msgid "end of file looking for '\"' on line"
 msgstr ""
 
-#: src/jconfig.c:361
+#: src/jconfig.c:363
 msgid "unexpected end of file on line"
 msgstr ""
 
-#: src/jconfig.c:429
+#: src/jconfig.c:431
 msgid "multiple keys on line"
 msgstr ""
 
-#: src/jconfig.c:439
+#: src/jconfig.c:441
 msgid "missing key on line"
 msgstr ""
 
-#: src/jwhois.c:107
+#: src/jwhois.c:119
 msgid "fatal error searching for host to query"
 msgstr ""
 
-#: src/jwhois.c:118
+#: src/jwhois.c:130
 msgid "error reading cache"
 msgstr ""
 
-#: src/jwhois.c:123
+#: src/jwhois.c:135
 msgid "cached"
 msgstr ""
 
-#: src/jwhois.c:146
+#: src/jwhois.c:161
 msgid "error writing to cache"
 msgstr ""
 
-#: src/lookup.c:101
+#: src/lookup.c:102
 msgid "invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:361 src/lookup.c:365
+#. Go on and do something
+#: src/http.c:168 src/lookup.c:254
+msgid "Querying"
+msgstr ""
+
+#: src/lookup.c:359 src/lookup.c:363
 msgid "Redirected to"
+msgstr ""
+
+#: src/http.c:66
+#, c-format
+msgid "Web configuration for server %s is incomplete:\n"
+msgstr ""
+
+#: src/http.c:68 src/http.c:69 src/http.c:70
+#, c-format
+msgid "Option %s is missing"
+msgstr ""
+
+#: src/http.c:80
+msgid "Option http-method must be \"GET\" or \"POST\"."
+msgstr ""
+
+#: src/http.c:88 src/http.c:97 src/http.c:138
+#, c-format
+msgid "Option %s is not configured: Cannot run web browser."
+msgstr ""
+
+#. Drats!
+#: src/http.c:192
+msgid "Unable to run web browser"
 msgstr ""

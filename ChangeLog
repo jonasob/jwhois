@@ -5,6 +5,7 @@
 	  stdout, e.g Lynx.
 	* example/jwhois.conf: Query whois.co.za and www.nic-se.se via
 	  HTTP.
+	* po/POTFILES.in, jwhois.pot, ru.po, sv.po: Updated gettext files.
 
 2001-08-27  peter karlsson <peter@softwolves.pp.se>
 

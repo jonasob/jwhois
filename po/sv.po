@@ -5,34 +5,34 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4\n"
-"POT-Creation-Date: 2001-01-28 14:53+0100\n"
-"PO-Revision-Date: 2001-03-18 12:02+0100\n"
+"POT-Creation-Date: 2001-08-28 20:19+0200\n"
+"PO-Revision-Date: 2001-08-28 20:27+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/cache.c:140
-msgid "invalid expire time"
-msgstr "ogiltigt slutdatum"
+msgid "Invalid expire time"
+msgstr "Ogiltigt slutdatum"
 
 #: src/cache.c:141
 msgid "using defaults"
 msgstr "använder standardvärden"
 
-#: src/cache.c:155 src/init.c:189 src/init.c:198
-msgid "unable to open"
-msgstr "kan ej öppna"
+#: src/cache.c:155
+msgid "Unable to open"
+msgstr "Kan ej öppna"
 
 #: src/cache.c:156 src/cache.c:165
 msgid "disabling cache"
 msgstr "stänger av cache"
 
 #: src/cache.c:164
-msgid "unable to store data in database"
-msgstr "kan inte lagra data i databasen"
+msgid "Unable to store data in database"
+msgstr "Kan inte lagra data i databasen"
 
-#: src/dns.c:89
+#: src/dns.c:88
 msgid "host not found"
 msgstr "värden kunde inte hittas"
 
@@ -84,11 +84,11 @@ msgstr "Systemfel"
 msgid "Unknown error"
 msgstr "Okänt fel"
 
-#: src/init.c:81
-msgid "Copyright (C) 1999  Free Software Foundation, Inc."
-msgstr "Copyright © 1999  Free Software Foundation, Inc."
+#: src/init.c:111
+msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+msgstr "Copyright © 1999,2001  Free Software Foundation, Inc."
 
-#: src/init.c:82
+#: src/init.c:112
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -96,107 +96,156 @@ msgstr ""
 "Detta program är fri programvara UTAN NÅGON SOM HELST GARANTI; du kan\n"
 "distribuera det under villkoren i GNU General Public License."
 
-#: src/init.c:85
+#: src/init.c:115
 msgid "version"
 msgstr "version"
 
-#: src/init.c:89
+#: src/init.c:119
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Användning: jwhois [FLAGGOR] [FRÅGA]"
 
-#: src/init.c:91
+#: src/init.c:121
 msgid ""
 "  --version               display version number and patch level\n"
-"  --help                  display this help\n"
-"  -c FILE, --config=FILE  use FILE as configuration file\n"
-"  -h HOST, --host=HOST    explicitly query HOST\n"
-"  -n, --no-redirect       disable content redirection\n"
-"  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
-"  -v, --verbose           verbose debug output\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version               visa versionsnummer och patchnivå\n"
-"  --help                  visa denna hjälptext\n"
-"  -c FIL, --config=FIL    använd FIL som konfigurationsfil\n"
-"  -h VÄRD, --host=VÄRD    fråga explicit VÄRD\n"
-"  -n, --no-redirect       deaktivera omdirigering av innehåll\n"
-"  -p PORT, --port=PORT    använd portnummer PORT (i kombination med VÄRD)\n"
-"  -v, --verbose           berättande felsökningsutdata\n"
+"  --version                  visa versionsnummer och patchnivå\n"
+"  --help                     visa denna hjälptext\n"
+"  -v, --verbose              berättande felsökningsutdata\n"
+"  -c FIL, --config=FIL       använd FIL som konfigurationsfil\n"
+"  -h VÄRD, --host=VÄRD       fråga explicit VÄRD\n"
+"  -n, --no-redirect          deaktivera omdirigering av innehåll\n"
+"  -s, --no-whoisservers      deaktivera stöd för whois-servers.net-tjänsten\n"
+"  -a, --raw                  deaktivera omformatering av frågan\n"
+"  -i, --display-redirections visa alla omdirigeringar istället för att\n"
+"                             dölja dem\n"
+"  -p PORT, --port=PORT       använd portnummer PORT (i kombination med VÄRD)\n"
+"  -r, --rwhois               tvinga fram en rwhois-fråga\n"
+"  --rwhois-display=VISNING   sätter visningsflaggan i rwhois-frågor\n"
+"  --rwhois-limit=GRÄNS       sötter max antal träffar att returnera\n"
 
-#: src/init.c:100
+#: src/init.c:136
 msgid ""
-"  -f, --force-lookup      force lookup even if the entry is cached\n"
-"  -d, --disable-cache     disable cache functions\n"
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup      framtvinga uppslagning även om posten finns i "
+"  -f, --force-lookup         framtvinga uppslagning även om posten finns i "
 "cache\n"
-"  -d, --disable-cache     stäng av cachefunktionaliteten\n"
+"  -d, --disable-cache        stäng av cachefunktionaliteten\n"
 
-#: src/init.c:103
+#: src/init.c:139
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
 "Rapportera fel till <bug-jwhois@gnu.org>\n"
 "Skicka anmärkningar på översättningen till <peter@softwolves.pp.se>"
 
-#: src/init.c:166
-msgid "invalid port number"
-msgstr "felaktigt portnummer"
+#: src/init.c:226
+msgid "Invalid limit"
+msgstr "Ogiltig gräns"
 
-#: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
-#: src/jwhois.c:166
+#: src/init.c:240
+msgid "Invalid port number"
+msgstr "Felaktigt portnummer"
+
+#: src/init.c:263 src/init.c:272
+msgid "unable to open"
+msgstr "kan ej öppna"
+
+#: src/jconfig.c:250 src/jconfig.c:272 src/jconfig.c:326 src/jconfig.c:383
+#: src/jwhois.c:89
 msgid "error allocating memory"
 msgstr "fel vid allokering av minne"
 
-#: src/jconfig.c:238 src/jconfig.c:292
+#: src/jconfig.c:280 src/jconfig.c:334
 msgid "string out of bounds on line"
 msgstr "sträng utanför gränserna på rad"
 
-#: src/jconfig.c:264
+#: src/jconfig.c:306
 msgid "end of file looking for '\"' on line"
 msgstr "filslut då '\"' förväntades på rad"
 
-#: src/jconfig.c:321
+#: src/jconfig.c:363
 msgid "unexpected end of file on line"
 msgstr "oväntat filslut på rad"
 
-#: src/jconfig.c:380
+#: src/jconfig.c:431
 msgid "multiple keys on line"
 msgstr "flera nycklar på rad"
 
-#: src/jconfig.c:390
+#: src/jconfig.c:441
 msgid "missing key on line"
 msgstr "saknad nyckel på rad"
 
-#: src/jwhois.c:98
-msgid "error creating socket"
-msgstr "fel vid skapande av uttag (socket)"
-
-#: src/jwhois.c:196
+#: src/jwhois.c:119
 msgid "fatal error searching for host to query"
 msgstr "allvarligt fel under sökning efter värd att fråga"
 
-#: src/jwhois.c:207
+#: src/jwhois.c:130
 msgid "error reading cache"
 msgstr "fel vid läsning av cache"
 
-#: src/jwhois.c:212
+#: src/jwhois.c:135
 msgid "cached"
 msgstr "cachad"
 
-#: src/jwhois.c:232
-msgid "error reading data from"
-msgstr "fel vid läsning av data från"
-
-#: src/jwhois.c:252
+#: src/jwhois.c:161
 msgid "error writing to cache"
 msgstr "fel vid skrivning till cache"
 
-#: src/lookup.c:101
+#: src/lookup.c:102
 msgid "invalid netmask on line"
 msgstr "ogiltig nätmask på rad"
 
-#: src/lookup.c:366 src/lookup.c:370
-msgid "redirected to"
-msgstr "omdirigerad till"
+#. Go on and do something
+#: src/http.c:168 src/lookup.c:254
+msgid "Querying"
+msgstr "Frågar"
+
+#: src/lookup.c:359 src/lookup.c:363
+msgid "Redirected to"
+msgstr "Omdirigerad till"
+
+#: src/http.c:66
+#, c-format
+msgid "Web configuration for server %s is incomplete:\n"
+msgstr "Webbinställningar för servern %s är ej kompletta:\n"
+
+#: src/http.c:68 src/http.c:69 src/http.c:70
+#, c-format
+msgid "Option %s is missing"
+msgstr "Inställningen %s saknas"
+
+#: src/http.c:80
+msgid "Option http-method must be \"GET\" or \"POST\"."
+msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\"."
+
+#: src/http.c:88 src/http.c:97 src/http.c:138
+#, c-format
+msgid "Option %s is not configured: Cannot run web browser."
+msgstr "Inställningen %s ej konfigurerad: Kan inte köra webbläsare."
+
+#. Drats!
+#: src/http.c:192
+msgid "Unable to run web browser"
+msgstr "Kan inte starta webbläsare"
+
+#~ msgid "error creating socket"
+#~ msgstr "fel vid skapande av uttag (socket)"
+
+#~ msgid "error reading data from"
+#~ msgstr "fel vid läsning av data från"
 
 #~ msgid "Copyright (C) 1999 Jonas Öberg"
 #~ msgstr "Copyright © 1999 Jonas Öberg"
