@@ -1,14 +1,13 @@
 # Swedish messages for jwhois
-# Copyright © 1999
-# Peter Karlsson <peter@softwolves.pp.se>, 1999.
+# Copyright © 1999,2001
+# Peter Karlsson <peter@softwolves.pp.se>, 2001.
 #
-# $Id: sv.po,v 1.13 2001/01/11 20:53:30 jonas Exp $
-#, fuzzy
+# $Id: sv.po,v 1.14 2001/02/12 20:36:42 peterk Exp $
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4\n"
 "POT-Creation-Date: 2001-01-09 20:11+0100\n"
-"PO-Revision-Date: 1999-12-20 19:30+0100\n"
+"PO-Revision-Date: 2001-02-12 21:00+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
