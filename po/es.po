@@ -1,12 +1,12 @@
-# Mensajes en español para jwhois-3.2.0.
-# Copyright (C) 2001, 2002 Free Software Foundation, Inc.
-# Cristian Othón Martínez Vera <cfuga@itam.mx>, 2001, 2002.
+# Mensajes en español para jwhois-3.2.1.
+# Copyright (C) 2001, 2002, 2003 Free Software Foundation, Inc.
+# Cristian Othón Martínez Vera <cfuga@itam.mx>, 2001, 2002, 2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.2.0\n"
+"Project-Id-Version: jwhois 3.2.1\n"
 "POT-Creation-Date: 2003-01-31 19:39+0100\n"
-"PO-Revision-Date: 2002-05-05 11:47-0600\n"
+"PO-Revision-Date: 2003-02-03 00:47-0600\n"
 "Last-Translator: Cristian Othón Martínez Vera <cfuga@itam.mx>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -170,7 +170,7 @@ msgstr "La opción http-method debe ser \"GET\" o \"POST\".\n"
 #. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
-msgstr ""
+msgstr "No se puede crear el fichero temporal"
 
 #. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
@@ -222,31 +222,24 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  muestra el número de la versión y el nivel de "
-"parches\n"
+"  --version                  muestra el número de la versión y el nivel de parches\n"
 "  --help                     muestra esta ayuda\n"
 "  -v, --verbose              salida de depuración con detalle\n"
 "  -c FICH, --config=FICH     usa FICHero como fichero de configuración\n"
 "  -h ANF, --host=ANF         pregunta explícitamente por el ANFitrión\n"
 "  -n, --no-redirect          desactiva la redirección de contenido\n"
-"  -s, --no-whoisservers      desactiva el soporte al servicio de whois-"
-"servers.net\n"
+"  -s, --no-whoisservers      desactiva el soporte al servicio de whois-servers.net\n"
 "  -a, --raw                  desactiva el reformato de la pregunta\n"
-"  -i, --display-redirections muestra todas las redirecciones en vez de "
-"ocultarlas\n"
-"  -p PUERTO, --port=PUERTO   usa el número de puerto PUERTO (junto con "
-"ANFitrión)\n"
+"  -i, --display-redirections muestra todas las redirecciones en vez de ocultarlas\n"
+"  -p PUERTO, --port=PUERTO   usa el número de puerto PUERTO (junto con ANFitrión)\n"
 "  -r, --rwhois               forza que se haga una pregunta rwhois\n"
-"  --rwhois-display=MOSTRAR   establece la opción de muestra en preguntas "
-"whois\n"
-"  --rwhois-limit=LÍMITE      establece el número máximo de coincidencias a "
-"entregar\n"
+"  --rwhois-display=MOSTRAR   establece la opción de muestra en preguntas whois\n"
+"  --rwhois-limit=LÍMITE      establece el número máximo de coincidencias a entregar\n"
 
 # fuerza. sv
 # Corregido. cfuga
@@ -255,8 +248,7 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         fuerza la búsqueda aún si la entrada está en "
-"caché\n"
+"  -f, --force-lookup         fuerza la búsqueda aún si la entrada está en caché\n"
 "  -d, --disable-cache        desactiva las funciones de caché\n"
 
 # Comunicar bichos (bueno, si no pones bichos no pasa nada). sv
