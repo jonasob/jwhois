@@ -859,7 +859,7 @@ if test "${with_localedir+set}" = set; then
   withval="$with_localedir"
   localedir=$withval
 else
-  localedir='${prefix}/share/locale'
+  localedir=${prefix}/share/locale
 fi
 
 
