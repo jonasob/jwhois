@@ -352,6 +352,7 @@ lookup_redirect(wq, text)
 		    {
 		      printf("[%s %s]\n", _("Redirected to"), wq->host);
 		    }
+                  wq->domain = NULL;
 		  return 1;
 		}
 	      else if (ind == -2)

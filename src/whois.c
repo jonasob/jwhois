@@ -74,6 +74,7 @@ whois_query(wq, text)
         }
       strncpy(tmpqstring, wq->query, strlen(wq->query));
       strcat(tmpqstring, "\r\n");
+
       write(sockfd, tmpqstring, strlen(tmpqstring));
 
       ret = whois_read(sockfd, text, wq->host);
@@ -88,7 +89,7 @@ whois_query(wq, text)
         {
           ret = lookup_redirect(wq, *text);
           if ((ret < 0) || (ret == 0)) break;
-	  jwhois_query(wq, text);
+          return 1;
 	  break;
         }
       else

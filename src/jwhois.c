@@ -168,14 +168,18 @@ jwhois_query(wq, text)
      struct s_whois_query *wq;
      char **text;
 {
-  char *tmp, *tmp2;
+  char *tmp, *tmp2, *oldquery;
   int ret;
 
   if (!display_redirections)
     *text = NULL;
   
   if (!raw_query)
+    {
+      oldquery = malloc(strlen(wq->query)+1);
+      strncpy(oldquery, wq->query, strlen(wq->query)+1);
       wq->query = (char *)lookup_query_format(wq);
+    }
 
   tmp = (char *)get_whois_server_option(wq->host, "rwhois");
   tmp2 = (char *)get_whois_server_option(wq->host, "http");
@@ -195,6 +199,8 @@ jwhois_query(wq, text)
 	  ret = whois_query(wq, text);
 	}
     }
+
+  wq->query = oldquery;
 
   if (ret < 0)
     {
