@@ -5,7 +5,7 @@ jwhois (3.2.3-1) unstable; urgency=low
    (Closes: Bug#188423)
    - Changes to default configuration.
    (Closes: Bug#299787, #299788, #299893, #300189, #300191, #300382,
-            Bug#300384)
+            Bug#300384, #300535, #300586)
 
  -- Peter Karlsson <peterk@debian.og>  UNRELEASED
 
