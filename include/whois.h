@@ -16,8 +16,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#ifndef _WHOIS_H
-#define _WHOIS_H
+#ifndef WHOIS_H
+#define WHOIS_H
 
 struct s_whois_query {
   char *host;
@@ -28,4 +28,4 @@ struct s_whois_query {
 
 int whois_query(struct s_whois_query *, char **);
 
-#endif /* _WHOIS_H */
+#endif /* WHOIS_H */

@@ -1,3 +1,9 @@
+2002-07-14  Peter Karlsson <peter@softwolves.pp.se>
+
+	* include/cache.h, dns.h, gai_strerror.h, http.h, init.h, jconfig.h,
+	  jwhois.h, lookup.h, rwhois.h, utils.h, whois.h
+	Remove leading underscores from user-defined macros.
+
 2002-07-06  Peter Karlsson <peter@softwolves.pp.se>
 
 	* examples/jwhois.conf: Added 221.0.0.0/8.

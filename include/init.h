@@ -16,8 +16,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#ifndef _INIT_H
-#define _INIT_H
+#ifndef INIT_H
+#define INIT_H
 
 void help_version(int onlyversion);
 int parse_args(int *argc, char ***argv);

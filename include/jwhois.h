@@ -16,8 +16,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#ifndef _JWHOIS_H
-#define _JWHOIS_H
+#ifndef JWHOIS_H
+#define JWHOIS_H
 
 #ifndef HAVE_MEMCPY
 # define memcpy(d, s, n) bcopy ((s), (d), (n))
@@ -57,4 +57,4 @@ extern int rwhois_limit;
 extern char *rwhois_display;
 extern int enable_whoisservers;
 
-#endif /* _JWHOIS_H */
+#endif /* JWHOIS_H */

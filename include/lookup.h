@@ -16,8 +16,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#ifndef _LOOKUP_H
-#define _LOOKUP_H
+#ifndef LOOKUP_H
+#define LOOKUP_H
 
 int lookup_host(struct s_whois_query *, const char *);
 int lookup_redirect(struct s_whois_query *, const char *);

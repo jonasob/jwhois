@@ -16,8 +16,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#ifndef _DNS_H
-#define _DNS_H
+#ifndef DNS_H
+#define DNS_H
 
 int lookup_host_saddr(struct sockaddr_in *res, const char *host, int port);
 int lookup_host_addrinfo(struct addrinfo **res, const char *host, int port);

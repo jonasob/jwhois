@@ -16,8 +16,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#ifndef _RWHOIS_H
-#define _RWHOIS_H
+#ifndef RWHOIS_H
+#define RWHOIS_H
 
 int rwhois_query(struct s_whois_query *, char **);
 
