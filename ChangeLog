@@ -1,3 +1,8 @@
+2002-04-08  peter karlsson <peter@softwolves.pp.se>
+
+	* examples/jwhois.c: Added .ag and .ai.
+	  (Lee Maguire, Debian bug#141817 and #141818)
+
 2002-04-02  peter karlsson <peter@softwolves.pp.se>
 
 	* src/lookup.c: Applied bugfix patch from Jason Harris.
