@@ -1,3 +1,11 @@
+Changes in jwhois 2.2
+
+ * Support for specifying CIDR blocks in the configuration file.
+ * More advanced features added to the configuration file.
+ * Port number separated from host names and IP numbers with space
+   instead of colon in configuration file.
+ * Support for IPv6 hosts
+
 Changes in jwhois 2.1
 
  * Default configuration file location changed from DATADIR to SYSCONFDIR

@@ -74,26 +74,35 @@ void help(void)
 }
 
 /*
- *  Makes a query to a host for `val'.
+ *  Makes a query to a host for `val'.  If the port number is zero, the default
+ *  value from IPPORT_WHOIS will be used instead.
  */
 void query_host(val, host, port)
      char *val;
      char *host;
      int port;
 {
-  int sockfd, ret;
+  int error, sockfd, ret;
+  char *command;
+#ifdef HAVE_GETADDRINFO
+  struct addrinfo hints, *res;
+  struct sockaddr *sa;
+#else
   struct protoent *pent;
   struct sockaddr_in remote;
   struct hostent *hostent;
-  char *command;
+#endif
 
   command = malloc(MAXBUFSIZE);
   if (!command)
     {
-      perror("");
+      perror("malloc");
       exit(1);
     }
+
+#ifndef HAVE_GETADDRINFO
   remote.sin_family = AF_INET;
+  if (!port) port = IPPORT_WHOIS;
   remote.sin_port = htons(port);
 #ifdef HAVE_INET_ATON
   ret = inet_aton(host, &remote.sin_addr.s_addr);
@@ -120,29 +129,72 @@ void query_host(val, host, port)
       perror("Can not create socket");
       exit(1);
     }
-  ret = connect(sockfd, (struct sockaddr *)&remote, sizeof(struct sockaddr));
-  if (ret == -1)
+  error = connect(sockfd, (struct sockaddr *)&remote, sizeof(struct sockaddr));
+  if (error == -1)
     {
       perror(host);
       exit(1);
     }
-  fprintf(stderr, "[%s]\n", host);
-  write(sockfd, val, strlen(val));
-  write(sockfd, "\r\n", 2);
-  while (ret = read(sockfd, command, MAXBUFSIZE))
+
+#else /* HAVE_GETADDRINFO */
+
+  memset(&hints, 0, sizeof(hints));
+  hints.ai_family = PF_UNSPEC;
+
+  hints.ai_socktype = SOCK_STREAM;
+  if (port)
+    sprintf(command, "%d", port);
+  else
+    sprintf(command, "%s", "whois");
+
+  error = getaddrinfo(host, command, &hints, &res);
+  if (error)
     {
-      fwrite(command, ret, 1, stdout);
+      perror(gai_strerror(error));
+      exit(1);
     }
-  close(sockfd);
+  else
+    {
+      while (res)
+	{
+	  sa = res->ai_addr;
+	  sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
+	  if (sockfd == -1)
+	    {
+	      perror("socket");
+	      exit(1);
+	    }
+	  error = connect(sockfd, res->ai_addr, res->ai_addrlen);
+	  if (error == -1)
+	    perror("connect");
+	  else
+	    break;
+	  res = res->ai_next;
+	}
+    }
+#endif
+
+  if (error != -1)
+    {
+      printf("[%s]\n", host);
+      write(sockfd, val, strlen(val));
+      write(sockfd, "\r\n", 2);
+      while (ret = read(sockfd, command, MAXBUFSIZE))
+	{
+	  fwrite(command, ret, 1, stdout);
+	}
+      close(sockfd);
+    }
 }
 
 
 /*
- *  Looks up an IP address `val' against ip-blocks and returns a pointer
+ *  Looks up an IP address `val' against `block' and returns a pointer
  *  if an entry is found, otherwise NULL.
  */
-char *find_ip(val)
+char *find_cidr(val, block)
      char *val;
+     char *block;
 {
   struct in_addr ip;
   struct in_addr ipmask;
@@ -159,30 +211,32 @@ char *find_ip(val)
   ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
 
   jconfig_set();
-  while (j = jconfig_next("jwhois.ip-blocks"))
+  while (j = jconfig_next(block))
     {
-      if (!strcasecmp(j->key, "default"))
-	{
-	  ipmask.s_addr = 0;
-	}
-      else
-	{
-	  res = sscanf(j->key, "%d.%d.%d.%d/%d", &a0, &a1, &a2, &a3,
-		       &bits);
-	  if (res != 5)
-	    {
-	      fprintf(stderr, "Invalid netmask (%s) near line %d in"
-		      " configuration file",
-		      j->key, j->line);
-	      exit(1);
-	    }
-	  ipmask.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
-	  ipmask.s_addr &= (0xffffffff>>bits);
-	}
-      if ((ip.s_addr & ipmask.s_addr) == ipmask.s_addr)
-	{
-	  host = j->value;
-	}
+      if (strcasecmp(j->key, "type") != 0) {
+	if (!strcasecmp(j->key, "default"))
+	  {
+	    ipmask.s_addr = 0;
+	  }
+	else
+	  {
+	    res = sscanf(j->key, "%d.%d.%d.%d/%d", &a0, &a1, &a2, &a3,
+			 &bits);
+	    if (res != 5)
+	      {
+		fprintf(stderr, "Invalid netmask (%s) near line %d in"
+			" configuration file",
+			j->key, j->line);
+		exit(1);
+	      }
+	    ipmask.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+	    ipmask.s_addr &= (0xffffffff>>bits);
+	  }
+	if ((ip.s_addr & ipmask.s_addr) == ipmask.s_addr)
+	  {
+	    host = j->value;
+	  }
+      }
     }
   jconfig_end();
 
@@ -190,52 +244,90 @@ char *find_ip(val)
 }
 
 /*
- *  Traverses the configuration file, looking for a match to `val'.
- *  Sets host and port if one is found and returns 1.
+ *  Looks up a string `val' against `block'. Returns a pointer to
+ *  a hostname if found, or else NULL.
  */
-int find_host(val, host, port)
+char *find_regex(val, block)
      char *val;
-     char **host;
-     int *port;
+     char *block;
 {
   struct jconfig *j;
   struct re_pattern_buffer      rpb;
-  char *error, *ret, *foundhost = NULL, *tmphost;
+  char *error, *ret, *host = NULL;
   int ind;
 
   jconfig_set();
-  while (j = jconfig_next("jwhois.whois-servers"))
+  while (j = jconfig_next(block))
     {
-      rpb.allocated = 0;
-      rpb.buffer = (unsigned char *)NULL;
-      rpb.translate = rpb.fastmap = (char *)NULL;
-      if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
-	{
-	  perror(error);
-	  exit(1);
-	}
-      ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
-      if (ind == 0)
-	{
-	  foundhost = j->value;
-	  if (strcasecmp(foundhost, "ip") == 0)
-	    foundhost = find_ip(val);
-	}
-      else if (ind == -2)
-	{
-	  fprintf(stderr, "re_search internal error\n");
-	  exit(1);
-	}
+      if (strcasecmp(j->key, "type") != 0) {
+	rpb.allocated = 0;
+	rpb.buffer = (unsigned char *)NULL;
+	rpb.translate = rpb.fastmap = (char *)NULL;
+	if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
+	  {
+	    perror(error);
+	    exit(1);
+	  }
+	ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
+	if (ind == 0)
+	  {
+	    host = j->value;
+	  }
+	else if (ind == -2)
+	  {
+	    fprintf(stderr, "re_search internal error\n");
+	    exit(1);
+	  }
+      }
     }
   jconfig_end();
 
-  if (!foundhost) return 0;
+  return host;
+}
 
-  *host = foundhost;
-  *port = IPPORT_WHOIS;
-  if (strchr(foundhost, ':'))
+/*
+ *  Looks up a host and port number from the
+ *  material supplied in `val' using `block' as starting point.
+ *  Returns 1 on success.
+ */
+int lookup_host(val, block, host, port)
+     char *val;
+     char *block;
+     char **host;
+     int *port;
+{
+  char deepfreeze[512];
+  char *tmpdeep, *tmphost;
+  struct jconfig *j;
+  char *ret;
+
+  if (!val) return 0;
+  if (!block)
+    strcpy(deepfreeze, "jwhois.whois-servers");
+  else
+    sprintf(deepfreeze, "jwhois.%s", block);
+
+  jconfig_set();
+  j = jconfig_getone(deepfreeze, "type");
+  if (!j)
+    *host = find_regex(val, deepfreeze);
+  else
+    if (strcasecmp(j->value, "regex") == 0)
+      *host = find_regex(val, deepfreeze);
+    else
+      *host = find_cidr(val, deepfreeze);
+
+  if (!*host) return 0;
+
+  if (strncasecmp(*host, "struct", 6) == 0) {
+    tmpdeep = *host+7;
+    return lookup_host(val, tmpdeep, host, port);
+  }
+
+  *port = 0;
+  if (strchr(*host, ' '))
     {
-      tmphost = (char *)strchr(foundhost, ':');
+      tmphost = (char *)strchr(*host, ' ');
 #ifdef HAVE_STRTOL
       *port = strtol((char *)(tmphost+1), &ret, 10);
       if (*ret != '\0')
@@ -243,7 +335,7 @@ int find_host(val, host, port)
 	  fprintf(stderr, "%s: %s %s %s\n",
 		  PACKAGE,
 		  "Invalid port number for host",
-		  host,
+		  *host,
 		  "in config file");
 	  exit(1);
 	}
@@ -259,7 +351,7 @@ int main(argc, argv)
      int argc;
      char **argv;
 {
-  int optch, option_index, port;
+  int optch, option_index, port = 0;
   char *config = NULL, *host = NULL, *errmsg, *ret;
   FILE *in;
   
@@ -340,11 +432,11 @@ int main(argc, argv)
 	}
       else
 	{
-	  if (find_host(argv[optind++], &host, &port)) {
+	  if (lookup_host(argv[optind++], NULL, &host, &port)) {
 	    query_host(argv[optind-1], host, port);
 	  }
 	  else
-	    query_host(argv[optind-1], DEFAULTHOST, IPPORT_WHOIS);
+	    query_host(argv[optind-1], DEFAULTHOST, 0);
 	}
     }
   

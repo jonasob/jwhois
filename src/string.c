@@ -51,3 +51,34 @@ strcasecmp (s1, s2)
 }
 
 #endif
+
+#ifndef HAVE_STRNCASECMP
+
+int
+strncasecmp (s1, s2)
+     const char s1;
+     const char s2;
+     int i;
+{
+  const unsigned char *p1 = (const unsigned char *)s1;
+  const unsigned char *p2 = (const unsigned char *)s2;
+  unsigned char c1, c2;
+
+  if (p1 == p2)
+    return 0;
+  if (i == 0)
+    return 0;
+
+  do
+    {
+      c1 = tolower(*p1++);
+      c2 = tolower(*p2++);
+      if (c1 == '\0')
+	break;
+    }
+  while ( (c1 == c2) && (i-- > 0) );
+
+  return c1 - c2;
+}
+
+#endif

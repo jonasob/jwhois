@@ -1,4 +1,23 @@
+1999-10-03  Jonas Oberg  <jor@circuitous-route.coyote.org>
+
+	* src/jwhois.c (query_host): Converted to getaddrinfo and
+	added conditionals in case getaddrinfo should be missing
+	(revert back to gethostbyname et al)
+	(lookup_host): Changed separator between port number and
+	IP/host to space from colon to maintain a decent compatibility with
+	IPv6 hosts.
+
 1999-10-02  Jonas Oberg  <jor@circuitous-route.coyote.org>
+
+	* src/string.c (strncasecmp): Added function
+
+	* src/jconfig.c (jconfig_getone): Added function
+
+	* src/jwhois.c (main,find_cidr,find_regex): Finalized structure of
+	configuration file
+
+	* configure.in: Fixed so that libnsl is linked only if gethostbyname
+	is in it and not when gethostbyname is in libc.
 
 	* Released version 2.2pre0
 

@@ -20,6 +20,14 @@ directed to a default host. The default value is `whois.internic.net',
 but this can be changed by using the --enable-DEFAULTHOST switch to
 the configure script.
 
+IPv6 Support
+============
+
+   jwhois has support for IPv6 using the inet6-apps package from The
+Inner Net.  The package is delivered with the libinet6.a library which
+consists of a number of functions required for IPv6, such as improved
+versions of getaddrinfo().  If your systems C library already has support
+for IPv6 in getaddrinfo(), you don't need the inet6-apps package.
 
 Basic Installation
 ==================

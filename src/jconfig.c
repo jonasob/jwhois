@@ -29,6 +29,10 @@
 static struct jconfig *jconfig_tmpptr = NULL;
 static struct jconfig *jconfig_ptr = NULL;
 
+/*
+ *  Resets the pointer to point to the first entry in linked list
+ *  containing the configuration parameters.
+ */
 void jconfig_set(void)
 {
   jconfig_tmpptr = jconfig_ptr;
@@ -40,6 +44,39 @@ void jconfig_end(void)
   return;
 }
 
+/*
+ *  Finds the first occurance in the configuration which matches the domain
+ *  and key supplied to the function.
+ */
+struct jconfig *jconfig_getone(domain, key)
+     char *domain;
+     char *key;
+{
+  struct jconfig *ptr;
+  
+  if (!jconfig_tmpptr)
+    {
+      return NULL;
+    }
+
+  while (jconfig_tmpptr)
+    {
+      if ( (char *)strcasecmp(jconfig_tmpptr->domain, domain) == 0)
+	{
+	  if ( (char *)strcasecmp(jconfig_tmpptr->key, key) == 0)
+	    {
+	      return jconfig_tmpptr;
+	    }
+	}
+      jconfig_tmpptr = jconfig_tmpptr->next;
+    }
+  return NULL;
+}
+
+/*
+ *  Returns a pointer to the next entry in the configuration file which
+ *  matches the specified domain.
+ */
 struct jconfig *jconfig_next(domain)
      char *domain;
 {
@@ -63,6 +100,11 @@ struct jconfig *jconfig_next(domain)
   return NULL;
 }
 
+/*
+ *  Adds a key/value pair to the specified domain. line can be used to
+ *  pass information to the application on where in the configuration file
+ *  this pair was found.
+ */
 int jconfig_add(domain, key, value, line)
      char *domain;
      char *key;
@@ -70,6 +112,15 @@ int jconfig_add(domain, key, value, line)
      int line;
 {
   struct jconfig *ptr;
+  char *tmps;
+
+  while (isspace(*value)) value++;
+  while (isspace(*domain)) domain++;
+  while (isspace(*key)) key++;
+  tmps = value+strlen(value)-1; while (isspace(*tmps)) { *tmps = 0; tmps--; }
+  tmps = domain+strlen(domain)-1; while (isspace(*tmps)) { *tmps = 0; tmps--; }
+  tmps = key+strlen(key)-1; while (isspace(*tmps)) { *tmps = 0; tmps--; }
+
   ptr = malloc(sizeof(struct jconfig));
   if (!ptr)
     {
@@ -102,19 +153,22 @@ int jconfig_add(domain, key, value, line)
   ptr->line = line;
   ptr->next = jconfig_ptr;
   jconfig_ptr = ptr;
+
   return 1;
 }
 
+/*
+ *  Frees all allocated memory.
+ */
 void jconfig_free(void)
 {
   struct jconfig *ptr;
   
-  while (jconfig_ptr)
-    {
-      free(jconfig_ptr->value);
-      free(jconfig_ptr->key);
-      ptr = jconfig_ptr;
-      jconfig_ptr = jconfig_ptr->next;
-      free(ptr);
-    }
+  while (jconfig_ptr) {
+    free(jconfig_ptr->value);
+    free(jconfig_ptr->key);
+    ptr = jconfig_ptr;
+    jconfig_ptr = jconfig_ptr->next;
+    free(ptr);
+  }
 }

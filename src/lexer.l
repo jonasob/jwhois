@@ -46,7 +46,7 @@ YY_BUFFER_STATE includes[INCLUDE_DEPTH];
 int includes_ptr = 0;
 %}
 
-TOKEN	[A-Za-z0-9-]*
+TOKEN	[A-Za-z0-9. -]*
 
 %x BLOCK VALUE INCLUDE
 %option noyywrap

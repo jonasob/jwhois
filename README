@@ -1,7 +1,14 @@
-This is jwhois, an improved whois client.
+This is jwhois, an improved Whois client capable of selecting Whois server
+to query based on a flexible configuration file using either regular
+expressions or CIDR blocks.
 
 Please send bug reports, suggestions, improvements, rewrites and other
 material to jonas@coyote.org.
+
+jwhois has been successfully compiled on atleast these platforms:
+
+   Debian GNU/Linux potato
+   Solaris 2.5.1
 
 ====[ Obtaining JWHOIS ]======================================================
 JWHOIS can be obtained via anonymous FTP from

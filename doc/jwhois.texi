@@ -137,37 +137,28 @@ $ jwhois -h whois.ripe.net -- "-i admin-c,tech-c,zone-c CO19-RIPE"
 
 @sc{jwhois} is configurable via its @file{jwhois.conf} file. This file
 is looked for in the sysconfdir that was specified when compiling the
-program (default is @file{/usr/local/etc}). If this file can not be
+program (default is @file{/usr/local/etc/}). If this file can not be
 found, it will look for it in datadir (default is @file{/usr/local/share}).
 If no configuration file can be found, @sc{jwhois} will default all queries
-to @url{whois.internic.net}.
+to @url{whois.internic.net} or the DEFAULTHOST that was specified when
+compiling the program.
 
 An example configuration file that includes most known Whois servers can be
 found in the @code{example} subdirectory of the official distribution.
 
-In the @samp{whois-servers} block, the configuration file matches
-regular expressions to a Whois server name. When reading this list
-of hosts, jwhois starts at the bottom and works its way up, querying
-the last host that matched the regular expression.
+The configuration file is split into a number of blocks. Each block
+can be associated with a type, either @samp{cidr} or @samp{regex}.
+@sc{jwhois} will first look for matches in the @samp{whois-servers} block
+and follow the instructions given.
 
-Here is an example of such a block:
+All blocks consists of a number of key and value pairs.
 
-@example
-whois-servers @{
-        ".*\.se$" = "whois.nic-se.se";
-        ".*" = "whois.internic.net";
-@};
-@end example
+The value of each pair can be either a host name, optionally postfixed
+with with an alternative port number (separated from the host name or
+IP number by a single space), or the special token @samp{struct} which
+redirects the query to another block.
 
-This would query the Whois server @samp{whois.nic-se.se} if the user were
-to supply the query @samp{sunet.se}, or any other query that would match
-the first specified regular expressions. All queries that could not be
-matched against this regular expression would instead be matched against
-the last expression, thus making the query go to the @samp{whois.internic.net}
-Whois server.
-
-The host name can be postfixed with @samp{:port} to specify an alternative
-port number to use when querying that host.
+The special key token @samp{type} defines the type for the given block.
 
 @node Reporting bugs,  , Site Configuration, Top
 @chapter Reporting bugs
