@@ -20,6 +20,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include "whois.h"
+
 char *get_whois_server_domain_path(const char *hostname);
 char *get_whois_server_option(const char *hostname, const char *key);
 char *create_string(const char *fmt, ...);
