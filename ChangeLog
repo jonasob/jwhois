@@ -1,3 +1,8 @@
+Wed Dec 02 10:46:55 1999  Peter Karlsson <peter@softwolevs.pp.se>
+
+        * src/lookup.c: Fixed a cosmetic problem with the routine that
+                        prints the address in a redirection.
+
 Wed Dec 01 23:59:59 1999  Peter Karlsson <peter@softwolves.pp.se>
 
         * example/jwhois.conf: Added an entry for .no
