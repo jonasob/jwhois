@@ -93,6 +93,12 @@ make_connect(host, port)
     {
       sa = res->ai_addr;
       sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
+      if (sockfd == -1 && res->ai_family == PF_INET6 && res->ai_next)
+        {
+          /* Operating system seems to lack IPv6 support, try next entry */
+          res = res->ai_next;
+          continue;
+        }
       if (sockfd == -1)
 	{
 	  printf("[%s]\n", _("error creating socket"));
