@@ -670,7 +670,7 @@ lookup_query_format(struct s_whois_query *wq)
                         }
 
                       /* Add fields if we have a valid range */
-                      if (startfield || endfield && startfield >= endfield)
+                      if ((startfield || endfield) && startfield <= endfield)
                         {
                           add_part(&tmpptr, wq->query, startfield, endfield, &tmpqstring, &buflen);
                         }
