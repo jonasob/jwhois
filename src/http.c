@@ -58,7 +58,9 @@ int http_query(struct s_whois_query *wq, char **text)
     char *url;
     char *browser;
     char *browser_arg;
+    char *post_file;
     int isget = 1;
+    int post_as_file = 0;
     int to_browser[2];
     int from_browser[2];
     struct jconfig *j;
@@ -102,6 +104,12 @@ int http_query(struct s_whois_query *wq, char **text)
     }
     browser_arg = j->value;
 
+    j = jconfig_getone("jwhois", "post-as-file");
+    if (j && 0 == strcasecmp(j->value, "true"))
+    {
+        post_as_file = 1;
+    }
+
     /* Build command line */
     if (isget)
     {
@@ -143,13 +151,14 @@ int http_query(struct s_whois_query *wq, char **text)
     else
     {
         struct jconfig *j;
+        int i = 0;
 
-        command = (char **) malloc(sizeof (char *) * 6);
+        command = (char **) malloc(sizeof (char *) * (6 + post_as_file));
         if (!command) return -1;
 
-        command[0] = browser;
-        command[1] = command[0];
-        command[2] = browser_arg;
+        command[i ++] = browser;
+        command[i ++] = command[0];
+        command[i ++] = browser_arg;
 
         j = jconfig_getone("jwhois", "browser-postarg");
         if (!j)
@@ -158,16 +167,66 @@ int http_query(struct s_whois_query *wq, char **text)
                    "browser-postarg");
             return -1;
         }
-        command[3] = j->value;
+        command[i ++] = j->value;
 
-        command[4] = (char *) malloc(strlen("http://") + strlen(wq->host) +
+        if (post_as_file)
+        {
+            /* Create a temporary file to store POST data in */
+            FILE *postdata;
+            char tmpfilename[FILENAME_MAX];
+            char *tmpdir;
+            int fd;
+
+            /* Use $TMPDIR if defined */
+            if ((tmpdir = getenv("TMPDIR")) != NULL)
+            {
+                snprintf(tmpfilename, FILENAME_MAX, "%s/jwhoisXXXXXX", tmpdir);
+            }
+            else
+            {
+                strcpy(tmpfilename, "/tmp/jwhoisXXXXXX");
+            }
+
+            /* Create the file */
+            fd = mkstemp(tmpfilename);
+            if (-1 == fd)
+            {
+                /* Couldn't create temporary file for POST data */
+                printf("[HTTP: %s: %s]\n", _("Unable to create temporary file"), strerror(errno));
+                exit(-1);
+            }
+
+            postdata = fdopen(fd, "w");
+
+            if (format)
+            {
+                /* Query already formatted */
+                fprintf(postdata, "%s\n",
+                        wq->query);
+            }
+            else
+            {
+                /* Format query using supplied data */
+                fprintf(postdata, "%s=%s%s%s\n",
+                        element, wq->query,
+                        extra ? "&" : "", extra ? extra : "");
+            }
+            fclose(postdata);
+
+            /* Remember file name so we can clean it up later. */
+            command[i ++] = post_file = strdup(tmpfilename);
+        }
+
+        command[i] = (char *) malloc(strlen("http://") + strlen(wq->host) +
                                      strlen(action) + 1);
-        if (!command[4]) return -1;
-        sprintf(command[4], "http://%s%s",
+        if (!command[i]) return -1;
+        sprintf(command[i], "http://%s%s",
                 wq->host, action);
-        command[5] = NULL;
+        i ++;
 
-        url = command[4];
+        command[i ++] = NULL;
+
+        url = command[i - 2];
     }
 
     if (verbose > 1)
@@ -226,7 +285,7 @@ int http_query(struct s_whois_query *wq, char **text)
         close(to_browser[0]);
         close(from_browser[1]);
 
-        if (!isget)
+        if (!isget && !post_as_file)
         {
             /* Send POST data */
             if (format)
@@ -266,6 +325,13 @@ int http_query(struct s_whois_query *wq, char **text)
     free(url);
     free(command);
     wait(NULL);
+
+    if (post_as_file)
+    {
+        /* Kill the temporary file */
+        remove(post_file);
+        free(post_file);
+    }
 
     return 0;
 }

@@ -250,6 +250,7 @@ can change this option to the domain name you want.
 @item browser-pathname
 @item browser-stdarg
 @item browser-postarg
+@item post-as-file
 These options control the HTTP support on @sc{jwhois}.
 @option{browser-pathname} should be set to the path
 and executable of the browser you wish to use to download
@@ -262,11 +263,19 @@ options to the standard output. @sc{jwhois} catches
 this information and displays it to the user.
 
 @option{browser-postarg} sets the arguments used to
-enable a @sc{lynx}-style processing of POST requests.
-A @sc{lynx}-style processing means that the program,
-when passed this option, should accept one variable
-per line of input on standard input, ended with three
-dashes.
+enable a processing of POST requests.
+
+@option{post-as-file} selects the way POST data is sent to
+the browser. If set to @sc{true}, @sc{lynx}-style processing
+is enabled, which means that the program,
+when passed the option specified in @option{browser-postarg},
+should accept one variable per line of input on standard input,
+terminated with three dashes.
+If set to @sc{false}, @{w3m}-style processing is enabled,
+which means that the program, when passed this option,
+should consider the parameter that follows the one specified
+in @option{browser-postarg} as a file name from which to read
+POST data.
 
 @end table
 

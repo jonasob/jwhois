@@ -1,3 +1,8 @@
+2002-07-19  Peter Karlsson <peter@softwolves.pp.se>
+
+	* src/http.c, example/jwhois.conf, doc/jwhois.texi: Added support
+	  for sending POST data to the W3M text mode browser.
+
 2002-07-19  Lee Maguire <lee@hexkey.co.uk>
 
 	* example/jwhois.conf: Added .sr (Suriname), .tv (Tuvalu),
