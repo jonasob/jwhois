@@ -1,3 +1,8 @@
+2001-11-29  peter karlsson <peter@softwolves.pp.se>
+
+	* src/http.c: Fix buffer overrun for the GET method.
+	  (Klaus Alexander Seistrup, Debian bug#121743)
+
 2001-11-29  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jconfig.c (jconfig_getone): Fixed bug which made the
