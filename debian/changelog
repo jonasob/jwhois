@@ -2,14 +2,19 @@ jwhois (2.4.3-1) unstable; urgency=low
 
   * New upstream release:
    - Add option to not follow redirections.
-   - Updates to default configuration.
-     (Closes: Bug#86245, #86167, #86563)
-   - Updates to documentation.
-     (Closes: Bug#84180)
+
+ -- peter karlsson <peterk@debian.org>  UNRELEASED
+
+jwhois (2.4.2-4) unstable; urgency=low
+
+  * Updates to default configuration.
+    (Closes: Bug#86245, #86167, #86563)
+  * Updates to documentation.
+    (Closes: Bug#84180)
   * Removed misunderstood dpkg-statoverride usage from maintainer scripts.
   * Updated Build-Depends and upped Standards-Version to 3.2.1.
 
- -- peter karlsson <peterk@debian.org>  UNRELEASED
+ -- peter karlsson <peterk@debian.org>  Sun, 18 Mar 2001 11:40:00 +0100
 
 jwhois (2.4.2-3) unstable; urgency=low
 
