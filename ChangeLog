@@ -1,5 +1,10 @@
 2002-04-10  peter karlsson <peter@softwolves.pp.se>
 
+	* examples/jwhois.conf: List .com, .net and .org explictly.
+	  (Lee Maguire, Debian bug#142181)
+
+2002-04-10  peter karlsson <peter@softwolves.pp.se>
+
 	* examples/jwhois.conf: Added .bi, .cg and .rw.
 	  (Lee Maguire, Debian bug#141961)
 
