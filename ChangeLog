@@ -1,3 +1,7 @@
+2002-07-24  Lee Maguire <lee@hexkey.co.uk>
+	* example/jwhois.conf: Updated ng (Nigeria), is (Iceland),
+	  ug (Uganda).
+
 2002-07-19  Peter Karlsson <peter@softwolves.pp.se>
 
 	* src/http.c, example/jwhois.conf, doc/jwhois.texi: Added support
