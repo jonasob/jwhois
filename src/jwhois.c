@@ -237,6 +237,10 @@ main(argc, argv)
           ret = lookup_redirect(host, NULL, text, &host, &port);
           if ((ret < 0) || (ret == 0)) break;
         }
+      else
+        {
+          break;
+        }
     }
       
 #ifndef NOCACHE
