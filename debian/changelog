@@ -1,0 +1,9 @@
+jwhois (2.2-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Per Lundberg <plundis@debian.org>  Sun, 14 Nov 1999 16:37:27 +0100
+
+Local variables:
+mode: debian-changelog
+End:
