@@ -36,6 +36,9 @@
 #ifdef HAVE_NETDB_H
 # include <netdb.h>
 #endif
+#ifdef HAVE_LOCALE_H
+# include <locale.h>
+#endif
 
 #include <jconfig.h>
 #include <jwhois.h>

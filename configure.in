@@ -87,7 +87,7 @@ AC_CHECK_LIB(inet6, main,
 AC_CHECK_FUNCS(memcpy strtol)
 AC_CHECK_FUNCS(strcasecmp strncasecmp getopt_long)
 AC_STDC_HEADERS
-AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h sys/time.h sys/stat.h sys/fcntl.h libintl.h malloc.h)
+AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h sys/time.h sys/stat.h sys/fcntl.h libintl.h malloc.h locale.h)
 AC_HEADER_TIME
 
 found=no

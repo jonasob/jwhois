@@ -28,6 +28,7 @@ CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
          -DLOCALEDIR="\"$(localedir)\""
 
 INCLUDES = -I$(top_srcdir)/include
+LIBS = @INTLLIBS@ @LIBS@
 
 install-exec-hook:
 	if test "@cache@" = "yes" ; then \

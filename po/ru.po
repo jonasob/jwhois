@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2001-08-28 21:28+0200\n"
+"POT-Creation-Date: 2001-09-08 12:00+0200\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -14,27 +14,19 @@ msgstr ""
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:140
+#: src/cache.c:139
 #, fuzzy
 msgid "Invalid expire time"
 msgstr "неверное время обновления"
 
-#: src/cache.c:141
-msgid "using defaults"
-msgstr "использование умолчаний"
-
-#: src/cache.c:155
+#: src/cache.c:152 src/init.c:263 src/init.c:272
 #, fuzzy
 msgid "Unable to open"
 msgstr "невозможно открыть"
 
-#: src/cache.c:156 src/cache.c:165
-msgid "disabling cache"
-msgstr "запрещение кэша"
-
-#: src/cache.c:164
+#: src/cache.c:161
 #, fuzzy
-msgid "Unable to store data in database"
+msgid "Unable to store data in cache]\n"
 msgstr "невозможно сохранить данные в базе данных"
 
 #: src/dns.c:88
@@ -148,34 +140,27 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: src/http.c:66
-#, c-format
-msgid "Web configuration for server %s is incomplete:\n"
+#: src/http.c:67
+msgid "HTTP configuration is incomplete:"
 msgstr ""
 
-#: src/http.c:68 src/http.c:69 src/http.c:70
-#, c-format
-msgid "Option %s is missing.\n"
+#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
+#: src/http.c:138
+msgid "Option is missing:"
 msgstr ""
 
 #: src/http.c:80
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
-#: src/http.c:88 src/http.c:97 src/http.c:138
-#, c-format
-msgid "Option %s is not configured: Cannot run web browser."
-msgstr ""
-
 #. Go on and do something
-#: src/http.c:168 src/lookup.c:254 src/rwhois.c:124 src/whois.c:58
+#: src/http.c:168 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
 msgid "Querying"
 msgstr ""
 
-#. Drats!
-#: src/http.c:192
+#: src/http.c:193
 #, fuzzy
-msgid "Unable to run web browser."
+msgid "Unable to run web browser"
 msgstr "невозможно открыть"
 
 #: src/init.c:111
@@ -239,75 +224,121 @@ msgstr ""
 msgid "Invalid port number"
 msgstr "неверный номер порта"
 
-#: src/init.c:263 src/init.c:272
-msgid "unable to open"
-msgstr "невозможно открыть"
-
-#: src/jconfig.c:250 src/jconfig.c:272 src/jconfig.c:326 src/jconfig.c:383
-#: src/jwhois.c:89 src/whois.c:79
-msgid "error allocating memory"
+#: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
+#: src/jwhois.c:89 src/utils.c:96 src/utils.c:106 src/whois.c:72
+#, fuzzy
+msgid "Error allocating memory"
 msgstr "ошибка при выделении памяти"
 
-#: src/jconfig.c:280 src/jconfig.c:334
-msgid "string out of bounds on line"
+#: src/jconfig.c:282 src/jconfig.c:336
+#, fuzzy
+msgid "String out of bounds on line"
 msgstr "строка вышла за границы"
 
-#: src/jconfig.c:306
-msgid "end of file looking for '\"' on line"
+#: src/jconfig.c:308
+msgid "End of file looking for '\"' on line"
 msgstr ""
 
-#: src/jconfig.c:363
-msgid "unexpected end of file on line"
+#: src/jconfig.c:365
+#, fuzzy
+msgid "Unexpected end of file on line"
 msgstr "неожиданный конец файла в строке"
 
-#: src/jconfig.c:431
-msgid "multiple keys on line"
+#: src/jconfig.c:433
+#, fuzzy
+msgid "Multiple keys on line"
 msgstr "множественные ключи в строке"
 
-#: src/jconfig.c:441
-msgid "missing key on line"
+#: src/jconfig.c:443
+#, fuzzy
+msgid "Missing key on line"
 msgstr "отсутствует ключ в строке"
 
-#: src/jwhois.c:119
-msgid "fatal error searching for host to query"
+#: src/jwhois.c:116
+#, fuzzy
+msgid "Fatal error searching for host to query"
 msgstr "фатальная ошибка при поиске хоста для запроса"
 
 #: src/jwhois.c:130
-msgid "error reading cache"
+#, fuzzy
+msgid "Error reading cache"
 msgstr "фатальная ошибка при чтении кэша"
 
 #: src/jwhois.c:135
-msgid "cached"
+#, fuzzy
+msgid "Cached"
 msgstr "кэшировано"
 
-#: src/jwhois.c:161
-msgid "error writing to cache"
+#: src/jwhois.c:147
+#, fuzzy
+msgid "Error writing to cache"
 msgstr "фатальная ошибка записи в кэш"
 
 #: src/lookup.c:102
-msgid "invalid netmask on line"
+#, fuzzy
+msgid "Invalid netmask on line"
 msgstr "неверный параметр netmask в строке"
 
-#: src/lookup.c:359 src/lookup.c:363
+#: src/lookup.c:349 src/lookup.c:353
 #, fuzzy
 msgid "Redirected to"
 msgstr "перенаправлено к"
 
-#: src/rwhois.c:206
+#: src/rwhois.c:136 src/whois.c:66
+msgid "[Unable to connect to remote host]\n"
+msgstr ""
+
+#: src/rwhois.c:157
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
+msgstr ""
+
+#: src/rwhois.c:195
+msgid "Server does not support display command"
+msgstr ""
+
+#: src/rwhois.c:210
 msgid "Invalid limit in configuration file"
 msgstr ""
 
-#: src/rwhois.c:311
+#: src/rwhois.c:234
+msgid "Server does not support limit"
+msgstr ""
+
+#: src/rwhois.c:278
+#, fuzzy
+msgid "Unknown referral"
+msgstr "Неизвестная ошибка"
+
+#: src/rwhois.c:372
+msgid "Following referral to"
+msgstr ""
+
+#: src/rwhois.c:404
 msgid "[Host terminated connection prematurely]\n"
 msgstr ""
 
-#: src/utils.c:234
-msgid "error creating socket"
+#: src/rwhois.c:480
+msgid "Unhandled reply"
+msgstr ""
+
+#: src/utils.c:236
+#, fuzzy
+msgid "Error creating socket"
 msgstr "ошибка создания сокета"
 
-#: src/whois.c:88
-msgid "error reading data from"
+#: src/whois.c:83
+#, fuzzy
+msgid "Error reading data from"
 msgstr "ошибка чтения данных из"
+
+#~ msgid "using defaults"
+#~ msgstr "использование умолчаний"
+
+#~ msgid "disabling cache"
+#~ msgstr "запрещение кэша"
+
+#~ msgid "unable to open"
+#~ msgstr "невозможно открыть"
 
 #~ msgid ""
 #~ "  --version               display version number and patch level\n"

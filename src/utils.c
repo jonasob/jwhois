@@ -67,7 +67,7 @@ create_string(const char *fmt, ...)
 
   while (1) {
     va_start(ap, fmt);
-    n = vsnprintf(p, size, fmt, ap);
+    n = vsprintf(p, fmt, ap);
     va_end(ap);
     if (n > -1 && n < size)
       return p;
