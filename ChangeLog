@@ -1,3 +1,10 @@
+2001-02-13  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Changed .br, .hu, .ie, .ro. Added .kg, .ws
+	(Lee Maguire)
+
+	* po/sv.po: Updated (again).
+
 2001-02-12  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Changed .de, .hm, .il, .lu. Added .do, .fj,
