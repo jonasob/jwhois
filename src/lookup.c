@@ -74,7 +74,7 @@ find_cidr(struct s_whois_query *wq, const char *block)
   unsigned int a0, a1, a2, a3;
   char *host = NULL;
 
-  res = sscanf(wq->query, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
+  res = sscanf(wq->query, "%u.%u.%u.%u", &a0, &a1, &a2, &a3);
   if (res == 3) a3 = 0;
   else if (res == 2) a2 = a3 = 0;
   else if (res == 1) a1 = a2 = a3 = 0;
@@ -102,9 +102,9 @@ find_cidr(struct s_whois_query *wq, const char *block)
 	  }
 	else
 	  {
-	    res = sscanf(j->key, "%d.%d.%d.%d/%d", &a0, &a1, &a2, &a3,
+	    res = sscanf(j->key, "%u.%u.%u.%u/%u", &a0, &a1, &a2, &a3,
 			 &bits);
-	    if (res != 5 || bits < 0 || bits > 32)
+	    if (res != 5 || bits > 32)
 	      {
 		printf("[%s: %s %d]\n",
 		       config,
@@ -585,7 +585,7 @@ lookup_query_format(struct s_whois_query *wq)
 {
   char *ret = NULL, *tmpqstring, *tmpptr;
   struct jconfig *j = NULL;
-  size_t buflen, bufused, dots;
+  size_t buflen, dots;
 
   if (wq->domain)
     j = jconfig_getone(wq->domain, "query-format");
@@ -679,9 +679,10 @@ lookup_query_format(struct s_whois_query *wq)
                         {
                           if (startfield)
                             {
-                              startfield = dots + 2 - startfield;
-                              if (startfield < 0)
-                                startfield = 1;
+			      if (dots + 2 < startfield)
+				startfield = 1;
+			      else
+				startfield = dots + 2 - startfield;
                             }
                           if (endfield)
                             endfield = dots + 2 - endfield;

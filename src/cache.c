@@ -69,6 +69,8 @@
 #include <jwhois.h>
 #include <cache.h>
 
+#include <string.h>
+
 #ifdef ENABLE_NLS
 # include <libintl.h>
 # define _(s)  gettext(s)
