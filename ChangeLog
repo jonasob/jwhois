@@ -1,3 +1,10 @@
+2002-04-20  peter karlsson <peter@softwolves.pp.se>
+
+	* examples/jwhois.conf: Added .ir, .lb, .tg, .tk, .tn, .ug, .uy,
+	  .vn and .ac.za
+	  (Lee Maguire, Debian bug#142384, #143050, #143184, #143190,
+	                          #143191, #143201)
+
 2002-04-14  peter karlsson <peter@softwolves.pp.se>
 
 	* doc/jwhois.texi: Documented extensions to the query-format
