@@ -75,6 +75,10 @@ problem with jwhois.  When attempting to use the cache feature, the most
 common problem is that jwhois doesn't have permission to write the database
 files that it need.  Use the verbose flag to see if this is indeed the problem.
 
+   If you want to receive even more debugging output, you can specify
+multiple -v switches. If you specify more than one -v switch, debugging output
+is enabled.
+
 5. Obtaining JWHOIS
 ===================
 JWHOIS can be obtained via anonymous FTP from
