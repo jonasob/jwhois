@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois-3.2.0\n"
 "POT-Creation-Date: 2002-04-14 00:11+0100\n"
-"PO-Revision-Date: 2002-06-13 03:00-0300\n"
+"PO-Revision-Date: 2002-06-27 21:50-0300\n"
 "Last-Translator: Alexandre Folle de Menezes <afmenez@terra.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +19,11 @@ msgstr "Horário de expiração inválido"
 
 #: src/cache.c:153 src/init.c:266 src/init.c:275
 msgid "Unable to open"
-msgstr "Incapaz de abrir"
+msgstr "Impossível abrir"
 
 #: src/cache.c:162
 msgid "Unable to store data in cache]\n"
-msgstr "Incapaz de guardar dados no cache]\n"
+msgstr "Impossível guardar dados no cache]\n"
 
 #: src/dns.c:91
 msgid "host not found"
@@ -85,17 +85,17 @@ msgstr "%s: opção `%s' é ambígua\n"
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: opção `--%s' não permite parâmetro\n"
+msgstr "%s: opção `--%s' não permite argumentos\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: opção `%c%s' não permite parâmetro\n"
+msgstr "%s: opção `%c%s' não permite argumentos\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: opção `%s' exige um parâmetro\n"
+msgstr "%s: opção `%s' exige um argumento\n"
 
 #. --option
 #: src/getopt.c:755
@@ -124,7 +124,7 @@ msgstr "%s: opção inválida -- %c\n"
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: opção exige um parâmetro -- %c\n"
+msgstr "%s: opção exige um argumento -- %c\n"
 
 #: src/getopt.c:865
 #, c-format
@@ -134,7 +134,7 @@ msgstr "%s: opção `-W %s' é ambígua\n"
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: opção `-W %s' não permite parâmetro\n"
+msgstr "%s: opção `-W %s' não permite argumentos\n"
 
 #: src/http.c:69
 msgid "HTTP configuration is incomplete:"
@@ -155,7 +155,7 @@ msgstr "Consulta"
 
 #: src/http.c:213
 msgid "Unable to run web browser"
-msgstr "Incapaz de rodar o navegador web"
+msgstr "Impossível rodar o navegador web"
 
 #: src/init.c:116
 msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
@@ -279,7 +279,7 @@ msgstr "Redirecionado para"
 
 #: src/rwhois.c:138 src/whois.c:70
 msgid "[Unable to connect to remote host]\n"
-msgstr "[Incapaz de conectar ao host remoto]\n"
+msgstr "[Impossível conectar ao host remoto]\n"
 
 #: src/rwhois.c:159
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
