@@ -50,6 +50,7 @@ int http_query(struct s_whois_query *wq, char **text)
     const char *method = get_whois_server_option(wq->host, "http-method");
     const char *action = get_whois_server_option(wq->host, "http-action");
     const char *element= get_whois_server_option(wq->host, "form-element");
+    const char *extra  = get_whois_server_option(wq->host, "form-extra");
     char **command;
     char *url;
     char *browser;
@@ -113,10 +114,12 @@ int http_query(struct s_whois_query *wq, char **text)
 
         command[3] = (char *) malloc(strlen("http://") + strlen(wq->host) +
                                      strlen(action) + 1 + strlen(element) + 1 +
-                                     strlen(wq->query));
+                                     strlen(wq->query) +
+                                     (extra ? strlen(extra) + 1 : 0));
         if (!command[3]) return -1;
-        sprintf(command[3], "http://%s%s?%s=%s",
-                wq->host, action, element, wq->query);
+        sprintf(command[3], "http://%s%s?%s=%s%s%s",
+                wq->host, action, element, wq->query,
+                extra ? "&" : "", extra ? extra : "");
         command[4] = NULL;
 
         url = command[3];
@@ -210,9 +213,13 @@ int http_query(struct s_whois_query *wq, char **text)
         if (!isget)
         {
             /* Send POST data */
-            sprintf(data, "%s=%s\n---\n", element, wq->query);
+            sprintf(data, "%s=%s%s%s\n---\n",
+                    element, wq->query,
+                    extra ? "&" : "", extra ? extra : "");
             write(to_browser[1], data, strlen(data) + 1);
         }
+
+        close(to_browser[1]);
 
         /* Get data from browser */
         *text = NULL;
@@ -227,7 +234,6 @@ int http_query(struct s_whois_query *wq, char **text)
         }
 
         close(from_browser[0]);
-        close(to_browser[1]);
     }
 
     /* Cleanup */
