@@ -14,6 +14,7 @@ material to bug-jwhois@gnu.org.
  4.  What to do when things go wrong
  5.  Obtaining jwhois
  6.  What to do after you've gotten things to work
+ 7.  The history of jwhois
 
 1. Configuration File
 =====================
@@ -87,9 +88,25 @@ is enabled.
 JWHOIS can be obtained via anonymous FTP from
 ftp://ftp.gnu.org/gnu/jwhois/
 
-6.  What to do after you've gotten things to work
-=================================================
+6. What to do after you've gotten things to work
+================================================
 
    If you use JWHOIS and find it useful, you could always send a message to
 us at help-jwhois@gnu.org to let us know. You don't have to do this, but we
 would appreciate the gesture :-)
+
+7. The history of jwhois
+========================
+
+   The first public version of jwhois (version 1.1) was released in April
+1999. Since then, some ten public releases has been made, arriving at the
+jwhois as it exists today. Here is a brief outline of the development:
+
+
+   1.1  Written in Perl with a standalone caching proxy.
+   2.0  Rewrite in C. Standalone caching proxy dropped from distribution.
+   2.1  Better documentation. Support for whois servers on other ports than 43.
+   2.2  Support for CIDR blocks and IPv6.
+   2.3  Redirections, caches and i18n are introduced.
+   2.4  Maintanance release preparing for 3.0
+   3.0  Rwhois and http support. Rewriting of queries introduced.
