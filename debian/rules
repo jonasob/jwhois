@@ -31,7 +31,7 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	$(MAKE) install prefix=`pwd`/debian/jwhois/usr
+	$(MAKE) install DESTDIR=`pwd`/debian/jwhois/
 	install -d debian/jwhois/etc
 	install -m644 example/jwhois.conf debian/jwhois/etc
 

@@ -1,3 +1,10 @@
+jwhois (3.0.2-2) unstable; urgency=low
+
+  * Fix build problems.
+    (Closes: Bug#122051)
+
+ -- peter karlsson <peterk@debian.org>  Sun, 02 Dec 2001 20:00:00 +0100
+
 jwhois (3.0.2-1) unstable; urgency=low
 
   * Updates to default configuration:
