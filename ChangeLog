@@ -1,3 +1,8 @@
+2002-03-19  peter karlsson <peter@softwolves.pp.se>
+
+	* examples/jwhois.conf: Updated .mt data.
+	  (Lee Maguire, Debian bug#138488)
+
 2002-02-04  Jonas Oberg  <jonas@gnu.org>
 
 	* src/rwhois.c (rwhois_parse_line): Fix %info
