@@ -151,7 +151,7 @@ cache_init()
   dbf = dbm_open(cfname, DBM_COPTIONS, DBM_MODE);
   if (!dbf)
     {
-      if (verbose) printf("[Debug: Unable to open %s -- disabling cache]\n"),
+      if (verbose) printf("[Debug: Unable to open %s -- disabling cache]\n",
 			  cfname);
       cache = 0;
       return -1;
