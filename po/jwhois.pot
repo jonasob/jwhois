@@ -6,13 +6,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-07-01 20:31+0200\n"
+"POT-Creation-Date: 2001-08-26 21:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: src/cache.c:140
 msgid "Invalid expire time"
@@ -144,28 +144,28 @@ msgstr ""
 msgid "unable to open"
 msgstr ""
 
-#: src/jconfig.c:235 src/jconfig.c:257 src/jconfig.c:311 src/jconfig.c:368
+#: src/jconfig.c:248 src/jconfig.c:270 src/jconfig.c:324 src/jconfig.c:381
 #: src/jwhois.c:78
 msgid "error allocating memory"
 msgstr ""
 
-#: src/jconfig.c:265 src/jconfig.c:319
+#: src/jconfig.c:278 src/jconfig.c:332
 msgid "string out of bounds on line"
 msgstr ""
 
-#: src/jconfig.c:291
+#: src/jconfig.c:304
 msgid "end of file looking for '\"' on line"
 msgstr ""
 
-#: src/jconfig.c:348
+#: src/jconfig.c:361
 msgid "unexpected end of file on line"
 msgstr ""
 
-#: src/jconfig.c:416
+#: src/jconfig.c:429
 msgid "multiple keys on line"
 msgstr ""
 
-#: src/jconfig.c:426
+#: src/jconfig.c:439
 msgid "missing key on line"
 msgstr ""
 
@@ -189,6 +189,6 @@ msgstr ""
 msgid "invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:329 src/lookup.c:333
+#: src/lookup.c:361 src/lookup.c:365
 msgid "Redirected to"
 msgstr ""
