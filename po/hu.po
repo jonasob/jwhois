@@ -1,0 +1,321 @@
+# Translation of the GNU jwhois.
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# Gábor István <stive@mezobereny.hu>, 2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jwhois 3.2.0\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
+"PO-Revision-Date: 2002-06-27 15:48GMT\n"
+"Last-Translator: Gábor István <stive@mezobereny.hu>\n"
+"Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9.5\n"
+
+#: src/cache.c:140
+msgid "Invalid expire time"
+msgstr "Érvénytelen lejárati idõ"
+
+#: src/cache.c:153 src/init.c:266 src/init.c:275
+msgid "Unable to open"
+msgstr "Nem lehet megnyitni"
+
+#: src/cache.c:162
+msgid "Unable to store data in cache]\n"
+msgstr "Nem lehet adatokat tárolni a gyorsítótárban]\n"
+
+#: src/dns.c:91
+msgid "host not found"
+msgstr "a kiszolgáló nincs meg"
+
+#: src/gai_strerror.c:70
+msgid "Address family for hostname not supported"
+msgstr "A kiszolgáló címének a típusa nem támogatott"
+
+#: src/gai_strerror.c:72
+msgid "Temporary failure in name resolution"
+msgstr "Ideiglenesen nem lehetséges a név feloldása"
+
+#: src/gai_strerror.c:74
+msgid "Bad value for ai_flags"
+msgstr "Hibás érték az ai_flags-ben"
+
+#: src/gai_strerror.c:76
+msgid "Non-recoverable failure in name resolution"
+msgstr "Nem helyrehozható hiba a név felodás közben"
+
+#: src/gai_strerror.c:78
+msgid "ai_family not supported"
+msgstr "ai_family nem támogatott"
+
+#: src/gai_strerror.c:80
+msgid "Memory allocation failure"
+msgstr "Memória lefoglalás nem sikerült"
+
+#: src/gai_strerror.c:82
+msgid "No address associated with hostname"
+msgstr "Nincs cím hozzárendelve a kiszolgáló névhez"
+
+#: src/gai_strerror.c:84
+msgid "Name or service not known"
+msgstr "Név vagy a szolgáltatást nem ismerem"
+
+#: src/gai_strerror.c:86
+msgid "Servname not supported for ai_socktype"
+msgstr "A Servname nem tágatja a ai_socktype-ot"
+
+#: src/gai_strerror.c:88
+msgid "ai_socktype not supported"
+msgstr "ai_socktype nem támogatott"
+
+#: src/gai_strerror.c:90
+msgid "System error"
+msgstr "Rendszer hiba"
+
+#: src/gai_strerror.c:92
+msgid "Unknown error"
+msgstr "Ismeretlen hiba"
+
+#: src/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: a `%s' opció nem egyértelmû\n"
+
+#: src/getopt.c:703
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: a `--%s' opció nem enged meg argumentumot\n"
+
+#: src/getopt.c:708
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: a `%c%s' opció nem enged meg argumentumot\n"
+
+#: src/getopt.c:726 src/getopt.c:899
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: a `%s' opcióhoz szükséges egy argumentum\n"
+
+#. --option
+#: src/getopt.c:755
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: ismeretlen opció `--%s'\n"
+
+#. +option or -option
+#: src/getopt.c:759
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: ismeretlen opció `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:785
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: szabálytalan opció -- %c\n"
+
+#: src/getopt.c:788
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: érvénytelen opció -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: src/getopt.c:818 src/getopt.c:948
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: az opcióhoz szükséges egy argumentum -- %c\n"
+
+#: src/getopt.c:865
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: a `-W %s' opció nem egyértelmû\n"
+
+#: src/getopt.c:883
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: a `-W %s' opció nem enged meg argumentumot\n"
+
+#: src/http.c:69
+msgid "HTTP configuration is incomplete:"
+msgstr "A HTTP beállítások elégtelenek:"
+
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99 src/http.c:157
+msgid "Option is missing:"
+msgstr "Opció hibás:"
+
+#: src/http.c:82
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
+msgstr "A HTTP tagfüggvény opciónak vagy \"GET\" vagy \"POST\" típusú kell hogy legyen.\n"
+
+#. Go on and do something
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+msgid "Querying"
+msgstr "Lekéredezés"
+
+#: src/http.c:213
+msgid "Unable to run web browser"
+msgstr "Nem lehet elindítani a web böngészõt"
+
+#: src/init.c:116
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+
+#: src/init.c:117
+msgid ""
+"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
+"redistribute it under the terms of the GNU General Public License."
+msgstr ""
+"Ez a program egy szabad szoftver SEMILYEN GARANCIÁVAL; \n"
+"ön nyugodtan tovább adhatja a GNU nyilvános licenszben foglaltak szerint."
+
+#: src/init.c:120
+msgid "version"
+msgstr "Verzió"
+
+#: src/init.c:124
+msgid "Usage: jwhois [OPTIONS] [QUERY]"
+msgstr "Használat: jwhois [OPCIÓ] [LEKÉRDEZÉS]"
+
+#: src/init.c:126
+msgid ""
+"  --version                  display version number and patch level\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
+msgstr ""
+"  --version                  megjeleníti a verzió számot és a patch szintet\n"
+"  --help                     ezt a segítséget jeleníti meg\n"
+"  -v, --verbose              bõbeszédû üzemmód\n"
+"  -c FÁJL, --config=FÁJL     a FÁJL-t használja konfigurációs állományként\n"
+"  -h KISZOLGÁLÓ, --host=KISZOLGÁLÓ    célirányosan a KISZOLGÁLÓT kérdezi\n"
+"  -n, --no-redirect          letiltja a tartalom átirányítást\n"
+"  -s, --no-whoisservers      letiltja a  whois-servers.net szolgáltatásait\n"
+"  -a, --raw                  letiltja az kérés újra formázását\n"
+"  -i, --display-redirections megjeleníti az összes átirányítást ahelyett hogy elrejtené\n"
+"  -p PORT, --port=PORT       a PORT számot használja (együtt a KISZOLGÁLÓVAL)\n"
+"  -r, --rwhois               kierõleteti a rwhois lekérdezést\n"
+"  --rwhois-display=DISPLAY   beállítja a DISPLAY opciót az rwhois lekérdezéshez\n"
+"  --rwhois-limit=HATÁR       beállítja a maximális találatok számát\n"
+
+#: src/init.c:141
+msgid ""
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
+msgstr ""
+"  -f, --force-lookup         a gyorsítárból probálja keresni a lekéredezéseket\n"
+"  -d, --disable-cache        letiltja a gyorsítótárat\n"
+
+#: src/init.c:144
+msgid "Report bugs to bug-jwhois@gnu.org"
+msgstr "A hibákat  - bug-jwhois@gnu.org címre jelentse"
+
+#: src/init.c:229
+msgid "Invalid limit"
+msgstr "Érvénytelen határ"
+
+#: src/init.c:243
+msgid "Invalid port number"
+msgstr "Érvénytelen port szám"
+
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373 src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97 src/utils.c:107 src/whois.c:76
+msgid "Error allocating memory"
+msgstr "Hiba a memória lefoglalás során"
+
+#: src/jconfig.c:273 src/jconfig.c:325
+msgid "String out of bounds on line"
+msgstr "A sztring túl ért a soron"
+
+#: src/jconfig.c:299
+msgid "End of file looking for '\"' on line"
+msgstr "A fájl vége keresésekor egy idézõjelet találtam"
+
+#: src/jconfig.c:354
+msgid "Unexpected end of file on line"
+msgstr "Nem megfelelõ fájlvég a sorban"
+
+#: src/jconfig.c:421
+msgid "Multiple keys on line"
+msgstr "Több kulcs a sorban"
+
+#: src/jconfig.c:431
+msgid "Missing key on line"
+msgstr "Hibás kulcs a sorban"
+
+#: src/jwhois.c:126
+msgid "Fatal error searching for host to query"
+msgstr "Végzetes hiba a kiszolgáló lekéredezése során"
+
+#: src/jwhois.c:139
+msgid "Error reading cache"
+msgstr "Hiba a gyorsítótár olvasása közben"
+
+#: src/jwhois.c:144
+msgid "Cached"
+msgstr "Gyorstárazva"
+
+#: src/jwhois.c:158
+msgid "Error writing to cache"
+msgstr "Hiba a gyorsítótár olvasása közben"
+
+#: src/lookup.c:111
+msgid "Invalid netmask on line"
+msgstr "Érvénytelen hálózati maszk a sorban"
+
+#: src/lookup.c:407 src/lookup.c:411
+msgid "Redirected to"
+msgstr "Átirányítva"
+
+#: src/rwhois.c:138 src/whois.c:70
+msgid "[Unable to connect to remote host]\n"
+msgstr "[Nem lehet csatlakozni a kiszolgálóhoz]\n"
+
+#: src/rwhois.c:159
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
+msgstr "[RWHOIS: Protokoll hiba a küldés során  -rwhois opció]\n"
+
+#: src/rwhois.c:197
+msgid "Server does not support display command"
+msgstr "Kiszolgáló nem támogatja a display parancsot"
+
+#: src/rwhois.c:212
+msgid "Invalid limit in configuration file"
+msgstr "Érvénytelen határ a konfigurációs állományban"
+
+#: src/rwhois.c:236
+msgid "Server does not support limit"
+msgstr "Kiszolgáló nem támogatja a határokat"
+
+#: src/rwhois.c:278
+msgid "Unknown referral"
+msgstr "Ismeretlen visszajelzés"
+
+#: src/rwhois.c:370
+msgid "Following referral to"
+msgstr "A következõ visszajelzés érkezett"
+
+#: src/rwhois.c:399
+msgid "[Host terminated connection prematurely]\n"
+msgstr "[A kiszolgálóval a kapcsolat idõ elõtt megszakadt]\n"
+
+#: src/rwhois.c:475
+msgid "Unhandled reply"
+msgstr "Kezelhetelen válasz"
+
+#: src/utils.c:232
+msgid "Error creating socket"
+msgstr "Hiba a socket létrehozásakor"
+
+#: src/whois.c:88
+msgid "Error reading data from"
+msgstr "Nem sikerült adatot olvasni innen:"
