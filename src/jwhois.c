@@ -1,22 +1,26 @@
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+# include <config.h>
 #endif
 #ifdef STDC_HEADERS
-#include <stdio.h>
-#include <stdlib.h>
+# include <stdio.h>
+# include <stdlib.h>
 #endif
 
 #ifdef HAVE_SYS_TYPES_H
-#include <sys/types.h>
+# include <sys/types.h>
 #endif
 #ifdef HAVE_SYS_SOCKET_H
-#include <sys/socket.h>
+# include <sys/socket.h>
 #endif
 #ifdef HAVE_NETINET_IN_H
-#include <netinet/in.h>
+# include <netinet/in.h>
 #endif
 #ifdef HAVE_NETDB_H
-#include <netdb.h>
+# include <netdb.h>
+#endif
+
+#ifndef HAVE_MEMCPY
+# define memcpy(d, s, n) bcopy ((s), (d), (n))
 #endif
 
 #include <jconfig.h>
@@ -64,18 +68,21 @@ int query_host(char *host, char *val)
 	}
 	remote.sin_family = AF_INET;
 	remote.sin_port = htons(IPPORT_WHOIS);
+#ifdef HAVE_INET_ATON
 	ret = inet_aton(host, &remote.sin_addr.s_addr);
+#else
+	remote.sin_addr.s_addr = inet_addr(host);
+	if (remote.sin_addr.s_addr == -1)
+		ret = 0;
+#endif
 	if (!ret) {
 		hostent = gethostbyname(host);
 		if (!hostent) {
 			fprintf(stderr, "%s: host unknown\n", host);
 			exit(1);
 		}
-		ret = inet_aton(inet_ntoa(*(struct in_addr *)(hostent->h_addr_list[0])), &remote.sin_addr.s_addr);
-		if (!ret) {
-			fprintf(stderr, "%s: error looking up host\n", host);
-			exit(1);
-		}
+		memcpy(&remote.sin_addr.s_addr, hostent->h_addr_list[0],
+			sizeof(remote.sin_addr.s_addr));
 	}
 	sockfd = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
 	if (!sockfd) {

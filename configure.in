@@ -15,7 +15,11 @@ AM_PROG_LEX
 AC_PROG_RANLIB
 
 AC_CHECK_LIB(fl, yywrap)
+AC_CHECK_LIB(l, yywrap)
+AC_CHECK_LIB(nsl, gethostbyname)
+AC_CHECK_LIB(socket, connect)
 
+AC_CHECK_FUNCS(inet_aton memcpy)
 AC_STDC_HEADERS
 AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h)
 
