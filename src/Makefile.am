@@ -19,7 +19,12 @@
 ##
 
 bin_PROGRAMS = jwhois
-jwhois_SOURCES = jwhois.c lexer.l jconfig.c string.c getopt.c getopt1.c regex.c gai_strerror.c
+jwhois_SOURCES = jwhois.c lexer.l jconfig.c string.c getopt.c getopt1.c regex.c gai_strerror.c cache.c
 
-CFLAGS = -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(datadir)\""
+CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(datadir)\""
 INCLUDES = -I$(top_srcdir)/include
+
+install-exec-hook:
+	if test "@cache@" = "yes" ; then \
+	@CHGRP@ @GROUP@ $(bindir)/jwhois; \
+	@CHMOD@ g+s $(bindir)/jwhois; fi

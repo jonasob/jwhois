@@ -1,3 +1,9 @@
+Changes in jwhois 2.3pre2
+
+ * Support for redirection of a query to another server based on
+   returned content from another
+ * Support for cache functionality
+
 Changes in jwhois 2.2
 
  * Support for specifying CIDR blocks in the configuration file.

@@ -58,15 +58,20 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 CC = @CC@
+CHGRP = @CHGRP@
+CHMOD = @CHMOD@
+GROUP = @GROUP@
 LEX = @LEX@
 MAKEINFO = @MAKEINFO@
+OLDCFLAGS = @OLDCFLAGS@
 PACKAGE = @PACKAGE@
 VERSION = @VERSION@
+cache = @cache@
 
 bin_PROGRAMS = jwhois
-jwhois_SOURCES = jwhois.c lexer.l jconfig.c string.c getopt.c getopt1.c regex.c gai_strerror.c
+jwhois_SOURCES = jwhois.c lexer.l jconfig.c string.c getopt.c getopt1.c regex.c gai_strerror.c cache.c
 
-CFLAGS = -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(datadir)\""
+CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(datadir)\""
 INCLUDES = -I$(top_srcdir)/include
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = ../config.h
@@ -79,7 +84,7 @@ CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
 jwhois_OBJECTS =  jwhois.o lexer.o jconfig.o string.o getopt.o getopt1.o \
-regex.o gai_strerror.o
+regex.o gai_strerror.o cache.o
 jwhois_LDADD = $(LDADD)
 jwhois_DEPENDENCIES = 
 jwhois_LDFLAGS = 
@@ -95,9 +100,9 @@ DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
 
 TAR = tar
 GZIP_ENV = --best
-DEP_FILES =  .deps/gai_strerror.P .deps/getopt.P .deps/getopt1.P \
-.deps/jconfig.P .deps/jwhois.P .deps/lexer.P .deps/regex.P \
-.deps/string.P
+DEP_FILES =  .deps/cache.P .deps/gai_strerror.P .deps/getopt.P \
+.deps/getopt1.P .deps/jconfig.P .deps/jwhois.P .deps/lexer.P \
+.deps/regex.P .deps/string.P
 SOURCES = $(jwhois_SOURCES)
 OBJECTS = $(jwhois_OBJECTS)
 
@@ -249,6 +254,8 @@ check: check-am
 installcheck-am:
 installcheck: installcheck-am
 install-exec-am: install-binPROGRAMS
+	@$(NORMAL_INSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) install-exec-hook
 install-exec: install-exec-am
 
 install-data-am:
@@ -313,6 +320,11 @@ uninstall-am uninstall all-redirect all-am all installdirs \
 mostlyclean-generic distclean-generic clean-generic \
 maintainer-clean-generic clean mostlyclean distclean maintainer-clean
 
+
+install-exec-hook:
+	if test "@cache@" = "yes" ; then \
+	@CHGRP@ @GROUP@ $(bindir)/jwhois; \
+	@CHMOD@ g+s $(bindir)/jwhois; fi
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

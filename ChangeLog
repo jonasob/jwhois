@@ -1,3 +1,26 @@
+Sat Nov 20 01:20:47 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/gai_strerror.c (EAI_*: Added definitions
+
+	* src/jwhois.c (query_host): Changed to use cache functions
+	(main): Added extra options for cache functionality control
+
+	* src/cache.c (cache_store): Changed to support the content-redirect
+	block from the configuration file to redirect searches to other hosts.
+
+	* src/cache.c: Added
+
+	* doc/jwhois.texi (Cache Functionality): Added section
+	explaining how cache works.
+
+	* example/jwhois.conf: Added content-redirect block and some
+	extended information on cache configuration options.
+
+	* configure.in: Added options for cache configuration
+	Added warning and disabling of cache if no dbm libraries found
+
+	* README: Added information from INSTALL and info on cache
+
 1999-11-11  Jonas Oberg  <jonas@poledra.coyote.org>
 
 	* configure.in: Added tentative checks for gdbm and ndbm.

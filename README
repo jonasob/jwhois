@@ -5,11 +5,69 @@ expressions or CIDR blocks.
 Please send bug reports, suggestions, improvements, rewrites and other
 material to jonas@coyote.org.
 
-jwhois has been successfully compiled on atleast these platforms:
+ 1.  Configuration file
+ 2.  ./configure
+ 2.1 Default Host
+ 2.2 Cache Functionality
+ 3.  IPv6 support
+ 4.  Obtaining jwhois
 
-   Debian GNU/Linux potato
-   Solaris 2.5.1
+1. Configuration File
+=====================
 
-====[ Obtaining JWHOIS ]======================================================
+   In the example/ subdirectory in the distribution archive is an example
+configuration file for jwhois. This file should contain all of the known
+public Whois server records. Any changes to either host listed in that
+example configuration file should be reported to the maintainer so that
+the change can be included in future releases.
+
+   The configuration file should reside in the /usr/local/etc directory,
+or the directory that you specified using the --sysconfdir switch to the
+configure script.
+
+2. ./configure
+
+2.1. Default Host
+=================
+
+   If jwhois can't find any configuration file, the queries will be
+directed to a default host. The default value is `whois.internic.net',
+but this can be changed by using the --enable-DEFAULTHOST switch to
+the configure script.
+
+2.2. Cache Functionality
+========================
+
+   This version of jwhois includes some experimental code for cache
+functionality. It should be considered an early beta version. What it
+does is that it creates a file in the filesystem (default location is
+/var/lib/jwhois.db, but this can be configured by the --enable-CACHEFILE
+directive to ./configure, or by a token in the configuration file) that
+can be read and written to by a specific group. The jwhois client binary
+is then setgid to that group so that all users can use the same cache.
+
+   The default group is `nogroup' which is probably a sane enough
+alternative that shouldn't impose any security problems. The group can
+be set by calling the configure script with the `--enable-GROUP' parameter,
+or you can modify the group owner and setgid bits manually.
+
+   If the group that jwhois will run as can not write to the directory
+where you tell it to create the database, you have to create the database
+(touch <filename>) manually and change the group and security bits correctly.
+Or you could also allow the group to write in the directory. Please consider
+that you could be using a dbm which uses several files too, such as '.pag'
+and '.dir' and you might have to set correct owner and mode on those too.
+
+3. IPv6 Support
+===============
+
+   jwhois has support for IPv6 using the inet6-apps package from The
+Inner Net.  The package is delivered with the libinet6.a library which
+consists of a number of functions required for IPv6, such as improved
+versions of getaddrinfo().  If your systems C library already has support
+for IPv6 in getaddrinfo(), you don't need the inet6-apps package.
+
+4. Obtaining JWHOIS
+===================
 JWHOIS can be obtained via anonymous FTP from
 ftp://ftp.coyote.org/pub/jwhois/

@@ -7,6 +7,12 @@
 /* Default Whois server */
 #undef DEFAULTHOST
 
+/* Default filename for the cache functionality */
+#undef CACHEFILE
+
+/* Default expire time for the cache functionality */
+#undef CACHEEXPIRE
+
 /* Define if you have the getaddrinfo function.  */
 #undef HAVE_GETADDRINFO
 

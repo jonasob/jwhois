@@ -57,12 +57,21 @@ static struct option long_options[] =
   {"host", 1, 0, 'h'},
   {"port", 1, 0, 'p'},
   {"loop-args", 0, 0, 'l'},
+  {"force-lookup", 0, 0, 'f'},
+  {"disable-cache", 0, 0, 'd'},
+  {"verbose", 0, 0, 'v'},
   {0, 0, 0, 0}
 };
 
+int cache;
+int forcelookup;
+int verbose;
+char *cfname;
+int cfexpire;
+
 void help(void)
 {
-  printf("%s%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
+  printf("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
 	 ", Copyright (C) 1999 Jonas Öberg\n",
 	 "This is free software with ABSOLUTELY NO WARRANTY.\n\n",
 	 "Usage: jwhois [OPTIONS] [QUERIES...]\n",
@@ -73,6 +82,11 @@ void help(void)
 	 "  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n",
 	 "  -l, --loop-args         loop through queries and make one host connection per\n",
 	 "                          query instead of concatenating then together\n",
+#ifdef CACHE
+	 "  -f, --force-lookup      force lookup even if the entry is cached\n",
+	 "  -d, --disable-cache     disable cache functions\n",
+#endif
+	 "  -v, --verbose           verbose output\n",
 	 "\n\nReport bugs to jonas@coyote.org\n");
 }
 
@@ -189,13 +203,9 @@ void query_host(val, host, port)
 
   if (error != -1)
     {
-      printf("[%s]\n", host);
       write(sockfd, val, strlen(val));
       write(sockfd, "\r\n", 2);
-      while (ret = read(sockfd, command, MAXBUFSIZE))
-	{
-	  fwrite(command, ret, 1, stdout);
-	}
+      cache_store(sockfd, val, host, 1);
       close(sockfd);
     }
 }
@@ -365,12 +375,16 @@ int main(argc, argv)
      char **argv;
 {
   int optch, option_index, port = 0, loopargs = 0;
-  char *config = NULL, *host = NULL, *errmsg, *ret, qstring[1024] = "";
+  char *config = NULL, *host = NULL, *errmsg, *ret, qstring[1024] = "", *ret2;
   FILE *in;
-  
+  struct jconfig *j;
+
+  cache = 1;
+  forcelookup = 0;
+
   while (1)
     {
-      optch = getopt_long(argc, argv, "c:h:p:l", long_options, &option_index);
+      optch = getopt_long(argc, argv, "vfdc:h:lp:", long_options, &option_index);
       if (optch == EOF)
 	break;
       
@@ -382,6 +396,15 @@ int main(argc, argv)
 	case DO_HELP:
 	  help();
 	  exit(0);
+	case 'v':
+	  verbose = 1;
+	  break;
+	case 'f':
+	  forcelookup = 1;
+	  break;
+	case 'd':
+	  cache = 0;
+	  break;
 	case 'c':
 	  if (config) free(config);
 	  config = malloc(strlen(optarg)+1);
@@ -439,6 +462,36 @@ int main(argc, argv)
   if (in)
     parse_config(in);
 
+#ifdef CACHE
+  jconfig_set();
+  j = jconfig_getone("jwhois", "cachefile");
+  if (!j)
+    cfname = CACHEFILE;
+  else
+    cfname = j->value;
+  jconfig_set();
+  j = jconfig_getone("jwhois", "cacheexpire");
+  if (!j)
+    ret2 = CACHEEXPIRE;
+  else
+    ret2 = j->value;
+#ifdef HAVE_STRTOL
+  cfexpire = strtol(ret2, &ret, 10);
+  if (*ret != '\0')
+    {
+      fprintf(stderr, "%s: Invalid cache expire time (%s)\n",
+		      PACKAGE,
+		      qstring);
+      exit(1);
+    }
+#else
+  cfexpire = atoi(ret2);
+#endif /* HAVE_STRTOL */
+
+  cache_init();
+
+#endif /* CACHE */
+
   re_syntax_options = RE_SYNTAX_EMACS;
 
   if (loopargs)
@@ -465,6 +518,13 @@ int main(argc, argv)
 	  strncat(qstring, " ", 1024);
 	}
       qstring[strlen(qstring)-1] = '\0';
+
+#ifdef CACHE
+      if (!forcelookup)
+	if (cache_fetch(qstring, 1))
+	  exit(0);
+#endif
+
       if (host)
 	{
 	  query_host(qstring, host, port);

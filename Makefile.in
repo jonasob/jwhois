@@ -58,10 +58,15 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 CC = @CC@
+CHGRP = @CHGRP@
+CHMOD = @CHMOD@
+GROUP = @GROUP@
 LEX = @LEX@
 MAKEINFO = @MAKEINFO@
+OLDCFLAGS = @OLDCFLAGS@
 PACKAGE = @PACKAGE@
 VERSION = @VERSION@
+cache = @cache@
 
 EXTRA_DIST = include/ example/
 SUBDIRS = doc src
@@ -258,7 +263,7 @@ distdir: $(DISTFILES)
 	@for file in $(DISTFILES); do \
 	  d=$(srcdir); \
 	  if test -d $$d/$$file; then \
-	    cp -pr $$/$$file $(distdir)/$$file; \
+	    cp -pr $$d/$$file $(distdir)/$$file; \
 	  else \
 	    test -f $(distdir)/$$file \
 	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \

@@ -75,6 +75,7 @@ notice identical to this one.
 * Invocation::                  How to invoke jwhois
 * RIPE Extensions::             Extensions for RIPE databases
 * Site Configuration::          Defining a list of Whois servers
+* Cache Functionality::         Cache Functionality
 * Reporting bugs::              Reporting bugs
 @end menu
 
@@ -119,6 +120,20 @@ this switch causes jwhois to make a separate host connection.
 The default behaviour is to send the commandline as one long
 string to the target computer.
 
+@item -f
+@item --force-lookup
+This option forces the client to lookup an entry from the
+source Whois server instead of checking the local cache
+for information.
+
+@item -d
+@item --disable-cache
+This disables the cache functionality.
+
+@item -v
+@item --verbose
+Enables verbose output where available.
+
 @end table
 
 @node RIPE Extensions, Site Configuration, Invocation, Top
@@ -138,12 +153,12 @@ the RIPE database which lists the admin-c, tech-c or zone-c as CO19-RIPE,
 you could use the following command syntax:
 
 @example
-$ jwhois -h whois.ripe.net -- "-i admin-c,tech-c,zone-c CO19-RIPE"
+$ jwhois -h whois.ripe.net -- -i admin-c,tech-c,zone-c CO19-RIPE
 @end example
 
 @samp{--} is used to separate the RIPE options from the jwhois options.
 
-@node Site Configuration, Reporting bugs, RIPE Extensions, Top
+@node Site Configuration, Cache Functionality, RIPE Extensions, Top
 @chapter Site Configuration
 
 @sc{jwhois} is configurable via its @file{jwhois.conf} file. This file
@@ -171,7 +186,23 @@ redirects the query to another block.
 
 The special key token @samp{type} defines the type for the given block.
 
-@node Reporting bugs,  , Site Configuration, Top
+@node Cache Functionality, Reporting bugs, Site Configuration, Top
+@chapter Cache Functionality
+
+@sc{jwhois} implements support for maintaining a cache of Whois data
+received from Whois servers. This is NOT enabled by default but has
+to be compiled into the client specifically. The design is such that
+a central database is maintained by the client and because all users
+should have access to that database, the program must have the
+set-group-on-execution bit set and the database must be both read and
+writable by the group.
+
+The configuration options available are @sc{cachefile} and @sc{cacheexpire}
+which sets the database filename and the expire time for cached object.
+When an object expires from the cache, it is reloaded from the Whois server
+the next time it is requested. The expire time is measured in hours.
+
+@node Reporting bugs,  , Cache Functionality, Top
 @chapter Reporting bugs
 
 Email bug reports to @code{jonas@@coyote.org}.
