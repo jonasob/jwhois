@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2001-08-28 20:19+0200\n"
+"POT-Creation-Date: 2001-08-28 20:30+0200\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -216,11 +216,11 @@ msgstr ""
 
 #: src/http.c:68 src/http.c:69 src/http.c:70
 #, c-format
-msgid "Option %s is missing"
+msgid "Option %s is missing.\n"
 msgstr ""
 
 #: src/http.c:80
-msgid "Option http-method must be \"GET\" or \"POST\"."
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
 #: src/http.c:88 src/http.c:97 src/http.c:138
@@ -230,8 +230,9 @@ msgstr ""
 
 #. Drats!
 #: src/http.c:192
-msgid "Unable to run web browser"
-msgstr ""
+#, fuzzy
+msgid "Unable to run web browser."
+msgstr "невозможно открыть"
 
 #~ msgid ""
 #~ "  --version               display version number and patch level\n"

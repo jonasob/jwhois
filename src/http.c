@@ -65,9 +65,9 @@ int http_query(struct s_whois_query *wq, char **text)
     {
         printf(_("Web configuration for server %s is incomplete:\n"),
                wq->host);
-        if (!method) printf(_("Option %s is missing"), "http-method");
-        if (!action) printf(_("Option %s is missing"), "http-action");
-        if (!element) printf(_("Option %s is missing"), "html-element");
+        if (!method) printf(_("Option %s is missing.\n"), "http-method");
+        if (!action) printf(_("Option %s is missing.\n"), "http-action");
+        if (!element) printf(_("Option %s is missing.\n"), "html-element");
         return -1;
     }
 
@@ -77,7 +77,7 @@ int http_query(struct s_whois_query *wq, char **text)
     }
     else if (0 != strcmp(method, "GET"))
     {
-        puts(_("Option http-method must be \"GET\" or \"POST\"."));
+        puts(_("Option http-method must be \"GET\" or \"POST\".\n"));
         return -1;
     }
 
@@ -189,7 +189,7 @@ int http_query(struct s_whois_query *wq, char **text)
         execv(command[0], &command[1]);
 
         /* Drats! */
-        perror(_("Unable to run web browser"));
+        perror(_("Unable to run web browser."));
         close(to_browser[0]);
         close(from_browser[1]);
         exit(-1);
