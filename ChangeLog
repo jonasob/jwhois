@@ -1,3 +1,8 @@
+2002-03-25  peter karlsson <peter@softwolves.pp.se>
+
+	* examples/jwhois.conf: Added .gt.
+	  (Lee Maguire, Debian bug#139877)
+
 2002-03-21  peter karlsson <peter@softwolves.pp.se>
 
 	* configure.in, po/id.po: Added Indonesian translation from TP.
