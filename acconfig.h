@@ -9,3 +9,12 @@
 
 /* Define if you have the getaddrinfo function.  */
 #undef HAVE_GETADDRINFO
+
+/* Define if you want the cache functionality */
+#undef CACHE
+
+/* Define if you have the dbm_open function.  */
+#undef HAVE_DBM_OPEN
+
+/* Define if you have the gdbm_open function.  */
+#undef HAVE_GDBM_OPEN
