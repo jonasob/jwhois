@@ -4,7 +4,8 @@ jwhois (3.1.1-1) unstable; urgency=low
    - Changes to default configuration.
     (Closes: Bug#137088, #138488, #139877, #140279, #141817, #141818,
              Bug#141819, #141822, #141828, #141833, #141961, #142181,
-             Bug#142183)
+             Bug#142183, #142384, #143050, #143184, #143190, #143191,
+             Bug#143201)
    - Added advanced rewriting of queries.
     (Closes: Bug#137397)
 
