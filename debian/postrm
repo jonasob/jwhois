@@ -20,7 +20,9 @@ case "$1" in
     # a non-existing group.
     dpkg-statoverride --remove /usr/bin/jwhois || echo "Failed removing statoverride for /usr/bin/jwhois"
     dpkg-statoverride --remove /var/cache/jwhois || echo "Failed removing statoverride for /var/cache/jwhois"
-    groupdel jwhois || echo "Failed removing group \`jwhois'"
+    if getent group jwhois > /dev/null; then
+      groupdel jwhois || echo "Failed removing group \`jwhois'"
+    fi
     ;;
   upgrade)
     if dpkg --compare-versions "$2" ge 2.4.2-1; then
