@@ -347,7 +347,14 @@ lookup_redirect(search_host, block, text, host, port)
 		  *port = atoi(ascport);
 #endif
 		} /* regs.num_regs == 2 */
-	      printf("[%s %s:%d]\n", _("redirected to"), *host, *port);
+	      if (*port)
+	        {
+	          printf("[%s %s:%d]\n", _("redirected to"), *host, *port);
+	        }
+	      else
+	        {
+	          printf("[%s %s]\n", _("redirected to"), *host);
+	        }
 	      return 1;
 	    }
 	  else if (ind == -2)
