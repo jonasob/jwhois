@@ -127,7 +127,7 @@ int main(argc, argv)
         }
       memcpy(qstring+count-strlen(argv[optind])-1,
 	     argv[optind],
-	     strlen(argv[optind]));
+	     strlen(argv[optind])+1);
       strcat(qstring, " ");
       optind++;
     }
@@ -202,6 +202,7 @@ int main(argc, argv)
   }
 #endif
 
-  printf("[%s]\n%s", qstring, text);
+  if (verbose) printf("[Debug: Searching for %s\n", qstring);
+  printf("[%s]\n%s", host, text);
   exit(0);
 }
