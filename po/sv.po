@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.0\n"
+"Project-Id-Version: jwhois 3.2.0\n"
 "POT-Creation-Date: 2002-04-14 00:11+0100\n"
-"PO-Revision-Date: 2002-03-14 00:13+0100\n"
+"PO-Revision-Date: 2002-05-05 20:12+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -223,8 +223,8 @@ msgstr ""
 #: src/init.c:144
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
-"Rapportera fel till <bug-jwhois@gnu.org>\n"
-"Skicka anmärkningar på översättningen till <peter@softwolves.pp.se>"
+"Rapportera programfel och anmärkningar på översättningen till\n"
+"bug-jwhois@gnu.org"
 
 #: src/init.c:229
 msgid "Invalid limit"
