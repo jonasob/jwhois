@@ -61,7 +61,7 @@ AM_GNU_GETTEXT
 AC_PATH_PROG(CHGRP, chgrp, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
 AC_PATH_PROG(CHMOD, chmod, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
 
-ALL_LINGUAS=""
+ALL_LINGUAS="sv"
 
 AC_CHECK_FUNC(connect,,
   AC_CHECK_LIB(socket, connect))
