@@ -1,3 +1,8 @@
+2001-12-01  Jonas Oberg  <jonas@gnu.org>
+
+	* configure.in: Updated to version 3.0.2.
+	* Released 3.0.2.
+	
 2001-11-29  peter karlsson <peter@softwolves.pp.se>
 
 	* src/http.c: Fix buffer overrun for the GET method.
