@@ -72,7 +72,7 @@ whois_query(wq, text)
           printf("[%s]\n", _("Error allocating memory"));
           exit(1);
         }
-      strncpy(tmpqstring, wq->query, strlen(wq->query));
+      strncpy(tmpqstring, wq->query, strlen(wq->query)+1);
       strcat(tmpqstring, "\r\n");
 
       write(sockfd, tmpqstring, strlen(tmpqstring));
