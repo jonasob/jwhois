@@ -3,6 +3,8 @@ jwhois (3.0.2-1) unstable; urgency=low
   * Updates to default configuration:
    - Added JPNIC IP ranges.
     (Closes: Bug#106130)
+  * Fixes buffer overrun in HTTP GET method.
+    (Closes: Bug#121743)
 
  -- peter karlsson <peterk@debian.org>  UNRELEASED
 
