@@ -5,8 +5,8 @@
 
 	* src/jconfig.c (jconfig_getone): Use private jconfig ptr.
 
-	* src/lookup.c (find_cidr): Fix to return best match instead of
-	first match.
+	* src/lookup.c (find_cidr, find_regex): Fix to return best match
+	instead of first match.
 
 2001-12-03  Jonas Oberg  <jonas@gnu.org>
 
