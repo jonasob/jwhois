@@ -1,3 +1,9 @@
+2003-01-31  Peter Karlsson <peter@softwolves.pp.se>
+
+	* configure.in, src/init.c, doc/jwhois.texi, NEWS, po/*.po,
+	  po/jwhois.pot: Preparations for the 3.2.1 release.
+	* example/jwhois.conf: Added .im
+
 2003-01-31  Jonas Oberg <jonas@gnu.org>
 
 	* example/jwhois.conf: Added a second whois-redirect for
