@@ -112,6 +112,13 @@ directly.
 @item --port=PORT
 Specifies a port number to use when querying a HOST
 
+@item -l
+@item --loop-args
+For each argument on the commandline which is not an option,
+this switch causes jwhois to make a separate host connection.
+The default behaviour is to send the commandline as one long
+string to the target computer.
+
 @end table
 
 @node RIPE Extensions, Site Configuration, Invocation, Top

@@ -56,12 +56,13 @@ static struct option long_options[] =
   {"config", 1, 0, 'c'},
   {"host", 1, 0, 'h'},
   {"port", 1, 0, 'p'},
+  {"loop-args", 0, 0, 'l'},
   {0, 0, 0, 0}
 };
 
 void help(void)
 {
-  printf("%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
+  printf("%s%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
 	 ", Copyright (C) 1999 Jonas Öberg\n",
 	 "This is free software with ABSOLUTELY NO WARRANTY.\n\n",
 	 "Usage: jwhois [OPTIONS] [QUERIES...]\n",
@@ -70,6 +71,8 @@ void help(void)
 	 "  -c FILE, --config=FILE  use FILE as configuration file\n",
 	 "  -h HOST, --host=HOST    explicitly query HOST\n",
 	 "  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n",
+	 "  -l, --loop-args         loop through queries and make one host connection per\n",
+	 "                          query instead of concatenating then together\n",
 	 "\n\nReport bugs to jonas@coyote.org\n");
 }
 
@@ -361,13 +364,13 @@ int main(argc, argv)
      int argc;
      char **argv;
 {
-  int optch, option_index, port = 0;
-  char *config = NULL, *host = NULL, *errmsg, *ret;
+  int optch, option_index, port = 0, loopargs = 0;
+  char *config = NULL, *host = NULL, *errmsg, *ret, qstring[1024] = "";
   FILE *in;
   
   while (1)
     {
-      optch = getopt_long(argc, argv, "c:h:p:", long_options, &option_index);
+      optch = getopt_long(argc, argv, "c:h:p:l", long_options, &option_index);
       if (optch == EOF)
 	break;
       
@@ -387,7 +390,11 @@ int main(argc, argv)
 	case 'h':
 	  if (host) free(host);
 	  host = malloc(strlen(optarg)+1);
-	  strncpy(host, optarg, strlen(optarg)+1);					break;
+	  strncpy(host, optarg, strlen(optarg)+1);
+	  break;
+	case 'l':
+	  loopargs = 1;
+	  break;
 	case 'p':
 #ifdef HAVE_STRTOL
 	  port = strtol(optarg, &ret, 10);
@@ -433,22 +440,46 @@ int main(argc, argv)
     parse_config(in);
 
   re_syntax_options = RE_SYNTAX_EMACS;
-  
-  while (optind < argc)
+
+  if (loopargs)
+    while (optind < argc)
+      {
+	if (host)
+	  {
+	    query_host(argv[optind++], host, port);
+	  }
+	else
+	  {
+	    if (lookup_host(argv[optind++], NULL, &host, &port)) {
+	      query_host(argv[optind-1], host, port);
+	    }
+	    else
+	      query_host(argv[optind-1], DEFAULTHOST, 0);
+	  }
+      }
+  else
     {
+      while (optind < argc)
+	{
+	  strncat(qstring, argv[optind++], 1024);
+	  strncat(qstring, " ", 1024);
+	}
+      qstring[strlen(qstring)-1] = '\0';
       if (host)
 	{
-	  query_host(argv[optind++], host, port);
+	  query_host(qstring, host, port);
 	}
       else
 	{
-	  if (lookup_host(argv[optind++], NULL, &host, &port)) {
-	    query_host(argv[optind-1], host, port);
-	  }
+	  if (lookup_host(qstring, NULL, &host, &port))
+	    {
+	      query_host(qstring, host, port);
+	    }
 	  else
-	    query_host(argv[optind-1], DEFAULTHOST, 0);
+	    {
+	      query_host(qstring, DEFAULTHOST, 0);
+	    }
 	}
     }
-  
   return 0;
 }

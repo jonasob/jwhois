@@ -19,7 +19,7 @@
 ##
 
 bin_PROGRAMS = jwhois
-jwhois_SOURCES = jwhois.c lexer.l jconfig.c string.c getopt.c getopt1.c regex.c
+jwhois_SOURCES = jwhois.c lexer.l jconfig.c string.c getopt.c getopt1.c regex.c gai_strerror.c
 
 CFLAGS = -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(datadir)\""
 INCLUDES = -I$(top_srcdir)/include

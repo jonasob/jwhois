@@ -12,6 +12,9 @@
 /* Define if you have the getaddrinfo function.  */
 #undef HAVE_GETADDRINFO
 
+/* Define if you have the gai_strerror function.  */
+#undef HAVE_GAI_STRERROR
+
 /* Define if you have the getopt_long function.  */
 #undef HAVE_GETOPT_LONG
 

@@ -1,3 +1,15 @@
+Wed Oct 27 16:40:21 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (main): Added --loop-args as recommended by RIPE
+
+	* configure.in, src/gai_strerror.c: Added internal gai_strerror
+	for systems lacking this.
+
+Sun Oct 24 15:16:29 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (query_host): Bugfix for little-endian machines
+	(reported by phil@psidev.net)
+
 Tue Oct 23 23:31:34 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* Released 2.2
