@@ -19,5 +19,5 @@
 ##
 
 EXTRA_DIST = include/ example/
-SUBDIRS = doc src
+SUBDIRS = doc src po intl
 

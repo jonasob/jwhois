@@ -57,22 +57,44 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
+CATALOGS = @CATALOGS@
+CATOBJEXT = @CATOBJEXT@
 CC = @CC@
 CHGRP = @CHGRP@
 CHMOD = @CHMOD@
+DATADIRNAME = @DATADIRNAME@
+GENCAT = @GENCAT@
+GMOFILES = @GMOFILES@
+GMSGFMT = @GMSGFMT@
 GROUP = @GROUP@
+GT_NO = @GT_NO@
+GT_YES = @GT_YES@
+INCLUDE_LOCALE_H = @INCLUDE_LOCALE_H@
+INSTOBJEXT = @INSTOBJEXT@
+INTLDEPS = @INTLDEPS@
+INTLLIBS = @INTLLIBS@
+INTLOBJS = @INTLOBJS@
 LEX = @LEX@
 MAKEINFO = @MAKEINFO@
+MKINSTALLDIRS = @MKINSTALLDIRS@
+MSGFMT = @MSGFMT@
 OLDCFLAGS = @OLDCFLAGS@
 PACKAGE = @PACKAGE@
+POFILES = @POFILES@
+POSUB = @POSUB@
+RANLIB = @RANLIB@
+USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
+USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 cache = @cache@
+l = @l@
+localedir = @localedir@
 
 bin_PROGRAMS = jwhois
 jwhois_SOURCES = dns.c lookup.c init.c utils.c gai_strerror.c regex.c 	getopt.c getopt1.c jconfig.c lexer.l string.c cache.c jwhois.c
 
 
-CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\""          -DDATADIR="\"$(datadir)\"" -DLOCALSTATEDIR="\"$(localstatedir)\""
+CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\""          -DDATADIR="\"$(datadir)\"" -DLOCALSTATEDIR="\"$(localstatedir)\""          -DLOCALEDIR="\"$(localedir)\""
 
 
 INCLUDES = -I$(top_srcdir)/include

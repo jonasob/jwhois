@@ -130,8 +130,8 @@ cache_init()
     {
       if (verbose)
 	{
-	  printf("[Invalid cache expire time (%s) - using default]\n",
-		 ret);
+	  printf("[%s (%s) -- %s]\n", _("Invalid expire time"),
+		 ret, _("Using defaults"));
 	  cfexpire = 168;
 	}
     }
@@ -145,15 +145,17 @@ cache_init()
   dbf = dbm_open(cfname, DBM_COPTIONS, DBM_MODE);
   if (!dbf)
     {
-      if (verbose) printf("[Debug: Can't open %s - disabling cache]\n",
-			  cfname);
+      if (verbose) printf("[Debug: %s %s -- %s\n", _("Can't open"),
+			  cfname, _("Disabling cache"));
       cache = 0;
       return -1;
     }
   iret = dbm_store(dbf, dbkey, dbstore, DBM_IOPTIONS);
   if (iret < 0)
     {
-      if (verbose) printf("[Debug: Unable to store entries in database - disabling cache]\n");
+      if (verbose) printf("[Debug: %s -- %s]\n",
+			  _("Unable to store data in database"),
+			  _("Disabling cache"));
       cache = 0;
     }
   dbm_close(dbf);
@@ -187,7 +189,6 @@ cache_store(key, text)
       dbkey.dptr = key;
       dbkey.dsize = strlen(key);
 
-      if (verbose) printf("[Debug: Storing \"%s\" in database]\n", key);
       ptr = malloc(strlen(text)+sizeof(time_t)+1);
       if (!ptr)
 	return -1;
@@ -240,8 +241,6 @@ cache_read(key, text)
 #ifndef NOCACHE
   dbkey.dptr = key;
   dbkey.dsize = strlen(key);
-
-  if (verbose) printf("[Debug: Reading \"%s\" from database]\n", key);
 
   dbf = dbm_open(cfname, DBM_ROPTIONS, DBM_MODE);
   if (!dbf)

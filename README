@@ -5,12 +5,14 @@ expressions or CIDR blocks.
 Please send bug reports, suggestions, improvements, rewrites and other
 material to jonas@coyote.org.
 
+
  1.  Configuration file
  2.  ./configure
  2.1 Default Host
  2.2 Cache Functionality
  3.  IPv6 support
- 4.  Obtaining jwhois
+ 4.  What to do when things go wrong
+ 5.  Obtaining jwhois
 
 1. Configuration File
 =====================
@@ -38,25 +40,22 @@ the configure script.
 2.2. Cache Functionality
 ========================
 
-   This version of jwhois includes some experimental code for cache
-functionality. It should be considered an early beta version. What it
-does is that it creates a file in the filesystem (default location is
-/var/lib/jwhois.db, but this can be configured by the --enable-CACHEFILE
-directive to ./configure, or by a token in the configuration file) that
-can be read and written to by a specific group. The jwhois client binary
-is then setgid to that group so that all users can use the same cache.
+   This version of jwhois includes a functionality that can cache Whois
+responses. The cached information is stored in a local database which can
+be read and written to by jwhois.  The default location for this file
+is /usr/local/var, but this can be changed by adding another directory
+with --localstatedir=<dir> when running the configure script.
+
+   The location of the database can also be set in the configuration file.
+Normally, jwhois is setgid to some specific group that has the ability to
+read and write to the database. The database is not created by the installation
+script, so you have to create it manually after having installed the binary.
 
    The default group is `nogroup' which is probably a sane enough
 alternative that shouldn't impose any security problems. The group can
 be set by calling the configure script with the `--enable-GROUP' parameter,
 or you can modify the group owner and setgid bits manually.
 
-   If the group that jwhois will run as can not write to the directory
-where you tell it to create the database, you have to create the database
-(touch <filename>) manually and change the group and security bits correctly.
-Or you could also allow the group to write in the directory. Please consider
-that you could be using a dbm which uses several files too, such as '.pag'
-and '.dir' and you might have to set correct owner and mode on those too.
 
 3. IPv6 Support
 ===============
@@ -67,7 +66,16 @@ consists of a number of functions required for IPv6, such as improved
 versions of getaddrinfo().  If your systems C library already has support
 for IPv6 in getaddrinfo(), you don't need the inet6-apps package.
 
-4. Obtaining JWHOIS
+4. What to do when things go wrong
+==================================
+
+   There is a command line switch called -v or --verbose. Use it. The
+output that it gives can give significant help with locating a potential
+problem with jwhois.  When attempting to use the cache feature, the most
+common problem is that jwhois doesn't have permission to write the database
+files that it need.  Use the verbose flag to see if this is indeed the problem.
+
+5. Obtaining JWHOIS
 ===================
 JWHOIS can be obtained via anonymous FTP from
 ftp://ftp.coyote.org/pub/jwhois/

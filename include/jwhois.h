@@ -41,5 +41,11 @@ extern char *config;
 extern char *cfname;
 extern int cfexpire;
 
+#ifdef HAVE_LIBINTL_H
+# include <libintl.h>
+# define _(s)   gettext(s)
+#else
+# define _(s)   (s)
+#endif
 
 #endif /* _JWHOIS_H */

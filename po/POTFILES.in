@@ -1,0 +1,7 @@
+src/cache.c
+src/dns.c
+src/gai_strerror.c
+src/init.c
+src/jconfig.c
+src/jwhois.c
+src/lookup.c

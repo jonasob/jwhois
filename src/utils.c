@@ -56,6 +56,6 @@ fdread(fd, ptr)
     }
   while (ret != 0);
 
-  if (verbose) printf("[Debug: fdread read %d bytes of data]\n", count);
+  if (verbose) printf("[Debug: fdread()=%d]\n", count);
   return count;
 }

@@ -52,17 +52,17 @@ static struct
   }
 values[] =
   {
-    { EAI_ADDRFAMILY, "Address family for hostname not supported" },
-    { EAI_AGAIN, "Temporary failure in name resolution" },
-    { EAI_BADFLAGS, "Bad value for ai_flags" },
-    { EAI_FAIL, "Non-recoverable failure in name resolution" },
-    { EAI_FAMILY, "ai_family not supported" },
-    { EAI_MEMORY, "Memory allocation failure" },
-    { EAI_NODATA, "No address associated with hostname" },
-    { EAI_NONAME, "Name or service not known" },
-    { EAI_SERVICE, "Servname not supported for ai_socktype" },
-    { EAI_SOCKTYPE, "ai_socktype not supported" },
-    { EAI_SYSTEM, "System error" }
+    { EAI_ADDRFAMILY, _("Address family for hostname not supported") },
+    { EAI_AGAIN, _("Temporary failure in name resolution") },
+    { EAI_BADFLAGS, _("Bad value for ai_flags") },
+    { EAI_FAIL, _("Non-recoverable failure in name resolution") },
+    { EAI_FAMILY, _("ai_family not supported") },
+    { EAI_MEMORY, _("Memory allocation failure") },
+    { EAI_NODATA, _("No address associated with hostname") },
+    { EAI_NONAME, _("Name or service not known") },
+    { EAI_SERVICE, _("Servname not supported for ai_socktype") },
+    { EAI_SOCKTYPE, _("ai_socktype not supported") },
+    { EAI_SYSTEM, _("System error") }
   };
 
 char *
@@ -73,7 +73,7 @@ gai_strerror (int code)
     if (values[i].code == code)
       return (char *) values[i].msg;
 
-  return (char *) "Unknown error";
+  return (char *) _("Unknown error");
 }
 
 #endif /* !HAVE_GAI_STRERROR */

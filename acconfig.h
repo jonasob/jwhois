@@ -24,3 +24,19 @@
 
 /* Define if you have the gdbm_open function.  */
 #undef HAVE_GDBM_OPEN
+
+/* Define if you want to enable NLS */
+#undef ENABLE_NLS
+
+/* Define if you ahve catgets */
+#undef HAVE_CATGETS
+
+/* Define if you have gettext */
+#undef HAVE_GETTEXT
+
+/* Define if you have LC_MESSAGES */
+#undef HAVE_LC_MESSAGES
+
+/* Define if you have stpcpy */
+#undef HAVE_STPCPY
+

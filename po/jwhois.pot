@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1999-11-26 22:04+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: src/cache.c:133
+msgid "Invalid expire time"
+msgstr ""
+
+#: src/cache.c:134 src/init.c:179
+msgid "Using defaults"
+msgstr ""
+
+#: src/cache.c:148
+msgid "Can't open"
+msgstr ""
+
+#: src/cache.c:149 src/cache.c:158
+msgid "Disabling cache"
+msgstr ""
+
+#: src/cache.c:157
+msgid "Unable to store data in database"
+msgstr ""
+
+#: src/dns.c:82
+msgid "Host not found"
+msgstr ""
+
+#: src/gai_strerror.c:55
+msgid "Address family for hostname not supported"
+msgstr ""
+
+#: src/gai_strerror.c:56
+msgid "Temporary failure in name resolution"
+msgstr ""
+
+#: src/gai_strerror.c:57
+msgid "Bad value for ai_flags"
+msgstr ""
+
+#: src/gai_strerror.c:58
+msgid "Non-recoverable failure in name resolution"
+msgstr ""
+
+#: src/gai_strerror.c:59
+msgid "ai_family not supported"
+msgstr ""
+
+#: src/gai_strerror.c:60
+msgid "Memory allocation failure"
+msgstr ""
+
+#: src/gai_strerror.c:61
+msgid "No address associated with hostname"
+msgstr ""
+
+#: src/gai_strerror.c:62
+msgid "Name or service not known"
+msgstr ""
+
+#: src/gai_strerror.c:63
+msgid "Servname not supported for ai_socktype"
+msgstr ""
+
+#: src/gai_strerror.c:64
+msgid "ai_socktype not supported"
+msgstr ""
+
+#: src/gai_strerror.c:65
+msgid "System error"
+msgstr ""
+
+#: src/gai_strerror.c:76
+msgid "Unknown error"
+msgstr ""
+
+#: src/init.c:68
+msgid ", Copyright (C) 1999 Jonas Öberg\n"
+msgstr ""
+
+#: src/init.c:69
+msgid ""
+"This is free software with ABSOLUTELY NO WARRANTY.\n"
+"\n"
+msgstr ""
+
+#: src/init.c:70
+msgid "Usage: jwhois [OPTIONS] [QUERIES...]\n"
+msgstr ""
+
+#: src/init.c:71
+msgid "  --version               display version number and patch level\n"
+msgstr ""
+
+#: src/init.c:72
+msgid "  --help                  display this help\n"
+msgstr ""
+
+#: src/init.c:73
+msgid "  -c FILE, --config=FILE  use FILE as configuration file\n"
+msgstr ""
+
+#: src/init.c:74
+msgid "  -h HOST, --host=HOST    explicitly query HOST\n"
+msgstr ""
+
+#: src/init.c:75
+msgid ""
+"  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
+msgstr ""
+
+#: src/init.c:77
+msgid "  -f, --force-lookup      force lookup even if the entry is cached\n"
+msgstr ""
+
+#: src/init.c:78
+msgid "  -d, --disable-cache     disable cache functions\n"
+msgstr ""
+
+#: src/init.c:80
+msgid "  -v, --verbose           verbose debugging output\n"
+msgstr ""
+
+#: src/init.c:81
+msgid ""
+"\n"
+"\n"
+"Report bugs to jonas@coyote.org\n"
+msgstr ""
+
+#: src/init.c:139
+msgid "Invalid port number"
+msgstr ""
+
+#: src/init.c:161
+#, c-format
+msgid "[Unable to open %s]\n"
+msgstr ""
+
+#: src/init.c:179
+msgid "No configuration file found"
+msgstr ""
+
+#: src/jwhois.c:91
+msgid "[Error creating socket]\n"
+msgstr ""
+
+#: src/jwhois.c:128
+msgid "[Error allocating memory]\n"
+msgstr ""
+
+#: src/jwhois.c:154
+msgid "Fatal error searching for host to query"
+msgstr ""
+
+#: src/jwhois.c:165
+msgid "Fatal error reading cache"
+msgstr ""
+
+#: src/jwhois.c:170
+msgid "Cached"
+msgstr ""
+
+#: src/jwhois.c:189
+#, c-format
+msgid "[Error reading data from %s:%d]\n"
+msgstr ""
+
+#: src/jwhois.c:202
+msgid "Fatal error writing to cache"
+msgstr ""
+
+#: src/lookup.c:82
+#, c-format
+msgid "[Invalid netmask (%s) in configuration file]\n"
+msgstr ""
+
+#. regs.num_regs == 2
+#: src/lookup.c:335
+#, c-format
+msgid "[Redirected to %s:%d]\n"
+msgstr ""

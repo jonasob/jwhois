@@ -79,7 +79,7 @@ find_cidr(val, block)
 			 &bits);
 	    if (res != 5)
 	      {
-		if (verbose) printf("[Invalid netmask (%s) in configureation file]\n", j->key);
+		if (verbose) printf(_("[Invalid netmask (%s) in configuration file]\n"), j->key);
 		return NULL;
 	      }
 	    ipmask.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
@@ -229,7 +229,6 @@ lookup_host(val, block, host, port)
 
   if (strncasecmp(*host, "struct", 6) == 0) {
     tmpdeep = *host+7;
-    if (verbose) printf("[Debug: Looking into struct %s]\n", tmpdeep);
     return lookup_host(val, tmpdeep, host, port);
   }
 
@@ -333,7 +332,7 @@ lookup_redirect(search_host, block, text, host, port)
 		  *port = atoi(ascport);
 #endif
 		} /* regs.num_regs == 2 */
-	      printf("[Redirected to %s:%d]\n", *host, *port);
+	      printf(_("[Redirected to %s:%d]\n"), *host, *port);
 	      return 1;
 	    }
 	  else if (ind == -2)
