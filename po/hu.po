@@ -5,14 +5,15 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.2.1\n"
-"POT-Creation-Date: 2003-01-31 19:39+0100\n"
-"PO-Revision-Date: 2003-04-17 14:00+0200\n"
-"Last-Translator: Andras Timar <timar_a@freemail.hu>\n"
+"Project-Id-Version: jwhois 3.2.2\n"
+"POT-Creation-Date: 2003-06-30 18:33+0100\n"
+"PO-Revision-Date: 2004-01-21 23:04+0100\n"
+"Last-Translator: Andras Timar <timar@fsf.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.2\n"
 
 #: src/cache.c:140
 msgid "Invalid expire time"
@@ -28,7 +29,7 @@ msgstr "Nem lehet adatokat tárolni a gyorsítótárban]\n"
 
 #: src/dns.c:91
 msgid "host not found"
-msgstr "a kiszolgáló nincs meg"
+msgstr "a gép nem található"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
@@ -36,7 +37,7 @@ msgstr "A kiszolgáló címének a típusa nem támogatott"
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
-msgstr "Ideiglenesen nem lehetséges a név feloldása"
+msgstr "Átmeneti hiba a névfelbontásnál"
 
 #: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
@@ -60,11 +61,11 @@ msgstr "Nincs cím hozzárendelve a kiszolgálónévhez"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "Név vagy a szolgáltatás nem ismert"
+msgstr "A név vagy a szolgáltatás ismeretlen"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
-msgstr "Az ai_socktype nem támogatja a Servname-et"
+msgstr "A szolgáltatásnév nem támogatott a megadott ai_socktype-nál"
 
 #: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
@@ -86,46 +87,46 @@ msgstr "%s: a `%s' kapcsoló nem egyértelmû\n"
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: a `--%s' kapcsoló nem enged meg argumentumot\n"
+msgstr "%s: a `--%s' kapcsoló nem fogad el argumentumot\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: a `%c%s' kapcsoló nem enged meg argumentumot\n"
+msgstr "%s: a `%c%s' kapcsoló nem fogad el argumentumot\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: a `%s' kapcsolóhoz szükséges egy argumentum\n"
+msgstr "%s: a `%s' kapcsoló argumentumot igényel\n"
 
 #. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: ismeretlen kapcsoló `--%s'\n"
+msgstr "%s: ismeretlen kapcsoló: `--%s'\n"
 
 #. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: ismeretlen kapcsoló `%c%s'\n"
+msgstr "%s: ismeretlen kapcsoló: `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: szabálytalan kapcsoló -- %c\n"
+msgstr "%s: szabálytalan kapcsoló: -- %c\n"
 
 #: src/getopt.c:788
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: érvénytelen kapcsoló -- %c\n"
+msgstr "%s: érvénytelen kapcsoló: -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: a kapcsolóhoz szükséges egy argumentum -- %c\n"
+msgstr "%s: a kapcsoló argumentumot igényel -- %c\n"
 
 #: src/getopt.c:865
 #, c-format
@@ -135,7 +136,7 @@ msgstr "%s: a `-W %s' kapcsoló nem egyértelmû\n"
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: a `-W %s' kapcsoló nem enged meg argumentumot\n"
+msgstr "%s: a `-W %s' kapcsoló nem fogad el argumentumot\n"
 
 #: src/http.c:71
 msgid "HTTP configuration is incomplete:"
@@ -144,11 +145,11 @@ msgstr "A HTTP-beállítások elégtelenek:"
 #: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
 #: src/http.c:166
 msgid "Option is missing:"
-msgstr "Hiányzó kapcsoló:"
+msgstr "Hiányzó beállítás:"
 
 #: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "A http-method kapcsoló értéke csak \"GET\" vagy \"POST\" lehet.\n"
+msgstr "A http-method beállítás értéke csak \"GET\" vagy \"POST\" lehet.\n"
 
 #. Couldn't create temporary file for POST data
 #: src/http.c:195
@@ -310,7 +311,7 @@ msgstr "Ismeretlen hivatkozás"
 
 #: src/rwhois.c:370
 msgid "Following referral to"
-msgstr "A következõ hivatkozás érkezett"
+msgstr "Hivatkozás követése"
 
 #: src/rwhois.c:399
 msgid "[Host terminated connection prematurely]\n"
@@ -326,4 +327,4 @@ msgstr "Hiba a socket létrehozásakor"
 
 #: src/whois.c:88
 msgid "Error reading data from"
-msgstr "Nem sikerült adatot olvasni innen:"
+msgstr "Hiba történt adatolvasás közben:"

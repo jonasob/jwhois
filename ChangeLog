@@ -1,3 +1,7 @@
+2004-01-24  Jonas Oberg <jonas@gnu.org>
+
+	* po/hu.po: Updated from TP.
+
 2003-07-18  Jonas Oberg <jonas@gnu.org>
 
 	* Upgraded to Automake 1.5
