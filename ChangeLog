@@ -1,5 +1,7 @@
 Sun Sep 26 11:15:40 1999  Jonas Oberg  <jonas@coyote.org>
 
+	* Released version 2.1
+	
 	* configure.in: Added check for strcasecmp
 
 	* src/string.c (strcasecmp): Added function.
