@@ -214,7 +214,11 @@ jwhois_query(struct s_whois_query *wq, char **text)
       exit(1);
     }
   if (ret > 0)
-    return jwhois_query(wq, text);
+    {
+      int rc = jwhois_query(wq, text);
+      free(wq->query);
+      return rc;
+    }
   else
     return 0;
 }
