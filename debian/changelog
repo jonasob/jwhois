@@ -3,11 +3,12 @@ jwhois (3.2.2-1) unstable; urgency=low
   * New upstream release:
    - Fixes problem with redirected .org lookups.
    (Closes: Bug#179782)
-   - Updated default configuration.
+   - Changes to default configuration.
    (Closes: Bug#181343, #182525, #186748, #197348, #197349, #198023,
             Bug#198024, #198990, #199124, #186112)
+  * Build against libgdbmg-dev instead of libgdbmg1-dev.
 
- -- peter karlsson <peterk@debian.org>  Mon, 27 May 2002 10:45:00 +0100
+ -- peter karlsson <peterk@debian.org>  Mon, 30 Jun 2003 18:30:00 +0100
 
 jwhois (3.2.1-1) unstable; urgency=low
 
