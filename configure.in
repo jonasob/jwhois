@@ -138,4 +138,4 @@ fi
 OLDCFLAGS=$CFLAGS
 AC_SUBST(OLDCFLAGS)
 
-AC_OUTPUT(Makefile doc/Makefile doc/sv/Makefile src/Makefile po/Makefile.in example/Makefile jwhois.spec)
+AC_OUTPUT(Makefile doc/Makefile doc/sv/Makefile src/Makefile po/Makefile.in example/Makefile jwhois.spec po/Makefile.in m4/Makefile )

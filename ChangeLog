@@ -1,3 +1,14 @@
+2005-02-10  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Changed address for .jp whois
+	  server (Shinjiro Naoi)
+
+2005-01-21  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): Add m4.
+	(EXTRA_DIST): Add config.rpath.
+	* configure.in (AC_OUTPUT): Add po/Makefile.in,
+
 2005-01-15  Peter Karlsson <peter@softwolves.pp.se>
 
 	* po/: es.po fr.po hu.po id.po it.po nl.po pl.po pt_BR.po ro.po
