@@ -66,7 +66,7 @@ int
 main(int argc, char **argv)
 {
   int optind, count = 0, ret;
-  char *qstring = NULL, *text;
+  char *qstring = NULL, *text, *cachestr;
   struct s_whois_query wq;
 
 #ifdef ENABLE_NLS
@@ -133,7 +133,15 @@ main(int argc, char **argv)
 #ifndef NOCACHE
   if (!forcelookup && cache) {
     if (verbose>1) printf("[Looking up entry in cache]\n");
-    ret = cache_read(wq.query, &text);
+    cachestr = malloc(strlen(wq.query) + strlen(wq.host) + 1);
+    if (!cachestr)
+      {
+        printf("[%s]\n", _("Error allocating memory"));
+        exit(1);
+      }
+    snprintf(cachestr, strlen(wq.query) + strlen(wq.host) + 1, "%s:%s",
+             wq.host, wq.query);
+    ret = cache_read(cachestr, &text);
     if (ret < 0)
       {
 	printf("[%s]\n", _("Error reading cache"));
@@ -152,7 +160,7 @@ main(int argc, char **argv)
 #ifndef NOCACHE
   if (cache) {
     if (verbose>1) printf("[Storing in cache]\n");
-    ret = cache_store(wq.query, text);
+    ret = cache_store(cachestr, text);
     if (ret < 0)
       {
 	printf("[%s]\n", _("Error writing to cache"));

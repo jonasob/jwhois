@@ -81,7 +81,7 @@ do
     echo processing $dr
     macrodirs=`sed -n -e 's,AM_ACLOCAL_INCLUDE(\(.*\)),\1,gp' < $coin`
     ( cd $dr
-      macrosdir=`find . -name macros -print`
+      macrosdir=`find . -name m4 -print`
 
       for k in $macrodirs; do
   	if test -d $k; then

@@ -18,6 +18,8 @@
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 
-EXTRA_DIST = include/*.h example/jwhois.conf macros/*.m4 jwhois.spec.in jwhois.spec debian/*
-SUBDIRS = doc intl src example @POSUB@
+EXTRA_DIST = config.rpath  include/*.h example/jwhois.conf macros/*.m4 jwhois.spec.in jwhois.spec debian/*
+SUBDIRS = doc src example po
 
+
+ACLOCAL_AMFLAGS = -I m4

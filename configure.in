@@ -71,11 +71,13 @@ AC_ARG_WITH(localedir,
 ,localedir=$withval,localedir='${prefix}/share/locale')
 AC_SUBST(localedir)
 
-ALL_LINGUAS="es fr hu id it nl pl pt_BR ru sv tr zh_TW"
+ALL_LINGUAS="es fr hu id it nl pl pt_BR ro ru sv tr zh_TW"
 
 AC_PROG_INSTALL
 AC_PROG_CC
-AM_GNU_GETTEXT
+
+AM_GNU_GETTEXT([external])
+
 AC_PATH_PROG(CHGRP, chgrp, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
 AC_PATH_PROG(CHMOD, chmod, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
 
@@ -136,4 +138,4 @@ fi
 OLDCFLAGS=$CFLAGS
 AC_SUBST(OLDCFLAGS)
 
-AC_OUTPUT(Makefile doc/Makefile doc/sv/Makefile src/Makefile intl/Makefile po/Makefile.in example/Makefile jwhois.spec)
+AC_OUTPUT(Makefile doc/Makefile doc/sv/Makefile src/Makefile po/Makefile.in example/Makefile jwhois.spec)
