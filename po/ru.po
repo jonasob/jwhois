@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2001-09-26 07:58+0200\n"
+"POT-Creation-Date: 2001-10-10 12:42+0200\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -259,17 +259,17 @@ msgstr "отсутствует ключ в строке"
 msgid "Fatal error searching for host to query"
 msgstr "фатальная ошибка при поиске хоста для запроса"
 
-#: src/jwhois.c:133
+#: src/jwhois.c:132
 #, fuzzy
 msgid "Error reading cache"
 msgstr "фатальная ошибка при чтении кэша"
 
-#: src/jwhois.c:138
+#: src/jwhois.c:137
 #, fuzzy
 msgid "Cached"
 msgstr "кэшировано"
 
-#: src/jwhois.c:150
+#: src/jwhois.c:151
 #, fuzzy
 msgid "Error writing to cache"
 msgstr "фатальная ошибка записи в кэш"

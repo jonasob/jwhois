@@ -1,3 +1,12 @@
+2001-11-02  Jonas Oberg  <jonas@gnu.org>
+
+	* configure.in: Fix so that it doesn't check for libintl.h if the
+	user disables NLS, or NLS is unavailable.
+
+2001-10-10  Jonas Oberg  <jonas@gnu.org>
+
+	* src/whois.c (whois_query): Fix off-by-one bug when calling strncpy
+
 2001-10-01  Jonas Oberg  <jonas@gnu.org>
 
 	* src/http.c (http_query): Fix to make POST work.
