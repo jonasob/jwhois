@@ -1,3 +1,8 @@
+2002-07-17  Jonas Oberg <jonas@gnu.org>
+
+	* example/jwhois.conf: Fixed ASN- records and added support for ARIN
+	  nameserver records.
+
 2002-07-14  Peter Karlsson <peter@softwolves.pp.se>
 
 	* include/cache.h, dns.h, gai_strerror.h, http.h, init.h, jconfig.h,
