@@ -234,7 +234,7 @@ cache_read(char *key, char **text)
   DBM *dbf;
 #endif
 #endif
-  time_t *timeptr;
+  time_t time_c;
 
   if (!cache)
     return 0;
@@ -247,16 +247,21 @@ cache_read(char *key, char **text)
   if (!dbf)
     return -1;
   dbstore = dbm_fetch(dbf, dbkey);
-  timeptr = (time_t *)dbstore.dptr;
-  if ( (dbstore.dptr == NULL)
-       || ( ((time(NULL)-*timeptr)/(60*60)) > cfexpire) ) {
-    dbm_close(dbf);
-    return 0;
-  }
+  if ((dbstore.dptr == NULL))
+    {
+      dbm_close(dbf);
+      return 0;
+    }
+  memcpy(&time_c,dbstore.dptr,sizeof(time_c));	/* ensure suitable alignment */
+  if ((time(NULL)-time_c)/(60*60) > cfexpire)
+    {
+      dbm_close(dbf);
+      return 0;
+    }
   *text = malloc(dbstore.dsize);
   if (!*text)
     return -1;
-  memcpy(*text, dbstore.dptr+sizeof(time_t), dbstore.dsize-sizeof(time_t));
+  memcpy(*text, (char *)(dbstore.dptr)+sizeof(time_t), dbstore.dsize-sizeof(time_t));
   dbm_close(dbf);
 
   return (dbstore.dsize-sizeof(time_t));
