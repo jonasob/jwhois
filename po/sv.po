@@ -2,7 +2,7 @@
 # Copyright © 1999
 # Peter Karlsson <peter@softwolves.pp.se>, 1999.
 #
-# $Id: sv.po,v 1.9 1999/12/20 18:30:41 peter Exp $
+# $Id: sv.po,v 1.10 1999/12/20 18:36:06 peter Exp $
 #, fuzzy
 msgid ""
 msgstr ""
@@ -132,11 +132,10 @@ msgstr ""
 "  -d, --disable-cache     stäng av cachefunktionaliteten\n"
 
 #: src/init.c:98
-#, fuzzy
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
 "Rapportera fel till <bug-jwhois@gnu.org>\n"
-"Skicka anmärkningar på översättningen till <peter@softwolves.pp.se>."
+"Skicka anmärkningar på översättningen till <peter@softwolves.pp.se>"
 
 #: src/init.c:157
 msgid "invalid port number"
