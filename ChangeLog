@@ -1,3 +1,8 @@
+2005-03-22  Peter Karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Improved regex for detecting redirects
+	  (KOMATSU Shinichiro)
+
 2005-03-20  Peter Karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Various updates (Christian Kurz, Adrian von
