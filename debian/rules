@@ -12,7 +12,7 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-	./configure --prefix=/usr --mandir=\$${prefix}/share/man --sysconfdir=/etc --infodir=\$${prefix}/share/info --datadir=\$${prefix}/share/jwhois
+	./configure --prefix=/usr --mandir=\$${prefix}/share/man --sysconfdir=/etc --infodir=\$${prefix}/share/info --datadir=\$${prefix}/share/jwhois --with-cache --enable-cachefile=/var/cache/jwhois/jwhois.db
 	# Add here commands to compile the package.
 	$(MAKE)
 
@@ -67,7 +67,7 @@ binary-arch: build install
 	dh_compress
 	dh_fixperms
 #	# You may want to make some executables suid here.
-#	dh_suidregister
+	dh_suidregister
 #	dh_makeshlibs
 	dh_installdeb
 #	dh_perl
