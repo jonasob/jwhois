@@ -1,3 +1,9 @@
+2001-11-29  Jonas Oberg  <jonas@gnu.org>
+
+	* src/jconfig.c (jconfig_getone): Fixed bug which made the
+	function return NULL in case it was the first one called for
+	config lookups.
+
 2001-11-26  Jonas Oberg  <jonas@gnu.org>
 
 	* configure.in, example/Makefile.am: Install jwhois.conf if there's

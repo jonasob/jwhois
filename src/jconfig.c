@@ -66,12 +66,12 @@ jconfig_getone(domain, key)
 {
   struct jconfig *ptr;
   
+  jconfig_set();
+
   if (!jconfig_tmpptr)
     {
       return NULL;
     }
-
-  jconfig_set();
 
   while (jconfig_tmpptr)
     {
