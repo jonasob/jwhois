@@ -40,5 +40,6 @@ extern char *config;
 
 extern char *cfname;
 extern int cfexpire;
+extern int redirect;
 
 #endif /* _JWHOIS_H */
