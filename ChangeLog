@@ -3,7 +3,7 @@
 	* po/: es.po fr.po hu.po id.po it.po nl.po pl.po pt_BR.po ro.po
 	  tr.po zh_TW.po: Imported latest versions from TP.
 	* examples/jwhois.conf: Various updates (Christian Kurz,
-	  Christer Mjellem Strand, Chris Lewis, Gavin Brown)
+	  Christer Mjellem Strand, Chris Lewis, Gavin Brown, John Oliver)
 	* src: cache.c, dns.c, lookup.c: Applied patch to fix compiler
 	  warnings (Miloslav Trmac)
 	* include/jwhois.h: Fixed syntax errors (Miloslav Trmac)
