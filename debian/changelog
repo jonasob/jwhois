@@ -1,8 +1,11 @@
-jwhios (3.2.2-1) unstable; urgency=low
+jwhois (3.2.2-1) unstable; urgency=low
 
   * New upstream release:
    - Fixes problem with redirected .org lookups.
    (Closes: Bug#179782)
+   - Updated default configuration.
+   (Closes: Bug#181343, #182525, #186748, #197348, #197349, #198023,
+            Bug#198024, #198990, #199124, #186112)
 
  -- peter karlsson <peterk@debian.org>  Mon, 27 May 2002 10:45:00 +0100
 
