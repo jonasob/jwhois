@@ -1,3 +1,7 @@
+2001-09-07  Jonas Oberg  <jonas@gnu.org>
+
+	* doc/jwhois.1, jwhois.texi: Updated to version 3.0
+
 2001-09-06  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jwhois.c (jwhois_query): Added generic function to perform
