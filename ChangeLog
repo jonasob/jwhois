@@ -1,3 +1,7 @@
+2002-04-02  peter karlsson <peter@softwolves.pp.se>
+
+	* src/lookup.c: Applied bugfix patch from Jason Harris.
+
 2002-03-28  peter karlsson <peter@softwolves.pp.se>
 
 	* examples/jwhois.conf: Added .edu.

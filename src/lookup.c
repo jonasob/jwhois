@@ -607,7 +607,7 @@ lookup_query_format(struct s_whois_query *wq)
           switch (*ret)
             {
               case '*': /* Entire hostname */
-                add_string(&tmpptr, wq->query, strlen(wq->query) - 1, &tmpqstring, &buflen);
+                add_string(&tmpptr, wq->query, strlen(wq->query), &tmpqstring, &buflen);
                 ret ++;
                 break;
 
