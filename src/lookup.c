@@ -1,4 +1,4 @@
-*
+/*
     This file is part of jwhois
     Copyright (C) 1999  Jonas Öberg
 
