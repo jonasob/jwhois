@@ -1,5 +1,10 @@
 2002-12-03  Lee Maguire <lee@hexkey.co.uk>
 
+	* example/jwhois.conf: re-enabled .pt, added .na (Namibia),
+	  updated .sa (Saudi Arabia), added -SA (SaudiNIC) handles.
+
+2002-12-03  Lee Maguire <lee@hexkey.co.uk>
+
 	* example/jwhois.conf: v4 assignment from IANA to APNIC of 222/7
 
 2003-02-12  Peter Karlsson <peter@softwolves.pp.se>
