@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
-"POT-Creation-Date: 2002-01-09 19:51+0100\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
 "PO-Revision-Date: 2002-01-11 15:06-0600\n"
 "Last-Translator: Cristian Othón Martínez Vera <cfuga@itam.mx>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -29,7 +29,7 @@ msgstr "No se puede abrir"
 msgid "Unable to store data in cache]\n"
 msgstr "No se pueden guardar datos en el caché]\n"
 
-#: src/dns.c:89
+#: src/dns.c:91
 msgid "host not found"
 msgstr "no se encontró el anfitrión"
 
@@ -154,31 +154,31 @@ msgstr "%s: la opción `-W %s' es ambigua\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: la opción `-W %s' no permite ningún argumento\n"
 
-#: src/http.c:67
+#: src/http.c:69
 msgid "HTTP configuration is incomplete:"
 msgstr "La configuración de HTTP está incompleta:"
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
-#: src/http.c:140
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr "Falta la opción:"
 
-#: src/http.c:80
+#: src/http.c:82
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "La opción http-method debe ser \"GET\" o \"POST\".\n"
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Preguntando"
 
-#: src/http.c:196
+#: src/http.c:213
 msgid "Unable to run web browser"
 msgstr "No se puede ejecutar el navegador web"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
-msgstr "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999-2002  Free Software Foundation, Inc."
 
 # Creo que redistribuírlo no lleva tilde, en cualquier caso sugiero
 # usar una forma impersonal aún cuando el original esté en tercera
@@ -217,24 +217,31 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  muestra el número de la versión y el nivel de parches\n"
+"  --version                  muestra el número de la versión y el nivel de "
+"parches\n"
 "  --help                     muestra esta ayuda\n"
 "  -v, --verbose              salida de depuración con detalle\n"
 "  -c FICH, --config=FICH     usa FICHero como fichero de configuración\n"
 "  -h ANF, --host=ANF         pregunta explícitamente por el ANFitrión\n"
 "  -n, --no-redirect          desactiva la redirección de contenido\n"
-"  -s, --no-whoisservers      desactiva el soporte al servicio de whois-servers.net\n"
+"  -s, --no-whoisservers      desactiva el soporte al servicio de whois-"
+"servers.net\n"
 "  -a, --raw                  desactiva el reformato de la pregunta\n"
-"  -i, --display-redirections muestra todas las redirecciones en vez de ocultarlas\n"
-"  -p PUERTO, --port=PUERTO   usa el número de puerto PUERTO (junto con ANFitrión)\n"
+"  -i, --display-redirections muestra todas las redirecciones en vez de "
+"ocultarlas\n"
+"  -p PUERTO, --port=PUERTO   usa el número de puerto PUERTO (junto con "
+"ANFitrión)\n"
 "  -r, --rwhois               forza que se haga una pregunta rwhois\n"
-"  --rwhois-display=MOSTRAR   establece la opción de muestra en preguntas whois\n"
-"  --rwhois-limit=LÍMITE      establece el número máximo de coincidencias a entregar\n"
+"  --rwhois-display=MOSTRAR   establece la opción de muestra en preguntas "
+"whois\n"
+"  --rwhois-limit=LÍMITE      establece el número máximo de coincidencias a "
+"entregar\n"
 
 # fuerza. sv
 # Corregido. cfuga
@@ -243,7 +250,8 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         fuerza la búsqueda aún si la entrada está en caché\n"
+"  -f, --force-lookup         fuerza la búsqueda aún si la entrada está en "
+"caché\n"
 "  -d, --disable-cache        desactiva las funciones de caché\n"
 
 # Comunicar bichos (bueno, si no pones bichos no pasa nada). sv
@@ -262,7 +270,8 @@ msgid "Invalid port number"
 msgstr "Número de puerto inválido"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Error en la asignación de memoria"
 
@@ -344,7 +353,7 @@ msgstr "Siguiendo al referente a"
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[El anfitrión terminó la conexión prematuramente]\n"
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr "Respuesta sin manejar"
 

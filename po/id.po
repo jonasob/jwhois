@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
-"POT-Creation-Date: 2002-01-09 19:51+0100\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
 "PO-Revision-Date: 2002-03-19 19:09GMT+0700\n"
 "Last-Translator: Tedi Heriyanto <tedi_h@gmx.net>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -26,7 +26,7 @@ msgstr "Tidak dapat membuka"
 msgid "Unable to store data in cache]\n"
 msgstr "Tidak dapat menyimpan data dalam cache]\n"
 
-#: src/dns.c:89
+#: src/dns.c:91
 msgid "host not found"
 msgstr "host tidak ditemukan"
 
@@ -137,30 +137,31 @@ msgstr "%s: opsi `-W %s' ambigu\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: opsi `-W %s' tidak membolehkan sebuah argumen\n"
 
-#: src/http.c:67
+#: src/http.c:69
 msgid "HTTP configuration is incomplete:"
 msgstr "Konfigurasi HTTP tidak lengkap:"
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97 src/http.c:140
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr "Opsi hilang:"
 
-#: src/http.c:80
+#: src/http.c:82
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "Opsi http-method harus berupa \"GET\" atau \"POST\".\n"
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Meng-query"
 
-#: src/http.c:196
+#: src/http.c:213
 msgid "Unable to run web browser"
 msgstr "Tidak dapat menjalankan browser web"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
-msgstr "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999-2002  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
@@ -189,7 +190,8 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -202,7 +204,8 @@ msgstr ""
 "  -n, --no-redirect          tiadakan content redirection\n"
 "  -s, --no-whoisservers      tiadakan dukungan layanan whois-servers.net\n"
 "  -a, --raw                  tiadakan pemformatan ulang query\n"
-"  -i, --display-redirections tampilkan semua redirect alih-alih menyembunyikannya\n"
+"  -i, --display-redirections tampilkan semua redirect alih-alih "
+"menyembunyikannya\n"
 "  -p PORT, --port=PORT       gunakan nomor port PORT (bersama dengan HOST)\n"
 "  -r, --rwhois               paksa query rwhois untuk dilakukan\n"
 "  --rwhois-display=DISPLAY   set opsi display dalam query rwhois\n"
@@ -228,7 +231,9 @@ msgstr "Batasan tidak valid"
 msgid "Invalid port number"
 msgstr "Nomor port tidak valid"
 
-#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373 src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Gagal mengalokasi memori"
 
@@ -308,7 +313,7 @@ msgstr "Mengikuti referal ke"
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Koneksi host diputus secara prematur]\n"
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr "Reply tidak tertangani"
 

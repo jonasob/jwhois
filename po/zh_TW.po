@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
-"POT-Creation-Date: 2002-01-09 19:51+0100\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
 "PO-Revision-Date: 2002-1-12 19:19+8\n"
 "Last-Translator: Yuan0-Chen Cheng <ycheng@sinica.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -25,7 +25,7 @@ msgstr "無法打開的"
 msgid "Unable to store data in cache]\n"
 msgstr "無法將資料存近快取]\n"
 
-#: src/dns.c:89
+#: src/dns.c:91
 msgid "host not found"
 msgstr "主機找不到"
 
@@ -136,30 +136,31 @@ msgstr "%s：選項 `-W %s' 不明確\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s：選項 'W %s' 不允許一個引數\n"
 
-#: src/http.c:67
+#: src/http.c:69
 msgid "HTTP configuration is incomplete:"
 msgstr "HTTP 組態是不完整的："
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97 src/http.c:140
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr "選擇遺漏："
 
-#: src/http.c:80
+#: src/http.c:82
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "選項 http-method 方法必須是\"GET\" 或是 \"POST\"。\n"
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "查詢"
 
-#: src/http.c:196
+#: src/http.c:213
 msgid "Unable to run web browser"
 msgstr "無法執行瀏覽器"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
-msgstr "版權所有 (C) 1999,2001 自由軟體基金會。"
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgstr "版權所有 (C) 1999-2002 自由軟體基金會。"
 
 #: src/init.c:117
 msgid ""
@@ -188,7 +189,8 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -227,7 +229,9 @@ msgstr "無效的界線"
 msgid "Invalid port number"
 msgstr "無效的埠數"
 
-#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373 src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "分派記憶體錯誤"
 
@@ -307,7 +311,7 @@ msgstr "下列事物指示到"
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[主機連線提前被終止]\n"
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr "未被處理答覆"
 

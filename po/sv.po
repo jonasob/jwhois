@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.0\n"
-"POT-Creation-Date: 2002-01-06 00:41+0100\n"
-"PO-Revision-Date: 2002-01-12 08:15+0200\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
+"PO-Revision-Date: 2002-03-14 00:13+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "Kan ej öppna"
 msgid "Unable to store data in cache]\n"
 msgstr "Kan inte lagra data i databasen]\n"
 
-#: src/dns.c:89
+#: src/dns.c:91
 msgid "host not found"
 msgstr "värden kunde inte hittas"
 
@@ -136,31 +136,31 @@ msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"-W %s\" tillåter inte något argument\n"
 
-#: src/http.c:67
+#: src/http.c:69
 msgid "HTTP configuration is incomplete:"
 msgstr "HTTP-inställning är ej komplett:"
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
-#: src/http.c:140
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr "Inställning saknas:"
 
-#: src/http.c:80
+#: src/http.c:82
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Frågar"
 
-#: src/http.c:196
+#: src/http.c:213
 msgid "Unable to run web browser"
 msgstr "Kan inte starta webbläsare"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
-msgstr "Copyright © 1999,2001  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgstr "Copyright © 1999-2002  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
@@ -235,7 +235,8 @@ msgid "Invalid port number"
 msgstr "Felaktigt portnummer"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Fel vid allokering av minne"
 
@@ -315,7 +316,7 @@ msgstr "Följer omdirigering till"
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Värden avbröt förbindelsen i förtid]\n"
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr "Ej hanterat svar"
 

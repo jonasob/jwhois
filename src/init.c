@@ -113,7 +113,7 @@ int enable_whoisservers;
 
 void help_version(int onlyversion)
 {
-  char *COPYRIGHT = _("Copyright (C) 1999,2001  Free Software Foundation, Inc.");
+  char *COPYRIGHT = _("Copyright (C) 1999-2002  Free Software Foundation, Inc.");
   char *LICENSE =  _("This program is free software with ABSOLUTELY NO WARRANTY; you may\n\
 redistribute it under the terms of the GNU General Public License.");
 

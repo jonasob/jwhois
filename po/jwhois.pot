@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-01-09 19:51+0100\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Unable to store data in cache]\n"
 msgstr ""
 
-#: src/dns.c:89
+#: src/dns.c:91
 msgid "host not found"
 msgstr ""
 
@@ -137,30 +137,30 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: src/http.c:67
+#: src/http.c:69
 msgid "HTTP configuration is incomplete:"
 msgstr ""
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
-#: src/http.c:140
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr ""
 
-#: src/http.c:80
+#: src/http.c:82
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
 
-#: src/http.c:196
+#: src/http.c:213
 msgid "Unable to run web browser"
 msgstr ""
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
 msgstr ""
 
 #: src/init.c:117
@@ -214,7 +214,8 @@ msgid "Invalid port number"
 msgstr ""
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr ""
 
@@ -294,7 +295,7 @@ msgstr ""
 msgid "[Host terminated connection prematurely]\n"
 msgstr ""
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr ""
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU jwhois 3.1.0\n"
-"POT-Creation-Date: 2002-01-09 19:51+0100\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
 "PO-Revision-Date: 2002-03-17 20:00-0500\n"
 "Last-Translator: Michel Robitaille <robitail@IRO.UMontreal.CA>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -26,7 +26,7 @@ msgstr "Incapable d'ouvrir"
 msgid "Unable to store data in cache]\n"
 msgstr "Incapable de stocker les données dans la cache]\n"
 
-#: src/dns.c:89
+#: src/dns.c:91
 msgid "host not found"
 msgstr "hôte non repéré"
 
@@ -137,30 +137,31 @@ msgstr "%s: l'option « -W %s » est ambiguë\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: l'option « -W %s » ne permet pas d'argument\n"
 
-#: src/http.c:67
+#: src/http.c:69
 msgid "HTTP configuration is incomplete:"
 msgstr "Configuration HTTP est incomplète:"
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97 src/http.c:140
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr "Option manquante:"
 
-#: src/http.c:80
+#: src/http.c:82
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "L'option de http-method doit être « GET » ou « POST ».\n"
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Requête en cours"
 
-#: src/http.c:196
+#: src/http.c:213
 msgid "Unable to run web browser"
 msgstr "Incapable de lancer le fureteur du web"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
-msgstr "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999-2002  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
@@ -189,31 +190,38 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
 "  --version                    afficher le nom et la version du logiciel\n"
 "  --help                       afficher l'aide-mémoire\n"
-"  -v, --verbose                fournir des explications lors de la mise au point\n"
+"  -v, --verbose                fournir des explications lors de la mise au "
+"point\n"
 "  -c FICHIER, --config=FICHIER utiliser le FICHIER de configuration\n"
 "  -h HÔTE, --host=HÔTE         adresser les requêtes à l'HÔTE\n"
 "  -n, --no-redirect            déasactiver les redirections\n"
 "  -s, --no-whoisservers        désactivier les services whois-servers.net\n"
 "  -a, --raw                    désactiver le reformattage de requête\n"
-"  -i, --display-redirections   afficher toutes les redirections au lieu de les cacher\n"
-"  -p PORT, --port=PORT         utiliser le numéro de PORT (utilisé avec l'HÔTE)\n"
+"  -i, --display-redirections   afficher toutes les redirections au lieu de "
+"les cacher\n"
+"  -p PORT, --port=PORT         utiliser le numéro de PORT (utilisé avec "
+"l'HÔTE)\n"
 "  -r, --rwhois                 forcer les requêtes de type rwhois\n"
-"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes de type rwhois\n"
-"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à retourner\n"
+"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes "
+"de type rwhois\n"
+"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à "
+"retourner\n"
 
 #: src/init.c:141
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup           forcer la recherche même si l'entrée est dans la cache\n"
+"  -f, --force-lookup           forcer la recherche même si l'entrée est dans "
+"la cache\n"
 "  -d, --disable-cache          désactiver les fonctions de la cache\n"
 
 #: src/init.c:144
@@ -228,7 +236,9 @@ msgstr "Limite invalide"
 msgid "Invalid port number"
 msgstr "Numéro de port invalide"
 
-#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373 src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Erreur d'allocation mémoire"
 
@@ -308,7 +318,7 @@ msgstr "Poursuite de la référence vers"
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Fin prématurée de la connexion par l'hôte]\n"
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr "Réponse non traitée"
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2002-01-09 19:51+0100\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -29,7 +29,7 @@ msgstr "невозможно открыть"
 msgid "Unable to store data in cache]\n"
 msgstr "невозможно сохранить данные в базе данных"
 
-#: src/dns.c:89
+#: src/dns.c:91
 msgid "host not found"
 msgstr "хост не найден"
 
@@ -140,31 +140,31 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: src/http.c:67
+#: src/http.c:69
 msgid "HTTP configuration is incomplete:"
 msgstr ""
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
-#: src/http.c:140
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr ""
 
-#: src/http.c:80
+#: src/http.c:82
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
 
-#: src/http.c:196
+#: src/http.c:213
 #, fuzzy
 msgid "Unable to run web browser"
 msgstr "невозможно открыть"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
 msgstr ""
 
 #: src/init.c:117
@@ -225,7 +225,8 @@ msgid "Invalid port number"
 msgstr "неверный номер порта"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 #, fuzzy
 msgid "Error allocating memory"
 msgstr "ошибка при выделении памяти"
@@ -317,7 +318,7 @@ msgstr ""
 msgid "[Host terminated connection prematurely]\n"
 msgstr ""
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr ""
 

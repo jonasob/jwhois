@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
-"POT-Creation-Date: 2002-01-09 19:51+0100\n"
+"POT-Creation-Date: 2002-04-14 00:11+0100\n"
 "PO-Revision-Date: 2002-02-06 23:37EET\n"
 "Last-Translator: Ýrfan Macit <imacit@mail.cu.edu.tr>\n"
 "Language-Team: Turkish <gnu-tr-u12a@lists.sourceforge.net>\n"
@@ -26,7 +26,7 @@ msgstr "Açýlamýyor"
 msgid "Unable to store data in cache]\n"
 msgstr "Veri arabellekte saklanamadý\n"
 
-#: src/dns.c:89
+#: src/dns.c:91
 msgid "host not found"
 msgstr "Makina bulunamadý"
 
@@ -137,38 +137,39 @@ msgstr "%s: `-W %s' seçeneði belirsiz\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: `-W %s' seçeneði bir argümana izin vermiyor\n"
 
-#: src/http.c:67
+#: src/http.c:69
 msgid "HTTP configuration is incomplete:"
 msgstr "HTTP konfigürasyonu tamamlanmamýþ:"
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
-#: src/http.c:140
+#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
+#: src/http.c:157
 msgid "Option is missing:"
 msgstr "Eksik seçenek:"
 
-#: src/http.c:80
+#: src/http.c:82
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "http-method seçeneði \"GET\" yada \"POST\" olmalý.\n"
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Sorgulanýyor"
 
-#: src/http.c:196
+#: src/http.c:213
 msgid "Unable to run web browser"
 msgstr "Web tarayýcýsý çalýþtýrýlamýyor"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
-msgstr "Telif Hakký (C) 1999,2001  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgstr "Telif Hakký (C) 1999-2002  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"Bu, HÝÇ BÝR GARANTÝ ÝÇERMEYEN bir serbest yazýlýmdýr; GNU Genel Kamu Lisansý\n"
+"Bu, HÝÇ BÝR GARANTÝ ÝÇERMEYEN bir serbest yazýlýmdýr; GNU Genel Kamu "
+"Lisansý\n"
 "koþullarý altýnda yeniden daðýtabilirsiniz."
 
 #: src/init.c:120
@@ -190,7 +191,8 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -201,12 +203,15 @@ msgstr ""
 "  -c DOSYA, --config=DOSYA   ayar dosyasý olarak DOSYA'yý kullanýr\n"
 "  -h MAK, --host=MAK         özellikle MAK makinasýný sorgular\n"
 "  -n, --no-redirect          içerik yönlendirmesini etkisizleþtirir\n"
-"  -s, --no-whoisservers      whois-servers.net servis desteðini etkisizleþtirir\n"
+"  -s, --no-whoisservers      whois-servers.net servis desteðini "
+"etkisizleþtirir\n"
 "  -a, --raw                  sorgunun tekrar biçemlenmesini etkisizleþtirir\n"
-"  -i, --display-redirections tekrar yönlendirmeleri gizlemek yerine gösterir\n"
+"  -i, --display-redirections tekrar yönlendirmeleri gizlemek yerine "
+"gösterir\n"
 "  -p PORT, --port=PORT       PORT numarasýný kullanýr (MAK ile birlikte)\n"
 "  -r, --rwhois               rwhois sorgusuna zorlar\n"
-"  --rwhois-display=EKRAN     rwhois sorgularýnda ekran seçeneklerini ayarlar\n"
+"  --rwhois-display=EKRAN     rwhois sorgularýnda ekran seçeneklerini "
+"ayarlar\n"
 "  --rwhois-limit=SINIR       verilecek cevap sayýsýný sýnýrlar\n"
 
 #: src/init.c:141
@@ -232,7 +237,8 @@ msgid "Invalid port number"
 msgstr "Geçersiz port numarasý"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Bellek ayrýmýnda hata"
 
@@ -312,7 +318,7 @@ msgstr "Baþvuru izleniyor"
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Makina baðlantýyý zamanýndan önce sonlandýrdý]\n"
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr "Desteklenmeyen yanýt"
 
