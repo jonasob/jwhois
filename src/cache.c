@@ -229,7 +229,7 @@ cache_store(fd, key, host, query, print)
     }
   ptr = dbstore.dptr + sizeof(time_t);
 #else
-  cache_fdrad(fd, &ptr);
+  cache_fdread(fd, &ptr);
   ptr += sizeof(time_t);
 #endif /* CACHE */
 
