@@ -1,6 +1,7 @@
-jwhois (2.3-0) unstable; urgency=low
+jwhois (2.3.1-0) unstable; urgency=low
 
   * New upstream release.
+  * Should build on all systems. Closes: #51644.
 
  -- peter karlsson <peter@softwolves.pp.se>  Tue, 23 Nov 1999 12:20:46 +0100
 
