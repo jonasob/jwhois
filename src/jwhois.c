@@ -203,7 +203,7 @@ main(argc, argv)
     ret = cache_read(qstring, &text);
     if (ret < 0)
       {
-	printf("[%s]\n", _("fatal error reading cache"));
+	printf("[%s]\n", _("error reading cache"));
 	exit(1);
       }
     else if (ret > 0)
@@ -241,8 +241,7 @@ main(argc, argv)
     ret = cache_store(qstring, text);
     if (ret < 0)
       {
-	printf("[%s]\n", _("fatal error writing to cache"));
-	exit(1);
+	printf("[%s]\n", _("error writing to cache"));
       }
   }
 #endif

@@ -1,90 +1,90 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Russian messages for jwhois.
+# Copyright (C) 2000 Free Software Foundation, Inc.
+# Dmitry Mastrukov <dmitry@taurussoft.org>, 2000.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-01-09 18:36+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: jwhois 2.4.1\n"
+"POT-Creation-Date: 2000-01-25 10:04+0100\n"
+"PO-Revision-Date: 2000-10-07 23:03+0400\n"
+"Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
+"Language-Team: RU <RU@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Type: text/plain; charset=koi8-r\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: src/cache.c:140
 msgid "invalid expire time"
-msgstr ""
+msgstr "неверное время обновления"
 
 #: src/cache.c:141
 msgid "using defaults"
-msgstr ""
+msgstr "использование умолчаний"
 
 #: src/cache.c:155 src/init.c:180 src/init.c:189
 msgid "unable to open"
-msgstr ""
+msgstr "невозможно открыть"
 
 #: src/cache.c:156 src/cache.c:165
 msgid "disabling cache"
-msgstr ""
+msgstr "запрещение кэша"
 
 #: src/cache.c:164
 msgid "unable to store data in database"
-msgstr ""
+msgstr "невозможно сохранить данные в базе данных"
 
 #: src/dns.c:89
 msgid "host not found"
-msgstr ""
+msgstr "хост не найден"
 
 #: src/gai_strerror.c:70
 msgid "Address family for hostname not supported"
-msgstr ""
+msgstr "Семейство адресов для хоста не поддерживается"
 
 #: src/gai_strerror.c:72
 msgid "Temporary failure in name resolution"
-msgstr ""
+msgstr "Временный сбой в в распознавании имён"
 
 #: src/gai_strerror.c:74
 msgid "Bad value for ai_flags"
-msgstr ""
+msgstr "Неверное значение для ai_flags"
 
 #: src/gai_strerror.c:76
 msgid "Non-recoverable failure in name resolution"
-msgstr ""
+msgstr "Невосстановимый сбой в распознавании имён"
 
 #: src/gai_strerror.c:78
 msgid "ai_family not supported"
-msgstr ""
+msgstr "ai_family не поддерживается"
 
 #: src/gai_strerror.c:80
 msgid "Memory allocation failure"
-msgstr ""
+msgstr "Сбой при выделении памяти"
 
 #: src/gai_strerror.c:82
 msgid "No address associated with hostname"
-msgstr ""
+msgstr "Никакой адрес не связан с именем хоста"
 
 #: src/gai_strerror.c:84
 msgid "Name or service not known"
-msgstr ""
+msgstr "Имя или сервис неизвестны"
 
 #: src/gai_strerror.c:86
 msgid "Servname not supported for ai_socktype"
-msgstr ""
+msgstr "Servname не поддерживаетсё для ai_socktype"
 
 #: src/gai_strerror.c:88
 msgid "ai_socktype not supported"
-msgstr ""
+msgstr "ai_socktype не поддерживается"
 
 #: src/gai_strerror.c:90
 msgid "System error"
-msgstr ""
+msgstr "Системная ошибка"
 
 #: src/gai_strerror.c:92
 msgid "Unknown error"
-msgstr ""
+msgstr "Неизвестная ошибка"
 
 #: src/init.c:77
 msgid "Copyright (C) 1999  Free Software Foundation, Inc."
@@ -95,14 +95,17 @@ msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
+"Эта программа является свободным программным обеспечением с АБСОЛЮТНЫМ \n"
+"ОТСУТСТВИЕМ ГАРАНТИИ; вы можете распространять её под условиями\n"
+"Генеральной Общедоступной Лицензии GNU."
 
 #: src/init.c:81
 msgid "version"
-msgstr ""
+msgstr "версия"
 
 #: src/init.c:85
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr ""
+msgstr "Использование: jwhois [ПАРАМЕТРЫ] [ЗАПРОС]"
 
 #: src/init.c:87
 msgid ""
@@ -113,29 +116,37 @@ msgid ""
 "  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
 "  -v, --verbose           verbose debug output\n"
 msgstr ""
+"  --version               отобразить номера версии и патча\n"
+"  --help                  отобразить эту подсказку\n"
+"  -c FILE, --config=FILE  использовать FILE как конфигурационный файл\n"
+"  -h HOST, --host=HOST    запрашивать именно этот HOST\n"
+"  -p PORT, --port=PORT    использовать номер порта PORT (совместно с HOST)\n"
+"  -v, --verbose           Подробный отладочный вывод\n"
 
 #: src/init.c:95
 msgid ""
 "  -f, --force-lookup      force lookup even if the entry is cached\n"
 "  -d, --disable-cache     disable cache functions\n"
 msgstr ""
+"  -f, --force-lookup      просматривать, даже если запись кэширована\n"
+"  -d, --disable-cache     запретить функции кэша\n"
 
 #: src/init.c:98
 msgid "Report bugs to bug-jwhois@gnu.org"
-msgstr ""
+msgstr "Сообщать об ошибкаx на bug-jwhois@gnu.org"
 
 #: src/init.c:157
 msgid "invalid port number"
-msgstr ""
+msgstr "неверный номер порта"
 
 #: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
 #: src/jwhois.c:165
 msgid "error allocating memory"
-msgstr ""
+msgstr "ошибка при выделении памяти"
 
 #: src/jconfig.c:238 src/jconfig.c:292
 msgid "string out of bounds on line"
-msgstr ""
+msgstr "строка вышла за границы"
 
 #: src/jconfig.c:264
 msgid "end of file looking for '\"' on line"
@@ -143,44 +154,44 @@ msgstr ""
 
 #: src/jconfig.c:321
 msgid "unexpected end of file on line"
-msgstr ""
+msgstr "неожиданный конец файла в строке"
 
 #: src/jconfig.c:380
 msgid "multiple keys on line"
-msgstr ""
+msgstr "множественные ключи в строке"
 
 #: src/jconfig.c:390
 msgid "missing key on line"
-msgstr ""
+msgstr "отсутствует ключ в строке"
 
 #: src/jwhois.c:98
 msgid "error creating socket"
-msgstr ""
+msgstr "ошибка создания сокета"
 
 #: src/jwhois.c:195
 msgid "fatal error searching for host to query"
-msgstr ""
+msgstr "фатальная ошибка при поиске хоста для запроса"
 
 #: src/jwhois.c:206
 msgid "error reading cache"
-msgstr ""
+msgstr "фатальная ошибка при чтении кэша"
 
 #: src/jwhois.c:211
 msgid "cached"
-msgstr ""
+msgstr "кэшировано"
 
 #: src/jwhois.c:231
 msgid "error reading data from"
-msgstr ""
+msgstr "ошибка чтения данных из"
 
 #: src/jwhois.c:244
 msgid "error writing to cache"
-msgstr ""
+msgstr "фатальная ошибка записи в кэш"
 
 #: src/lookup.c:94
 msgid "invalid netmask on line"
-msgstr ""
+msgstr "неверный параметр netmask в строке"
 
 #: src/lookup.c:355 src/lookup.c:359
 msgid "redirected to"
-msgstr ""
+msgstr "перенаправлено к"

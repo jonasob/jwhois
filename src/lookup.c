@@ -87,7 +87,7 @@ find_cidr(val, block)
 	  {
 	    res = sscanf(j->key, "%d.%d.%d.%d/%d", &a0, &a1, &a2, &a3,
 			 &bits);
-	    if (res != 5)
+	    if (res != 5 || bits < 0 || bits > 32)
 	      {
 		if (verbose) printf("[%s: %s %d]",
 				    config,
@@ -96,7 +96,7 @@ find_cidr(val, block)
 		return NULL;
 	      }
 	    ipmaskip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
-            ipmask = (0xffffffff>>bits);
+            ipmask = (0xffffffff>>(32-bits));
             ipmaskip.s_addr &= ipmask;
 	  }
 	if ((ip.s_addr & ipmask) == ipmaskip.s_addr)

@@ -1,3 +1,18 @@
+2001-01-09  Jonas Oberg  <jonas@gnu.org>
+
+	* Released 2.4.2
+	
+	* src/jwhois.c (main): Better handling of cache errors (Pål Løberg)
+
+	* example/jwhois.conf: Added .in, .nu (Kandra Nygårds),
+	.hk (Patrick Liu), .as (Pål Løberg), .gov.uk (Michael Stevens),
+	.at (Alexander Lehmann)
+
+	* src/lookup.c (find_cidr): Match n bits in an /n block instead of
+	32-n (Tom Hughes, Emil LAURENTIU)
+
+	* po/ru.po: Added (from Dmitry G. Mastrukov)
+	
 Tue Jan 25 16:10:48 2000  Jonas Oberg  <jonas@coyote.org>
 
 	* Released 2.4.1
