@@ -56,7 +56,7 @@ notice identical to this one.
 
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1999  Free Software Foundation, Inc.
+Copyright @copyright{} 1999-2001  Free Software Foundation, Inc.
 
 @sp 2
 Permission is granted to make and distribute verbatim copies of
@@ -73,7 +73,7 @@ notice identical to this one.
 @node Top, Introduction, (dir), (dir)
 
 This file documents the GNU jwhois package, en extended Whois client.
-This is edition 2.4, for jwhois version 2.4, last updated 28 December 1999.
+This is edition 3.0, for jwhois version 3.0, last updated 6 september 2001.
 
 
 @menu
@@ -191,8 +191,8 @@ at the example configuration file included in the distribution.
 
 @menu
 * Global::                      Global configuration options
-* Whois-servers::               Whois server configuration
-* Content-redirect::            The content-redirect block
+* Whois-servers::               List of query rules
+* Server-options::              
 @end menu
 
 @node Global, Whois-servers, , Site Configuration

@@ -341,11 +341,6 @@ rwhois_query(wq, text)
   struct s_referrals *authareas, *a;
   int followed, ret, iret;
 
-  if (!display_redirections)
-    {
-      *text = NULL;
-    }
-
   referrals = NULL;
   iret = rwhois_query_internal(wq, text, &referrals);
 
@@ -372,8 +367,8 @@ rwhois_query(wq, text)
 	      wq->host = referrals->host;
 	      wq->port = referrals->port;
 	      if (verbose)
-		printf("[Debug: Following referral to %s:%d (autharea=%s)]\n", wq->host, wq->port,
-		       referrals->autharea);
+		printf("[Debug: Following referral to %s:%d (autharea=%s)]\n",
+		       wq->host, wq->port, referrals->autharea);
 
 	      ret = rwhois_query(wq, text);
 	      if (ret != -1)

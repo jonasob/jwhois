@@ -91,9 +91,9 @@ add_text_to_buffer(buffer, text)
   if (!*buffer)
     {
       *buffer = malloc(strlen(text)+1);
-      if (!*buffer)
+      if (!buffer)
 	{
-	  fprintf(stderr, _("Can not allocate %d bytes of memory\n"), strlen(*buffer)+strlen(text)+1);
+	  printf("[%s]\n", _("Error allocating memory"));
 	  exit(1);
 	}
       strncpy(*buffer, text, strlen(text)+1);
@@ -103,7 +103,7 @@ add_text_to_buffer(buffer, text)
       *buffer = realloc(*buffer, strlen(*buffer)+strlen(text)+1);
       if (!*buffer)
 	{
-	  fprintf(stderr, _("Can not allocate %d bytes of memory\n"), strlen(*buffer)+strlen(text)+1);
+	  printf("[%s]\n", _("Error allocating memory"));
 	  exit(1);
 	}
       strncat(*buffer, text, strlen(text)+1);

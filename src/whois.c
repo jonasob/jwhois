@@ -53,19 +53,12 @@ whois_query(wq, text)
      char **text;
 {
   int ret, sockfd;
-  char *tmpqstring;
+  char *tmpqstring, *tmp, *tmp2;
 
   printf("[%s %s]\n", _("Querying"), wq->host);
-  *text = NULL;
+
   while (1)
     {
-      if (!raw_query)
-	tmpqstring = (char *)lookup_query_format(wq);
-      else
-	tmpqstring = wq->query;
-
-      if (verbose) printf("[Debug: Formatted query: \"%s\"]\n", tmpqstring);
-
       sockfd = make_connect(wq->host, wq->port);
 
       if (sockfd < 0)
@@ -73,32 +66,37 @@ whois_query(wq, text)
 	  printf(_("[Unable to connect to remote host]\n"));
 	  return -1;
 	}
-      tmpqstring = realloc(tmpqstring, strlen(tmpqstring)+3);
+      tmpqstring = malloc(strlen(wq->query)+3);
       if (!tmpqstring)
         {
-          printf("[%s]\n", _("error allocating memory"));
+          printf("[%s]\n", _("Error allocating memory"));
           exit(1);
         }
+      strncpy(tmpqstring, wq->query, strlen(wq->query));
       strcat(tmpqstring, "\r\n");
       write(sockfd, tmpqstring, strlen(tmpqstring));
 
       ret = whois_read(sockfd, text, wq->host);
+
       if (ret < 0)
 	{
-	  printf("[%s %s:%d]\n", _("error reading data from"), wq->host,
+	  printf("[%s %s:%d]\n", _("Error reading data from"), wq->host,
 		 wq->port);
 	  exit(1);
 	}
       if (redirect)
         {
-          ret = lookup_redirect(wq->host, *text, wq);
+          ret = lookup_redirect(wq, *text);
           if ((ret < 0) || (ret == 0)) break;
+	  jwhois_query(wq, text);
+	  break;
         }
       else
         {
           break;
         }
     }
+  return 0;
 }
 
 /*
@@ -119,13 +117,7 @@ whois_read(fd, ptr, host)
 
   count = 0;
 
-  if (!display_redirections)
-    {
-      free(*ptr);
-      *ptr = NULL;
-    }
-
-  add_text_to_buffer(&*ptr, create_string("[%s]\n", host));
+  add_text_to_buffer(ptr, create_string("[%s]\n", host));
 
   start_count = strlen(*ptr);
 

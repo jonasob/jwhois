@@ -1,0 +1,4 @@
+
+ * When being redirected from a whois server to a rwhois-server,
+   the rwhois query is done with the whois engine. Should be done
+   via the rwhois engine.

@@ -98,9 +98,6 @@ main(argc, argv)
   qstring[strlen(qstring)-1] = '\0';
   wq.query = qstring;
 
-  if (verbose)
-    printf("[Debug: Raw query string = \"%s\"]\n", wq.query);
-
   if (ghost)
     {
       if (verbose) printf("[Debug: Calling %s:%d directly]\n", ghost, gport);
@@ -121,6 +118,9 @@ main(argc, argv)
 	}
     }
 
+  text = NULL;
+  jwhois_query(&wq, &text);
+
 #ifndef NOCACHE
   if (!forcelookup && cache) {
     if (verbose) printf("[Debug: Looking up entry in cache]\n");
@@ -138,24 +138,6 @@ main(argc, argv)
   }
 #endif
 
-  tmp = (char *)get_whois_server_option(wq.host, "rwhois");
-  tmp2 = (char *)get_whois_server_option(wq.host, "http");
-
-  if (tmp2 && 0 == strcmp(tmp2, "true"))
-    ret = http_query(&wq, &text);
-  else if ( (!tmp || (strncmp(tmp, "true", 4) == 0)) && (!rwhois) )
-    ret = whois_query(&wq, &text);
-  else
-    {
-      text = NULL;
-      ret = rwhois_query(&wq, &text);
-    }
-
-  if (ret < 0)
-    {
-      exit(1);
-    }
-
 #ifndef NOCACHE
   if (cache) {
     if (verbose) printf("[Debug: Storing in cache]\n");
@@ -170,3 +152,55 @@ main(argc, argv)
   printf("%s", text);
   exit(0);
 }
+
+/*
+ *  This is the routine that actually performs a query. It selects
+ *  the method to use for the host and then calls the correct routine
+ *  to make the query. If the return value of the subroutine is above
+ *  0, it found a redirect to another server, so jwhois_query() promptly
+ *  follows it there. A return value of -1 is always a fatal error.
+ */
+int
+jwhois_query(wq, text)
+     struct s_whois_query *wq;
+     char **text;
+{
+  char *tmp, *tmp2;
+  int ret;
+
+  if (!display_redirections)
+    *text = NULL;
+  
+  if (!raw_query)
+      wq->query = (char *)lookup_query_format(wq);
+
+  tmp = (char *)get_whois_server_option(wq->host, "rwhois");
+  tmp2 = (char *)get_whois_server_option(wq->host, "http");
+
+  if ( (tmp && 0 == strcasecmp(tmp, "true")) || rwhois )
+    {
+      ret = rwhois_query(wq, text);
+    }
+  else
+    {
+      if (tmp2 && 0 == strcasecmp(tmp2, "true"))
+	{
+	  ret = http_query(wq, text);
+	}
+      else
+	{
+	  ret = whois_query(wq, text);
+	}
+    }
+
+  if (ret < 0)
+    {
+      exit(1);
+    }
+  if (ret > 0)
+    jwhois_query(wq, text);
+  else
+    return 0;
+}
+
+

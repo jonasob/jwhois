@@ -278,10 +278,9 @@ lookup_host(wq, block)
  *           1    Match found
  */
 int
-lookup_redirect(search_host, text, wq)
-     char *search_host;
-     char *text;
+lookup_redirect(wq, text)
      struct s_whois_query *wq;
+     char *text;
 {
   int num, i, error, ind;
   char *bptr = NULL, *strptr, *ascport, *ret, *tmphost;
@@ -294,7 +293,7 @@ lookup_redirect(search_host, text, wq)
   if (!bptr)
     return -1;
 
-  domain = (char *)get_whois_server_domain_path(search_host);
+  domain = (char *)get_whois_server_domain_path(wq->host);
   if (!domain)
     return 0;
 
@@ -426,7 +425,7 @@ lookup_query_format(wq)
      struct s_whois_query *wq;
 {
   char *ret = NULL, *tmpqstring, *tmpptr;
-  struct jconfig *j;
+  struct jconfig *j = NULL;
 
   if (wq->domain)
     {
