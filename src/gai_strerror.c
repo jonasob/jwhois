@@ -57,32 +57,43 @@
 static struct
   {
     int code;
-    const char *msg;
+    char *msg;
   }
 values[] =
   {
-    { EAI_ADDRFAMILY, _("Address family for hostname not supported") },
-    { EAI_AGAIN, _("Temporary failure in name resolution") },
-    { EAI_BADFLAGS, _("Bad value for ai_flags") },
-    { EAI_FAIL, _("Non-recoverable failure in name resolution") },
-    { EAI_FAMILY, _("ai_family not supported") },
-    { EAI_MEMORY, _("Memory allocation failure") },
-    { EAI_NODATA, _("No address associated with hostname") },
-    { EAI_NONAME, _("Name or service not known") },
-    { EAI_SERVICE, _("Servname not supported for ai_socktype") },
-    { EAI_SOCKTYPE, _("ai_socktype not supported") },
-    { EAI_SYSTEM, _("System error") }
   };
 
 char *
 gai_strerror (int code)
 {
   size_t i;
-  for (i = 0; i < sizeof (values) / sizeof (values[0]); ++i)
-    if (values[i].code == code)
-      return (char *) values[i].msg;
-
-  return (char *) _("Unknown error");
+  switch(code)
+    {
+    case EAI_ADDRFAMILY:
+      return (char *) _("Address family for hostname not supported");
+    case EAI_AGAIN:
+      return (char *) _("Temporary failure in name resolution");
+    case EAI_BADFLAGS:
+      return (char *) _("Bad value for ai_flags");
+    case EAI_FAIL:
+      return (char *) _("Non-recoverable failure in name resolution");
+    case EAI_FAMILY:
+      return (char *) _("ai_family not supported");
+    case EAI_MEMORY:
+      return (char *) _("Memory allocation failure");
+    case EAI_NODATA:
+      return (char *) _("No address associated with hostname");
+    case EAI_NONAME:
+      return (char *) _("Name or service not known");
+    case EAI_SERVICE:
+      return (char *) _("Servname not supported for ai_socktype");
+    case EAI_SOCKTYPE:
+      return (char *) _("ai_socktype not supported");
+    case EAI_SYSTEM:
+      return (char *) _("System error");
+    default:
+      return (char *) _("Unknown error");
+    }
 }
 
 #endif /* !HAVE_GAI_STRERROR */

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-11-27 15:51+0100\n"
+"POT-Creation-Date: 1999-11-27 16:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,51 +38,51 @@ msgstr ""
 msgid "host not found"
 msgstr ""
 
-#: src/gai_strerror.c:64
+#: src/gai_strerror.c:73
 msgid "Address family for hostname not supported"
 msgstr ""
 
-#: src/gai_strerror.c:65
+#: src/gai_strerror.c:75
 msgid "Temporary failure in name resolution"
 msgstr ""
 
-#: src/gai_strerror.c:66
+#: src/gai_strerror.c:77
 msgid "Bad value for ai_flags"
 msgstr ""
 
-#: src/gai_strerror.c:67
+#: src/gai_strerror.c:79
 msgid "Non-recoverable failure in name resolution"
 msgstr ""
 
-#: src/gai_strerror.c:68
+#: src/gai_strerror.c:81
 msgid "ai_family not supported"
 msgstr ""
 
-#: src/gai_strerror.c:69
+#: src/gai_strerror.c:83
 msgid "Memory allocation failure"
 msgstr ""
 
-#: src/gai_strerror.c:70
+#: src/gai_strerror.c:85
 msgid "No address associated with hostname"
 msgstr ""
 
-#: src/gai_strerror.c:71
+#: src/gai_strerror.c:87
 msgid "Name or service not known"
 msgstr ""
 
-#: src/gai_strerror.c:72
+#: src/gai_strerror.c:89
 msgid "Servname not supported for ai_socktype"
 msgstr ""
 
-#: src/gai_strerror.c:73
+#: src/gai_strerror.c:91
 msgid "ai_socktype not supported"
 msgstr ""
 
-#: src/gai_strerror.c:74
+#: src/gai_strerror.c:93
 msgid "System error"
 msgstr ""
 
-#: src/gai_strerror.c:85
+#: src/gai_strerror.c:95
 msgid "Unknown error"
 msgstr ""
 
