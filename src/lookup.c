@@ -391,7 +391,7 @@ lookup_redirect(struct s_whois_query *wq, const char *text)
 	{
 	  memcpy(bptr, text, strlen(text)+1);
 
-	  strptr = (char *)strtok(bptr, "\n");
+	  strptr = (char *)strtok(bptr, "\r\n");
 	  while (strptr)
 	    {
 	      rpb.allocated = 0;
@@ -443,7 +443,7 @@ lookup_redirect(struct s_whois_query *wq, const char *text)
 		}
 	      else if (ind == -2)
 		return -1;
-	      strptr = (char *)strtok(NULL, "\n");
+	      strptr = (char *)strtok(NULL, "\r\n");
 	    }
 	}
     }

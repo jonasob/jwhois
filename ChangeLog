@@ -1,5 +1,10 @@
 2003-02-04  Peter Karlsson <peter@softwolves.pp.se>
 
+	* example/jwhois.conf, src/lookup.c: Fixed problems with redirected
+	  lookups of .org domains (closes Debian bug#179782)
+
+2003-02-04  Peter Karlsson <peter@softwolves.pp.se>
+
 	* po/nl.po, po/fr.po, po/pt_BR.po: Updated from TP.
 
 2003-02-03  Peter Karlsson <peter@softwolves.pp.se>
