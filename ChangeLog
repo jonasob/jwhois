@@ -1,8 +1,8 @@
 2001-08-08  peter karlsson <peter@softwolves.pp.se>
 
-	* example/jwhois.conf: Fixed 164.0.0.0/8 mapping and .hk lookup,
+	* example/jwhois.conf: Fixed 164.0.0.0/8 mapping, .hk and .cn lookup,
 	  added mapping for .pl
-	  (Lee Maguire, Debian bugs #106245, #106255, #107260)
+	  (Lee Maguire, Debian bugs #106245, #106255, #107260, #107353)
 
 2001-07-19  peter karlsson <peter@softwolves.pp.se>
 
