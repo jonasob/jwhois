@@ -1,3 +1,9 @@
+2002-05-13  Peter Karlsson <peter@softwolves.pp.se>
+
+	* examples/jwhois.conf: Disabled .ba, .pt and .mk.
+	  Updated .ee, .fi, .hu, .lt, .uz
+	  (Lee Maguire, Debian bug#146190, #146251, #146410)
+
 2002-05-04  Peter Karlsson <peter@softwolves.pp.se>
 
 	* examples/jwhois.conf: Added .vu
