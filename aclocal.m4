@@ -1,4 +1,4 @@
-dnl aclocal.m4 generated automatically by aclocal 1.4
+dnl aclocal.m4 generated automatically by aclocal 1.4-p4
 
 dnl Copyright (C) 1994, 1995-8, 1999 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
@@ -129,11 +129,13 @@ changequote([,]))])
 # Ulrich Drepper <drepper@cygnus.com>, 1995.
 #
 # This file can be copied and used freely without restrictions.  It can
-# be used in projects which are not available under the GNU Public License
-# but which still want to provide support for the GNU gettext functionality.
-# Please note that the actual code is *not* freely available.
+# be used in projects which are not available under the GNU General Public
+# License but which still want to provide support for the GNU gettext
+# functionality.
+# Please note that the actual code of GNU gettext is covered by the GNU
+# General Public License and is *not* in the public domain.
 
-# serial 9
+# serial 10
 
 dnl Usage: AM_WITH_NLS([TOOLSYMBOL], [NEEDSYMBOL], [LIBDIR]).
 dnl If TOOLSYMBOL is specified and is 'use-libtool', then a libtool library
@@ -174,6 +176,7 @@ AC_DEFUN([AM_WITH_NLS],
 
     BUILD_INCLUDED_LIBINTL=no
     USE_INCLUDED_LIBINTL=no
+    INTLLIBS=
 
     dnl If we use NLS figure out what method
     if test "$USE_NLS" = "yes"; then
@@ -211,7 +214,7 @@ return (int) gettext ("")]ifelse([$2], need-ngettext, [ + (int) ngettext ("", ""
 	     AC_CACHE_CHECK([for GNU gettext in libintl],
 	       gt_cv_func_gnugettext_libintl,
 	       [gt_save_LIBS="$LIBS"
-		LIBS="$LIBS -lintl"
+		LIBS="$LIBS -lintl $LIBICONV"
 		AC_TRY_LINK([#include <libintl.h>
 extern int _nl_msg_cat_cntr;],
 		  [bindtextdomain ("", "");
@@ -221,22 +224,38 @@ return (int) gettext ("")]ifelse([$2], need-ngettext, [ + (int) ngettext ("", ""
 		LIBS="$gt_save_LIBS"])
 	   fi
 
+	   dnl If an already present or preinstalled GNU gettext() is found,
+	   dnl use it.  But if this macro is used in GNU gettext, and GNU
+	   dnl gettext is already preinstalled in libintl, we update this
+	   dnl libintl.  (Cf. the install rule in intl/Makefile.in.)
 	   if test "$gt_cv_func_gnugettext_libc" = "yes" \
-	      || test "$gt_cv_func_gnugettext_libintl" = "yes"; then
+	      || { test "$gt_cv_func_gnugettext_libintl" = "yes" \
+		   && test "$PACKAGE" != gettext; }; then
 	     AC_DEFINE(HAVE_GETTEXT, 1,
                [Define if the GNU gettext() function is already present or preinstalled.])
-	     AC_CHECK_FUNCS(dcgettext)
-	     AM_PATH_PROG_WITH_TEST(MSGFMT, msgfmt,
-	       [test -z "`$ac_dir/$ac_word -h 2>&1 | grep 'dv '`"], no)dnl
-	     if test "$MSGFMT" != "no"; then
-	       AC_PATH_PROG(GMSGFMT, gmsgfmt, $MSGFMT)
-	     fi
-	     AM_PATH_PROG_WITH_TEST(XGETTEXT, xgettext,
-	       [test -z "`$ac_dir/$ac_word -h 2>&1 | grep '(HELP)'`"], :)
-	     CATOBJEXT=.gmo
+
 	     if test "$gt_cv_func_gnugettext_libintl" = "yes"; then
-	       INTLLIBS="-lintl"
+	       dnl If iconv() is in a separate libiconv library, then anyone
+	       dnl linking with libintl{.a,.so} also needs to link with
+	       dnl libiconv.
+	       INTLLIBS="-lintl $LIBICONV"
 	     fi
+
+	     gt_save_LIBS="$LIBS"
+	     LIBS="$LIBS $INTLLIBS"
+	     AC_CHECK_FUNCS(dcgettext)
+	     LIBS="$gt_save_LIBS"
+
+	     dnl Search for GNU msgfmt in the PATH.
+	     AM_PATH_PROG_WITH_TEST(MSGFMT, msgfmt,
+	       [$ac_dir/$ac_word --statistics /dev/null >/dev/null 2>&1], :)
+	     AC_PATH_PROG(GMSGFMT, gmsgfmt, $MSGFMT)
+
+	     dnl Search for GNU xgettext in the PATH.
+	     AM_PATH_PROG_WITH_TEST(XGETTEXT, xgettext,
+	       [$ac_dir/$ac_word --omit-header /dev/null >/dev/null 2>&1], :)
+
+	     CATOBJEXT=.gmo
 	   fi
 	])
 
@@ -251,29 +270,38 @@ return (int) gettext ("")]ifelse([$2], need-ngettext, [ + (int) ngettext ("", ""
         dnl Mark actions used to generate GNU NLS library.
         INTLOBJS="\$(GETTOBJS)"
         AM_PATH_PROG_WITH_TEST(MSGFMT, msgfmt,
-	  [test -z "`$ac_dir/$ac_word -h 2>&1 | grep 'dv '`"], msgfmt)
+	  [$ac_dir/$ac_word --statistics /dev/null >/dev/null 2>&1], :)
         AC_PATH_PROG(GMSGFMT, gmsgfmt, $MSGFMT)
         AM_PATH_PROG_WITH_TEST(XGETTEXT, xgettext,
-	  [test -z "`$ac_dir/$ac_word -h 2>&1 | grep '(HELP)'`"], :)
+	  [$ac_dir/$ac_word --omit-header /dev/null >/dev/null 2>&1], :)
         AC_SUBST(MSGFMT)
 	BUILD_INCLUDED_LIBINTL=yes
 	USE_INCLUDED_LIBINTL=yes
         CATOBJEXT=.gmo
-	INTLLIBS='ifelse([$3],[],$(top_builddir)/intl,[$3])/libintl.ifelse([$1], use-libtool, [l], [])a'
+	INTLLIBS="ifelse([$3],[],\$(top_builddir)/intl,[$3])/libintl.ifelse([$1], use-libtool, [l], [])a $LIBICONV"
 	LIBS=`echo " $LIBS " | sed -e 's/ -lintl / /' -e 's/^ //' -e 's/ $//'`
       fi
 
-      dnl If iconv() is in a separate libiconv library, then anyone linking
-      dnl with libintl{.a,.so} also needs to link with libiconv.
-      if test -n "$LIBICONV" && test -n "$INTLLIBS"; then
-        INTLLIBS="$INTLLIBS $LIBICONV"
+      dnl This could go away some day; the PATH_PROG_WITH_TEST already does it.
+      dnl Test whether we really found GNU msgfmt.
+      if test "$GMSGFMT" != ":"; then
+	dnl If it is no GNU msgfmt we define it as : so that the
+	dnl Makefiles still can work.
+	if $GMSGFMT --statistics /dev/null >/dev/null 2>&1; then
+	  : ;
+	else
+	  AC_MSG_RESULT(
+	    [found msgfmt program is not GNU msgfmt; ignore it])
+	  GMSGFMT=":"
+	fi
       fi
 
+      dnl This could go away some day; the PATH_PROG_WITH_TEST already does it.
       dnl Test whether we really found GNU xgettext.
       if test "$XGETTEXT" != ":"; then
 	dnl If it is no GNU xgettext we define it as : so that the
 	dnl Makefiles still can work.
-	if $XGETTEXT --omit-header /dev/null 2> /dev/null; then
+	if $XGETTEXT --omit-header /dev/null >/dev/null 2>&1; then
 	  : ;
 	else
 	  AC_MSG_RESULT(
@@ -286,9 +314,35 @@ return (int) gettext ("")]ifelse([$2], need-ngettext, [ + (int) ngettext ("", ""
       POSUB=po
     fi
     AC_OUTPUT_COMMANDS(
-     [case " $CONFIG_FILES " in *" po/Makefile.in "* | *" po/Makefile.in:"*)
-        sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile
-      esac])
+     [for ac_file in $CONFIG_FILES; do
+        # Support "outfile[:infile[:infile...]]"
+        case "$ac_file" in
+          *:*) ac_file=`echo "$ac_file"|sed 's%:.*%%'` ;;
+        esac
+        # PO directories have a Makefile.in generated from Makefile.in.in.
+        case "$ac_file" in */Makefile.in)
+          # Adjust a relative srcdir.
+          ac_dir=`echo "$ac_file"|sed 's%/[^/][^/]*$%%'`
+          ac_dir_suffix="/`echo "$ac_dir"|sed 's%^\./%%'`"
+          ac_dots=`echo "$ac_dir_suffix"|sed 's%/[^/]*%../%g'`
+          # In autoconf-2.13 it is called $ac_given_srcdir.
+          # In autoconf-2.50 it is called $srcdir.
+          test -n "$ac_given_srcdir" || ac_given_srcdir="$srcdir"
+          case "$ac_given_srcdir" in
+            .)  top_srcdir=`echo $ac_dots|sed 's%/$%%'` ;;
+            /*) top_srcdir="$ac_given_srcdir" ;;
+            *)  top_srcdir="$ac_dots$ac_given_srcdir" ;;
+          esac
+          if test -f "$ac_given_srcdir/$ac_dir/POTFILES.in"; then
+            rm -f "$ac_dir/POTFILES"
+            test -n "$as_me" && echo "$as_me: creating $ac_dir/POTFILES" || echo "creating $ac_dir/POTFILES"
+            sed -e "/^#/d" -e "/^[ 	]*\$/d" -e "s,.*,     $top_srcdir/& \\\\," -e "\$s/\(.*\) \\\\/\1/" < "$ac_given_srcdir/$ac_dir/POTFILES.in" > "$ac_dir/POTFILES"
+            test -n "$as_me" && echo "$as_me: creating $ac_dir/Makefile" || echo "creating $ac_dir/Makefile"
+            sed -e "/POTFILES =/r $ac_dir/POTFILES" "$ac_dir/Makefile.in" > "$ac_dir/Makefile"
+          fi
+          ;;
+        esac
+      done])
 
 
     dnl If this is used in GNU gettext we have to set BUILD_INCLUDED_LIBINTL
@@ -354,6 +408,14 @@ changequote([,])dnl
     dnl For backward compatibility. Some Makefiles may be using this.
     DATADIRNAME=share
     AC_SUBST(DATADIRNAME)
+
+    dnl For backward compatibility. Some Makefiles may be using this.
+    INSTOBJEXT=.mo
+    AC_SUBST(INSTOBJEXT)
+
+    dnl For backward compatibility. Some Makefiles may be using this.
+    GENCAT=gencat
+    AC_SUBST(GENCAT)
   ])
 
 dnl Usage: Just like AM_WITH_NLS, which see.
@@ -370,12 +432,13 @@ AC_DEFUN([AM_GNU_GETTEXT],
    AC_REQUIRE([AC_TYPE_SIZE_T])dnl
    AC_REQUIRE([AC_FUNC_ALLOCA])dnl
    AC_REQUIRE([AC_FUNC_MMAP])dnl
+   AC_REQUIRE([jm_GLIBC21])dnl
 
    AC_CHECK_HEADERS([argz.h limits.h locale.h nl_types.h malloc.h stddef.h \
 stdlib.h string.h unistd.h sys/param.h])
-   AC_CHECK_FUNCS([feof_unlocked fgets_unlocked getcwd mempcpy munmap putenv \
-setenv setlocale stpcpy strchr strcasecmp strdup tsearch \
-__argz_count __argz_stringify __argz_next])
+   AC_CHECK_FUNCS([feof_unlocked fgets_unlocked getcwd getegid geteuid \
+getgid getuid mempcpy munmap putenv setenv setlocale stpcpy strchr strcasecmp \
+strdup strtoul tsearch __argz_count __argz_stringify __argz_next])
 
    AM_ICONV
    AM_LANGINFO_CODESET
@@ -429,36 +492,19 @@ __argz_count __argz_stringify __argz_next])
    dnl Enable libtool support if the surrounding package wishes it.
    INTL_LIBTOOL_SUFFIX_PREFIX=ifelse([$1], use-libtool, [l], [])
    AC_SUBST(INTL_LIBTOOL_SUFFIX_PREFIX)
-
-   dnl Generate list of files to be processed by xgettext which will
-   dnl be included in po/Makefile.  But only do this if the po directory
-   dnl exists in srcdir.
-   if test -d $srcdir/po; then
-      test -d po || mkdir po
-      if test "x$srcdir" != "x."; then
-	if test "x`echo $srcdir | sed 's@/.*@@'`" = "x"; then
-	  posrcprefix="$srcdir/"
-   	else
-      	  posrcprefix="../$srcdir/"
-      	fi
-      else
-      	posrcprefix="../"
-      fi
-      rm -f po/POTFILES
-      sed -e "/^#/d" -e "/^\$/d" -e "s,.*,     $posrcprefix& \\\\," -e "\$s/\(.*\) \\\\/\1/" \
-       	< $srcdir/po/POTFILES.in > po/POTFILES
-   fi
   ])
 
 # Search path for a program which passes the given test.
 # Ulrich Drepper <drepper@cygnus.com>, 1996.
 #
 # This file can be copied and used freely without restrictions.  It can
-# be used in projects which are not available under the GNU Public License
-# but which still want to provide support for the GNU gettext functionality.
-# Please note that the actual code is *not* freely available.
+# be used in projects which are not available under the GNU General Public
+# License but which still want to provide support for the GNU gettext
+# functionality.
+# Please note that the actual code of GNU gettext is covered by the GNU
+# General Public License and is *not* in the public domain.
 
-# serial 1
+# serial 2
 
 dnl AM_PATH_PROG_WITH_TEST(VARIABLE, PROG-TO-CHECK-FOR,
 dnl   TEST-PERFORMED-ON-FOUND_PROGRAM [, VALUE-IF-NOT-FOUND [, PATH]])
@@ -490,7 +536,7 @@ ifelse([$4], , , [  test -z "[$]ac_cv_path_$1" && ac_cv_path_$1="$4"
   ;;
 esac])dnl
 $1="$ac_cv_path_$1"
-if test -n "[$]$1"; then
+if test ifelse([$4], , [-n "[$]$1"], ["[$]$1" != "$4"]); then
   AC_MSG_RESULT([$]$1)
 else
   AC_MSG_RESULT(no)
@@ -516,7 +562,34 @@ AC_DEFUN([AC_ISC_POSIX],
   ]
 )
 
-#serial AM1
+#serial 2
+
+# Test for the GNU C Library, version 2.1 or newer.
+# From Bruno Haible.
+
+AC_DEFUN([jm_GLIBC21],
+  [
+    AC_CACHE_CHECK(whether we are using the GNU C Library 2.1 or newer,
+      ac_cv_gnu_library_2_1,
+      [AC_EGREP_CPP([Lucky GNU user],
+	[
+#include <features.h>
+#ifdef __GNU_LIBRARY__
+ #if (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 1) || (__GLIBC__ > 2)
+  Lucky GNU user
+ #endif
+#endif
+	],
+	ac_cv_gnu_library_2_1=yes,
+	ac_cv_gnu_library_2_1=no)
+      ]
+    )
+    AC_SUBST(GLIBC21)
+    GLIBC21="$ac_cv_gnu_library_2_1"
+  ]
+)
+
+#serial AM2
 
 dnl From Bruno Haible.
 
@@ -524,6 +597,15 @@ AC_DEFUN([AM_ICONV],
 [
   dnl Some systems have iconv in libc, some have it in libiconv (OSF/1 and
   dnl those with the standalone portable GNU libiconv installed).
+
+  AC_ARG_WITH([libiconv-prefix],
+[  --with-libiconv-prefix=DIR  search for libiconv in DIR/include and DIR/lib], [
+    for dir in `echo "$withval" | tr : ' '`; do
+      if test -d $dir/include; then CPPFLAGS="$CPPFLAGS -I$dir/include"; fi
+      if test -d $dir/lib; then LDFLAGS="$LDFLAGS -L$dir/lib"; fi
+    done
+   ])
+
   AC_CACHE_CHECK(for iconv, am_cv_func_iconv, [
     am_cv_func_iconv="no, consider installing GNU libiconv"
     am_cv_lib_iconv=no
@@ -599,9 +681,11 @@ AC_DEFUN([AM_LANGINFO_CODESET],
 # Ulrich Drepper <drepper@cygnus.com>, 1995.
 #
 # This file can be copied and used freely without restrictions.  It can
-# be used in projects which are not available under the GNU Public License
-# but which still want to provide support for the GNU gettext functionality.
-# Please note that the actual code is *not* freely available.
+# be used in projects which are not available under the GNU General Public
+# License but which still want to provide support for the GNU gettext
+# functionality.
+# Please note that the actual code of GNU gettext is covered by the GNU
+# General Public License and is *not* in the public domain.
 
 # serial 2
 
