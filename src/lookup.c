@@ -36,6 +36,9 @@
 #ifdef HAVE_NETDB_H
 # include <netdb.h>
 #endif
+#ifdef HAVE_MALLOC_H
+# include <malloc.h>
+#endif
 
 #include <regex.h>
 #include <jwhois.h>
