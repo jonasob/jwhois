@@ -1,36 +1,29 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper.
 # GNU copyright 1997 to 1999 by Joey Hess.
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# This is the debhelper compatability version to use.
-export DH_COMPAT=2
+# This is the debhelper compatibility version to use.
+export DH_COMPAT=3
 
 build: build-stamp
 build-stamp:
 	dh_testdir
-
 	test -f aclocal.m4 || aclocal -I macros
 	test -f configure || autoconf
 	test -f config.h.in || autoheader
 	test -f Makefile.in || automake
-	./configure --prefix=/usr --mandir=\$${prefix}/share/man --sysconfdir=/etc --infodir=\$${prefix}/share/info --datadir=\$${prefix}/share/jwhois --with-cache --localstatedir=/var/cache/jwhois
-	# Add here commands to compile the package.
+	./configure --prefix=/usr --mandir=\$${prefix}/share/man --sysconfdir=/etc --infodir=\$${prefix}/share/info --datadir=\$${prefix}/share --with-cache --localstatedir=/var/cache/jwhois
 	$(MAKE)
-
 	touch build-stamp
 
 clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp
-
-	# Add here commands to clean up after the build process.
 	-$(MAKE) distclean
 	-rm po/*.gmo
-
 	dh_clean
 
 install: build
@@ -38,8 +31,6 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-
-	# Add here commands to install the package into debian/jwhois.
 	$(MAKE) install prefix=`pwd`/debian/jwhois/usr
 	install -d debian/jwhois/etc
 	install -m644 example/jwhois.conf debian/jwhois/etc
@@ -48,38 +39,19 @@ install: build
 
 # Build architecture-independent files here.
 binary-indep: build install
-# We have nothing to do by default.
 
 # Build architecture-dependent files here.
 binary-arch: build install
-#	dh_testversion
 	dh_testdir
 	dh_testroot
-#	dh_installdebconf	
-	dh_installdocs README NEWS AUTHORS
-#	dh_installexamples
-#	dh_installmenu
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installinit
-#	dh_installcron
+	dh_installdocs
 	dh_installmanpages
 	dh_installinfo
-#	dh_undocumented
 	dh_installchangelogs ChangeLog
-#	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
-#	# You may want to make some executables suid here.
-#	chmod 2755 debian/jwhois/usr/bin/jwhois
-#	chgrp users debian/jwhois/usr/bin/jwhois
-#	chmod 0775 debian/jwhois/var/cache/jwhois
-#	chgrp users debian/jwhois/var/cache/jwhois
-#	dh_suidregister /usr/bin/jwhois /var/cache/jwhois
-#	dh_makeshlibs
 	dh_installdeb
-#	dh_perl
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
