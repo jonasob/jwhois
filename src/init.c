@@ -37,6 +37,7 @@ static struct option long_options[] =
   {"port", 1, 0, 'p'},
   {"force-lookup", 0, 0, 'f'},
   {"disable-cache", 0, 0, 'd'},
+  {"no-redirect", 0, 0, 'n'},
   {"verbose", 0, 0, 'v'},
   {0, 0, 0, 0}
 };
@@ -72,6 +73,9 @@ char *cfname;
 /* Default expire time for cached objects */
 int cfexpire;
 
+/* Whether or not to use lookup_redirect() on whois server output */
+int redirect;
+
 void help_version(int onlyversion)
 {
   char *COPYRIGHT = _("Copyright (C) 1999  Free Software Foundation, Inc.");
@@ -88,6 +92,7 @@ redistribute it under the terms of the GNU General Public License.");
   --help                  display this help\n\
   -c FILE, --config=FILE  use FILE as configuration file\n\
   -h HOST, --host=HOST    explicitly query HOST\n\
+  -n, --no-redirect       disable content redirection\n\
   -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n\
   -v, --verbose           verbose debug output\n"));
 
@@ -114,6 +119,7 @@ parse_args(argc, argv)
   ghost = NULL;
   gport = 0;
   config = NULL;
+  redirect = 1;
 
   while (1)
     {
@@ -137,6 +143,9 @@ parse_args(argc, argv)
 	  break;
 	case 'd':
 	  cache = 0;
+	  break;
+	case 'n':
+	  redirect = 0;
 	  break;
 	case 'c':
 	  if (config) free(config);

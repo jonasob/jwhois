@@ -145,6 +145,7 @@ main(argc, argv)
   char *qstring = NULL, *host, *text;
 
 #ifdef HAVE_LIBINTL_H
+  setlocale(LC_ALL, "");
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
 #endif
@@ -231,8 +232,11 @@ main(argc, argv)
 	  printf("[%s %s:%d]\n", _("error reading data from"), host, port);
 	  exit(1);
 	}
-      ret = lookup_redirect(host, NULL, text, &host, &port);
-      if ((ret < 0) || (ret == 0)) break;
+      if (redirect)
+        {
+          ret = lookup_redirect(host, NULL, text, &host, &port);
+          if ((ret < 0) || (ret == 0)) break;
+        }
     }
       
 #ifndef NOCACHE
