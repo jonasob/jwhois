@@ -1,3 +1,10 @@
+2001-02-12  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Changed .de, .hm, .il, .lu. Added .do, .fj,
+	.gg, .gm (Lee Maguire)
+
+	* po/sv.po: Updated.
+
 2001-01-28  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Added .la, changed .dk (Kandra Nygårds)
