@@ -1,10 +1,10 @@
 .PU
-.TH jwhois 1 local
+.TH jwhois 1 "November 2001" GNU
 .SH NAME
 jwhois \- client for the whois service
 .SH SYNOPSIS
 .ll +8
-.B whois
+.B jwhois
 .RB
 [
 .I "OPTIONS"
@@ -63,7 +63,7 @@ display every step in a redirection (default is to display only the
 last answer).
 .TP
 .B \-d --disable-cache
-completely disable both reading and writing to cache
+completely disable both reading and writing to cache.
 .TP
 .B \-r --rwhois
 force the query to use the rwhois protocoll instead of HTTP or whois.
@@ -78,7 +78,7 @@ asks receiving rwhois servers to limit their responses to LIMIT matches.
 .SS "RIPE EXTENSIONS"
 To use the options specified in
 .IR "RIPE Document 157" ,
-you need to change the format of thre query slightly.
+you need to change the format of the query slightly.
 If you were to search for all entries in
 the RIPE database which lists the
 .IR admin-c ", " tech-c " or " zone-c " as " CO19-RIPE ,
