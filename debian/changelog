@@ -1,6 +1,8 @@
 jwhois (3.1.1-1) unstable; urgency=low
 
-  * New upstream release
+  * New upstream release:
+   - Updates to default configuration.
+    (Closes: Bug#129018)
 
  -- peter karlsson <peterk@debian.org>  UNRELEASED
 
