@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: peter karlsson <peterk@debian.org>
 Build-Depends: debhelper, gettext, libgdbmg1-dev, texinfo
-Standards-Version: 3.2.1
+Standards-Version: 3.5.4
 
 Package: jwhois
 Architecture: any
