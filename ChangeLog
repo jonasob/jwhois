@@ -1,3 +1,51 @@
+2001-07-18  Jonas Oberg  <jonas@gnu.org>
+
+	* src/whois.c (whois_query): Fixed a problem with whois.domaininfo.com
+	and whois.godaddy.com which returned erroneous results when the whole
+	query (domain plus terminating "\r\n") did not arrive in the same
+	IP packet.
+
+2001-07-01  Jonas Oberg  <jonas@gnu.org>
+
+	* src/jwhois.c (main): Changed to call whois_query() instead of
+	doing lookup.
+
+	* src/whois.c: Added (with whois_query taken from jwhois.c and
+	whois_read from utils.c).
+	
+	* src/rwhois.c: Added.
+
+2001-06-30  Jonas Oberg  <jonas@gnu.org>
+
+	* src/lookup.c (lookup_redirect): Changed to lookup whois_redirect in
+	server-options block instead of content-redirect block. Removes 128
+	redirection matches limit.
+	(find_regex_all): Removed.
+	(lookup_query_format): Changed to lookup query-format in
+	server-options block.
+
+	* src/utils.c (get_whois_server_domain_path, get_whois_server_option): 
+	Added functions to lookup information in the server-options block.
+
+	* src/lookup.c (lookup_whois_servers): Added function to search the
+	whois-servers.net service, or other similar such services.
+	(lookup_query_format): Added feature to mangle query string before
+	sending to target whois server.
+
+2001-06-29  Jonas Oberg  <jonas@gnu.org>
+
+	* src/lookup.c (find_regex): Added translate map to regex pattern
+	buffer to make matching case insensitive.
+
+	* src/utils.c (add_text_to_buffer): Added utility function.
+	(create_string): Added utility function.
+	(fdread): Changed so that origin hostname is recorded in cache.
+
+2001-06-27  Jonas Oberg  <jonas@gnu.org>
+
+	* src/init.c (parse_args) src/lookup.c (lookup_redirec): Added display-redirections option that
+	displays output from all redirections instead of hiding it.
+
 2001-05-25  peter karlsson <peter@softwolves.pp.se>
 
         * AUTHORS: Changed my status

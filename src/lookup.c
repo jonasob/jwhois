@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -118,14 +118,13 @@ find_cidr(val, block)
     }
   jconfig_end();
 
-  if (verbose) printf("[Debug: find_cidr(\"%s\", \"%s\") == \"%s\"]\n",
-                      val, block, host);
   return host;
 }
 
 /*
  *  Looks up a string `val' against `block'. Returns a pointer to
- *  a hostname if found, or else NULL.
+ *  a hostname if found, or else NULL. It doesn't necessarily have to
+ *  be a hostname though, but can be any general string.
  */
 char *
 find_regex(val, block)
@@ -135,9 +134,11 @@ find_regex(val, block)
   struct jconfig *j;
   struct re_pattern_buffer      rpb;
   char *error, *ret, *host = NULL;
-  int ind;
+  int ind, i;
+  char case_fold[256];
 
-  if (verbose) printf("[Debug: find_regex(\"%s\", \"%s\")]\n", val, block);
+  for (i = 0; i < 256; i++)
+    case_fold[i] = toupper(i);
 
   jconfig_set();
   while (j = jconfig_next(block))
@@ -145,7 +146,8 @@ find_regex(val, block)
       if (strcasecmp(j->key, "type") != 0) {
 	rpb.allocated = 0;
 	rpb.buffer = (unsigned char *)NULL;
-	rpb.translate = rpb.fastmap = (char *)NULL;
+	rpb.translate = case_fold;
+        rpb.fastmap = (char *)NULL;
 	if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
 	  {
 	    return NULL;
@@ -164,56 +166,6 @@ find_regex(val, block)
   jconfig_end();
 
   return host;
-}
-
-/*
- *  Looks up a string `val' against `block'. Returns in matches a pointer to
- *  a list of entries or NULL if none found. Should return all
- *  matches. Maximum of 128 matches.
- *  Returns: -1  Memory allocation error
- *           -2  Internal regex error
- *           Any other  Success (number of entries found)
- */
-int
-find_regex_all(val, block, matches)
-     char *val;
-     char *block;
-     char **matches;
-{
-  struct jconfig *j;
-  struct re_pattern_buffer      rpb;
-  char *error, *ret, *host = NULL;
-  int ind, num;
-
-  if (verbose) printf("[Debug: find_regex_all(\"%s\", \"%s\")]\n", val, block);
-  
-  for (num = 0; num <= 127; num++)
-    matches[num] = NULL;
-  num = 0;
-  
-  jconfig_set();
-  while (j = jconfig_next(block))
-    {
-      if (verbose) printf("[Debug: j->key = \"%s\"]\n", j->key);
-      rpb.allocated = 0;
-      rpb.buffer = (unsigned char *)NULL;
-      rpb.translate = rpb.fastmap = (char *)NULL;
-      if (re_compile_pattern(j->key, strlen(j->key), &rpb))
-	return -2;
-      ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
-      if (ind == 0)
-	{
-	  if (verbose) printf("[Debug: Match j->value = \"%s\"]\n", j->value);
-	  matches[num++] = j->value;
-	}
-      else if (ind == -2)
-	{
-	  return -2;
-	}
-    }
-  jconfig_end();
-
-  return num;
 }
 
 /*
@@ -243,6 +195,13 @@ lookup_host(val, block, host, port)
     sprintf(deepfreeze, "jwhois.%s", block);
 
   jconfig_set();
+  j = jconfig_getone("jwhois", "whois-servers-domain");
+  if (!j)
+    whoisservers = WHOISSERVERS;
+  else
+    whoisservers = j->value;
+
+  jconfig_set();
   j = jconfig_getone(deepfreeze, "type");
   if (!j)
     *host = find_regex(val, deepfreeze);
@@ -258,6 +217,12 @@ lookup_host(val, block, host, port)
     tmpdeep = *host+7;
     return lookup_host(val, tmpdeep, host, port);
   }
+
+  if (enable_whoisservers)
+    if (strncasecmp(*host, "whois-servers", 13) == 0) {
+      printf("[Querying %s]\n", whoisservers);
+      return lookup_whois_servers(val, host, port);
+    }
 
   *port = 0;
   if (strchr(*host, ' '))
@@ -289,93 +254,173 @@ lookup_host(val, block, host, port)
  *           1    Match found
  */
 int
-lookup_redirect(search_host, block, text, host, port)
+lookup_redirect(search_host, text, host, port)
      char *search_host;
-     char *block;
      char *text;
      char **host;
      int *port;
 {
   int num, i, error, ind;
-  char *matches[128], *bptr = NULL, *strptr, *ascport, *ret, *tmphost;
+  char *bptr = NULL, *strptr, *ascport, *ret, *tmphost;
   struct re_pattern_buffer rpb;
   struct re_registers regs;
-
-  if (verbose) printf("[Debug: lookup_redirect(\"%s\", ...,\"%s\", ...)]\n",
-		      search_host, text);
+  struct jconfig *j;
+  char *domain;
 
   bptr = malloc(strlen(text)+1);
   if (!bptr)
     return -1;
 
-  if (!block)
-    num = find_regex_all(search_host, "jwhois.content-redirect", &matches);
-  else
-    num = find_regex_all(search_host, block, &matches);
-  if (verbose) printf("[Debug: find_regex_all() = %d]\n", num);
+  domain = (char *)get_whois_server_domain_path(search_host);
+  if (!domain)
+    return 0;
 
-  i = 0;
-  while (i < num)
+  jconfig_set();
+
+  while (j = jconfig_next(domain))
     {
-      if (verbose) printf("[Debug: lookup_redirect \"%s\"]\n", matches[i]);
-      memcpy(bptr, text, strlen(text)+1);
-
-      strptr = (char *)strtok(bptr, "\n");
-      while (strptr)
+      if (strncasecmp(j->key, "whois-redirect", 14) == 0)
 	{
-	  rpb.allocated = 0;
-	  rpb.buffer = (unsigned char *)NULL;
-	  rpb.translate = rpb.fastmap = (char *)NULL;
-	  if (re_compile_pattern(matches[i], strlen(matches[i]), &rpb))
-	    return -1;
-	  ind = re_search(&rpb, strptr, strlen(strptr), 0, 0, &regs);
-          if (verbose) printf("[Debug: re_search(...,\"%s\",,,) = %d\n", strptr, ind);
-	  if (ind == 0)
+
+
+	  memcpy(bptr, text, strlen(text)+1);
+
+	  strptr = (char *)strtok(bptr, "\n");
+	  while (strptr)
 	    {
-	      *host = malloc(regs.end[1]-regs.start[1]+2);
-	      if (!*host)
+	      rpb.allocated = 0;
+	      rpb.buffer = (unsigned char *)NULL;
+	      rpb.translate = rpb.fastmap = (char *)NULL;
+	      if (re_compile_pattern(j->value, strlen(j->value), &rpb))
 		return -1;
-
-	      strncpy(*host, strptr+regs.start[1],
-		      regs.end[1]-regs.start[1]);
-	      tmphost = *host + regs.end[1]-regs.start[1];
-	      *tmphost = '\0';
-              if (verbose) printf("[Debug: matched: %s]\n", *host);
-
-	      if (regs.num_regs >= 2)
+	      ind = re_search(&rpb, strptr, strlen(strptr), 0, 0, &regs);
+	      if (ind == 0)
 		{
-		  ascport = malloc(regs.end[2]-regs.start[2]+2);
-		  if (!ascport)
+		  *host = malloc(regs.end[1]-regs.start[1]+2);
+		  if (!*host)
 		    return -1;
-		  strncpy(ascport, strptr+regs.start[2],
-			  regs.end[2]-regs.start[2]);
-		  ascport[regs.end[2]-regs.start[2]]='\0';
+		  
+		  strncpy(*host, strptr+regs.start[1],
+			  regs.end[1]-regs.start[1]);
+		  tmphost = *host + regs.end[1]-regs.start[1];
+		  *tmphost = '\0';
+
+		  if (regs.num_regs >= 2)
+		    {
+		      ascport = malloc(regs.end[2]-regs.start[2]+2);
+		      if (!ascport)
+			return -1;
+		      strncpy(ascport, strptr+regs.start[2],
+			      regs.end[2]-regs.start[2]);
+		      ascport[regs.end[2]-regs.start[2]]='\0';
 
 #ifdef HAVE_STRTOL
-		  *port = strtol(ascport, &ret, 10);
-		  if (*ret != '\0')
-		    {
-		      return -1;
-		    }
+		      *port = strtol(ascport, &ret, 10);
+		      if (*ret != '\0')
+			{
+			  return -1;
+			}
 #else
-		  *port = atoi(ascport);
+		      *port = atoi(ascport);
 #endif
-		} /* regs.num_regs == 2 */
-	      if (*port)
-	        {
-	          printf("[%s %s:%d]\n", _("redirected to"), *host, *port);
-	        }
-	      else
-	        {
-	          printf("[%s %s]\n", _("redirected to"), *host);
-	        }
-	      return 1;
+		    } /* regs.num_regs == 2 */
+		  if (*port)
+		    {
+		      printf("[%s %s:%d]\n", _("Redirected to"), *host, *port);
+		    }
+		  else
+		    {
+		      printf("[%s %s]\n", _("Redirected to"), *host);
+		    }
+		  return 1;
+		}
+	      else if (ind == -2)
+		return -1;
+	      strptr = (char *)strtok(NULL, "\n");
 	    }
-	  else if (ind == -2)
-	    return -1;
-	  strptr = (char *)strtok(NULL, "\n");
 	}
-      i++;
     }
   return 0;
+}
+ 
+
+/*
+ *  This is a special hack to look up hosts in the whois-servers.net domain.
+ *  It will make recursive queries on the entire domain name, mapped onto
+ *  whois-servers.net until it gets a reply saying which whois server to use,
+ *  or the TLD is reached without a reply in which case it exits.
+ *
+ *  Returns: -1  Error
+ *           0   Success
+ */
+int
+lookup_whois_servers(val, host, port)
+  char *val;
+  char **host;
+  int *port;
+{
+  char *hostname;
+  struct hostent *hostent;
+  char *tmpptr;
+#ifdef HAVE_GETIPNODEBYNAME
+  int error_num;
+#endif
+
+  if (!val) return -1;
+  if (*val == '\0') return -1;
+
+  hostname = malloc(strlen(val)+strlen(whoisservers)+2);
+  strncpy(hostname, val, strlen(val)+1);
+  strncat(hostname, ".", 1);
+  strncat(hostname, whoisservers, strlen(whoisservers));
+
+#ifdef HAVE_GETIPNODEBYNAME
+  hostent = (struct hostent *)getipnodebyname(hostname, AF_INET, 0, &error_num);
+#else
+  hostent = gethostbyname(hostname);
+#endif
+  if (!hostent)
+    {
+      tmpptr = (char *)strchr(val, '.');
+      if (tmpptr)
+	return lookup_whois_servers(tmpptr+1, host, port);
+      else
+	return -1;
+    }
+  else
+    {
+      *port = 0;
+      *host = hostent->h_name;
+      return 0;
+    }
+}
+
+/*
+ * This function looks into the query-format configuration and tries
+ * to find out if we need any special considerations for the host we're
+ * querying. If so, it returns the proper string for the query. If not,
+ * it simply returns qstring.
+ */
+char *
+lookup_query_format(host, qstring)
+     char *host;
+     char *qstring;
+{
+  char *ret, *tmpqstring, *tmpptr;
+
+  ret = (char *)get_whois_server_option(host, "query-format");
+  if (!ret)
+    return qstring;
+
+  tmpqstring = malloc(strlen(qstring)+strlen(ret)+2);
+  strncpy(tmpqstring, ret, strlen(ret)+1);
+
+  tmpptr = (char *)strstr(tmpqstring, "$*");
+  if (!tmpptr)
+    return qstring;
+
+  strncpy(tmpptr, qstring, strlen(qstring)+1);
+  strncat(tmpptr, strstr(ret, "$*")+2, strlen((char *)strstr(ret, "$*"))-1);
+
+  return tmpqstring;
 }

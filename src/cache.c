@@ -123,7 +123,7 @@ cache_init()
   else
     cfname = j->value;
 
-  if (verbose) printf("[Debug: cfname = \"%s\"]\n",cfname);
+  if (verbose) printf("[Debug: Configuration file name = \"%s\"]\n",cfname);
 
   jconfig_set();
   j = jconfig_getone("jwhois", "cacheexpire");
@@ -137,7 +137,7 @@ cache_init()
     {
       if (verbose)
 	{
-	  printf("[%s (%s) -- %s]\n", _("invalid expire time"),
+	  printf("[Debug: %s (%s) -- %s]\n", _("Invalid expire time"),
 		 ret, _("using defaults"));
 	  cfexpire = 168;
 	}
@@ -146,13 +146,13 @@ cache_init()
   cfexpire = atoi(ret2);
 #endif /* HAVE_STRTOL */
 
-  if (verbose) printf("[Debug: cfexpire = %d]\n", cfexpire);
+  if (verbose) printf("[Debug: Expire time = %d]\n", cfexpire);
 
   umask(0);
   dbf = dbm_open(cfname, DBM_COPTIONS, DBM_MODE);
   if (!dbf)
     {
-      if (verbose) printf("[Debug: %s %s -- %s\n", _("unable to open"),
+      if (verbose) printf("[Debug: %s %s -- %s\n", _("Unable to open"),
 			  cfname, _("disabling cache"));
       cache = 0;
       return -1;
@@ -161,7 +161,7 @@ cache_init()
   if (iret < 0)
     {
       if (verbose) printf("[Debug: %s -- %s]\n",
-			  _("unable to store data in database"),
+			  _("Unable to store data in database"),
 			  _("disabling cache"));
       cache = 0;
     }

@@ -20,7 +20,8 @@
 
 bin_PROGRAMS = jwhois
 jwhois_SOURCES = dns.c lookup.c init.c utils.c gai_strerror.c regex.c \
-	getopt.c getopt1.c jconfig.c string.c cache.c jwhois.c
+	getopt.c getopt1.c jconfig.c string.c cache.c rwhois.c jwhois.c \
+	whois.c
 
 CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
          -DLOCALSTATEDIR="\"$(localstatedir)\"" \

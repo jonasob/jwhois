@@ -6,24 +6,24 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-01-28 14:53+0100\n"
+"POT-Creation-Date: 2001-07-01 20:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Transfer-Encoding: 8-bit\n"
 
 #: src/cache.c:140
-msgid "invalid expire time"
+msgid "Invalid expire time"
 msgstr ""
 
 #: src/cache.c:141
 msgid "using defaults"
 msgstr ""
 
-#: src/cache.c:155 src/init.c:189 src/init.c:198
-msgid "unable to open"
+#: src/cache.c:155
+msgid "Unable to open"
 msgstr ""
 
 #: src/cache.c:156 src/cache.c:165
@@ -31,10 +31,10 @@ msgid "disabling cache"
 msgstr ""
 
 #: src/cache.c:164
-msgid "unable to store data in database"
+msgid "Unable to store data in database"
 msgstr ""
 
-#: src/dns.c:89
+#: src/dns.c:88
 msgid "host not found"
 msgstr ""
 
@@ -86,95 +86,102 @@ msgstr ""
 msgid "Unknown error"
 msgstr ""
 
-#: src/init.c:81
-msgid "Copyright (C) 1999  Free Software Foundation, Inc."
+#: src/init.c:111
+msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
 msgstr ""
 
-#: src/init.c:82
+#: src/init.c:112
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
 
-#: src/init.c:85
+#: src/init.c:115
 msgid "version"
 msgstr ""
 
-#: src/init.c:89
+#: src/init.c:119
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr ""
 
-#: src/init.c:91
+#: src/init.c:121
 msgid ""
 "  --version               display version number and patch level\n"
-"  --help                  display this help\n"
-"  -c FILE, --config=FILE  use FILE as configuration file\n"
-"  -h HOST, --host=HOST    explicitly query HOST\n"
-"  -n, --no-redirect       disable content redirection\n"
-"  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
-"  -v, --verbose           verbose debug output\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
 
-#: src/init.c:100
+#: src/init.c:136
 msgid ""
-"  -f, --force-lookup      force lookup even if the entry is cached\n"
-"  -d, --disable-cache     disable cache functions\n"
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
 msgstr ""
 
-#: src/init.c:103
+#: src/init.c:139
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
 
-#: src/init.c:166
-msgid "invalid port number"
+#: src/init.c:226
+msgid "Invalid limit"
 msgstr ""
 
-#: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
-#: src/jwhois.c:166
+#: src/init.c:240
+msgid "Invalid port number"
+msgstr ""
+
+#: src/init.c:263 src/init.c:272
+msgid "unable to open"
+msgstr ""
+
+#: src/jconfig.c:235 src/jconfig.c:257 src/jconfig.c:311 src/jconfig.c:368
+#: src/jwhois.c:78
 msgid "error allocating memory"
 msgstr ""
 
-#: src/jconfig.c:238 src/jconfig.c:292
+#: src/jconfig.c:265 src/jconfig.c:319
 msgid "string out of bounds on line"
 msgstr ""
 
-#: src/jconfig.c:264
+#: src/jconfig.c:291
 msgid "end of file looking for '\"' on line"
 msgstr ""
 
-#: src/jconfig.c:321
+#: src/jconfig.c:348
 msgid "unexpected end of file on line"
 msgstr ""
 
-#: src/jconfig.c:380
+#: src/jconfig.c:416
 msgid "multiple keys on line"
 msgstr ""
 
-#: src/jconfig.c:390
+#: src/jconfig.c:426
 msgid "missing key on line"
 msgstr ""
 
-#: src/jwhois.c:98
-msgid "error creating socket"
-msgstr ""
-
-#: src/jwhois.c:196
+#: src/jwhois.c:107
 msgid "fatal error searching for host to query"
 msgstr ""
 
-#: src/jwhois.c:207
+#: src/jwhois.c:118
 msgid "error reading cache"
 msgstr ""
 
-#: src/jwhois.c:212
+#: src/jwhois.c:123
 msgid "cached"
 msgstr ""
 
-#: src/jwhois.c:232
-msgid "error reading data from"
-msgstr ""
-
-#: src/jwhois.c:252
+#: src/jwhois.c:146
 msgid "error writing to cache"
 msgstr ""
 
@@ -182,6 +189,6 @@ msgstr ""
 msgid "invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:366 src/lookup.c:370
-msgid "redirected to"
+#: src/lookup.c:329 src/lookup.c:333
+msgid "Redirected to"
 msgstr ""

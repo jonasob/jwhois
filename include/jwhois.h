@@ -41,5 +41,12 @@ extern char *config;
 extern char *cfname;
 extern int cfexpire;
 extern int redirect;
+extern int display_redirections;
+extern char *whoisservers;
+extern int raw_query;
+extern int rwhois;
+extern int rwhois_limit;
+extern char *rwhois_display;
+extern int enable_whoisservers;
 
 #endif /* _JWHOIS_H */

@@ -64,7 +64,6 @@ lookup_host_saddr(res, host, port)
   struct hostent *hostent;
   struct servent *sp;
 
-  if (verbose) printf("[Debug: lookup_host_saddr(...,%s,%d)]\n",host,port); 
   res->sin_family = AF_INET;
 
   if (!port) {
@@ -115,8 +114,6 @@ lookup_host_addrinfo(res, host, port)
   char ascport[10] = "whois";
   int error;
 
-  if (verbose) printf("[Debug: lookup_host_addrinfo(...,%s,%d)]\n",host,port);
-
   memset(&hints, 0, sizeof(hints));
   hints.ai_family = PF_UNSPEC;
 
@@ -125,6 +122,7 @@ lookup_host_addrinfo(res, host, port)
     sprintf(ascport, "%9.9d", port);
 
   error = getaddrinfo(host, ascport, &hints, res);
+
   if (error)
     {
       printf("[%s: %s]\n", host, gai_strerror(error));

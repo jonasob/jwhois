@@ -40,3 +40,5 @@
 /* Define if you have stpcpy */
 #undef HAVE_STPCPY
 
+/* Default whois-servers.net domain for the whois-servers support */
+#undef WHOISSERVERS

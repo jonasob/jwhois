@@ -29,6 +29,7 @@ struct jconfig {
 
 void jconfig_set(void);
 struct jconfig *jconfig_next(char *);
+struct jconfig *jconfig_next_all(char *);
 void jconfig_end(void);
 struct jconfig *jconfig_getone(char *, char *);
 

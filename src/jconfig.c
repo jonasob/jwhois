@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -98,10 +98,37 @@ jconfig_next(domain)
     {
       return NULL;
     }
-
   while (jconfig_tmpptr)
     {
       if ( (char *)strcasecmp(jconfig_tmpptr->domain, domain) == 0)
+	{
+	  ptr = jconfig_tmpptr;
+	  jconfig_tmpptr = jconfig_tmpptr->next;
+	  return ptr;
+	}
+      jconfig_tmpptr = jconfig_tmpptr->next;
+    }
+  return NULL;
+}
+
+/*
+ *  Returns a pointer to the next entry in the configuration file which
+ *  matches the specified domain. This differs from the one above in that
+ *  it returns matches also for substrings of domain.
+ */
+struct jconfig *
+jconfig_next_all(domain)
+     char *domain;
+{
+  struct jconfig *ptr;
+  
+  if (!jconfig_tmpptr)
+    {
+      return NULL;
+    }
+  while (jconfig_tmpptr)
+    {
+      if ( (char *)strncasecmp(jconfig_tmpptr->domain, domain, strlen(domain)) == 0)
 	{
 	  ptr = jconfig_tmpptr;
 	  jconfig_tmpptr = jconfig_tmpptr->next;
@@ -333,7 +360,7 @@ jconfig_parse_file(in)
 {
   int ch, line = 1, nextch;
   char *domain = NULL, *token = NULL, *key = NULL;
-  char *t1;
+  char *t1, *t2;
 
   domain = malloc(MAXBUFSIZE);
   if (!domain)
@@ -360,9 +387,18 @@ jconfig_parse_file(in)
 	    domain = jconfig_safe_strcat(domain, token);
 	    break;
 	  case '}':
-	    t1 = (char *)strrchr(domain, '.');
+	    t1 = (char *)strstr(domain, "\\.");
 	    if (t1)
-	      *t1 = '\0';
+	      {
+		t1 -= 2;
+		*t1 = '\0';
+		t2 = (char *)strrchr(domain, '.');
+	      }
+	    else
+	      t2 = (char *)strrchr(domain, '.');
+
+	    if (t2)
+	      *t2 = '\0';
 	    if (!feof(in))
 	      {
 		nextch = fgetc(in);
@@ -390,6 +426,7 @@ jconfig_parse_file(in)
 		       _("missing key on line"), line);
 		exit(1);
 	      }
+	    /*	    printf("Adding %s|%s|%s\n", domain, key, token); */
 	    jconfig_add(domain, key, token, line);
 	    free(key);
 	    key = NULL;
