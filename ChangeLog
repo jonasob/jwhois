@@ -3,6 +3,11 @@
 	* configure.in, example/Makefile.am: Install jwhois.conf if there's
 	no previous configuration file installed.
 
+2001-11-22  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Added JPNIC IP ranges
+	  (Lee Maguire, Debian bug#106130)
+
 2001-11-22  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jwhois.c (jwhois_query): Fix so that wq->query isn't changed
