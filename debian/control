@@ -11,7 +11,11 @@ Depends: ${shlibs:Depends}, adduser, dpkg (>= 1.9.0)
 Recommends: lynx
 Conflicts: suidmanager (<< 0.50)
 Description: Improved Caching Whois client
- This is jwhois, an improved Whois client capable of
- selecting Whois server to query based on a flexible
- configuration file using either regular expressions
- or CIDR blocks.
+ GNU jwhois is an Internet Whois client that queries hosts for
+ information according to RFC 954 - NICNAME/WHOIS. JWHOIS is configured
+ via a configuration file that contains information about all known Whois
+ servers. Upon execution, the host to query is selected based on the
+ information in the configuration file.
+ .
+ The configuration file is highly customizable and makes heavy use of
+ regular expressions.
