@@ -1,3 +1,8 @@
+2001-07-19  peter karlsson <peter@softwolves.pp.se>
+
+  	* example/jwhois.conf: Added mappings for 200.128/9 to cidr-blocks
+	  (Lee Maguire, Debian bug#105807)
+
 2001-07-18  Jonas Oberg  <jonas@gnu.org>
 
 	* src/whois.c (whois_query): Fixed a problem with whois.domaininfo.com
