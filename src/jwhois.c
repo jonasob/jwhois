@@ -40,6 +40,7 @@
 #include <jconfig.h>
 #include <jwhois.h>
 #include <regex.h>
+#include <whois.h>
 
 #ifdef HAVE_LIBINTL_H
 # include <libintl.h>
@@ -55,6 +56,7 @@ main(argc, argv)
 {
   int optind, count = 0, port = 0, ret;
   char *qstring = NULL, *host, *text, *tmp;
+  struct s_whois_query wq;
 
 #ifdef HAVE_LIBINTL_H
   setlocale(LC_ALL, "");
@@ -63,9 +65,17 @@ main(argc, argv)
 #endif
 
   re_syntax_options = RE_SYNTAX_EMACS;
+  wq.host = NULL;
+  wq.port = 0;
+  wq.query = NULL;
+  wq.domain = NULL;
+
+  /* Parse command line arguments and initialize the cache */
   optind = parse_args(&argc, &argv);
   cache_init();
 
+  /* Parse remaining arguments and place them into the wq
+     structure. */
   while (optind < argc)
     {
       count += strlen(argv[optind])+1;
@@ -85,23 +95,24 @@ main(argc, argv)
       optind++;
     }
   qstring[strlen(qstring)-1] = '\0';
+  wq.query = qstring;
 
   if (verbose)
-    printf("[Debug: Raw query string = \"%s\"]\n", qstring);
+    printf("[Debug: Raw query string = \"%s\"]\n", wq.query);
 
   if (ghost)
     {
       if (verbose) printf("[Debug: Calling %s:%d directly]\n", ghost, gport);
-      host = ghost;
-      port = gport;
+      wq.host = ghost;
+      wq.port = gport;
     }
-  else if (split_host_from_query(qstring, &host))
+  else if (split_host_from_query(&wq))
     {
-      if (verbose) printf("[Debug: Calling %s directly]\n", host);
+      if (verbose) printf("[Debug: Calling %s directly]\n", wq.host);
     }
   else
     {
-      ret = lookup_host(qstring, NULL, &host, &port);
+      ret = lookup_host(&wq, NULL);
       if (ret < 0)
 	{
 	  printf("[%s]\n", _("fatal error searching for host to query"));
@@ -112,7 +123,7 @@ main(argc, argv)
 #ifndef NOCACHE
   if (!forcelookup && cache) {
     if (verbose) printf("[Debug: Looking up entry in cache]\n");
-    ret = cache_read(qstring, &text);
+    ret = cache_read(wq.query, &text);
     if (ret < 0)
       {
 	printf("[%s]\n", _("error reading cache"));
@@ -126,11 +137,11 @@ main(argc, argv)
   }
 #endif
 
-  tmp = (char *)get_whois_server_option(host, "rwhois");
+  tmp = (char *)get_whois_server_option(wq.host, "rwhois");
   if ( (!tmp || (strncmp(tmp, "true", 4) == 0)) && (!rwhois) )
-    ret = whois_query(host, port, qstring, &text);
+    ret = whois_query(&wq, &text);
   else
-    ret = rwhois_query(host, port, qstring, &text);
+    ret = rwhois_query(&wq, &text);
 
   if (ret < 0)
     {
@@ -140,7 +151,7 @@ main(argc, argv)
 #ifndef NOCACHE
   if (cache) {
     if (verbose) printf("[Debug: Storing in cache]\n");
-    ret = cache_store(qstring, text);
+    ret = cache_store(wq.query, text);
     if (ret < 0)
       {
 	printf("[%s]\n", _("error writing to cache"));

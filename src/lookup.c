@@ -43,6 +43,7 @@
 #include <regex.h>
 #include <jwhois.h>
 #include <jconfig.h>
+#include <whois.h>
 
 #ifdef HAVE_LIBINTL_H
 # include <libintl.h>
@@ -56,8 +57,8 @@
  *  if an entry is found, otherwise NULL.
  */
 char *
-find_cidr(val, block)
-     char *val;
+find_cidr(wq, block)
+     struct s_whois_query *wq;
      char *block;
 {
   struct in_addr ip;
@@ -71,7 +72,7 @@ find_cidr(val, block)
 
   memcpy(&b, a, sizeof(int));
 
-  res = sscanf(val, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
+  res = sscanf(wq->query, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
   if (res == 3) a3 = 0;
   else if (res == 2) a2 = a3 = 0;
   else if (res == 1) a1 = a2 = a3 = 0;
@@ -127,18 +128,52 @@ find_cidr(val, block)
  *  be a hostname though, but can be any general string.
  */
 char *
-find_regex(val, block)
-     char *val;
+find_regex(wq, block)
+     struct s_whois_query *wq;
      char *block;
 {
-  struct jconfig *j;
-  struct re_pattern_buffer      rpb;
+  struct jconfig *j, *j2;
+  struct re_pattern_buffer      rpb, rpb2;
   char *error, *ret, *host = NULL;
   int ind, i;
   char case_fold[256];
 
   for (i = 0; i < 256; i++)
     case_fold[i] = toupper(i);
+
+  jconfig_set();
+  while (j = jconfig_next_all(block))
+    {
+      if ( (strcasecmp(j->key, "type") != 0) && (strlen(j->domain) > strlen(block))) {
+	rpb.allocated = 0;
+	rpb.buffer = (unsigned char *)NULL;
+	rpb.translate = case_fold;
+	rpb.fastmap = (char *)NULL;
+	if (error = (char *)re_compile_pattern(j->domain+strlen(block)+1,
+					       strlen(j->domain+strlen(block)+1), &rpb))
+	  {
+	    return NULL;
+	  }
+	ind = re_search(&rpb, wq->query, strlen(wq->query), 0, 0, NULL);
+	if (ind == 0)
+	  {
+	    wq->domain = j->domain;
+	    jconfig_set();
+	    j2 = jconfig_getone(j->domain, "whois-server");
+	    if (!j2)
+	      return NULL;
+	    return j2->value;
+	  }
+	else if (ind == -2)
+	  {
+	    return NULL;
+	  }
+      }
+    }
+  jconfig_end();
+  
+  /* If we havn't found a host yet, we continue by looking for
+     configuration options in the old format */
 
   jconfig_set();
   while (j = jconfig_next(block))
@@ -152,10 +187,10 @@ find_regex(val, block)
 	  {
 	    return NULL;
 	  }
-	ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
+	ind = re_search(&rpb, wq->query, strlen(wq->query), 0, 0, NULL);
 	if (ind == 0)
 	  {
-	    host = j->value;
+	    return j->value;
 	  }
 	else if (ind == -2)
 	  {
@@ -164,8 +199,6 @@ find_regex(val, block)
       }
     }
   jconfig_end();
-
-  return host;
 }
 
 /*
@@ -177,18 +210,16 @@ find_regex(val, block)
  *           0    Success.
  */
 int
-lookup_host(val, block, host, port)
-     char *val;
+lookup_host(wq, block)
+     struct s_whois_query *wq;
      char *block;
-     char **host;
-     int *port;
 {
   char deepfreeze[512];
   char *tmpdeep, *tmphost;
   struct jconfig *j;
   char *ret;
 
-  if (!val) return -1;
+  if (!wq->query) return -1;
   if (!block)
     strcpy(deepfreeze, "jwhois.whois-servers");
   else
@@ -204,38 +235,38 @@ lookup_host(val, block, host, port)
   jconfig_set();
   j = jconfig_getone(deepfreeze, "type");
   if (!j)
-    *host = find_regex(val, deepfreeze);
+    wq->host = find_regex(wq, deepfreeze);
   else
     if (strncasecmp(j->value, "regex", 5) == 0)
-      *host = find_regex(val, deepfreeze);
+      wq->host = find_regex(wq, deepfreeze);
     else
-      *host = find_cidr(val, deepfreeze);
+      wq->host = find_cidr(wq, deepfreeze);
 
-  if (!*host) *host = DEFAULTHOST;
+  if (!wq->host) wq->host = DEFAULTHOST;
 
-  if (strncasecmp(*host, "struct", 6) == 0) {
-    tmpdeep = *host+7;
-    return lookup_host(val, tmpdeep, host, port);
+  if (strncasecmp(wq->host, "struct", 6) == 0) {
+    tmpdeep = wq->host+7;
+    return lookup_host(wq, tmpdeep);
   }
 
   if (enable_whoisservers)
-    if (strncasecmp(*host, "whois-servers", 13) == 0) {
+    if (strncasecmp(wq->host, "whois-servers", 13) == 0) {
       printf("[Querying %s]\n", whoisservers);
-      return lookup_whois_servers(val, host, port);
+      return lookup_whois_servers(wq);
     }
 
-  *port = 0;
-  if (strchr(*host, ' '))
+  wq->port = 0;
+  if (strchr(wq->host, ' '))
     {
-      tmphost = (char *)strchr(*host, ' ');
+      tmphost = (char *)strchr(wq->host, ' ');
 #ifdef HAVE_STRTOL
-      *port = strtol((char *)(tmphost+1), &ret, 10);
+      wq->port = strtol((char *)(tmphost+1), &ret, 10);
       if (*ret != '\0')
 	{
 	  return -1;
 	}
 #else
-      *port = atoi((char *)(tmphost+1));
+      wq->port = atoi((char *)(tmphost+1));
 #endif
       *tmphost = '\0';
     }
@@ -254,11 +285,10 @@ lookup_host(val, block, host, port)
  *           1    Match found
  */
 int
-lookup_redirect(search_host, text, host, port)
+lookup_redirect(search_host, text, wq)
      char *search_host;
      char *text;
-     char **host;
-     int *port;
+     struct s_whois_query *wq;
 {
   int num, i, error, ind;
   char *bptr = NULL, *strptr, *ascport, *ret, *tmphost;
@@ -296,13 +326,13 @@ lookup_redirect(search_host, text, host, port)
 	      ind = re_search(&rpb, strptr, strlen(strptr), 0, 0, &regs);
 	      if (ind == 0)
 		{
-		  *host = malloc(regs.end[1]-regs.start[1]+2);
-		  if (!*host)
+		  wq->host = malloc(regs.end[1]-regs.start[1]+2);
+		  if (!wq->host)
 		    return -1;
 		  
-		  strncpy(*host, strptr+regs.start[1],
+		  strncpy(wq->host, strptr+regs.start[1],
 			  regs.end[1]-regs.start[1]);
-		  tmphost = *host + regs.end[1]-regs.start[1];
+		  tmphost = wq->host + regs.end[1]-regs.start[1];
 		  *tmphost = '\0';
 
 		  if (regs.num_regs >= 2)
@@ -315,22 +345,22 @@ lookup_redirect(search_host, text, host, port)
 		      ascport[regs.end[2]-regs.start[2]]='\0';
 
 #ifdef HAVE_STRTOL
-		      *port = strtol(ascport, &ret, 10);
+		      wq->port = strtol(ascport, &ret, 10);
 		      if (*ret != '\0')
 			{
 			  return -1;
 			}
 #else
-		      *port = atoi(ascport);
+		      wq->port = atoi(ascport);
 #endif
 		    } /* regs.num_regs == 2 */
-		  if (*port)
+		  if (wq->port)
 		    {
-		      printf("[%s %s:%d]\n", _("Redirected to"), *host, *port);
+		      printf("[%s %s:%d]\n", _("Redirected to"), wq->host, wq->port);
 		    }
 		  else
 		    {
-		      printf("[%s %s]\n", _("Redirected to"), *host);
+		      printf("[%s %s]\n", _("Redirected to"), wq->host);
 		    }
 		  return 1;
 		}
@@ -354,10 +384,9 @@ lookup_redirect(search_host, text, host, port)
  *           0   Success
  */
 int
-lookup_whois_servers(val, host, port)
+lookup_whois_servers(val, wq)
   char *val;
-  char **host;
-  int *port;
+  struct s_whois_query *wq;
 {
   char *hostname;
   struct hostent *hostent;
@@ -383,14 +412,14 @@ lookup_whois_servers(val, host, port)
     {
       tmpptr = (char *)strchr(val, '.');
       if (tmpptr)
-	return lookup_whois_servers(tmpptr+1, host, port);
+	return lookup_whois_servers(tmpptr+1, wq);
       else
 	return -1;
     }
   else
     {
-      *port = 0;
-      *host = hostent->h_name;
+      wq->port = 0;
+      wq->host = hostent->h_name;
       return 0;
     }
 }
@@ -402,24 +431,35 @@ lookup_whois_servers(val, host, port)
  * it simply returns qstring.
  */
 char *
-lookup_query_format(host, qstring)
-     char *host;
-     char *qstring;
+lookup_query_format(wq)
+     struct s_whois_query *wq;
 {
-  char *ret, *tmpqstring, *tmpptr;
+  char *ret = NULL, *tmpqstring, *tmpptr;
+  struct jconfig *j;
 
-  ret = (char *)get_whois_server_option(host, "query-format");
-  if (!ret)
-    return qstring;
-
-  tmpqstring = malloc(strlen(qstring)+strlen(ret)+2);
+  if (wq->domain)
+    {
+      jconfig_set();
+      j = jconfig_getone(wq->domain, "query-format");
+    }
+  if (!j)
+    {
+      ret = (char *)get_whois_server_option(wq->host, "query-format");
+      if (!ret)
+	return wq->query;
+    }
+  else 
+    {
+      ret = j->value;
+    }
+  tmpqstring = malloc(strlen(wq->query)+strlen(ret)+2);
   strncpy(tmpqstring, ret, strlen(ret)+1);
 
   tmpptr = (char *)strstr(tmpqstring, "$*");
   if (!tmpptr)
-    return qstring;
+    return wq->query;
 
-  strncpy(tmpptr, qstring, strlen(qstring)+1);
+  strncpy(tmpptr, wq->query, strlen(wq->query)+1);
   strncat(tmpptr, strstr(ret, "$*")+2, strlen((char *)strstr(ret, "$*"))-1);
 
   return tmpqstring;

@@ -36,6 +36,7 @@
 
 static struct jconfig *jconfig_tmpptr = NULL;
 static struct jconfig *jconfig_ptr = NULL;
+static struct jconfig *jconfig_addptr = NULL;
 
 /*
  *  Resets the pointer to point to the first entry in linked list
@@ -193,8 +194,22 @@ jconfig_add(domain, key, value, line)
   strncpy(ptr->value, value, strlen(value)+1);
   strncpy(ptr->domain, domain, strlen(domain)+1);
   ptr->line = line;
-  ptr->next = jconfig_ptr;
-  jconfig_ptr = ptr;
+  ptr->next = NULL;
+
+  if (jconfig_addptr)
+    {
+      jconfig_addptr->next = ptr;
+      jconfig_addptr = ptr;
+    }
+  else
+    jconfig_addptr = jconfig_ptr = ptr;
+
+  /* This suddenly stopped working. Somehow adding things changed
+     direction. Huh? We should find away to match things according
+     to the longest match, not according to in which order things
+     occur in the configuration file. */
+  /*  ptr->next = jconfig_ptr;
+      jconfig_ptr = ptr; */
 
   return 1;
 }

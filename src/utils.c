@@ -41,6 +41,7 @@
 #include <regex.h>
 #include <jwhois.h>
 #include <jconfig.h>
+#include <whois.h>
 
 #ifdef HAVE_LIBINTL_H
 # include <libintl.h>
@@ -250,13 +251,12 @@ make_connect(host, port)
  *  to hold only the query without hostname.
  */
 int
-split_host_from_query(qstring, host)
-     char *qstring;
-     char **host;
+split_host_from_query(wq)
+  struct s_whois_query *wq;
 {
   char *tmpptr;
 
-  tmpptr = (char *)strchr(qstring, '@');
+  tmpptr = (char *)strchr(wq->query, '@');
   if (!tmpptr)
     return 0;
 
@@ -266,7 +266,7 @@ split_host_from_query(qstring, host)
   tmpptr++;
   *tmpptr = '\0';
   tmpptr++;
-  *host = tmpptr;
+  wq->host = tmpptr;
   return 1;
 }
 

@@ -28,6 +28,7 @@
 #include <regex.h>
 #include <jwhois.h>
 #include <jconfig.h>
+#include <whois.h>
 
 #include <errno.h>
 
@@ -47,27 +48,25 @@
  *              0 Success
  */
 int
-whois_query(host, port, query, text)
-     char *host;
-     int port;
-     char *query;
+whois_query(wq, text)
+     struct s_whois_query *wq;
      char **text;
 {
   int ret, sockfd;
   char *tmpqstring;
 
-  printf("[Querying %s]\n", host);
+  printf("[Querying %s]\n", wq->host);
   *text = NULL;
   while (1)
     {
       if (!raw_query)
-	tmpqstring = (char *)lookup_query_format(host, query);
+	tmpqstring = (char *)lookup_query_format(wq);
       else
-	tmpqstring = query;
+	tmpqstring = wq->query;
 
       if (verbose) printf("[Debug: Formatted query: \"%s\"]\n", tmpqstring);
 
-      sockfd = make_connect(host, port);
+      sockfd = make_connect(wq->host, wq->port);
 
       if (sockfd < 0)
 	{
@@ -82,16 +81,17 @@ whois_query(host, port, query, text)
         }
       strcat(tmpqstring, "\r\n");
       write(sockfd, tmpqstring, strlen(tmpqstring));
-      /* write(sockfd, "\r\n", 2); */
-      ret = whois_read(sockfd, text, host);
+
+      ret = whois_read(sockfd, text, wq->host);
       if (ret < 0)
 	{
-	  printf("[%s %s:%d]\n", _("error reading data from"), host, port);
+	  printf("[%s %s:%d]\n", _("error reading data from"), wq->host,
+		 wq->port);
 	  exit(1);
 	}
       if (redirect)
         {
-          ret = lookup_redirect(host, *text, &host, &port);
+          ret = lookup_redirect(wq->host, *text, wq);
           if ((ret < 0) || (ret == 0)) break;
         }
       else
@@ -132,8 +132,6 @@ whois_read(fd, ptr, host)
   do
     {
       ret = read(fd, data, MAXBUFSIZE-1);
-  printf("Read %d\n", ret);
-  printf("Errno: %d\n", errno);
       if (ret >= 0)
 	{
 	  count += ret;

@@ -31,6 +31,7 @@
 #include <regex.h>
 #include <jwhois.h>
 #include <jconfig.h>
+#include <whois.h>
 
 #ifdef HAVE_LIBINTL_H
 # include <libintl.h>
@@ -111,10 +112,8 @@ static struct {
  *              0 Success
  */
 int
-rwhois_query_internal(host, port, query, text)
-     char *host;
-     int port;
-     char *query;
+rwhois_query_internal(wq, text)
+     struct s_whois_query *wq;
      char **text;
 {
   int sockfd, ret, limit;
@@ -122,20 +121,20 @@ rwhois_query_internal(host, port, query, text)
   char *reply, *tmpptr, *retptr;
   char *presentation = "-rwhois V-1.5 " PACKAGE " " VERSION "\r\n";
 
-  printf("[Querying %s]\n", host);
+  printf("[Querying %s]\n", wq->host);
 
   rwhois_capab = 0;
   info_on = 0;
   *text = NULL;
 
-  sockfd = make_connect(host, port);
+  sockfd = make_connect(wq->host, wq->port);
   if (!sockfd)
     {
       printf("[Unable to connect to remote host]\n");
       return -1;
     }
 
-  add_text_to_buffer(text, create_string("[%s]\n", host));
+  add_text_to_buffer(text, create_string("[%s]\n", wq->host));
 
   f = fdopen(sockfd, "r+");
   if (!f)
@@ -174,7 +173,7 @@ rwhois_query_internal(host, port, query, text)
   if (rwhois_display)
     tmpptr = rwhois_display;
   else
-    tmpptr = (char *)get_whois_server_option(host, "rwhois-display");
+    tmpptr = (char *)get_whois_server_option(wq->host, "rwhois-display");
 
   if (tmpptr)
     {
@@ -196,7 +195,7 @@ rwhois_query_internal(host, port, query, text)
     limit = rwhois_limit;
   else
     {
-      tmpptr = (char *)get_whois_server_option(host, "rwhois-limit");
+      tmpptr = (char *)get_whois_server_option(wq->host, "rwhois-limit");
       if (tmpptr)
 	{
 #ifdef HAVE_STRTOL
@@ -232,9 +231,9 @@ rwhois_query_internal(host, port, query, text)
     }
 
   if (verbose)
-    printf("[Debug: Sending query \"%s\"]\n", query);
+    printf("[Debug: Sending query \"%s\"]\n", wq->query);
 
-  fprintf(f, "%s\r\n", query);
+  fprintf(f, "%s\r\n", wq->query);
 
   do
     {
@@ -264,10 +263,8 @@ rwhois_query_internal(host, port, query, text)
  *              0 Success
  */
 int
-rwhois_query(host, port, query, text)
-     char *host;
-     int port;
-     char *query;
+rwhois_query(wq, text)
+     struct s_whois_query *wq;
      char **text;
 {
   struct s_referral *s, *s_start;
@@ -277,7 +274,7 @@ rwhois_query(host, port, query, text)
   referrals = malloc(sizeof(struct s_referrals));
   referrals[recursion_level-1].host = NULL;
 
-  rwhois_query_internal(host, port, query, text);
+  rwhois_query_internal(wq, text);
   if (referrals[recursion_level-1].host) {
     /*    s = s_start = referrals[recursion_level-1]; */
     autharea = NULL;
@@ -289,7 +286,7 @@ rwhois_query(host, port, query, text)
 	      recursion_level++;
 	      rwhois_query(referrals[recursion_level-2].host,
 				    referrals[recursion_level-2].port,
-				    query, text);
+				    wq->query, text);
 	      recursion_level--;
 	    }
 	autharea = referrals[recursion_level-1].autharea;
