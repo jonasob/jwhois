@@ -5,7 +5,7 @@ jwhois (2.4.3-1) unstable; urgency=low
    - Updates to default configuration.
     (Closes: Bug#105807, #106245, #106255, #107260, #107353)
    - Added rewrite possibilites for queries.
-    (Closes: Bug#84192, #84161)
+    (Closes: Bug#84192, #84161, #105888)
   * Upped Standards-Version to 3.5.4.
 
  -- peter karlsson <peterk@debian.org>  UNRELEASED
