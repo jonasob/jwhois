@@ -1,3 +1,7 @@
+2001-10-01  Jonas Oberg  <jonas@gnu.org>
+
+	* src/http.c (http_query): Fix to make POST work.
+
 2001-09-30  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Added .biz and .info data.

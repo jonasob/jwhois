@@ -143,8 +143,8 @@ int http_query(struct s_whois_query *wq, char **text)
 
         command[4] = (char *) malloc(strlen("http://") + strlen(wq->host) +
                                      strlen(action) + 1);
-        if (!command[3]) return -1;
-        sprintf(command[3], "http://%s%s",
+        if (!command[4]) return -1;
+        sprintf(command[4], "http://%s%s",
                 wq->host, action);
         command[5] = NULL;
 
