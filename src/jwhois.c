@@ -91,6 +91,7 @@ void query_host(val, host, port)
   struct protoent *pent;
   struct sockaddr_in remote;
   struct hostent *hostent;
+  struct servent *sp = NULL;
 #endif
 
   command = malloc(MAXBUFSIZE);
@@ -102,7 +103,16 @@ void query_host(val, host, port)
 
 #ifndef HAVE_GETADDRINFO
   remote.sin_family = AF_INET;
-  if (!port) port = IPPORT_WHOIS;
+#ifndef IPPORT_WHOIS
+# define IPPORT_WHOIS 43
+#endif
+  if (!port) {
+    if ((sp = getservbyname("whois", "tcp")) == NULL)
+      port = htons(IPPORT_WHOIS);
+    else
+      port = port = sp->s_port;
+  }
+
   remote.sin_port = htons(port);
 #ifdef HAVE_INET_ATON
   ret = inet_aton(host, &remote.sin_addr.s_addr);

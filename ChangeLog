@@ -1,3 +1,10 @@
+Tue Oct  5 16:42:08 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (query_host): Now checking whois port against
+	/etc/services et al if not using getaddrinfo()
+
+	* doc/jwhois.texi: Added direntry
+
 1999-10-04  Jonas Oberg  <jonas@coyote.org>
 
 	* Released 2.2pre3
