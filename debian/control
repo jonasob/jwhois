@@ -2,8 +2,8 @@ Source: jwhois
 Section: net
 Priority: optional
 Maintainer: peter karlsson <peterk@debian.org>
-Build-Depends: debhelper, gettext, libgdbmg1-dev
-Standards-Version: 3.0.1
+Build-Depends: debhelper, gettext, libgdbmg1-dev, texinfo
+Standards-Version: 3.2.1
 
 Package: jwhois
 Architecture: any
