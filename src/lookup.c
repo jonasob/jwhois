@@ -1,4 +1,4 @@
-/*
+*
     This file is part of jwhois
     Copyright (C) 1999  Jonas Öberg
 
@@ -58,18 +58,17 @@ find_cidr(val, block)
      char *block;
 {
   struct in_addr ip;
-  struct in_addr ipmask;
+  struct in_addr ipmaskip;
+  unsigned int ipmask;
   struct jconfig *j;
   unsigned int bits, res, a0, a1, a2, a3, ret;
   char *host = NULL;
 
-  if (verbose) printf("[Debug: find_cidr(\"%s\", \"%s\")]\n", val, block);
-
   res = sscanf(val, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
-  if (res != 4)
-    {
-      return NULL;
-    }
+  if (res == 3) a3 = 0;
+  else if (res == 2) a2 = a3 = 0;
+  else if (res == 1) a1 = a2 = a3 = 0;
+  else return NULL;
   ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
 
   jconfig_set();
@@ -78,7 +77,8 @@ find_cidr(val, block)
       if (strcasecmp(j->key, "type") != 0) {
 	if (!strcasecmp(j->key, "default"))
 	  {
-	    ipmask.s_addr = 0;
+	    ipmaskip.s_addr = 0;
+	    ipmask = 0;
 	  }
 	else
 	  {
@@ -92,10 +92,11 @@ find_cidr(val, block)
 				    j->line);
 		return NULL;
 	      }
-	    ipmask.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
-	    ipmask.s_addr &= (0xffffffff>>bits);
+	    ipmaskip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+            ipmask = (0xffffffff>>bits);
+            ipmaskip.s_addr &= ipmask;
 	  }
-	if ((ip.s_addr & ipmask.s_addr) == ipmask.s_addr)
+	if ((ip.s_addr & ipmask) == ipmaskip.s_addr)
 	  {
 	    host = j->value;
 	  }
