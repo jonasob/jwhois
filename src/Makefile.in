@@ -74,7 +74,6 @@ INSTOBJEXT = @INSTOBJEXT@
 INTLDEPS = @INTLDEPS@
 INTLLIBS = @INTLLIBS@
 INTLOBJS = @INTLOBJS@
-LEX = @LEX@
 MAKEINFO = @MAKEINFO@
 MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
@@ -91,10 +90,10 @@ l = @l@
 localedir = @localedir@
 
 bin_PROGRAMS = jwhois
-jwhois_SOURCES = dns.c lookup.c init.c utils.c gai_strerror.c regex.c 	getopt.c getopt1.c jconfig.c lexer.l string.c cache.c jwhois.c
+jwhois_SOURCES = dns.c lookup.c init.c utils.c gai_strerror.c regex.c 	getopt.c getopt1.c jconfig.c string.c cache.c jwhois.c
 
 
-CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\""          -DDATADIR="\"$(datadir)\"" -DLOCALSTATEDIR="\"$(localstatedir)\""          -DLOCALEDIR="\"$(localedir)\""
+CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\""          -DLOCALSTATEDIR="\"$(localstatedir)\""          -DLOCALEDIR="\"$(localedir)\""
 
 
 INCLUDES = -I$(top_srcdir)/include
@@ -109,16 +108,14 @@ CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
 jwhois_OBJECTS =  dns.o lookup.o init.o utils.o gai_strerror.o regex.o \
-getopt.o getopt1.o jconfig.o lexer.o string.o cache.o jwhois.o
+getopt.o getopt1.o jconfig.o string.o cache.o jwhois.o
 jwhois_LDADD = $(LDADD)
 jwhois_DEPENDENCIES = 
 jwhois_LDFLAGS = 
-LEX_OUTPUT_ROOT = @LEX_OUTPUT_ROOT@
-LEXLIB = @LEXLIB@
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
-DIST_COMMON =  Makefile.am Makefile.in lexer.c
+DIST_COMMON =  Makefile.am Makefile.in
 
 
 DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
@@ -127,14 +124,14 @@ TAR = tar
 GZIP_ENV = --best
 DEP_FILES =  .deps/cache.P .deps/dns.P .deps/gai_strerror.P \
 .deps/getopt.P .deps/getopt1.P .deps/init.P .deps/jconfig.P \
-.deps/jwhois.P .deps/lexer.P .deps/lookup.P .deps/regex.P \
-.deps/string.P .deps/utils.P
+.deps/jwhois.P .deps/lookup.P .deps/regex.P .deps/string.P \
+.deps/utils.P
 SOURCES = $(jwhois_SOURCES)
 OBJECTS = $(jwhois_OBJECTS)
 
 all: all-redirect
 .SUFFIXES:
-.SUFFIXES: .S .c .l .o .s
+.SUFFIXES: .S .c .o .s
 $(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
 	cd $(top_srcdir) && $(AUTOMAKE) --gnu src/Makefile
 
@@ -187,8 +184,6 @@ maintainer-clean-compile:
 jwhois: $(jwhois_OBJECTS) $(jwhois_DEPENDENCIES)
 	@rm -f jwhois
 	$(LINK) $(jwhois_LDFLAGS) $(jwhois_OBJECTS) $(jwhois_LDADD) $(LIBS)
-.l.c:
-	$(LEX) $(AM_LFLAGS) $(LFLAGS) $< && mv $(LEX_OUTPUT_ROOT).c $@
 
 tags: TAGS
 
@@ -309,7 +304,6 @@ distclean-generic:
 	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
 
 maintainer-clean-generic:
-	-test -z "lexerl" || rm -f lexerl
 mostlyclean-am:  mostlyclean-binPROGRAMS mostlyclean-compile \
 		mostlyclean-tags mostlyclean-depend mostlyclean-generic
 

@@ -158,25 +158,23 @@ parse_args(argc, argv)
       in = fopen(config, "r");
       if (!in)
 	{
-	  printf(_("[Unable to open %s]\n"),
-		  config);
+	  printf("[%s: %s]\n",
+		  config, _("unable to open"));
 	  exit(1);
 	}
+      cfname = config;
     }
   else
     {
       in = fopen(SYSCONFDIR "/jwhois.conf", "r");
-      if (!in)
-	{
-	  in = fopen(DATADIR "/jwhois.conf", "r");
-	}
+      if (!in && verbose)
+	printf("[%s: %s]\n",
+	       SYSCONFDIR "/jwhois.conf", _("unable to open"));
+      else
+	cfname = SYSCONFDIR "/jwhois.conf";
     }
   if (in)
-    parse_config(in);
-  else
-    if (verbose)
-      printf("[%s -- %s]\n",
-	      _("No configuration file found"), _("Using defaults"));
+    jconfig_parse_file(in);
 
   return optind;
 }
