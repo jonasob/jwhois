@@ -1,3 +1,8 @@
+2002-03-03  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Fixed incorrect .dk data.
+	  (Klaus Alexander Seistrup, Debian bug#129018)
+
 2002-02-28  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Updated .int and .us data.
