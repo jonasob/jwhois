@@ -1,4 +1,4 @@
-jwhois (2.4.3-1) unstable; urgency=low
+jwhois (3.0.0-1) unstable; urgency=low
 
   * New upstream release:
    - Add option to not follow redirections.
