@@ -161,7 +161,7 @@ cache_init(void)
   if (iret < 0)
     {
       if (verbose) printf("[Cache: %s]\n",
-			  _("Unable to store data in cache]\n"));
+			  _("Unable to store data in cache\n"));
       cache = 0;
     }
   dbm_close(dbf);
