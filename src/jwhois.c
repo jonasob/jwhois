@@ -118,7 +118,7 @@ make_connect(host, port)
 /*
  *  This function takes a string gotten from the commandline, splits
  *  out a hostname if one is found after an '@' sign which is not escaped
- *  by '\'.  Returns 1 is successful, else 0. qstrins is reformatted
+ *  by '\'.  Returns 1 is successful, else 0. qstring is reformatted
  *  to hold only the query without hostname.
  */
 int
@@ -142,13 +142,59 @@ split_host_from_query(qstring, host)
   return 1;
 }
 
+/*
+ *  This function performs a re-write on the string supplied according
+ *  to the given template. The original string is inserted where $0 is
+ *  found in the template.
+ */
+char *
+rewrite_query(query, template)
+     char *query;
+     char *template;
+{
+  int newlength, found = 0;
+  char *new, *s;
+
+  newlength = strlen(query) + strlen(template) - 1;
+  s = new = malloc(newlength);
+  if (!new) return query;
+
+  while (*template)
+    {
+      if (!found && '$' == *template && '0' == *(template + 1))
+        {
+          char *p;
+          for (p = query; *p; ++p, ++s)
+            {
+              *s = *p;
+            }
+
+          ++template;
+          found = 1;
+        }
+      else if ('$' == *template && '$' == *(template + 1))
+        {
+          *(s ++) = '$';
+          ++template;
+        }
+      else
+        *(s ++) = *template;
+
+      ++template;
+    }
+  *s = 0;
+
+  free(query);
+  return new;
+}
+
 int
 main(argc, argv)
      int argc;
      char **argv;
 {
   int optind, count = 0, port = 0, ret, sockfd;
-  char *qstring = NULL, *host, *text;
+  char *qstring = NULL, *host, *rewrite, *text;
 
 #ifdef HAVE_LIBINTL_H
   setlocale(LC_ALL, "");
@@ -183,6 +229,7 @@ main(argc, argv)
   if (verbose)
     printf("[Debug: qstring = \"%s\"]\n", qstring);
 
+  rewrite = NULL;
   if (ghost)
     {
       if (verbose) printf("[Debug: Calling %s:%d directly]\n", ghost, gport);
@@ -195,12 +242,18 @@ main(argc, argv)
     }
   else
     {
-      ret = lookup_host(qstring, NULL, &host, &port);
+      ret = lookup_host(qstring, NULL, &host, &port, &rewrite);
       if (ret < 0)
 	{
 	  printf("[%s]\n", _("fatal error searching for host to query"));
 	  exit(1);
 	}
+    }
+
+  if (rewrite)
+    {
+      qstring = rewrite_query(qstring, rewrite);
+      if (verbose) printf("[Debug: Rewriting query to \"%s\"]\n", qstring);
     }
 
 #ifndef NOCACHE

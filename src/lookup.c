@@ -56,9 +56,10 @@
  *  if an entry is found, otherwise NULL.
  */
 char *
-find_cidr(val, block)
+find_cidr(val, block, rewrite)
      char *val;
      char *block;
+     char **rewrite;
 {
   struct in_addr ip;
   struct in_addr ipmaskip;
@@ -71,6 +72,7 @@ find_cidr(val, block)
 
   memcpy(&b, a, sizeof(int));
 
+  *rewrite = NULL;
   res = sscanf(val, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
   if (res == 3) a3 = 0;
   else if (res == 2) a2 = a3 = 0;
@@ -113,6 +115,7 @@ find_cidr(val, block)
 	if ((ip.s_addr & ipmask) == (ipmaskip.s_addr & ipmask))
 	  {
 	    host = j->value;
+	    *rewrite = j->rewrite;
 	  }
       }
     }
@@ -128,9 +131,10 @@ find_cidr(val, block)
  *  a hostname if found, or else NULL.
  */
 char *
-find_regex(val, block)
+find_regex(val, block, rewrite)
      char *val;
      char *block;
+     char **rewrite;
 {
   struct jconfig *j;
   struct re_pattern_buffer      rpb;
@@ -139,6 +143,7 @@ find_regex(val, block)
 
   if (verbose) printf("[Debug: find_regex(\"%s\", \"%s\")]\n", val, block);
 
+  *rewrite = NULL;
   jconfig_set();
   while (j = jconfig_next(block))
     {
@@ -153,6 +158,7 @@ find_regex(val, block)
 	ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
 	if (ind == 0)
 	  {
+	    *rewrite = j->rewrite;
 	    host = j->value;
 	  }
 	else if (ind == -2)
@@ -175,10 +181,11 @@ find_regex(val, block)
  *           Any other  Success (number of entries found)
  */
 int
-find_regex_all(val, block, matches)
+find_regex_all(val, block, matches, rewrite)
      char *val;
      char *block;
      char **matches;
+     char **rewrite;
 {
   struct jconfig *j;
   struct re_pattern_buffer      rpb;
@@ -204,7 +211,9 @@ find_regex_all(val, block, matches)
       if (ind == 0)
 	{
 	  if (verbose) printf("[Debug: Match j->value = \"%s\"]\n", j->value);
-	  matches[num++] = j->value;
+	  matches[num] = j->value;
+	  rewrite[num] = j->rewrite;
+	  ++num;
 	}
       else if (ind == -2)
 	{
@@ -225,11 +234,12 @@ find_regex_all(val, block, matches)
  *           0    Success.
  */
 int
-lookup_host(val, block, host, port)
+lookup_host(val, block, host, port, rewrite)
      char *val;
      char *block;
      char **host;
      int *port;
+     char **rewrite;
 {
   char deepfreeze[512];
   char *tmpdeep, *tmphost;
@@ -237,6 +247,7 @@ lookup_host(val, block, host, port)
   char *ret;
 
   if (!val) return -1;
+  *rewrite = 0;
   if (!block)
     strcpy(deepfreeze, "jwhois.whois-servers");
   else
@@ -245,18 +256,18 @@ lookup_host(val, block, host, port)
   jconfig_set();
   j = jconfig_getone(deepfreeze, "type");
   if (!j)
-    *host = find_regex(val, deepfreeze);
+      *host = find_regex(val, deepfreeze, rewrite);
   else
     if (strncasecmp(j->value, "regex", 5) == 0)
-      *host = find_regex(val, deepfreeze);
+      *host = find_regex(val, deepfreeze, rewrite);
     else
-      *host = find_cidr(val, deepfreeze);
+      *host = find_cidr(val, deepfreeze, rewrite);
 
   if (!*host) *host = DEFAULTHOST;
 
   if (strncasecmp(*host, "struct", 6) == 0) {
     tmpdeep = *host+7;
-    return lookup_host(val, tmpdeep, host, port);
+    return lookup_host(val, tmpdeep, host, port, rewrite);
   }
 
   *port = 0;
@@ -297,7 +308,7 @@ lookup_redirect(search_host, block, text, host, port)
      int *port;
 {
   int num, i, error, ind;
-  char *matches[128], *bptr = NULL, *strptr, *ascport, *ret, *tmphost;
+  char *matches[128], *rewrites[128], *bptr = NULL, *strptr, *ascport, *ret, *tmphost;
   struct re_pattern_buffer rpb;
   struct re_registers regs;
 
@@ -309,9 +320,9 @@ lookup_redirect(search_host, block, text, host, port)
     return -1;
 
   if (!block)
-    num = find_regex_all(search_host, "jwhois.content-redirect", &matches);
+    num = find_regex_all(search_host, "jwhois.content-redirect", &matches, &rewrites);
   else
-    num = find_regex_all(search_host, block, &matches);
+    num = find_regex_all(search_host, block, &matches, &rewrites);
   if (verbose) printf("[Debug: find_regex_all() = %d]\n", num);
 
   i = 0;

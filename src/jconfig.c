@@ -118,10 +118,11 @@ jconfig_next(domain)
  *  this pair was found.
  */
 int
-jconfig_add(domain, key, value, line)
+jconfig_add(domain, key, value, rewrite, line)
      char *domain;
      char *key;
      char *value;
+     char *rewrite;
      int line;
 {
   struct jconfig *ptr;
@@ -162,9 +163,27 @@ jconfig_add(domain, key, value, line)
       free(ptr);
       return 0;
     }
+  if (rewrite)
+    {
+      ptr->rewrite = malloc(strlen(rewrite)+1);
+      if (!ptr->domain)
+        {
+          free(ptr->key);
+          free(ptr->value);
+          free(ptr->domain);
+          free(ptr);
+          return 0;
+        }
+    }
+  else
+    {
+      ptr->rewrite = NULL;
+    }
   strncpy(ptr->key, key, strlen(key)+1);
   strncpy(ptr->value, value, strlen(value)+1);
   strncpy(ptr->domain, domain, strlen(domain)+1);
+  if (rewrite)
+    strncpy(ptr->rewrite, rewrite, strlen(rewrite)+1);
   ptr->line = line;
   ptr->next = jconfig_ptr;
   jconfig_ptr = ptr;
@@ -332,7 +351,7 @@ jconfig_parse_file(in)
      FILE *in;
 {
   int ch, line = 1, nextch;
-  char *domain = NULL, *token = NULL, *key = NULL;
+  char *domain = NULL, *token = NULL, *key = NULL, *value = NULL;
   char *t1;
 
   domain = malloc(MAXBUFSIZE);
@@ -383,6 +402,20 @@ jconfig_parse_file(in)
 	      }
 	    key = token;
 	    break;
+	  case ':':
+	    if (!key)
+	      {
+		printf("[%s: %s %d]\n", config,
+		       _("missing key on line"), line);
+		exit(1);
+	      }
+	    if (!token)
+	      {
+	        printf("[%s: %s %d]\n", config,
+	               _("unexpected : on line"), line);
+	      }
+	    value = token;
+	    break;
 	  case ';':
 	    if (!key)
 	      {
@@ -390,7 +423,12 @@ jconfig_parse_file(in)
 		       _("missing key on line"), line);
 		exit(1);
 	      }
-	    jconfig_add(domain, key, token, line);
+	    if (value)
+	      jconfig_add(domain, key, value, token, line);
+	    else
+	      jconfig_add(domain, key, token, NULL, line);
+	    free(value);
+	    value = NULL;
 	    free(key);
 	    key = NULL;
 	    free(token);

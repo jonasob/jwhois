@@ -1,5 +1,8 @@
 2001-05-25  peter karlsson <peter@softwolves.pp.se>
 
+  	* src/jconfig.c, src/jwhois.c, src/lookup.c, example/jwhois.conf:
+          Added rewrite possibilites for queries (Debian bug#84192/#84161,
+          reported by Lee Maguire)
         * AUTHORS: Changed my status
 
 2001-05-16  peter karlsson <peter@softwolves.pp.se>
