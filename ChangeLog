@@ -2,6 +2,8 @@
 
 	* example/jwhos.conf, src/http.c: Added support for extra form
 	  element parameters to be able to query .es
+	* doc/jwhois.1: Fixes.
+	* doc/sv/jwhois.1: Swedish translation.
 
 2001-11-03  peter karlsson <peter@softwolves.pp.se>
 
