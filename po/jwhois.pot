@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-01-09 18:36+0100\n"
+"POT-Creation-Date: 2001-01-09 19:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,10 +177,10 @@ msgstr ""
 msgid "error writing to cache"
 msgstr ""
 
-#: src/lookup.c:94
+#: src/lookup.c:101
 msgid "invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:355 src/lookup.c:359
+#: src/lookup.c:362 src/lookup.c:366
 msgid "redirected to"
 msgstr ""

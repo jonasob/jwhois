@@ -66,14 +66,21 @@ find_cidr(val, block)
   struct jconfig *j;
   unsigned int bits, res, a0, a1, a2, a3, ret;
   char *host = NULL;
+  char a[4] = {0xde,0xad,0xbe,0xef};
+  int b;
+
+  memcpy(&b, a, sizeof(int));
 
   res = sscanf(val, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
   if (res == 3) a3 = 0;
   else if (res == 2) a2 = a3 = 0;
   else if (res == 1) a1 = a2 = a3 = 0;
   else if (res != 4) return NULL;
-  ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
-
+  if (b == 0xdeadbeef) {
+      ip.s_addr = (a0<<24)+(a1<<16)+(a2<<8)+a3;
+  } else {
+      ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+  }
   jconfig_set();
   while (j = jconfig_next(block))
     {
