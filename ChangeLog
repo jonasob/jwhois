@@ -1,3 +1,8 @@
+2001-11-26  Jonas Oberg  <jonas@gnu.org>
+
+	* configure.in, example/Makefile.am: Install jwhois.conf if there's
+	no previous configuration file installed.
+
 2001-11-22  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jwhois.c (jwhois_query): Fix so that wq->query isn't changed

@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 ##
 ## This file is part of jwhois
-## Copyright (C) 1999  Free Software Foundation, Inc.
+## Copyright (C) 2001  Free Software Foundation, Inc.
 ##
 ## This program is free software; you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -18,6 +18,14 @@
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 
-EXTRA_DIST = include/*.h example/jwhois.conf macros/*.m4 jwhois.spec.in jwhois.spec
-SUBDIRS = doc intl src po example
-
+install-data-local:
+	$(mkinstalldirs) $(DESTDIR)$(sysconfdir)
+	@if test ! -f $(DESTDIR)$(sysconfdir)/jwhois.conf; then \
+		echo "$(INSTALL_DATA) $(top_srcdir)/example/jwhois.conf $(DESTDIR)$(sysconfdir)/jwhois.conf"; \
+		$(INSTALL_DATA) $(top_srcdir)/example/jwhois.conf $(DESTDIR)$(sysconfdir)/jwhois.conf; \
+	else \
+		echo "## ";\
+		echo "## Not installing jwhois.conf because you already have a previous version";\
+		echo "## installed. You should manually take care of updating your jwhois.conf.";\
+		echo "##";\
+	fi
