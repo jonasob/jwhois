@@ -102,11 +102,15 @@ find_cidr(val, block)
 				    j->line);
 		return NULL;
 	      }
-	    ipmaskip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
-            ipmask = (0xffffffff>>(32-bits));
-            ipmaskip.s_addr &= ipmask;
+	    if (b == 0xdeadbeef) {
+	      ipmaskip.s_addr = (a0<<24)+(a1<<16)+(a2<<8)+a3;
+	      ipmask = (0xffffffff<<(32-bits));
+	    } else {
+	      ipmaskip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+	      ipmask = (0xffffffff>>(32-bits));
+	    }
 	  }
-	if ((ip.s_addr & ipmask) == ipmaskip.s_addr)
+	if ((ip.s_addr & ipmask) == (ipmaskip.s_addr & ipmask))
 	  {
 	    host = j->value;
 	  }
