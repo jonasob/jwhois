@@ -55,6 +55,17 @@ AC_ARG_WITH(cache,
 [cache=yes])
 AC_SUBST(cache)
 
+AC_ARG_WITH(sgid,
+[ --enable-sgid                enable installation with setgid GROUP]
+,
+[if test x$withval = xno; then
+  sgid=yes
+ elif test x$withval = xyes; then
+  sgid=no
+ fi],
+[sgid=no])
+AC_SUBST(sgid)
+
 AC_ARG_WITH(localedir,
 [  --with-localedir=DIR        locale info in DIR [PREFIX/share/locale]]
 ,localedir=$withval,localedir='${prefix}/share/locale')
@@ -67,6 +78,8 @@ AC_PROG_CC
 AM_GNU_GETTEXT
 AC_PATH_PROG(CHGRP, chgrp, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
 AC_PATH_PROG(CHMOD, chmod, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
+
+AC_C_BIGENDIAN
 
 AC_CHECK_FUNC(connect,,
   AC_CHECK_LIB(socket, connect))

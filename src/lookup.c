@@ -45,7 +45,7 @@
 #include <jconfig.h>
 #include <whois.h>
 
-#ifdef HAVE_LIBINTL_H
+#ifdef ENABLE_NLS
 # include <libintl.h>
 # define _(s)  gettext(s)
 #else
@@ -67,21 +67,19 @@ find_cidr(wq, block)
   struct jconfig *j;
   unsigned int bits, res, a0, a1, a2, a3, ret;
   char *host = NULL;
-  char a[4] = {0xde,0xad,0xbe,0xef};
-  int b;
-
-  memcpy(&b, a, sizeof(int));
 
   res = sscanf(wq->query, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
   if (res == 3) a3 = 0;
   else if (res == 2) a2 = a3 = 0;
   else if (res == 1) a1 = a2 = a3 = 0;
   else if (res != 4) return NULL;
-  if (b == 0xdeadbeef) {
-      ip.s_addr = (a0<<24)+(a1<<16)+(a2<<8)+a3;
-  } else {
-      ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
-  }
+
+#ifdef WORDS_BIGENDIAN
+  ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+#else
+  ip.s_addr = (a0<<24)+(a1<<16)+(a2<<8)+a3;
+#endif
+
   jconfig_set();
   while (j = jconfig_next(block))
     {
@@ -103,17 +101,18 @@ find_cidr(wq, block)
 		       j->line);
 		return NULL;
 	      }
-	    if (b == 0xdeadbeef) {
-	      ipmaskip.s_addr = (a0<<24)+(a1<<16)+(a2<<8)+a3;
-	      ipmask = (0xffffffff<<(32-bits));
-	    } else {
-	      ipmaskip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
-	      ipmask = (0xffffffff>>(32-bits));
-	    }
+#ifdef WORDS_BIGENDIAN
+            ipmaskip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+            ipmask = (0xffffffff>>(32-bits));
+#else
+            ipmaskip.s_addr = (a0<<24)+(a1<<16)+(a2<<8)+a3;
+            ipmask = (0xffffffff<<(32-bits));
+#endif
 	  }
 	if ((ip.s_addr & ipmask) == (ipmaskip.s_addr & ipmask))
 	  {
 	    host = j->value;
+            break;
 	  }
       }
     }

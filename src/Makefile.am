@@ -29,8 +29,3 @@ CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
 
 INCLUDES = -I$(top_srcdir)/include
 LIBS = @INTLLIBS@ @LIBS@
-
-install-exec-hook:
-	if test "@cache@" = "yes" ; then \
-	@CHGRP@ @GROUP@ $(DESTDIR)$(bindir)/jwhois; \
-	@CHMOD@ g+s $(DESTDIR)$(bindir)/jwhois; fi

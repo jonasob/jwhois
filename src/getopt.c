@@ -80,7 +80,7 @@
 #ifndef _
 /* This is for other GNU distributions with internationalized messages.
    When compiling libc, the _ macro is predefined.  */
-#ifdef HAVE_LIBINTL_H
+#ifdef ENABLE_NLS
 # include <libintl.h>
 # define _(s)  gettext(s)
 #else

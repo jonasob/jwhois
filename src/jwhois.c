@@ -46,7 +46,7 @@
 #include <whois.h>
 #include <http.h>
 
-#ifdef HAVE_LIBINTL_H
+#ifdef ENABLE_NLS
 # include <libintl.h>
 # define _(s)  gettext(s)
 #else
@@ -62,7 +62,7 @@ main(argc, argv)
   char *qstring = NULL, *host, *text, *tmp, *tmp2;
   struct s_whois_query wq;
 
-#ifdef HAVE_LIBINTL_H
+#ifdef ENABLE_NLS
   setlocale(LC_ALL, "");
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);

@@ -1,3 +1,11 @@
+2001-12-03  Jonas Oberg  <jonas@gnu.org>
+
+	* src/lookup.c (find_cidr): Use WORDS_BIGENDIAN to check for big
+	endian machines.
+	(find_cidr): Break after finding a correct match.
+
+	* configure.in: Add check for big endian machines.
+
 2001-12-01  Jonas Oberg  <jonas@gnu.org>
 
 	* configure.in: Updated to version 3.0.2.

@@ -50,7 +50,7 @@ static struct option long_options[] =
   {0, 0, 0, 0}
 };
 
-#ifdef HAVE_LIBINTL_H
+#ifdef ENABLE_NLS
 # include <libintl.h>
 # define _(s)  gettext(s)
 #else

@@ -19,5 +19,5 @@
 ##
 
 EXTRA_DIST = include/*.h example/jwhois.conf macros/*.m4 jwhois.spec.in jwhois.spec
-SUBDIRS = doc intl src po example
+SUBDIRS = doc intl src example @POSUB@
 

@@ -35,7 +35,7 @@
 #include <whois.h>
 
 
-#ifdef HAVE_LIBINTL_H
+#ifdef ENABLE_NLS
 # include <libintl.h>
 # define _(s)  gettext(s)
 #else

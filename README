@@ -48,14 +48,16 @@ is /usr/local/var, but this can be changed by adding another directory
 with --localstatedir=<dir> when running the configure script.
 
    The location of the database can also be set in the configuration file.
-Normally, jwhois is setgid to some specific group that has the ability to
-read and write to the database. The database is not created by the installation
-script, so you have to create it manually after having installed the binary.
+For this to work, jwhois has to be able to read and write to the cache file.
+If you're on a single-user machine, this can be done easily by creating a
+cache file and changing the owner of it to the user you're running as. If you
+have several users, you would normally allow a specific group to write to the
+cache file and setgid the jwhois binary to this group.
 
-   The default group is `nogroup' which is probably a sane enough
-alternative that shouldn't impose any security problems. The group can
-be set by calling the configure script with the `--enable-GROUP' parameter,
-or you can modify the group owner and setgid bits manually.
+   If you don't know how to do this, you can ask someone in your area with
+more UNIX experience. Chances are, if you don't use jwhois actively, there
+is little point in configuring a cache since it would not be used very much
+anyway.
 
 
 3. IPv6 Support
