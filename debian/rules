@@ -1,5 +1,6 @@
 #!/usr/bin/make -f
-# GNU copyright 1997 to 1999 by Joey Hess.
+# This is the rules for building Jwhois packages for Debian.
+# Based on sample: "GNU copyright 1997 to 1999 by Joey Hess".
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
