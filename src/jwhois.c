@@ -122,7 +122,6 @@ main(argc, argv)
     }
 
   text = NULL;
-  jwhois_query(&wq, &text);
 
 #ifndef NOCACHE
   if (!forcelookup && cache) {
@@ -140,6 +139,8 @@ main(argc, argv)
       }
   }
 #endif
+
+  jwhois_query(&wq, &text);
 
 #ifndef NOCACHE
   if (cache) {

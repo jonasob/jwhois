@@ -2,6 +2,7 @@
 
 	* src/jwhois.c (jwhois_query): Preserve old query string when
 	being redirected through multiple servers.
+	(main): Make queries -after- having checked the cache.
 
 2001-09-08  peter karlsson <peter@softwolves.pp.se>
 
