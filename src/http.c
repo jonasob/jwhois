@@ -48,7 +48,7 @@ int http_query(struct s_whois_query *wq, char **text)
 {
     char *method = (char *) get_whois_server_option(wq->host, "http-method");
     char *action = (char *) get_whois_server_option(wq->host, "http-action");
-    char *element= (char *) get_whois_server_option(wq->host, "html-element");
+    char *element= (char *) get_whois_server_option(wq->host, "form-element");
     char **command;
     char *url;
     char *browser;
@@ -67,7 +67,7 @@ int http_query(struct s_whois_query *wq, char **text)
                wq->host);
         if (!method) printf(_("Option %s is missing.\n"), "http-method");
         if (!action) printf(_("Option %s is missing.\n"), "http-action");
-        if (!element) printf(_("Option %s is missing.\n"), "html-element");
+        if (!element) printf(_("Option %s is missing.\n"), "form-element");
         return -1;
     }
 
