@@ -1,6 +1,6 @@
 2002-01-09  Jonas Oberg  <jonas@gnu.org>
 
-	* Released 3.0.3
+	* Released 3.1.0
 
 	* src/lookup.c (find_regex): Fix searches where domain is "default".
 
