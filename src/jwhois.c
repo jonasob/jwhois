@@ -108,9 +108,9 @@ void query_host(val, host, port)
 #endif
   if (!port) {
     if ((sp = getservbyname("whois", "tcp")) == NULL)
-      port = htons(IPPORT_WHOIS);
+      port = IPPORT_WHOIS;
     else
-      port = port = sp->s_port;
+      port = sp->s_port;
   }
 
   remote.sin_port = htons(port);
