@@ -23,6 +23,7 @@ struct jconfig {
 	char	*domain;
 	char	*key;
 	char	*value;
+	char	*rewrite;
 	int	line;
 	struct jconfig	*next;
 };
@@ -32,7 +33,7 @@ struct jconfig *jconfig_next(char *);
 void jconfig_end(void);
 struct jconfig *jconfig_getone(char *, char *);
 
-int jconfig_add(char *, char *, char *, int);
+int jconfig_add(char *, char *, char *, char *, int);
 void jconfig_free(void);
 
 #endif
