@@ -47,9 +47,9 @@
  */
 int http_query(struct s_whois_query *wq, char **text)
 {
-    char *method = (char *) get_whois_server_option(wq->host, "http-method");
-    char *action = (char *) get_whois_server_option(wq->host, "http-action");
-    char *element= (char *) get_whois_server_option(wq->host, "form-element");
+    const char *method = get_whois_server_option(wq->host, "http-method");
+    const char *action = get_whois_server_option(wq->host, "http-action");
+    const char *element= get_whois_server_option(wq->host, "form-element");
     char **command;
     char *url;
     char *browser;
@@ -190,7 +190,9 @@ int http_query(struct s_whois_query *wq, char **text)
 
         /* Drats! */
         if (errno)
-	  printf("[HTTP: %s: %s]\n", _("Unable to run web browser"), strerror(errno));
+        {
+            printf("[HTTP: %s: %s]\n", _("Unable to run web browser"), strerror(errno));
+        }
         close(to_browser[0]);
         close(from_browser[1]);
         exit(-1);
