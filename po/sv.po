@@ -150,7 +150,7 @@ msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:303 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Frågar"
 
@@ -279,7 +279,7 @@ msgstr "Fel vid skrivning till cache"
 msgid "Invalid netmask on line"
 msgstr "Ogiltig nätmask på rad"
 
-#: src/lookup.c:403 src/lookup.c:407
+#: src/lookup.c:407 src/lookup.c:411
 msgid "Redirected to"
 msgstr "Omdirigerad till"
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU jwhois 3.0.2\n"
-"POT-Creation-Date: 2001-12-01 10:46+0100\n"
+"POT-Creation-Date: 2002-01-09 19:51+0100\n"
 "PO-Revision-Date: 2001-12-17 12:00-0500\n"
 "Last-Translator: Michel Robitaille <robitail@IRO.UMontreal.CA>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -14,19 +14,19 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: src/cache.c:139
+#: src/cache.c:140
 msgid "Invalid expire time"
 msgstr "Temps d'expiration invalide"
 
-#: src/cache.c:152 src/init.c:263 src/init.c:272
+#: src/cache.c:153 src/init.c:266 src/init.c:275
 msgid "Unable to open"
 msgstr "Incapable d'ouvrir"
 
-#: src/cache.c:161
+#: src/cache.c:162
 msgid "Unable to store data in cache]\n"
 msgstr "Incapable de stocker les données dans la cache]\n"
 
-#: src/dns.c:88
+#: src/dns.c:89
 msgid "host not found"
 msgstr "hôte non repéré"
 
@@ -137,33 +137,33 @@ msgstr "%s: l'option `-W %s' est ambiguë\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: l'option `-W %s' ne permet pas d'argument\n"
 
-#: src/http.c:68
+#: src/http.c:67
 msgid "HTTP configuration is incomplete:"
 msgstr "Configuration HTTP est incomplète:"
 
-#: src/http.c:69 src/http.c:70 src/http.c:71 src/http.c:89 src/http.c:98
-#: src/http.c:141
+#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
+#: src/http.c:140
 msgid "Option is missing:"
 msgstr "Option manquante:"
 
-#: src/http.c:81
+#: src/http.c:80
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "L'option de http-method doit être \"GET\" ou \"POST\".\n"
 
 #. Go on and do something
-#: src/http.c:171 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
+#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Requête en cours"
 
-#: src/http.c:197
+#: src/http.c:196
 msgid "Unable to run web browser"
 msgstr "Incapable de lancer le fureteur du web"
 
-#: src/init.c:111
+#: src/init.c:116
 msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
 msgstr "Copyright (C) 1999,2001  Free Software Foundation, Inc."
 
-#: src/init.c:112
+#: src/init.c:117
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -171,17 +171,18 @@ msgstr ""
 "Ce programme est un logiciel libre avec AUCUNE GARANTIE ABSOLUE;\n"
 "vous pouvez le redistriber selon les termes de la GNU General Public License."
 
-#: src/init.c:115
+#: src/init.c:120
 msgid "version"
 msgstr "version"
 
-#: src/init.c:119
+#: src/init.c:124
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Usage: jwhois [OPTIONS] [REQUÊTE]"
 
-#: src/init.c:121
+#: src/init.c:126
+#, fuzzy
 msgid ""
-"  --version               display version number and patch level\n"
+"  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
 "  -v, --verbose              verbose debug output\n"
 "  -c FILE, --config=FILE     use FILE as configuration file\n"
@@ -190,111 +191,117 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
 "  --version                    afficher le nom et la version du logiciel\n"
 "  --help                       afficher l'aide-mémoire\n"
-"  -v, --verbose                fournir des explications lors de la mise au point\n"
+"  -v, --verbose                fournir des explications lors de la mise au "
+"point\n"
 "  -c FICHIER, --config=FICHIER utiliser le FICHIER de configuration\n"
 "  -h HÔTE, --host=HÔTE         adresser les requête à l'HÔTE\n"
 "  -n, --no-redirect            déasactiver les redirections\n"
 "  -s, --no-whoisservers        désactivier les services whois-servers.net\n"
 "  -a, --raw                    désactiver le reformattage de requête\n"
-"  -i, --display-redirections   afficher toutes les redirections au lieu de les cacher\n"
+"  -i, --display-redirections   afficher toutes les redirections au lieu de "
+"les cacher\n"
 "  -p PORT, --port=PORT         utiliser le numéro de PORT (avec l'HÔTE)\n"
 "  -r, --rwhois                 forcer les requêtes de type rwhois\n"
-"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes de type rwhois\n"
-"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à retourner\n"
+"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes "
+"de type rwhois\n"
+"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à "
+"retourner\n"
 
-#: src/init.c:136
+#: src/init.c:141
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup           forcer la recherche même si l'entrée est dans la cache\n"
+"  -f, --force-lookup           forcer la recherche même si l'entrée est dans "
+"la cache\n"
 "  -d, --disable-cache          désactiver les fonctions de la cache\n"
 
-#: src/init.c:139
+#: src/init.c:144
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Rapporter toutes anomalies à bug-jwhois@gnu.org"
 
-#: src/init.c:226
+#: src/init.c:229
 msgid "Invalid limit"
 msgstr "Limite invalide"
 
-#: src/init.c:240
+#: src/init.c:243
 msgid "Invalid port number"
 msgstr "Numéro de port invalide"
 
-#: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
-#: src/jwhois.c:92 src/utils.c:96 src/utils.c:106 src/whois.c:72
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Erreur d'allocation mémoire"
 
-#: src/jconfig.c:282 src/jconfig.c:336
+#: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
 msgstr "Chaîne hors bornes en ligne"
 
-#: src/jconfig.c:308
+#: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
 msgstr "Fin de fichier recherche de '\"' en ligne"
 
-#: src/jconfig.c:365
+#: src/jconfig.c:354
 msgid "Unexpected end of file on line"
 msgstr "Fin de fichier inattendue en ligne"
 
-#: src/jconfig.c:433
+#: src/jconfig.c:421
 msgid "Multiple keys on line"
 msgstr "Clés mutliples en ligne"
 
-#: src/jconfig.c:443
+#: src/jconfig.c:431
 msgid "Missing key on line"
 msgstr "Clé manquante en ligne"
 
-#: src/jwhois.c:119
+#: src/jwhois.c:126
 msgid "Fatal error searching for host to query"
 msgstr "Erreur fatale recherche de l'hôte pour lancer la requête"
 
-#: src/jwhois.c:132
+#: src/jwhois.c:139
 msgid "Error reading cache"
 msgstr "Erreur de lecture de la cache"
 
-#: src/jwhois.c:137
+#: src/jwhois.c:144
 msgid "Cached"
 msgstr "Dans la cache"
 
-#: src/jwhois.c:151
+#: src/jwhois.c:158
 msgid "Error writing to cache"
 msgstr "Erreur d'écriture dans la cache"
 
-#: src/lookup.c:102
+#: src/lookup.c:111
 msgid "Invalid netmask on line"
 msgstr "netmasque invalide en ligne"
 
-#: src/lookup.c:349 src/lookup.c:353
+#: src/lookup.c:407 src/lookup.c:411
 msgid "Redirected to"
 msgstr "Redirigé vers"
 
-#: src/rwhois.c:136 src/whois.c:66
+#: src/rwhois.c:138 src/whois.c:70
 msgid "[Unable to connect to remote host]\n"
 msgstr "[Incapable de se connecter à l'hôte]\n"
 
-#: src/rwhois.c:157
+#: src/rwhois.c:159
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr "[RWHOIS: erreur de protocol durant l'envoie de l'option -rwhois]\n"
 
-#: src/rwhois.c:195
+#: src/rwhois.c:197
 msgid "Server does not support display command"
 msgstr "Le serveur de supporte pas la commande d'affichage."
 
-#: src/rwhois.c:210
+#: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
 msgstr "Limite invalide dans el fichier de configuration"
 
-#: src/rwhois.c:234
+#: src/rwhois.c:236
 msgid "Server does not support limit"
 msgstr "Le serveur ne supporte pas la limite."
 
@@ -302,22 +309,22 @@ msgstr "Le serveur ne supporte pas la limite."
 msgid "Unknown referral"
 msgstr "Reférence inconnue"
 
-#: src/rwhois.c:372
+#: src/rwhois.c:370
 msgid "Following referral to"
 msgstr "Poursuite de la référence vers"
 
-#: src/rwhois.c:404
+#: src/rwhois.c:399
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Fin prématurée de la connexion par l'hôte]\n"
 
-#: src/rwhois.c:480
+#: src/rwhois.c:471
 msgid "Unhandled reply"
 msgstr "Réponse non traitée"
 
-#: src/utils.c:236
+#: src/utils.c:232
 msgid "Error creating socket"
 msgstr "Erreur de création du socket"
 
-#: src/whois.c:84
+#: src/whois.c:88
 msgid "Error reading data from"
 msgstr "Erreur de lecture des données à partir de"

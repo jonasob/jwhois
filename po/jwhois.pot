@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-01-06 00:41+0100\n"
+"POT-Creation-Date: 2002-01-09 19:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,7 +151,7 @@ msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:303 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
 
@@ -258,7 +258,7 @@ msgstr ""
 msgid "Invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:403 src/lookup.c:407
+#: src/lookup.c:407 src/lookup.c:411
 msgid "Redirected to"
 msgstr ""
 

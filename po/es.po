@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.0.2\n"
-"POT-Creation-Date: 2002-01-06 00:41+0100\n"
+"POT-Creation-Date: 2002-01-09 19:51+0100\n"
 "PO-Revision-Date: 2001-12-03 11:44-0600\n"
 "Last-Translator: Cristian Othón Martínez Vera <cfuga@itam.mx>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -168,7 +168,7 @@ msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "La opción http-method debe ser \"GET\" o \"POST\".\n"
 
 #. Go on and do something
-#: src/http.c:170 src/lookup.c:303 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Preguntando"
 
@@ -317,7 +317,7 @@ msgstr "Error al escribir al caché"
 msgid "Invalid netmask on line"
 msgstr "Máscara de red no válida en la línea"
 
-#: src/lookup.c:403 src/lookup.c:407
+#: src/lookup.c:407 src/lookup.c:411
 msgid "Redirected to"
 msgstr "Redirigido a"
 
