@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 ##
 ## This file is part of jwhois
-## Copyright (C) 1999  Free Software Foundation, Inc.
+## Copyright (C) 1999-2003  Free Software Foundation, Inc.
 ##
 ## This program is free software; you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -18,6 +18,6 @@
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 
-EXTRA_DIST = include/*.h example/jwhois.conf macros/*.m4 jwhois.spec.in jwhois.spec
+EXTRA_DIST = include/*.h example/jwhois.conf macros/*.m4 jwhois.spec.in jwhois.spec debian/*
 SUBDIRS = doc intl src example @POSUB@
 
