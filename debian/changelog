@@ -21,7 +21,7 @@ jwhois (2.4.2-6) unstable; urgency=low
   * Updates to default configuration.
     (Closes: Bug#97699)
 
- -- peter karlsson <peter@softwolves.pp.se>  Wed, 18 Jul 2001 20:30:00 +0200
+ -- peter karlsson <peterk@debian.org>  Wed, 18 Jul 2001 20:30:00 +0200
 
 jwhois (2.4.2-5) unstable; urgency=low
 
