@@ -1,9 +1,10 @@
 jwhois (3.0.1-2) unstable; urgency=low
 
-  * Updates to default configuration.
+  * Updates to default configuration from upstream CVS:
+   - Updated .dk domain.
     (Closes: Bug#117872)
 
- -- peter karlsson <peterk@debian.org>  UNRELEASED
+ -- peter karlsson <peterk@debian.org>  Tue, 13 Nov 2001 21:15:00 +0100
 
 jwhois (3.0.1-1) unstable; urgency=low
 
