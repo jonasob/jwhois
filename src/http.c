@@ -69,7 +69,7 @@ int http_query(struct s_whois_query *wq, char **text)
         printf("[HTTP: %s: %s]\n", wq->host, _("HTTP configuration is incomplete:"));
         if (!method) printf("[HTTP: %s %s]\n", _("Option is missing:"), "http-method");
         if (!action) printf("[HTTP: %s %s]\n", _("Option is missing:"), "http-action");
-        if (!element) printf("[HTTP: %s %s]\n", _("Option is missing:"), "form-element");
+        if (!element && !format) printf("[HTTP: %s %s]\n", _("Option is missing:"), "form-element");
         return -1;
     }
 
