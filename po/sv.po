@@ -2,7 +2,7 @@
 # Copyright © 1999
 # Peter Karlsson <peter@softwolves.pp.se>, 1999.
 #
-# $Id: sv.po,v 1.3 1999/12/01 22:52:23 peter Exp $
+# $Id: sv.po,v 1.4 1999/12/01 23:23:45 peter Exp $
 #, fuzzy
 msgid ""
 msgstr ""
@@ -92,7 +92,7 @@ msgstr "version"
 
 #: src/init.c:84
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr "Anvädning: jwhois [FLAGGOR] [FRÅGA]"
+msgstr "Användning: jwhois [FLAGGOR] [FRÅGA]"
 
 #: src/init.c:86
 msgid ""
@@ -131,7 +131,7 @@ msgstr "felaktigt portnummer"
 #: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
 #: src/jwhois.c:137
 msgid "error allocating memory"
-msgstr "fel vid allookering av minne"
+msgstr "fel vid allokering av minne"
 
 #: src/jconfig.c:238 src/jconfig.c:292
 msgid "string out of bounds on line"
