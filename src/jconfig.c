@@ -412,6 +412,8 @@ jconfig_parse_file(FILE *in)
 	      }
 	    break;
 	  case '"':
+	    if (token)
+	      free(token);
 	    token = jconfig_get_quoted(in, &line);
 	    break;
 	  case '=':
@@ -420,9 +422,9 @@ jconfig_parse_file(FILE *in)
 		printf("[%s: %s %d]\n", config,
 		       _("Multiple keys on line"),
 		       line);
-		free(key);
 	      }
-	    key = token;
+	    key = malloc(strlen(token)+1);
+	    strcpy(key,token);
 	    break;
 	  case ';':
 	    if (!key)
@@ -434,13 +436,19 @@ jconfig_parse_file(FILE *in)
 	    jconfig_add(domain, key, token, line);
 	    free(key);
 	    key = NULL;
-	    free(token);
-	    token = NULL;
 	    break;
 	  default:
 	    ungetc(ch, in);
+	    if (token)
+	      free(token);
 	    token = jconfig_get_unquoted(in, &line);
 	    break;
 	  }
     }
+    if (token)
+      free(token);
+    if (key)
+      free(key);
+    free(domain);
+    
 }

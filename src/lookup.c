@@ -148,6 +148,8 @@ find_regex(struct s_whois_query *wq, const char *block)
   int ind, i, best_match;
   char case_fold[256];
 
+  rpb.allocated = 0;
+
   for (i = 0; i < 256; i++)
     case_fold[i] = toupper(i);
 
@@ -157,8 +159,8 @@ find_regex(struct s_whois_query *wq, const char *block)
   while ((j = jconfig_next_all(block)) != NULL)
     {
       if ((strcasecmp(j->key, "default") == 0
-           || strcasecmp(j->domain+strlen(block)+1, ".*") == 0
-           || strcasecmp(j->domain+strlen(block)+1, "default") == 0)
+           || ((strlen(j->domain) > strlen(block)+1) && (strcasecmp(j->domain+strlen(block)+1, ".*") == 0
+           || strcasecmp(j->domain+strlen(block)+1, "default") == 0)))
           && !best_match)
         {
           if (strlen(j->domain) > strlen(block))
@@ -177,6 +179,17 @@ find_regex(struct s_whois_query *wq, const char *block)
         }
       else if (strcasecmp(j->key, "type") != 0)
 	{
+	  if (rpb.allocated) {
+	    free(rpb.buffer);
+	    if (rpb.fastmap)
+	      free(rpb.fastmap);
+	    if (rpb.regs_allocated != REGS_UNALLOCATED)
+	      {
+		free(regs.start);
+		free(regs.end);
+		rpb.regs_allocated = REGS_UNALLOCATED;
+	      }
+	  }
 	  rpb.allocated = 0;
 	  rpb.buffer = (unsigned char *)NULL;
 	  rpb.translate = case_fold;
@@ -195,8 +208,9 @@ find_regex(struct s_whois_query *wq, const char *block)
                         strlen(j->domain+strlen(block)+1)+1);
               strncat(pattern, "\\)", 3);
 
-	      if ((error = (char *)re_compile_pattern(pattern, strlen(pattern),
-						      &rpb)) != 0)
+	      error = (char *)re_compile_pattern(pattern, strlen(pattern), &rpb);
+	      free(pattern);
+	      if (error != NULL)
 		{
 		  return NULL;
 		}
@@ -227,9 +241,9 @@ find_regex(struct s_whois_query *wq, const char *block)
                 strncat(pattern, j->key, strlen(j->key)+1);
 
               strncat(pattern, "\\)", 3);
-              
-	      if ((error = (char *)re_compile_pattern(pattern, strlen(pattern),
-                                                      &rpb)) != 0)
+              error = (char *)re_compile_pattern(pattern, strlen(pattern),&rpb);
+	      free(pattern);
+	      if (error != NULL)
 		{
 		  return NULL;
 		}
@@ -252,8 +266,22 @@ find_regex(struct s_whois_query *wq, const char *block)
         }
     }
 
-  return match;
+  if (rpb.allocated)
+    {
+      free(rpb.buffer);
+      if (rpb.fastmap)
+        free(rpb.fastmap);
+    }
+
+  if (rpb.regs_allocated != REGS_UNALLOCATED)
+    {
+      free(regs.start);
+      free(regs.end);
+    }
+
   jconfig_end();
+
+  return match;
 }
 
 /*
