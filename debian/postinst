@@ -42,8 +42,7 @@ if test "$jwhoisoverride" = ""; then
   fi
 fi
 
-# Setgid cache directory to the jwhois group, and add it to
-# dpkg-statoverride unless it's already overridden.
+# Setgid cache directory to the jwhois group unless it's overriden
 
 cacheoverride=`dpkg-statoverride --list /var/cache/jwhois`
 if test "$cacheoverride" = ""; then
@@ -54,12 +53,24 @@ if test "$cacheoverride" = ""; then
       echo "Failed setting cache directory ownership, cache functionality may be impaired."
     fi
 
-    # Make sure the cache, if it exists, has the correct group ownership
+    # Make sure the cache, if it exists, has the correct ownership,
+    # and if it doesn't exist, create an empty one so that it is owned
+    # by root (bug#95013).
 
     if test -e /var/cache/jwhois/jwhois.db; then
-      chgrp jwhois /var/cache/jwhois/jwhois.db || echo "Failed setting cache file ownership, cache functionality may be impaired."
+      chown root.jwhois /var/cache/jwhois/jwhois.db || echo "Failed setting cache file ownership, cache functionality may be impaired."
+    else
+      if touch /var/cache/jwhois/jwhois.db; then
+        if test -f /var/cache/jwhois/jwhois.db; then
+          chown root.jwhois /var/cache/jwhois/jwhois.db || echo "Failed setting cache file ownership, cache functionality may be impaired."
+        else
+          echo "Cache file is not a regular file, cache functionality may be impaired."
+        fi
+      else
+        echo "Failed creating cache file, cache functionality may be impaired."
+      fi
     fi
   else
-    echo " Jwhois group is missing, not setting ownership of cache directory."
+    echo " Jwhois group is missing, not setting ownership of cache."
   fi
 fi
