@@ -51,15 +51,6 @@
 # define EAI_MEMORY	-10	/* Memory allocation failure.  */
 # define EAI_SYSTEM	-11	/* System error returned in `errno'.  */
 
-static struct
-  {
-    int code;
-    char *msg;
-  }
-values[] =
-  {
-  };
-
 const char *
 gai_strerror (int code)
 {
