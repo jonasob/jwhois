@@ -414,7 +414,7 @@ rwhois_read_line(FILE *f, char *ptr, char **text)
 int
 rwhois_parse_line(const char *reply, char **text)
 {
-  char *capab, *tmpptr;
+  char *tmpptr;
 
   tmpptr = (char *)strchr(reply, '\n');
   if (tmpptr)
@@ -427,9 +427,10 @@ rwhois_parse_line(const char *reply, char **text)
     }
   if (strncasecmp(reply, "%rwhois", 7) == 0) 
     {
-      capab = (char *)strchr(reply, ':')+1;
+      char *capab = (char *)strchr(reply, ':');
       if (!capab)
 	return REP_ERROR;
+      capab++; /* skip past first : */
       tmpptr = (char *)strchr(capab, ':');
       if (!tmpptr)
 	return REP_ERROR;
