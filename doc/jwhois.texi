@@ -103,6 +103,10 @@ Reads configuration from FILE instead of the default.
 Overrides any specifications in the configuration file and queries HOST
 directly.
 
+@item -p PORT
+@item --port=PORT
+Specifies a port number to use when querying a HOST
+
 @end table
 
 @node Site Configuration, Reporting bugs, Invocation, Top
@@ -135,6 +139,8 @@ matched against this regular expression would instead be matched against
 the last expression, thus making the query go to the @samp{whois.internic.net}
 Whois server.
 
+The host names can be postfixed with @samp{:port} to specify an alternative
+port number to use when querying that host.
 
 @node Reporting bugs,  , Site Configuration, Top
 @chapter Reporting bugs

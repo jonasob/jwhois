@@ -36,7 +36,7 @@ AC_CHECK_LIB(l, yywrap)
 AC_CHECK_LIB(nsl, gethostbyname)
 AC_CHECK_LIB(socket, connect)
 
-AC_CHECK_FUNCS(inet_aton memcpy)
+AC_CHECK_FUNCS(inet_aton memcpy strtol)
 AC_STDC_HEADERS
 AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h)
 

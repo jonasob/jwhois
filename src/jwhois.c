@@ -55,12 +55,13 @@ static struct option long_options[] =
 	{"help", 0, 0, DO_HELP},
 	{"config", 1, 0, 'c'},
 	{"host", 1, 0, 'h'},
+	{"port", 1, 0, 'p'},
 	{0, 0, 0, 0}
 };
 
 void help(void)
 {
-	printf("%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
+	printf("%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
 		", Copyright (C) 1999 Jonas Öberg\n",
 		"This is free software with ABSOLUTELY NO WARRANTY.\n\n",
 		"Usage: jwhois [OPTIONS] [QUERIES...]\n",
@@ -68,10 +69,11 @@ void help(void)
 		"  --help                  display this help\n",
                 "  -c FILE, --config=FILE  use FILE as configuration file\n",
 		"  -h HOST, --host=HOST    explicitly query HOST\n",
+		"  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n",
 		"\n\nReport bugs to jonas@coyote.org\n");
 }
 
-int query_host(char *host, char *val)
+int query_host(char *host, int port, char *val)
 {
 	int sockfd, ret;
 	struct protoent *pent;
@@ -85,7 +87,7 @@ int query_host(char *host, char *val)
 		exit(1);
 	}
 	remote.sin_family = AF_INET;
-	remote.sin_port = htons(IPPORT_WHOIS);
+	remote.sin_port = port;
 #ifdef HAVE_INET_ATON
 	ret = inet_aton(host, &remote.sin_addr.s_addr);
 #else
@@ -125,8 +127,8 @@ void make_query(char *val)
 {
 	struct jconfig *j;
 	struct re_pattern_buffer	rpb;
-	char *error, *host = DEFAULTHOST;
-	int ind;
+	char *error, *host = DEFAULTHOST, *ret, *tmphost;
+	int ind, port;
 
 	jconfig_set();
 	while (j = jconfig_next("jwhois.whois-servers")) {
@@ -147,18 +149,39 @@ void make_query(char *val)
 		}
 	}
 	jconfig_end();
-	query_host(host,val);
+
+	port = htons(IPPORT_WHOIS);
+	if (strchr(host, ':')) {
+		tmphost = (char *)strchr(host, ':');
+#ifdef HAVE_STRTOL
+		port = htons(strtol((char *)(tmphost+1), &ret, 10));
+		if (*ret != '\0') {
+			fprintf(stderr, "%s: %s %s %s\n",
+				PACKAGE,
+				"Invalid port number for host",
+				host,
+				"in config file");
+			exit(1);
+		}
+#else
+		port = htons(atoi((char *)(tmphost+1)));
+#endif
+		*tmphost = '\0';
+	}
+	query_host(host,port,val);
 	return;
 }
 
 int main(int argc, char **argv)
 {
-	int optch, option_index;
-	char *config = NULL, *host = NULL, *errmsg;
+	int optch, option_index, port;
+	char *config = NULL, *host = NULL, *errmsg, *ret;
 	FILE *in;
 
+	port = htons(IPPORT_WHOIS);
+
 	while (1) {
-		optch = getopt_long(argc, argv, "c:h:", long_options, &option_index);
+		optch = getopt_long(argc, argv, "c:h:p:", long_options, &option_index);
 		if (optch == EOF)
 			break;
 
@@ -178,6 +201,20 @@ int main(int argc, char **argv)
 				if (host) free(host);
 				host = malloc(strlen(optarg)+1);
 				strncpy(host, optarg, strlen(optarg)+1);					break;
+			case 'p':
+#ifdef HAVE_STRTOL
+				port = htons(strtol(optarg, &ret, 10));
+				if (*ret != '\0') {
+					fprintf(stderr, "%s: %s (%s)\n",
+						PACKAGE,
+						"Invalid port number",
+						optarg);
+					exit(1);
+				}
+#else
+				port = htons(atoi(optarg));
+#endif
+				break;
 		}
 	}
 
@@ -202,7 +239,7 @@ int main(int argc, char **argv)
 
 	while (optind < argc) {
 		if (host) {
-			query_host(host, argv[optind++]);
+			query_host(host, port, argv[optind++]);
 		} else {
 			make_query(argv[optind++]);
 		}

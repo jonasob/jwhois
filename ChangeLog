@@ -1,3 +1,8 @@
+Thu Aug 19 16:21:07 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (help, query_host, make_query, main): added support
+	for specifying port numbers
+
 Thu Jul 29 13:57:56 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* example/jwhois.conf: replaced whois.dk.net with joshua.ripe.net

@@ -18,6 +18,9 @@
 /* Define if you have the strstr function.  */
 #undef HAVE_STRSTR
 
+/* Define if you have the strtol function.  */
+#undef HAVE_STRTOL
+
 /* Define if you have the <netdb.h> header file.  */
 #undef HAVE_NETDB_H
 
