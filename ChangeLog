@@ -1,3 +1,8 @@
+2005-01-15  Peter Karlsson <peter@softwolves.pp.se>
+
+	* po/: es.po fr.po hu.po id.po it.po nl.po pl.po pt_BR.po ro.po
+	  tr.po zh_TW.po: Imported latest versions from TP.
+
 2004-05-21  Jonas Oberg <jonas@gnu.org>
 
 	* example/jwhois.conf: Changed whois.denic.de to www.decnic.de

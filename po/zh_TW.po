@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
-"POT-Creation-Date: 2003-01-31 19:39+0100\n"
+"POT-Creation-Date: 2003-06-30 18:33+0100\n"
 "PO-Revision-Date: 2002-1-12 19:19+8\n"
 "Last-Translator: Yuan0-Chen Cheng <ycheng@sinica.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -164,8 +164,9 @@ msgid "Unable to run web browser"
 msgstr "無法執行瀏覽器"
 
 #: src/init.c:116
+#, fuzzy
 msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
-msgstr "版權所有 (C) 1999-2003 自由軟體基金會。"
+msgstr "版權所有 (C) 1999,2001 自由軟體基金會。"
 
 #: src/init.c:117
 msgid ""
@@ -194,8 +195,7 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"

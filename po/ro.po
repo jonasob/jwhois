@@ -4,15 +4,14 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois-3.2.1\n"
-"POT-Creation-Date: 2003-01-31 19:39+0100\n"
-"PO-Revision-Date: 2003-05-04 09:51+0300\n"
+"Project-Id-Version: jwhois 3.2.2\n"
+"POT-Creation-Date: 2003-06-30 18:33+0100\n"
+"PO-Revision-Date: 2003-07-21 16:55+0300\n"
 "Last-Translator: Eugen Hoanca <eugenh@urban-grafx.ro>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/cache.c:140
 msgid "Invalid expire time"
@@ -32,7 +31,7 @@ msgstr "nu s-a gãsit host-ul"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
-msgstr "Familie de adrese pentru hostname nesuportatã"
+msgstr "Familie de adrese sau hostname nesuportate"
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
@@ -60,7 +59,7 @@ msgstr "Nici o adresã asociatã cu hostname"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "Nume sau serviciu necunoscut"
+msgstr "Nume sau serviciu necunoscute"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
@@ -86,17 +85,17 @@ msgstr "%s: opþiunea `%s' este ambiguã\n"
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: opþiunea `--%s' nu permite un parametru\n"
+msgstr "%s: opþiunea `--%s' nu permite parametri\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: opþiunea `%c%s' nu permite un parametru\n"
+msgstr "%s: opþiunea `%c%s' nu permite parametri\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: opþiunea `%s' necesitã un parametru\n"
+msgstr "%s: opþiunea `%s' necesitã parametri\n"
 
 #. --option
 #: src/getopt.c:755
@@ -135,11 +134,11 @@ msgstr "%s: opþiunea `-W %s' este ambiguã\n"
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: opþiunea `-W %s' nu permite un parametru\n"
+msgstr "%s: opþiunea `-W %s' nu permite parametri\n"
 
 #: src/http.c:71
 msgid "HTTP configuration is incomplete:"
-msgstr "Configuraþia HTTP este incompletã:"
+msgstr "Configuraþia HTTP este incmpletã"
 
 #: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
 #: src/http.c:166
@@ -200,10 +199,10 @@ msgid ""
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  afiºeazã numãrul versiunii ºi nivelul de patch\n"
+"  --version                  afiºeazã numãrul versiunii ºi nivelul de patchl\n"
 "  --help                     afiºeazã acest ajutor\n"
-"  -v, --verbose              ieºire detaliatã pentru depanare\n"
-"  -c FILE, --config=FIªIER   foloseºte FIªIER ca fiºier de configurare\n"
+"  -v, --verbose              output detaliat cu debug\n"
+"  -c FILE, --config=FIªIER     foloseºte FIªIER ca fiºier de configurare\n"
 "  -h HOST, --host=HOST       interogheazã HOST în mod explicit\n"
 "  -n, --no-redirect          dezactiveazã redirectarea de conþinut\n"
 "  -s, --no-whoisservers      dezactiveazã serviciul whois-servers.net\n"
@@ -212,7 +211,7 @@ msgstr ""
 "  -p PORT, --port=PORT       foloseºte numãrul de port PORT (în folosire cu HOST)\n"
 "  -r, --rwhois               forþeazã efectuarea unei interogãri rwhois\n"
 "  --rwhois-display=AFIªARE   seteazã opþiuni de afiºare în interogare rwhois\n"
-"  --rwhois-limit=LIMITÃ      seteazã numãrul maxim de potriviri de raportat\n"
+"  --rwhois-limit=LIMITÃ       seteazã numãrul maxim de potriviri de raportat\n"
 
 #: src/init.c:141
 msgid ""
@@ -242,23 +241,23 @@ msgstr "Eroare în alocarea memoriei"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
-msgstr "ªiruri în afara limitelor (out of bounds) pe linia"
+msgstr "ªiruri în afara limitelor (out of bounds) în linia"
 
 #: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
-msgstr "Sfârºit de fiºier cãutând '\"' pe linia"
+msgstr "Sfârºit de fiºier cãutând '\"' în linia"
 
 #: src/jconfig.c:354
 msgid "Unexpected end of file on line"
-msgstr "Sfârºit de fiºier neaºteptat pe linia"
+msgstr "Sfârºit de fiºier neaºteptat în linia"
 
 #: src/jconfig.c:423
 msgid "Multiple keys on line"
-msgstr "Chei(keys) multiple pe linia"
+msgstr "Chei(keys) multiple în linia"
 
 #: src/jconfig.c:433
 msgid "Missing key on line"
-msgstr "Cheie(key) lipsã pe linia"
+msgstr "Cheie(key) lipsã în linia"
 
 #: src/jwhois.c:126
 msgid "Fatal error searching for host to query"
