@@ -1,3 +1,7 @@
+2002-03-21  peter karlsson <peter@softwolves.pp.se>
+
+	* configure.in, po/id.po: Added Indonesian translation from TP.
+
 2002-03-20  peter karlsson <peter@softwolves.pp.se>
 
 	* src/http.c, examples/jwhois.conf: Advanced queries for http.
