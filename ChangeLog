@@ -1,3 +1,7 @@
+2003-03-05  Peter Karlsson <peter@softwolves.pp.se>
+
+	* po/it.po, configure.in: Added Italian translation (non-TP).
+
 2003-02-14  Lee Maguire <lee@hexkey.co.uk>
 
 	* example/jwhois.conf: re-enabled .pt, added .na (Namibia),
