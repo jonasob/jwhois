@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.0\n"
-"POT-Creation-Date: 2001-09-08 12:00+0200\n"
+"POT-Creation-Date: 2001-09-25 22:48+0200\n"
 "PO-Revision-Date: 2001-09-08 12:02+0200\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
@@ -153,7 +153,7 @@ msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
 msgid "Querying"
 msgstr "Frågar"
 
-#: src/http.c:193
+#: src/http.c:194
 msgid "Unable to run web browser"
 msgstr "Kan inte starta webbläsare"
 
@@ -234,7 +234,7 @@ msgid "Invalid port number"
 msgstr "Felaktigt portnummer"
 
 #: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
-#: src/jwhois.c:89 src/utils.c:96 src/utils.c:106 src/whois.c:72
+#: src/jwhois.c:92 src/utils.c:96 src/utils.c:106 src/whois.c:72
 msgid "Error allocating memory"
 msgstr "Fel vid allokering av minne"
 
@@ -258,19 +258,19 @@ msgstr "Flera nycklar på rad"
 msgid "Missing key on line"
 msgstr "Saknad nyckel på rad"
 
-#: src/jwhois.c:116
+#: src/jwhois.c:119
 msgid "Fatal error searching for host to query"
 msgstr "Allvarligt fel under sökning efter värd att fråga"
 
-#: src/jwhois.c:130
+#: src/jwhois.c:133
 msgid "Error reading cache"
 msgstr "Fel vid läsning av cache"
 
-#: src/jwhois.c:135
+#: src/jwhois.c:138
 msgid "Cached"
 msgstr "Cachad"
 
-#: src/jwhois.c:147
+#: src/jwhois.c:150
 msgid "Error writing to cache"
 msgstr "Fel vid skrivning till cache"
 

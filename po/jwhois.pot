@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-09-08 12:00+0200\n"
+"POT-Creation-Date: 2001-09-25 22:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,7 +155,7 @@ msgstr ""
 msgid "Querying"
 msgstr ""
 
-#: src/http.c:193
+#: src/http.c:194
 msgid "Unable to run web browser"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgid "Invalid port number"
 msgstr ""
 
 #: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
-#: src/jwhois.c:89 src/utils.c:96 src/utils.c:106 src/whois.c:72
+#: src/jwhois.c:92 src/utils.c:96 src/utils.c:106 src/whois.c:72
 msgid "Error allocating memory"
 msgstr ""
 
@@ -238,19 +238,19 @@ msgstr ""
 msgid "Missing key on line"
 msgstr ""
 
-#: src/jwhois.c:116
+#: src/jwhois.c:119
 msgid "Fatal error searching for host to query"
 msgstr ""
 
-#: src/jwhois.c:130
+#: src/jwhois.c:133
 msgid "Error reading cache"
 msgstr ""
 
-#: src/jwhois.c:135
+#: src/jwhois.c:138
 msgid "Cached"
 msgstr ""
 
-#: src/jwhois.c:147
+#: src/jwhois.c:150
 msgid "Error writing to cache"
 msgstr ""
 
