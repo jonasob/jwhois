@@ -70,7 +70,7 @@ whois_query(wq, text)
 
       if (sockfd < 0)
 	{
-	  printf("[Unable to connect to remote host]\n");
+	  printf(_("[Unable to connect to remote host]\n"));
 	  return -1;
 	}
       tmpqstring = realloc(tmpqstring, strlen(tmpqstring)+3);

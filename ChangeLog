@@ -1,3 +1,7 @@
+2001-09-06  peter karlsson <peter@softwolves.pp.se>
+
+	* src/http.c, rwhois.c, utils.c, whois.c: Gettext cleanups.
+
 2001-09-06  Jonas Oberg  <jonas@gnu.org>
 
 	* src/rwhois.c (rwhois_query_internal): Rwhois queries now follows

@@ -133,7 +133,7 @@ rwhois_query_internal(wq, text, referrals)
   sockfd = make_connect(wq->host, wq->port);
   if (!sockfd)
     {
-      printf("[Unable to connect to remote host]\n");
+      printf(_("[Unable to connect to remote host]\n"));
       return -1;
     }
 
@@ -154,7 +154,7 @@ rwhois_query_internal(wq, text, referrals)
   while (ret != REP_OK && ret != REP_ERROR);
 
   if (ret == REP_ERROR)
-    printf("[Protocol error while sending -rwhois option]\n");
+    printf(_("[Protocol error while sending -rwhois option]\n"));
 
   if (verbose)
     {

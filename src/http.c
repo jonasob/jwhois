@@ -155,7 +155,7 @@ int http_query(struct s_whois_query *wq, char **text)
     {
         int i;
 
-        fputs("[Running ", stdout);
+        fputs(_("[Running "), stdout);
         for (i = 1; command[i]; i ++)
         {
             fputs(command[i], stdout);
