@@ -51,7 +51,7 @@ notice identical to this one.
 @titlepage
 @title jwhois
 @subtitle Version 3.2.1
-@subtitle 31 January 2003
+@subtitle 1 February 2003
 @author Jonas Öberg @code{(jonas@@gnu.org)}
 
 @page
@@ -73,7 +73,7 @@ notice identical to this one.
 @node Top, Introduction, (dir), (dir)
 
 This file documents the GNU jwhois package, en extended Whois client.
-This is edition 3.2.1, for jwhois version 3.2.1, last updated 31 January 2002.
+This is edition 3.2.1, for jwhois version 3.2.1, last updated 1 February 2002.
 
 @menu
 * Introduction::                Introduction
