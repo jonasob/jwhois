@@ -186,7 +186,6 @@ main(argc, argv)
   if (ghost)
     {
       if (verbose) printf("[Debug: Calling %s:%d directly]\n", ghost, gport);
-      forcelookup = 1;
       host = ghost;
       port = gport;
     }

@@ -1,3 +1,7 @@
+2001-03-27  Jonas Oberg  <jonas@gnu.org>
+
+	* src/jwhois.c (main): Fix so that specifying a host doesn't imply forcing a query
+
 2001-03-18  peter karlsson <peter@softwolves.pp.se>
 
   	* example/jwhois.conf: Fix syntax error.
