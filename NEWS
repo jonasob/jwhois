@@ -1,3 +1,9 @@
+Changes in jwhois 3.2.0
+
+ * Various bugfixes
+ * Added advanced rewrite of queries
+ * Various changes to jwhois.conf
+
 Changes in jwhois 3.1.0
 
  * Various bugfixes
