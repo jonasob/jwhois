@@ -8,7 +8,7 @@ addgroup --system jwhois || echo "Failed adding group \`jwhois'"
 
 # setgid to that group. Can't do it automatically since the jwhois
 # group doesn't exist until this is run, which it isn't during the
-# installation process.
+# compilation process.
 
 if command -v suidregister >/dev/null 2>&1 && [ -e /etc/suid.conf ]; then
   suidregister -s jwhois /usr/bin/jwhois root jwhois 02755
