@@ -341,7 +341,7 @@ jconfig_parse_file(in)
       printf("[%s]\n", _("error allocating memory"));
       exit(1);
     }
-  strncpy(domain, PACKAGE, strlen(PACKAGE));
+  strncpy(domain, PACKAGE, strlen(PACKAGE)+1);
 
   while (!feof(in))
     {
