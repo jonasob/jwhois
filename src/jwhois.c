@@ -41,6 +41,7 @@
 #include <jwhois.h>
 #include <regex.h>
 #include <whois.h>
+#include <http.h>
 
 #ifdef HAVE_LIBINTL_H
 # include <libintl.h>
@@ -55,7 +56,7 @@ main(argc, argv)
      char **argv;
 {
   int optind, count = 0, port = 0, ret;
-  char *qstring = NULL, *host, *text, *tmp;
+  char *qstring = NULL, *host, *text, *tmp, *tmp2;
   struct s_whois_query wq;
 
 #ifdef HAVE_LIBINTL_H
@@ -138,7 +139,10 @@ main(argc, argv)
 #endif
 
   tmp = (char *)get_whois_server_option(wq.host, "rwhois");
-  if ( (!tmp || (strncmp(tmp, "true", 4) == 0)) && (!rwhois) )
+  tmp2 = (char *)get_whois_server_option(wq.host, "http");
+  if (tmp2 && 0 == strcmp(tmp2, "true"))
+    ret = http_query(&wq, &text);
+  else if ( (!tmp || (strncmp(tmp, "true", 4) == 0)) && (!rwhois) )
     ret = whois_query(&wq, &text);
   else
     ret = rwhois_query(&wq, &text);

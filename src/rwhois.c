@@ -121,7 +121,7 @@ rwhois_query_internal(wq, text)
   char *reply, *tmpptr, *retptr;
   char *presentation = "-rwhois V-1.5 " PACKAGE " " VERSION "\r\n";
 
-  printf("[Querying %s]\n", wq->host);
+  printf("[%s %s]\n", _("Querying"), wq->host);
 
   rwhois_capab = 0;
   info_on = 0;

@@ -251,7 +251,7 @@ lookup_host(wq, block)
 
   if (enable_whoisservers)
     if (strncasecmp(wq->host, "whois-servers", 13) == 0) {
-      printf("[Querying %s]\n", whoisservers);
+      printf("[%s %s]\n", _("Querying"), whoisservers);
       return lookup_whois_servers(wq);
     }
 
