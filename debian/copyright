@@ -1,13 +1,10 @@
-This package was debianized by peter karlsson <peter@softwolves.pp.se> on
-Sun, 14 Nov 1999 16:37:27 +0100.
+This is Debian GNU/Linux's prepackaged version of GNU jwhois, an improved
+whois client. It was downloaded from ftp://ftp.gnu.org/pub/gnu/jwhois
 
-It was downloaded from ftp://ftp.gnu.org/pub/gnu/jwhois
+jwhois is written by Jonas Öberg <jonas@gnu.org>
+Debian packaging and some modifications by Peter Karlsson <peterk@debian.org>
 
-Upstream Author(s): Jonas Öberg <jonas@gnu.org>
-
-Copyright:
-
-Copyright (C) 1999 Free Software Foundation, Inc.
+Copyright (C) 1999-2001 Free Software Foundation, Inc.
 
 You are free to distribute this software under the terms of the GNU
 General Public License.
