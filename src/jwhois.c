@@ -190,8 +190,7 @@ jwhois_query(struct s_whois_query *wq, char **text)
   
   if (!raw_query)
     {
-      oldquery = malloc(strlen(wq->query)+1);
-      strncpy(oldquery, wq->query, strlen(wq->query)+1);
+      oldquery = wq->query;
       wq->query = (char *)lookup_query_format(wq);
     }
 
@@ -215,7 +214,10 @@ jwhois_query(struct s_whois_query *wq, char **text)
     }
 
   if (!raw_query)
-    wq->query = oldquery;
+    {
+      free(wq->query);
+      wq->query = oldquery;
+    }
 
   if (ret < 0)
     {
@@ -223,9 +225,7 @@ jwhois_query(struct s_whois_query *wq, char **text)
     }
   if (ret > 0)
     {
-      int rc = jwhois_query(wq, text);
-      free(wq->query);
-      return rc;
+      return jwhois_query(wq, text);
     }
   else
     return 0;
