@@ -1,3 +1,26 @@
+Configuration File
+==================
+
+   In the example/ subdirectory in the distribution archive is an example
+configuration file for jwhois. This file should contain all of the known
+public Whois server records. Any changes to either host listed in that
+example configuration file should be reported to the maintainer so that
+the change can be included in future releases.
+
+   The configuration file should reside in the /usr/local/share directory,
+or the directory that you specified using the --datadir switch to the
+configure script.
+
+
+Default Host
+============
+
+   If jwhois can't find any configuration file, the queries will be
+directed to a default host. The default value is `whois.internic.net',
+but this can be changed by using the --enable-DEFAULTHOST switch to
+the configure script.
+
+
 Basic Installation
 ==================
 

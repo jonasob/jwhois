@@ -1,0 +1,36 @@
+.PU
+.TH jwhois 1 local
+.SH NAME
+jwhois \- whois client
+.SH SYNOPSIS
+.ll +8
+.B whois
+.RB
+[
+.I "OPTIONS"
+]...
+[
+.I "QUERIES"
+]...
+.ll -8
+.SH DESCRIPTION
+.I jwhois
+queries Internet Whois servers for information. The Whois server
+contacted can be specified on the command line, or looked up via
+regexps in the configuration file.
+.SH OPTIONS
+.TP
+.B \--version
+display version level and patch level
+.TP
+.B \--help
+display a short help text
+.TP
+.B \-c FILE --config=FILE
+uses FILE as a configuration file instead of the default
+.TP
+.B \-h HOST --host=HOST
+overrides any hosts in the configuration file and queries HOST directly
+.ll -8
+.SH "SEE ALSO"
+whois(1)

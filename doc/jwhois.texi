@@ -1,0 +1,145 @@
+\input texinfo  @c -*-texinfo-*-
+@c %**start of header
+@setfilename jwhois.info
+@settitle jwhois, Whois client
+@c %**end of header
+
+@c This file has the new style title page commands.
+@c Run `makeinfo' rather than `texinfo-format-buffer'.
+
+@c smallbook
+
+@c tex
+@c \overfullrule=0pt
+@c end tex
+
+@c Combine indices.
+@synindex cp fn
+@syncodeindex vr fn
+@syncodeindex ky fn
+@syncodeindex pg fn
+@syncodeindex tp fn
+
+@ifinfo
+This file documents @sc{jwhois}, a Whois client.
+
+Copyright (C) 1999 Jonas Öberg
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+@ignore
+Permission is granted to process this file through TeX and print the
+results, provided the printed document carries copying permission
+notice identical to this one except for the removal of this paragraph
+(this paragraph not being relevant to the printed manual).
+
+@end ignore
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+@end ifinfo
+
+@setchapternewpage off
+
+@titlepage
+@title jwhois, Whoisclient
+
+@author by Jonas Öberg
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} 1999 Jonas Öberg
+
+@sp 2
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+@end titlepage
+@page
+
+@node Top, Introduction, (dir), (dir)
+
+@menu
+* Introduction::                Introduction
+* Invocation::                  How to invoke jwhois
+* Site Configuration::          Defining a list of Whois servers
+* Reporting bugs::              Reporting bugs
+@end menu
+
+@node Introduction, Invocation, Top, Top
+@comment  node-name,  next,  previous,  up
+@chapter Introduction
+
+@sc{jwhois} is an Internet Whois client that queries hosts for information
+according to RFC 954 - NICNAME/WHOIS. @sc{jwhois} can be configured to
+decide via regular expressions which servers to query for information, based
+on the information that the user wishes to retrieve.
+
+@node Invocation, Site Configuration, Introduction, Top
+@chapter Invocation
+
+@sc{jwhois} uses the following command-line options:
+@table @samp
+
+@item --version
+Print the version information for this program, then exit.
+
+@item --help
+Print a usage message summarizing the command-line options, then exit.
+
+@item -c FILE
+@item --config=FILE
+Reads configuration from FILE instead of the default.
+
+@item -h HOST
+@item --host=HOST
+Overrides any specifications in the configuration file and queries HOST
+directly.
+
+@end table
+
+@node Site Configuration, Reporting bugs, Invocation, Top
+@chapter Site Configuration
+
+@sc{jwhois} is configurable via its @file{jwhois.conf} file. This file
+is looked for in the datadir that was specified when compiling the
+program (default is @file{/usr/local/share}). An example configuration file
+that includes most known Whois servers can be found in the @code{example}
+subdirectory of the official distribution.
+
+In the @samp{whois-servers} block, the configuration file matches
+regular expressions to a Whois server name. When reading this list
+of hosts, jwhois starts at the bottom and works its way up, querying
+the last host that matched the regular expression.
+
+Here is an example of such a block:
+
+@example
+whois-servers @{
+        ".*\.se$" = "whois.nic-se.se";
+        ".*" = "whois.internic.net";
+@};
+@end example
+
+This would query the Whois server @samp{whois.nic-se.se} if the user were
+to supply the query @samp{sunet.se}, or any other query that would match
+the first specified regular expressions. All queries that could not be
+matched against this regular expression would instead be matched against
+the last expression, thus making the query go to the @samp{whois.internic.net}
+Whois server.
+
+
+@node Reporting bugs,  , Site Configuration, Top
+@chapter Reporting bugs
+
+Email bug reports to @code{jonas@@coyote.org}.
+
+@contents
+@bye

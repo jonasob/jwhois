@@ -1,1 +1,6 @@
-No news is good news.
+Changes in jwhois 2.0
+
+ * jwhois-server is dropped from the package and will later be replaced
+   by jwhoisd which will be bundled separately
+ * jwhois is now written in C code
+ * configuration file format has changed

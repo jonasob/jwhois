@@ -6,11 +6,30 @@
 /* Define if lex declares yytext as a char * by default, not a char[].  */
 #undef YYTEXT_POINTER
 
-#undef PACKAGE
-#undef VERSION
+/* Default Whois server */
+#undef DEFAULTHOST
 
 /* Define if you have the strstr function.  */
 #undef HAVE_STRSTR
 
+/* Define if you have the <netdb.h> header file.  */
+#undef HAVE_NETDB_H
+
+/* Define if you have the <netinet/in.h> header file.  */
+#undef HAVE_NETINET_IN_H
+
+/* Define if you have the <sys/socket.h> header file.  */
+#undef HAVE_SYS_SOCKET_H
+
+/* Define if you have the <sys/types.h> header file.  */
+#undef HAVE_SYS_TYPES_H
+
 /* Define if you have the fl library (-lfl).  */
 #undef HAVE_LIBFL
+
+/* Name of package */
+#undef PACKAGE
+
+/* Version number of package */
+#undef VERSION
+

@@ -1,19 +1,24 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(jconfig.c)
+
+AC_INIT(src/jconfig.c)
 AM_INIT_AUTOMAKE(jwhois,2.0)
 AM_CONFIG_HEADER(config.h)
 
-AC_PROG_AWK
+AC_ARG_ENABLE(DEFAULTHOST,
+[  ­­enable-DEFAULTHOST=HOST   default whois host (default whois.internic.net)],
+[AC_DEFINE_UNQUOTED(DEFAULTHOST, "$enable_DEFAULTHOST")],
+[AC_DEFINE(DEFAULTHOST, "whois.internic.net")])
+
 AC_PROG_INSTALL
-AC_PROG_LN_S
 AC_PROG_CC
 AM_PROG_LEX
+AC_PROG_RANLIB
 
 AC_CHECK_LIB(fl, yywrap)
 
-dnl Checks for header files.
 AC_STDC_HEADERS
+AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h)
 
 AC_CHECK_FUNCS(strstr)
 
-AC_OUTPUT(Makefile)
+AC_OUTPUT(Makefile doc/Makefile src/Makefile lib/Makefile)

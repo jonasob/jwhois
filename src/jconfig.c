@@ -1,12 +1,12 @@
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 #ifdef STDC_HEADERS
 #include <stdio.h>
 #include <stdlib.h>
 #endif
 
-#include "jconfig.h"
+#include <jconfig.h>
 
 static struct jconfig *jconfig_tmpptr = NULL;
 static struct jconfig *jconfig_ptr = NULL;
@@ -22,7 +22,7 @@ void jconfig_end(void)
 	return;
 }
 
-struct jconfig *jconfig_next(char *key)
+struct jconfig *jconfig_next(char *domain)
 {
 	struct jconfig *ptr;
 
@@ -31,8 +31,8 @@ struct jconfig *jconfig_next(char *key)
 	}
 
 	while (jconfig_tmpptr) {
-		if ( (char *)strstr(jconfig_tmpptr->key,key)
-		     == jconfig_tmpptr->key) {
+		if ( (char *)strstr(jconfig_tmpptr->domain,domain)
+		     == jconfig_tmpptr->domain) {
 			ptr = jconfig_tmpptr;
 			jconfig_tmpptr = jconfig_tmpptr->next;
 			return ptr;
@@ -42,7 +42,7 @@ struct jconfig *jconfig_next(char *key)
 	return NULL;
 }
 
-int jconfig_add(char *key, char *value)
+int jconfig_add(char *domain, char *key, char *value)
 {
 	struct jconfig *ptr;
 
@@ -61,8 +61,16 @@ int jconfig_add(char *key, char *value)
 		free(ptr);
 		return 0;
 	}
-	strncpy(ptr->key, key, strlen(key));
-	strncpy(ptr->value, value, strlen(value));
+	ptr->domain = malloc(strlen(domain)+1);
+	if (!ptr->domain) {
+		free(ptr->key);
+		free(ptr->value);
+		free(ptr);
+		return 0;
+	}
+	strncpy(ptr->key, key, strlen(key)+1);
+	strncpy(ptr->value, value, strlen(value)+1);
+	strncpy(ptr->domain, domain, strlen(domain)+1);
 	ptr->next = jconfig_ptr;
 	jconfig_ptr = ptr;
 	return 1;

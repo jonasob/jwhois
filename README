@@ -1,10 +1,8 @@
-This is RPN, a reverse polish notation calculator similar in function
-to bc and dc. RPN can be run in a dc compatibility mode in which most
-dc functions are implemented.
+This is jwhois, an improved whois client.
 
 Please send bug reports, suggestions, improvements, rewrites and other
 material to jonas@coyote.org.
 
-====[ Obtaining RPN ]=========================================================
-RPN can be obtained via anonymous FTP from
-ftp://ftp.coyote.org/pub/rpn/
+====[ Obtaining JWHOIS ]======================================================
+JWHOIS can be obtained via anonymous FTP from
+ftp://ftp.coyote.org/pub/jwhois/
