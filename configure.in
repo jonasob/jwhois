@@ -71,7 +71,7 @@ AC_ARG_WITH(localedir,
 ,localedir=$withval,localedir='${prefix}/share/locale')
 AC_SUBST(localedir)
 
-ALL_LINGUAS="sv ru es fr zh_TW tr id"
+ALL_LINGUAS="sv ru es fr zh_TW tr id pt_BR"
 
 AC_PROG_INSTALL
 AC_PROG_CC
