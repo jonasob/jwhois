@@ -1,3 +1,8 @@
+2002-08-20  Lee Maguire <lee@hexkey.co.uk>
+
+	* example/jwhois.conf: regexp to match rwhois URLs seen
+	  in some ARIN records (not a full rwhois URL parser).
+
 2002-08-06  Peter Karlsson <peter@softwolves.pp.se>
 
 	* po/fr.po: Updated from TP.
