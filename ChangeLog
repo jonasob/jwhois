@@ -1,3 +1,11 @@
+2001-08-28  peter karlsson <peter@softwolves.pp.se>
+
+	* src/http.c, include/http.h: Added support for sending HTTP
+	  queries. Requires a browser capable of sending text data to
+	  stdout, e.g Lynx.
+	* example/jwhois.conf: Query whois.co.za and www.nic-se.se via
+	  HTTP.
+
 2001-08-27  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Rewrite whois.internic.net default domain
