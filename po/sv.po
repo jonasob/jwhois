@@ -1,31 +1,31 @@
 # Swedish messages for jwhois
-# Copyright © 1999,2001
-# Peter Karlsson <peter@softwolves.pp.se>, 2001.
+# Copyright © 1999,2001-2002
+# Peter Karlsson <peter@softwolves.pp.se>, 2002.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.0\n"
-"POT-Creation-Date: 2001-12-01 10:46+0100\n"
-"PO-Revision-Date: 2001-09-29 11:04+0200\n"
+"POT-Creation-Date: 2002-01-06 00:41+0100\n"
+"PO-Revision-Date: 2002-01-06 11:04+0200\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
-"Language-Team: svenska <sv@li.org>\n"
+"Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:139
+#: src/cache.c:140
 msgid "Invalid expire time"
 msgstr "Ogiltigt slutdatum"
 
-#: src/cache.c:152 src/init.c:263 src/init.c:272
+#: src/cache.c:153 src/init.c:266 src/init.c:275
 msgid "Unable to open"
 msgstr "Kan ej öppna"
 
-#: src/cache.c:161
+#: src/cache.c:162
 msgid "Unable to store data in cache]\n"
 msgstr "Kan inte lagra data i databasen]\n"
 
-#: src/dns.c:88
+#: src/dns.c:89
 msgid "host not found"
 msgstr "värden kunde inte hittas"
 
@@ -136,33 +136,33 @@ msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"-W %s\" tillåter inte något argument\n"
 
-#: src/http.c:68
+#: src/http.c:67
 msgid "HTTP configuration is incomplete:"
 msgstr "HTTP-inställning är ej komplett:"
 
-#: src/http.c:69 src/http.c:70 src/http.c:71 src/http.c:89 src/http.c:98
-#: src/http.c:141
+#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
+#: src/http.c:140
 msgid "Option is missing:"
 msgstr "Inställning saknas:"
 
-#: src/http.c:81
+#: src/http.c:80
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
 
 #. Go on and do something
-#: src/http.c:171 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
+#: src/http.c:170 src/lookup.c:303 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Frågar"
 
-#: src/http.c:197
+#: src/http.c:196
 msgid "Unable to run web browser"
 msgstr "Kan inte starta webbläsare"
 
-#: src/init.c:111
+#: src/init.c:116
 msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
 msgstr "Copyright © 1999,2001  Free Software Foundation, Inc."
 
-#: src/init.c:112
+#: src/init.c:117
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -170,17 +170,17 @@ msgstr ""
 "Detta program är fri programvara UTAN NÅGON SOM HELST GARANTI; du kan\n"
 "distribuera det under villkoren i GNU General Public License."
 
-#: src/init.c:115
+#: src/init.c:120
 msgid "version"
 msgstr "version"
 
-#: src/init.c:119
+#: src/init.c:124
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Användning: jwhois [FLAGGOR] [FRÅGA]"
 
-#: src/init.c:121
+#: src/init.c:126
 msgid ""
-"  --version               display version number and patch level\n"
+"  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
 "  -v, --verbose              verbose debug output\n"
 "  -c FILE, --config=FILE     use FILE as configuration file\n"
@@ -211,7 +211,7 @@ msgstr ""
 "  --rwhois-display=VISNING   sätter visningsflaggan i rwhois-frågor\n"
 "  --rwhois-limit=GRÄNS       sötter max antal träffar att returnera\n"
 
-#: src/init.c:136
+#: src/init.c:141
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
@@ -220,86 +220,86 @@ msgstr ""
 "cache\n"
 "  -d, --disable-cache        stäng av cachefunktionaliteten\n"
 
-#: src/init.c:139
+#: src/init.c:144
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
 "Rapportera fel till <bug-jwhois@gnu.org>\n"
 "Skicka anmärkningar på översättningen till <peter@softwolves.pp.se>"
 
-#: src/init.c:226
+#: src/init.c:229
 msgid "Invalid limit"
 msgstr "Ogiltig gräns"
 
-#: src/init.c:240
+#: src/init.c:243
 msgid "Invalid port number"
 msgstr "Felaktigt portnummer"
 
-#: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
-#: src/jwhois.c:92 src/utils.c:96 src/utils.c:106 src/whois.c:72
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Fel vid allokering av minne"
 
-#: src/jconfig.c:282 src/jconfig.c:336
+#: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
 msgstr "Sträng utanför gränserna på rad"
 
-#: src/jconfig.c:308
+#: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
 msgstr "Filslut då '\"' förväntades på rad"
 
-#: src/jconfig.c:365
+#: src/jconfig.c:354
 msgid "Unexpected end of file on line"
 msgstr "Oväntat filslut på rad"
 
-#: src/jconfig.c:433
+#: src/jconfig.c:421
 msgid "Multiple keys on line"
 msgstr "Flera nycklar på rad"
 
-#: src/jconfig.c:443
+#: src/jconfig.c:431
 msgid "Missing key on line"
 msgstr "Saknad nyckel på rad"
 
-#: src/jwhois.c:119
+#: src/jwhois.c:126
 msgid "Fatal error searching for host to query"
 msgstr "Allvarligt fel under sökning efter värd att fråga"
 
-#: src/jwhois.c:132
+#: src/jwhois.c:139
 msgid "Error reading cache"
 msgstr "Fel vid läsning av cache"
 
-#: src/jwhois.c:137
+#: src/jwhois.c:144
 msgid "Cached"
 msgstr "Cachad"
 
-#: src/jwhois.c:151
+#: src/jwhois.c:158
 msgid "Error writing to cache"
 msgstr "Fel vid skrivning till cache"
 
-#: src/lookup.c:102
+#: src/lookup.c:111
 msgid "Invalid netmask on line"
 msgstr "Ogiltig nätmask på rad"
 
-#: src/lookup.c:349 src/lookup.c:353
+#: src/lookup.c:403 src/lookup.c:407
 msgid "Redirected to"
 msgstr "Omdirigerad till"
 
-#: src/rwhois.c:136 src/whois.c:66
+#: src/rwhois.c:138 src/whois.c:70
 msgid "[Unable to connect to remote host]\n"
 msgstr "[Kan inte ansluta mot fjärrvärd]\n"
 
-#: src/rwhois.c:157
+#: src/rwhois.c:159
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr "[RWHOIS: Protokollfel vid sändning av flaggan -rwhois]\n"
 
-#: src/rwhois.c:195
+#: src/rwhois.c:197
 msgid "Server does not support display command"
 msgstr "Servern stöder inte display-kommandot"
 
-#: src/rwhois.c:210
+#: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
 msgstr "Ogiltig gräns i konfigurationsfilen"
 
-#: src/rwhois.c:234
+#: src/rwhois.c:236
 msgid "Server does not support limit"
 msgstr "Servern stöder inte begränsningar"
 
@@ -307,23 +307,23 @@ msgstr "Servern stöder inte begränsningar"
 msgid "Unknown referral"
 msgstr "Okänd omdirigering"
 
-#: src/rwhois.c:372
+#: src/rwhois.c:370
 msgid "Following referral to"
 msgstr "Följer omdirigering till"
 
-#: src/rwhois.c:404
+#: src/rwhois.c:399
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Värden avbröt förbindelsen i förtid]\n"
 
-#: src/rwhois.c:480
+#: src/rwhois.c:471
 msgid "Unhandled reply"
 msgstr "Ej hanterat svar"
 
-#: src/utils.c:236
+#: src/utils.c:232
 msgid "Error creating socket"
 msgstr "Fel vid skapande av uttag (socket)"
 
-#: src/whois.c:84
+#: src/whois.c:88
 msgid "Error reading data from"
 msgstr "Fel vid läsning av data från"
 

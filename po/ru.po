@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2001-12-01 10:46+0100\n"
+"POT-Creation-Date: 2002-01-06 00:41+0100\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -14,22 +14,22 @@ msgstr ""
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:139
+#: src/cache.c:140
 #, fuzzy
 msgid "Invalid expire time"
 msgstr "неверное время обновления"
 
-#: src/cache.c:152 src/init.c:263 src/init.c:272
+#: src/cache.c:153 src/init.c:266 src/init.c:275
 #, fuzzy
 msgid "Unable to open"
 msgstr "невозможно открыть"
 
-#: src/cache.c:161
+#: src/cache.c:162
 #, fuzzy
 msgid "Unable to store data in cache]\n"
 msgstr "невозможно сохранить данные в базе данных"
 
-#: src/dns.c:88
+#: src/dns.c:89
 msgid "host not found"
 msgstr "хост не найден"
 
@@ -140,34 +140,34 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: src/http.c:68
+#: src/http.c:67
 msgid "HTTP configuration is incomplete:"
 msgstr ""
 
-#: src/http.c:69 src/http.c:70 src/http.c:71 src/http.c:89 src/http.c:98
-#: src/http.c:141
+#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
+#: src/http.c:140
 msgid "Option is missing:"
 msgstr ""
 
-#: src/http.c:81
+#: src/http.c:80
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
 #. Go on and do something
-#: src/http.c:171 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
+#: src/http.c:170 src/lookup.c:303 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
 
-#: src/http.c:197
+#: src/http.c:196
 #, fuzzy
 msgid "Unable to run web browser"
 msgstr "невозможно открыть"
 
-#: src/init.c:111
+#: src/init.c:116
 msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
 msgstr ""
 
-#: src/init.c:112
+#: src/init.c:117
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -176,17 +176,17 @@ msgstr ""
 "ОТСУТСТВИЕМ ГАРАНТИИ; вы можете распространять её под условиями\n"
 "Генеральной Общедоступной Лицензии GNU."
 
-#: src/init.c:115
+#: src/init.c:120
 msgid "version"
 msgstr "версия"
 
-#: src/init.c:119
+#: src/init.c:124
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Использование: jwhois [ПАРАМЕТРЫ] [ЗАПРОС]"
 
-#: src/init.c:121
+#: src/init.c:126
 msgid ""
-"  --version               display version number and patch level\n"
+"  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
 "  -v, --verbose              verbose debug output\n"
 "  -c FILE, --config=FILE     use FILE as configuration file\n"
@@ -202,7 +202,7 @@ msgid ""
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
 
-#: src/init.c:136
+#: src/init.c:141
 #, fuzzy
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
@@ -211,96 +211,96 @@ msgstr ""
 "  -f, --force-lookup      просматривать, даже если запись кэширована\n"
 "  -d, --disable-cache     запретить функции кэша\n"
 
-#: src/init.c:139
+#: src/init.c:144
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Сообщать об ошибкаx на bug-jwhois@gnu.org"
 
-#: src/init.c:226
+#: src/init.c:229
 msgid "Invalid limit"
 msgstr ""
 
-#: src/init.c:240
+#: src/init.c:243
 #, fuzzy
 msgid "Invalid port number"
 msgstr "неверный номер порта"
 
-#: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
-#: src/jwhois.c:92 src/utils.c:96 src/utils.c:106 src/whois.c:72
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
 #, fuzzy
 msgid "Error allocating memory"
 msgstr "ошибка при выделении памяти"
 
-#: src/jconfig.c:282 src/jconfig.c:336
+#: src/jconfig.c:273 src/jconfig.c:325
 #, fuzzy
 msgid "String out of bounds on line"
 msgstr "строка вышла за границы"
 
-#: src/jconfig.c:308
+#: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
 msgstr ""
 
-#: src/jconfig.c:365
+#: src/jconfig.c:354
 #, fuzzy
 msgid "Unexpected end of file on line"
 msgstr "неожиданный конец файла в строке"
 
-#: src/jconfig.c:433
+#: src/jconfig.c:421
 #, fuzzy
 msgid "Multiple keys on line"
 msgstr "множественные ключи в строке"
 
-#: src/jconfig.c:443
+#: src/jconfig.c:431
 #, fuzzy
 msgid "Missing key on line"
 msgstr "отсутствует ключ в строке"
 
-#: src/jwhois.c:119
+#: src/jwhois.c:126
 #, fuzzy
 msgid "Fatal error searching for host to query"
 msgstr "фатальная ошибка при поиске хоста для запроса"
 
-#: src/jwhois.c:132
+#: src/jwhois.c:139
 #, fuzzy
 msgid "Error reading cache"
 msgstr "фатальная ошибка при чтении кэша"
 
-#: src/jwhois.c:137
+#: src/jwhois.c:144
 #, fuzzy
 msgid "Cached"
 msgstr "кэшировано"
 
-#: src/jwhois.c:151
+#: src/jwhois.c:158
 #, fuzzy
 msgid "Error writing to cache"
 msgstr "фатальная ошибка записи в кэш"
 
-#: src/lookup.c:102
+#: src/lookup.c:111
 #, fuzzy
 msgid "Invalid netmask on line"
 msgstr "неверный параметр netmask в строке"
 
-#: src/lookup.c:349 src/lookup.c:353
+#: src/lookup.c:403 src/lookup.c:407
 #, fuzzy
 msgid "Redirected to"
 msgstr "перенаправлено к"
 
-#: src/rwhois.c:136 src/whois.c:66
+#: src/rwhois.c:138 src/whois.c:70
 msgid "[Unable to connect to remote host]\n"
 msgstr ""
 
-#: src/rwhois.c:157
+#: src/rwhois.c:159
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr ""
 
-#: src/rwhois.c:195
+#: src/rwhois.c:197
 msgid "Server does not support display command"
 msgstr ""
 
-#: src/rwhois.c:210
+#: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
 msgstr ""
 
-#: src/rwhois.c:234
+#: src/rwhois.c:236
 msgid "Server does not support limit"
 msgstr ""
 
@@ -309,24 +309,24 @@ msgstr ""
 msgid "Unknown referral"
 msgstr "Неизвестная ошибка"
 
-#: src/rwhois.c:372
+#: src/rwhois.c:370
 msgid "Following referral to"
 msgstr ""
 
-#: src/rwhois.c:404
+#: src/rwhois.c:399
 msgid "[Host terminated connection prematurely]\n"
 msgstr ""
 
-#: src/rwhois.c:480
+#: src/rwhois.c:471
 msgid "Unhandled reply"
 msgstr ""
 
-#: src/utils.c:236
+#: src/utils.c:232
 #, fuzzy
 msgid "Error creating socket"
 msgstr "ошибка создания сокета"
 
-#: src/whois.c:84
+#: src/whois.c:88
 #, fuzzy
 msgid "Error reading data from"
 msgstr "ошибка чтения данных из"
