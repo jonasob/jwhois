@@ -108,12 +108,12 @@ void query_host(val, host, port)
 #endif
   if (!port) {
     if ((sp = getservbyname("whois", "tcp")) == NULL)
-      port = IPPORT_WHOIS;
+      port = htons(IPPORT_WHOIS);
     else
       port = sp->s_port;
   }
 
-  remote.sin_port = htons(port);
+  remote.sin_port = port;
 #ifdef HAVE_INET_ATON
   ret = inet_aton(host, &remote.sin_addr.s_addr);
 #else
