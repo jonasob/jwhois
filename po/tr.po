@@ -1,50 +1,51 @@
+# translation of jwhois-3.2.2.tr.po to Turkish
 # JWhois Turkish Translation
-# Copyright (C) 2002 Free Software Foundation, Inc.
-# İrfan Macit <imacit@mail.cu.edu.tr>, 2002.
+# Copyright (C) 2002, 2005 Free Software Foundation, Inc.
+# Ä°rfan Macit <imacit@mail.cu.edu.tr>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.1.0\n"
+"Project-Id-Version: jwhois 3.2.2\n"
 "POT-Creation-Date: 2003-06-30 18:33+0100\n"
-"PO-Revision-Date: 2002-02-06 23:37EET\n"
-"Last-Translator: İrfan Macit <imacit@mail.cu.edu.tr>\n"
+"PO-Revision-Date: 2005-03-14 04:45+0200\n"
+"Last-Translator: Ä°rfan Macit <imacit@mail.cu.edu.tr>\n"
 "Language-Team: Turkish <gnu-tr-u12a@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-9\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.5\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #: src/cache.c:140
 msgid "Invalid expire time"
-msgstr "Hükümsüz geçerlilik süresi"
+msgstr "HÃ¼kÃ¼msÃ¼z geÃ§erlilik sÃ¼resi"
 
 #: src/cache.c:153 src/init.c:266 src/init.c:275
 msgid "Unable to open"
-msgstr "Açılamıyor"
+msgstr "AÃ§Ä±lamÄ±yor"
 
 #: src/cache.c:162
 msgid "Unable to store data in cache]\n"
-msgstr "Veri arabellekte saklanamadı\n"
+msgstr "Veri arabellekte saklanamadÄ±\n"
 
 #: src/dns.c:91
 msgid "host not found"
-msgstr "Makina bulunamadı"
+msgstr "Makina bulunamadÄ±"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
-msgstr "Makina ismi için adres ailesi desteklenmiyor"
+msgstr "Makina ismi iÃ§in adres ailesi desteklenmiyor"
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
-msgstr "İsim çözümlemede geçici hata"
+msgstr "Ä°sim Ã§Ã¶zÃ¼mlemede geÃ§ici hata"
 
 #: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
-msgstr "ai_flags için hatalı değer"
+msgstr "ai_flags iÃ§in hatalÄ± deÄŸer"
 
 #: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
-msgstr "İsim çözümlemede onarılamayan hata"
+msgstr "Ä°sim Ã§Ã¶zÃ¼mlemede onarÄ±lamayan hata"
 
 #: src/gai_strerror.c:69
 msgid "ai_family not supported"
@@ -52,19 +53,19 @@ msgstr "ai_family desteklenmiyor"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "Bellek ayırma hatası"
+msgstr "Bellek ayÄ±rma hatasÄ±"
 
 #: src/gai_strerror.c:73
 msgid "No address associated with hostname"
-msgstr "Makina ismi ile ilişkili adres yok"
+msgstr "Makina ismi ile iliÅŸkili adres yok"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "İsim ya da servis bilinmiyor"
+msgstr "Ä°sim ya da servis bilinmiyor"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
-msgstr "Servis adı ai_socktype için desteklenmiyor"
+msgstr "Servis adÄ± ai_socktype iÃ§in desteklenmiyor"
 
 #: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
@@ -72,7 +73,7 @@ msgstr "ai_socktype desteklenmiyor"
 
 #: src/gai_strerror.c:81
 msgid "System error"
-msgstr "Sistem hatası"
+msgstr "Sistem hatasÄ±"
 
 #: src/gai_strerror.c:83
 msgid "Unknown error"
@@ -81,109 +82,108 @@ msgstr "Bilinmeyen hata"
 #: src/getopt.c:678
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: %s seçeneği belirsiz\n"
+msgstr "%s: %s seÃ§eneÄŸi belirsiz\n"
 
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: `--%s' seçeneği bir argümana izin vermiyor\n"
+msgstr "%s: `--%s' seÃ§eneÄŸi bir argÃ¼mana izin vermiyor\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: `%c%s' seçeneği bir argümana izin vermiyor\n"
+msgstr "%s: `%c%s' seÃ§eneÄŸi bir argÃ¼mana izin vermiyor\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s:`%s'seçeneği bir argüman gerektiriyor\n"
+msgstr "%s:`%s'seÃ§eneÄŸi bir argÃ¼man gerektiriyor\n"
 
 #. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: bilinmeyen seçenek `--%s'\n"
+msgstr "%s: bilinmeyen seÃ§enek `--%s'\n"
 
 #. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: bilinmeyen seçenek `%c%s'\n"
+msgstr "%s: bilinmeyen seÃ§enek `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: kuraldışı seçenek -- %c\n"
+msgstr "%s: kuraldÄ±ÅŸÄ± seÃ§enek -- %c\n"
 
 #: src/getopt.c:788
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: geçersiz seçenek -- %c\n"
+msgstr "%s: geÃ§ersiz seÃ§enek -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: -- %c seçeneği bir argüman gerektiriyor\n"
+msgstr "%s: -- %c seÃ§eneÄŸi bir argÃ¼man gerektiriyor\n"
 
 #: src/getopt.c:865
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: `-W %s' seçeneği belirsiz\n"
+msgstr "%s: `-W %s' seÃ§eneÄŸi belirsiz\n"
 
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: `-W %s' seçeneği bir argümana izin vermiyor\n"
+msgstr "%s: `-W %s' seÃ§eneÄŸi bir argÃ¼mana izin vermiyor\n"
 
 #: src/http.c:71
 msgid "HTTP configuration is incomplete:"
-msgstr "HTTP konfigürasyonu tamamlanmamış:"
+msgstr "HTTP konfigÃ¼rasyonu tamamlanmamÄ±ÅŸ:"
 
 #: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
 #: src/http.c:166
 msgid "Option is missing:"
-msgstr "Eksik seçenek:"
+msgstr "Eksik seÃ§enek:"
 
 #: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "http-method seçeneği \"GET\" yada \"POST\" olmalı.\n"
+msgstr "http-method seÃ§eneÄŸi \"GET\" yada \"POST\" olmalÄ±.\n"
 
 #. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
-msgstr ""
+msgstr "GeÃ§ici dosya oluÅŸturulamadÄ±"
 
 #. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
-msgstr "Sorgulanıyor"
+msgstr "SorgulanÄ±yor"
 
 #: src/http.c:272
 msgid "Unable to run web browser"
-msgstr "Web tarayıcısı çalıştırılamıyor"
+msgstr "Web tarayÄ±cÄ±sÄ± Ã§alÄ±ÅŸtÄ±rÄ±lamÄ±yor"
 
 #: src/init.c:116
-#, fuzzy
 msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
-msgstr "Telif Hakkı (C) 1999,2001  Free Software Foundation, Inc."
+msgstr "Telif HakkÄ± (C) 1999-2003  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"Bu, HİÇ BİR GARANTİ İÇERMEYEN bir serbest yazılımdır; GNU Genel Kamu Lisansı\n"
-"koşulları altında yeniden dağıtabilirsiniz."
+"Bu, HÄ°Ã‡ BÄ°R GARANTÄ° Ä°Ã‡ERMEYEN bir serbest yazÄ±lÄ±mdÄ±r; GNU Genel Kamu LisansÄ±\n"
+"koÅŸullarÄ± altÄ±nda yeniden daÄŸÄ±tabilirsiniz."
 
 #: src/init.c:120
 msgid "version"
-msgstr "sürüm"
+msgstr "sÃ¼rÃ¼m"
 
 #: src/init.c:124
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr "Kullanım: jwhois [SEÇENEKLER] [SORGU]"
+msgstr "KullanÄ±m: jwhois [SEÃ‡ENEKLER] [SORGU]"
 
 #: src/init.c:126
 msgid ""
@@ -201,19 +201,19 @@ msgid ""
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  yama seviyesi ve sürüm numarasını gösterir\n"
-"  --help                     bu yardımı gösterir\n"
-"  -v, --verbose              detaylı hata bilgisi verir\n"
-"  -c DOSYA, --config=DOSYA   ayar dosyası olarak DOSYA'yı kullanır\n"
-"  -h MAK, --host=MAK         özellikle MAK makinasını sorgular\n"
-"  -n, --no-redirect          içerik yönlendirmesini etkisizleştirir\n"
-"  -s, --no-whoisservers      whois-servers.net servis desteğini etkisizleştirir\n"
-"  -a, --raw                  sorgunun tekrar biçemlenmesini etkisizleştirir\n"
-"  -i, --display-redirections tekrar yönlendirmeleri gizlemek yerine gösterir\n"
-"  -p PORT, --port=PORT       PORT numarasını kullanır (MAK ile birlikte)\n"
+"  --version                  yama seviyesi ve sÃ¼rÃ¼m numarasÄ±nÄ± gÃ¶sterir\n"
+"  --help                     bu yardÄ±mÄ± gÃ¶sterir\n"
+"  -v, --verbose              detaylÄ± hata bilgisi verir\n"
+"  -c DOSYA, --config=DOSYA   ayar dosyasÄ± olarak DOSYA'yÄ± kullanÄ±r\n"
+"  -h MAK, --host=MAK         Ã¶zellikle MAK makinasÄ±nÄ± sorgular\n"
+"  -n, --no-redirect          iÃ§erik yÃ¶nlendirmesini etkisizleÅŸtirir\n"
+"  -s, --no-whoisservers      whois-servers.net servis desteÄŸini etkisizleÅŸtirir\n"
+"  -a, --raw                  sorgunun tekrar biÃ§emlenmesini etkisizleÅŸtirir\n"
+"  -i, --display-redirections tekrar yÃ¶nlendirmeleri gizlemek yerine gÃ¶sterir\n"
+"  -p PORT, --port=PORT       PORT numarasÄ±nÄ± kullanÄ±r (MAK ile birlikte)\n"
 "  -r, --rwhois               rwhois sorgusuna zorlar\n"
-"  --rwhois-display=EKRAN     rwhois sorgularında ekran seçeneklerini ayarlar\n"
-"  --rwhois-limit=SINIR       verilecek cevap sayısını sınırlar\n"
+"  --rwhois-display=EKRAN     rwhois sorgularÄ±nda ekran seÃ§eneklerini ayarlar\n"
+"  --rwhois-limit=SINIR       verilecek cevap sayÄ±sÄ±nÄ± sÄ±nÄ±rlar\n"
 
 #: src/init.c:141
 msgid ""
@@ -221,51 +221,51 @@ msgid ""
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
 "  -f, --force-lookup         girdi arabellekte olsa bile tekrar sorgular\n"
-"  -d, --disable-cache        ara bellek fonksiyonlarını etkisizleştirir\n"
+"  -d, --disable-cache        ara bellek fonksiyonlarÄ±nÄ± etkisizleÅŸtirir\n"
 
 #: src/init.c:144
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
-"Yazılım hatalarını <bug-jwhois@gnu.org> adresine\n"
-"çeviri hatalarını <gnu-tr-u12a@lists.sourceforge.net> adresine gönderin."
+"YazÄ±lÄ±m hatalarÄ±nÄ± <bug-jwhois@gnu.org> adresine\n"
+"Ã§eviri hatalarÄ±nÄ± <gnu-tr@belgeler.org> adresine bildirin"
 
 #: src/init.c:229
 msgid "Invalid limit"
-msgstr "Geçersiz sınır"
+msgstr "GeÃ§ersiz sÄ±nÄ±r"
 
 #: src/init.c:243
 msgid "Invalid port number"
-msgstr "Geçersiz port numarası"
+msgstr "GeÃ§ersiz port numarasÄ±"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
 #: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
 #: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
-msgstr "Bellek ayrımında hata"
+msgstr "Bellek ayrÄ±mÄ±nda hata"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
-msgstr "Satırdaki dizge sınırları dışına çıkmış"
+msgstr "SatÄ±rdaki dizge sÄ±nÄ±rlarÄ± dÄ±ÅŸÄ±na Ã§Ä±kmÄ±ÅŸ"
 
 #: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
-msgstr "Satırda '\"' aranırken dosya sonu bulundu"
+msgstr "SatÄ±rda '\"' aranÄ±rken dosya sonu bulundu"
 
 #: src/jconfig.c:354
 msgid "Unexpected end of file on line"
-msgstr "Satırda beklenmeyen dosya sonu"
+msgstr "SatÄ±rda beklenmeyen dosya sonu"
 
 #: src/jconfig.c:423
 msgid "Multiple keys on line"
-msgstr "Satırda çoklu anahtar"
+msgstr "SatÄ±rda Ã§oklu anahtar"
 
 #: src/jconfig.c:433
 msgid "Missing key on line"
-msgstr "Satırda kayıp anahtar"
+msgstr "SatÄ±rda kayÄ±p anahtar"
 
 #: src/jwhois.c:126
 msgid "Fatal error searching for host to query"
-msgstr "Sorgulama için makina ararken ölümcül hata"
+msgstr "Sorgulama iÃ§in makina ararken Ã¶lÃ¼mcÃ¼l hata"
 
 #: src/jwhois.c:139
 msgid "Error reading cache"
@@ -277,56 +277,56 @@ msgstr "Arabelleklendi"
 
 #: src/jwhois.c:158
 msgid "Error writing to cache"
-msgstr "Arabelleğe yazma hatası"
+msgstr "ArabelleÄŸe yazma hatasÄ±"
 
 #: src/lookup.c:111
 msgid "Invalid netmask on line"
-msgstr "Satırda geçersiz ağ maskesi"
+msgstr "SatÄ±rda geÃ§ersiz aÄŸ maskesi"
 
 #: src/lookup.c:435 src/lookup.c:439
 msgid "Redirected to"
-msgstr "Yönlendirildi"
+msgstr "YÃ¶nlendirildi"
 
 #: src/rwhois.c:138 src/whois.c:70
 msgid "[Unable to connect to remote host]\n"
-msgstr "[Uzak makinaya bağlantı başarısız]\n"
+msgstr "[Uzak makinaya baÄŸlantÄ± baÅŸarÄ±sÄ±z]\n"
 
 #: src/rwhois.c:159
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
-msgstr "[RWHOIS: -rwhois seçeneği gönderilirken protokol hatası]\n"
+msgstr "[RWHOIS: -rwhois seÃ§eneÄŸi gÃ¶nderilirken protokol hatasÄ±]\n"
 
 #: src/rwhois.c:197
 msgid "Server does not support display command"
-msgstr "Sunucu \"display\" (görüntüle) komutunu desteklemiyor"
+msgstr "Sunucu \"display\" (gÃ¶rÃ¼ntÃ¼le) komutunu desteklemiyor"
 
 #: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
-msgstr "Konfigürasyon dosyasında geçersiz sınır"
+msgstr "KonfigÃ¼rasyon dosyasÄ±nda geÃ§ersiz sÄ±nÄ±r"
 
 #: src/rwhois.c:236
 msgid "Server does not support limit"
-msgstr "Sunucu sınırı desteklemiyor"
+msgstr "Sunucu sÄ±nÄ±rÄ± desteklemiyor"
 
 #: src/rwhois.c:278
 msgid "Unknown referral"
-msgstr "Bilinmeyen başvuru"
+msgstr "Bilinmeyen baÅŸvuru"
 
 #: src/rwhois.c:370
 msgid "Following referral to"
-msgstr "Başvuru izleniyor"
+msgstr "BaÅŸvuru izleniyor"
 
 #: src/rwhois.c:399
 msgid "[Host terminated connection prematurely]\n"
-msgstr "[Makina bağlantıyı zamanından önce sonlandırdı]\n"
+msgstr "[Makina baÄŸlantÄ±yÄ± zamanÄ±ndan Ã¶nce sonlandÄ±rdÄ±]\n"
 
 #: src/rwhois.c:475
 msgid "Unhandled reply"
-msgstr "Desteklenmeyen yanıt"
+msgstr "Desteklenmeyen yanÄ±t"
 
 #: src/utils.c:232
 msgid "Error creating socket"
-msgstr "Soket oluşturma hatası"
+msgstr "Soket oluÅŸturma hatasÄ±"
 
 #: src/whois.c:88
 msgid "Error reading data from"
-msgstr "Veri okuma hatası"
+msgstr "Veri okuma hatasÄ±"

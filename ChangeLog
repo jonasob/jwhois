@@ -2,6 +2,7 @@
 
 	* example/jwhois.conf: Improved regex for detecting redirects
 	  (KOMATSU Shinichiro)
+	* po/tr.po: Updated from TP.
 
 2005-03-20  Peter Karlsson <peter@softwolves.pp.se>
 
