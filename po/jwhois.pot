@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-09-06 18:09+0200\n"
+"POT-Creation-Date: 2001-09-08 12:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,24 +14,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:140
+#: src/cache.c:139
 msgid "Invalid expire time"
 msgstr ""
 
-#: src/cache.c:141
-msgid "using defaults"
-msgstr ""
-
-#: src/cache.c:155
+#: src/cache.c:152 src/init.c:263 src/init.c:272
 msgid "Unable to open"
 msgstr ""
 
-#: src/cache.c:156 src/cache.c:165
-msgid "disabling cache"
-msgstr ""
-
-#: src/cache.c:164
-msgid "Unable to store data in database"
+#: src/cache.c:161
+msgid "Unable to store data in cache]\n"
 msgstr ""
 
 #: src/dns.c:88
@@ -145,27 +137,17 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: src/http.c:66
-#, c-format
-msgid "Web configuration for server %s is incomplete:\n"
+#: src/http.c:67
+msgid "HTTP configuration is incomplete:"
 msgstr ""
 
-#: src/http.c:68 src/http.c:69 src/http.c:70
-#, c-format
-msgid "Option %s is missing.\n"
+#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
+#: src/http.c:138
+msgid "Option is missing:"
 msgstr ""
 
 #: src/http.c:80
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr ""
-
-#: src/http.c:88 src/http.c:97 src/http.c:138
-#, c-format
-msgid "Option %s is not configured: Cannot run web browser."
-msgstr ""
-
-#: src/http.c:158
-msgid "[Running "
 msgstr ""
 
 #. Go on and do something
@@ -173,9 +155,8 @@ msgstr ""
 msgid "Querying"
 msgstr ""
 
-#. Drats!
-#: src/http.c:192
-msgid "Unable to run web browser."
+#: src/http.c:193
+msgid "Unable to run web browser"
 msgstr ""
 
 #: src/init.c:111
@@ -232,84 +213,95 @@ msgstr ""
 msgid "Invalid port number"
 msgstr ""
 
-#: src/init.c:263 src/init.c:272
-msgid "unable to open"
-msgstr ""
-
 #: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
-#: src/jwhois.c:89 src/whois.c:79
-msgid "error allocating memory"
+#: src/jwhois.c:89 src/utils.c:96 src/utils.c:106 src/whois.c:72
+msgid "Error allocating memory"
 msgstr ""
 
 #: src/jconfig.c:282 src/jconfig.c:336
-msgid "string out of bounds on line"
+msgid "String out of bounds on line"
 msgstr ""
 
 #: src/jconfig.c:308
-msgid "end of file looking for '\"' on line"
+msgid "End of file looking for '\"' on line"
 msgstr ""
 
 #: src/jconfig.c:365
-msgid "unexpected end of file on line"
+msgid "Unexpected end of file on line"
 msgstr ""
 
 #: src/jconfig.c:433
-msgid "multiple keys on line"
+msgid "Multiple keys on line"
 msgstr ""
 
 #: src/jconfig.c:443
-msgid "missing key on line"
+msgid "Missing key on line"
 msgstr ""
 
-#: src/jwhois.c:119
-msgid "fatal error searching for host to query"
+#: src/jwhois.c:116
+msgid "Fatal error searching for host to query"
 msgstr ""
 
 #: src/jwhois.c:130
-msgid "error reading cache"
+msgid "Error reading cache"
 msgstr ""
 
 #: src/jwhois.c:135
-msgid "cached"
+msgid "Cached"
 msgstr ""
 
-#: src/jwhois.c:165
-msgid "error writing to cache"
+#: src/jwhois.c:147
+msgid "Error writing to cache"
 msgstr ""
 
 #: src/lookup.c:102
-msgid "invalid netmask on line"
+msgid "Invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:350 src/lookup.c:354
+#: src/lookup.c:349 src/lookup.c:353
 msgid "Redirected to"
 msgstr ""
 
-#: src/rwhois.c:136 src/whois.c:73
+#: src/rwhois.c:136 src/whois.c:66
 msgid "[Unable to connect to remote host]\n"
 msgstr ""
 
 #: src/rwhois.c:157
-msgid "[Protocol error while sending -rwhois option]\n"
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr ""
 
-#: src/rwhois.c:209
+#: src/rwhois.c:195
+msgid "Server does not support display command"
+msgstr ""
+
+#: src/rwhois.c:210
 msgid "Invalid limit in configuration file"
 msgstr ""
 
-#: src/rwhois.c:407
+#: src/rwhois.c:234
+msgid "Server does not support limit"
+msgstr ""
+
+#: src/rwhois.c:278
+msgid "Unknown referral"
+msgstr ""
+
+#: src/rwhois.c:372
+msgid "Following referral to"
+msgstr ""
+
+#: src/rwhois.c:404
 msgid "[Host terminated connection prematurely]\n"
 msgstr ""
 
-#: src/utils.c:96 src/utils.c:106
-#, c-format
-msgid "Can not allocate %d bytes of memory\n"
+#: src/rwhois.c:480
+msgid "Unhandled reply"
 msgstr ""
 
 #: src/utils.c:236
-msgid "error creating socket"
+msgid "Error creating socket"
 msgstr ""
 
-#: src/whois.c:88
-msgid "error reading data from"
+#: src/whois.c:83
+msgid "Error reading data from"
 msgstr ""

@@ -4,33 +4,25 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 2.4\n"
-"POT-Creation-Date: 2001-09-06 18:09+0200\n"
-"PO-Revision-Date: 2001-09-06 18:11+0200\n"
+"Project-Id-Version: jwhois 3.0\n"
+"POT-Creation-Date: 2001-09-08 12:00+0200\n"
+"PO-Revision-Date: 2001-09-08 12:02+0200\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:140
+#: src/cache.c:139
 msgid "Invalid expire time"
 msgstr "Ogiltigt slutdatum"
 
-#: src/cache.c:141
-msgid "using defaults"
-msgstr "använder standardvärden"
-
-#: src/cache.c:155
+#: src/cache.c:152 src/init.c:263 src/init.c:272
 msgid "Unable to open"
 msgstr "Kan ej öppna"
 
-#: src/cache.c:156 src/cache.c:165
-msgid "disabling cache"
-msgstr "stänger av cache"
-
-#: src/cache.c:164
-msgid "Unable to store data in database"
-msgstr "Kan inte lagra data i databasen"
+#: src/cache.c:161
+msgid "Unable to store data in cache]\n"
+msgstr "Kan inte lagra data i databasen]\n"
 
 #: src/dns.c:88
 msgid "host not found"
@@ -143,38 +135,27 @@ msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"-W %s\" tillåter inte något argument\n"
 
-#: src/http.c:66
-#, c-format
-msgid "Web configuration for server %s is incomplete:\n"
-msgstr "Webbinställningar för servern %s är ej kompletta:\n"
+#: src/http.c:67
+msgid "HTTP configuration is incomplete:"
+msgstr "HTTP-inställning är ej komplett:\n"
 
-#: src/http.c:68 src/http.c:69 src/http.c:70
-#, c-format
-msgid "Option %s is missing.\n"
-msgstr "Inställningen %s saknas.\n"
+#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97
+#: src/http.c:138
+msgid "Option is missing:"
+msgstr "Inställning saknas:"
 
 #: src/http.c:80
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
-
-#: src/http.c:88 src/http.c:97 src/http.c:138
-#, c-format
-msgid "Option %s is not configured: Cannot run web browser."
-msgstr "Inställningen %s ej konfigurerad: Kan inte köra webbläsare."
-
-#: src/http.c:158
-msgid "[Running "
-msgstr "[Kör "
 
 #. Go on and do something
 #: src/http.c:168 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
 msgid "Querying"
 msgstr "Frågar"
 
-#. Drats!
-#: src/http.c:192
-msgid "Unable to run web browser."
-msgstr "Kan inte starta webbläsare."
+#: src/http.c:193
+msgid "Unable to run web browser"
+msgstr "Kan inte starta webbläsare"
 
 #: src/init.c:111
 msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
@@ -252,84 +233,113 @@ msgstr "Ogiltig gräns"
 msgid "Invalid port number"
 msgstr "Felaktigt portnummer"
 
-#: src/init.c:263 src/init.c:272
-msgid "unable to open"
-msgstr "kan ej öppna"
-
 #: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
-#: src/jwhois.c:89 src/whois.c:79
-msgid "error allocating memory"
-msgstr "fel vid allokering av minne"
+#: src/jwhois.c:89 src/utils.c:96 src/utils.c:106 src/whois.c:72
+msgid "Error allocating memory"
+msgstr "Fel vid allokering av minne"
 
 #: src/jconfig.c:282 src/jconfig.c:336
-msgid "string out of bounds on line"
-msgstr "sträng utanför gränserna på rad"
+msgid "String out of bounds on line"
+msgstr "Sträng utanför gränserna på rad"
 
 #: src/jconfig.c:308
-msgid "end of file looking for '\"' on line"
-msgstr "filslut då '\"' förväntades på rad"
+msgid "End of file looking for '\"' on line"
+msgstr "Filslut då '\"' förväntades på rad"
 
 #: src/jconfig.c:365
-msgid "unexpected end of file on line"
-msgstr "oväntat filslut på rad"
+msgid "Unexpected end of file on line"
+msgstr "Oväntat filslut på rad"
 
 #: src/jconfig.c:433
-msgid "multiple keys on line"
-msgstr "flera nycklar på rad"
+msgid "Multiple keys on line"
+msgstr "Flera nycklar på rad"
 
 #: src/jconfig.c:443
-msgid "missing key on line"
-msgstr "saknad nyckel på rad"
+msgid "Missing key on line"
+msgstr "Saknad nyckel på rad"
 
-#: src/jwhois.c:119
-msgid "fatal error searching for host to query"
-msgstr "allvarligt fel under sökning efter värd att fråga"
+#: src/jwhois.c:116
+msgid "Fatal error searching for host to query"
+msgstr "Allvarligt fel under sökning efter värd att fråga"
 
 #: src/jwhois.c:130
-msgid "error reading cache"
-msgstr "fel vid läsning av cache"
+msgid "Error reading cache"
+msgstr "Fel vid läsning av cache"
 
 #: src/jwhois.c:135
-msgid "cached"
-msgstr "cachad"
+msgid "Cached"
+msgstr "Cachad"
 
-#: src/jwhois.c:165
-msgid "error writing to cache"
-msgstr "fel vid skrivning till cache"
+#: src/jwhois.c:147
+msgid "Error writing to cache"
+msgstr "Fel vid skrivning till cache"
 
 #: src/lookup.c:102
-msgid "invalid netmask on line"
-msgstr "ogiltig nätmask på rad"
+msgid "Invalid netmask on line"
+msgstr "Ogiltig nätmask på rad"
 
-#: src/lookup.c:350 src/lookup.c:354
+#: src/lookup.c:349 src/lookup.c:353
 msgid "Redirected to"
 msgstr "Omdirigerad till"
 
-#: src/rwhois.c:136 src/whois.c:73
+#: src/rwhois.c:136 src/whois.c:66
 msgid "[Unable to connect to remote host]\n"
 msgstr "[Kan inte ansluta mot fjärrvärd]\n"
 
 #: src/rwhois.c:157
-msgid "[Protocol error while sending -rwhois option]\n"
-msgstr "[Protokollfel vid sändning av flaggan -rwhois]\n"
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
+msgstr "[RWHOIS: Protokollfel vid sändning av flaggan -rwhois]\n"
 
-#: src/rwhois.c:209
+#: src/rwhois.c:195
+msgid "Server does not support display command"
+msgstr "Servern stöder inte display-kommandot"
+
+#: src/rwhois.c:210
 msgid "Invalid limit in configuration file"
 msgstr "Ogiltig gräns i konfigurationsfilen"
 
-#: src/rwhois.c:407
+#: src/rwhois.c:234
+msgid "Server does not support limit"
+msgstr "Servern stöder inte begränsningar"
+
+#: src/rwhois.c:278
+msgid "Unknown referral"
+msgstr "Okänd omdirigering"
+
+#: src/rwhois.c:372
+msgid "Following referral to"
+msgstr "Följer omdirigering till"
+
+#: src/rwhois.c:404
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Värden avbröt förbindelsen i förtid]\n"
 
-#: src/utils.c:96 src/utils.c:106
-#, c-format
-msgid "Can not allocate %d bytes of memory\n"
-msgstr "Kan inte allokera %d byte minne\n"
+#: src/rwhois.c:480
+msgid "Unhandled reply"
+msgstr "Ej hanterat svar"
 
 #: src/utils.c:236
-msgid "error creating socket"
-msgstr "fel vid skapande av uttag (socket)"
+msgid "Error creating socket"
+msgstr "Fel vid skapande av uttag (socket)"
 
-#: src/whois.c:88
-msgid "error reading data from"
-msgstr "fel vid läsning av data från"
+#: src/whois.c:83
+msgid "Error reading data from"
+msgstr "Fel vid läsning av data från"
+
+#~ msgid "using defaults"
+#~ msgstr "använder standardvärden"
+
+#~ msgid "disabling cache"
+#~ msgstr "stänger av cache"
+
+#~ msgid "Option %s is not configured: Cannot run web browser."
+#~ msgstr "Inställningen %s ej konfigurerad: Kan inte köra webbläsare."
+
+#~ msgid "[Running "
+#~ msgstr "[Kör "
+
+#~ msgid "unable to open"
+#~ msgstr "kan ej öppna"
+
+#~ msgid "Can not allocate %d bytes of memory\n"
+#~ msgstr "Kan inte allokera %d byte minne\n"

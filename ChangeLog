@@ -1,3 +1,7 @@
+2001-09-08  peter karlsson <peter@softwolves.pp.se>
+
+	* po/jwhois.pot, sv.po: Updated translation files.
+
 2001-09-07  Jonas Oberg  <jonas@gnu.org>
 
 	* doc/jwhois.1, jwhois.texi: Updated to version 3.0
