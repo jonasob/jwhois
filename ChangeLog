@@ -1,3 +1,8 @@
+2005-04-04  Peter Karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Various updates (Christian Kurz, Adrian von
+	  Bidder)
+
 2005-03-23  Jonas Oberg <jonas@gnu.org>
 
 	* example/jwhois.conf: Added aero domains (Robert Scheck)
