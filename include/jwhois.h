@@ -24,11 +24,11 @@
 #endif
 
 #ifndef HAVE_STRCASECMP
-int strcasecmp(const char *s1, const char *s2)
+int strcasecmp(const char *s1, const char *s2);
 #endif
 
 #ifndef HAVE_STRNCASECMP
-int strncasecmp(const char *s1, const char *s2, size_t i)
+int strncasecmp(const char *s1, const char *s2, size_t i);
 #endif
 
 #ifndef IPPORT_WHOIS

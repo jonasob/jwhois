@@ -5,7 +5,8 @@
 	* examples/jwhois.conf: Various updates (Christian Kurz,
 	  Christer Mjellem Strand, Chris Lewis)
 	* src: cache.c, dns.c, lookup.c: Applied patch to fix compiler
-	  warnings from Miloslav Trmac <mitr@volny.cz>
+	  warnings (Miloslav Trmac)
+	* include: jwhois.h: Fixed syntax errors (Miloslav Trmac)
 
 2004-05-21  Jonas Oberg <jonas@gnu.org>
 
