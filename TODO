@@ -7,21 +7,6 @@
 
 * Make it a library! (From Bjorn.Borud@fast.no)
 
-* Paul Hoffman <phoffman@proper.com>: Fails to build on Mac OS X
-
-checking whether NLS is requested... yes
-checking whether included gettext is requested... no
-checking for libintl.h... no
-
-... compiles libintl.h, moves libgnuintl.h to libintl.h
-... 
-
-cc -DHAVE_CONFIG_H -I. -I. -I.. -I../include    -g -O2
--DSYSCONFDIR="\"/usr/local/etc\"" -DLOCALSTATEDIR="\"/usr/local/var\""
--DLOCALEDIR="\"/usr/local/share/locale\"" -c `test -f dns.c || echo
-'./'`dns.c
-dns.c:47: header file 'libintl.h' not found
-
  * John Green <j.green@ukerna.ac.uk>: Sent patch to make rwhois work on
 solaris 2.7
 

@@ -1,3 +1,12 @@
+2003-06-30  Peter Karlsson <peter@softwolves.pp.se>
+
+	* po/pl.po: Added from TP.
+	* TODO: Removed obsoleted information (Wojciech Polak).
+	* examples/jwhois.conf: Various updates; uncommented the JPNIC
+	  entries by default (Greg A. Woods, Christian Kurz, Luiz Eduardo
+	  Roncato Cordeiro).
+	* configure.in, NEWS, doc/jwhois.texi: Released 3.2.2.
+
 2003-05-22  Peter Karlsson <peter@softwolves.pp.se>
 
 	* po/pt_BR.po, po/hu.po, po/ro.po: Updates from TP.
