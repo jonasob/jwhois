@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-04-14 00:11+0100\n"
+"POT-Creation-Date: 2003-01-31 19:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,51 +30,51 @@ msgstr ""
 msgid "host not found"
 msgstr ""
 
-#: src/gai_strerror.c:70
+#: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
 msgstr ""
 
-#: src/gai_strerror.c:72
+#: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
 msgstr ""
 
-#: src/gai_strerror.c:74
+#: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
 msgstr ""
 
-#: src/gai_strerror.c:76
+#: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
 msgstr ""
 
-#: src/gai_strerror.c:78
+#: src/gai_strerror.c:69
 msgid "ai_family not supported"
 msgstr ""
 
-#: src/gai_strerror.c:80
+#: src/gai_strerror.c:71
 msgid "Memory allocation failure"
 msgstr ""
 
-#: src/gai_strerror.c:82
+#: src/gai_strerror.c:73
 msgid "No address associated with hostname"
 msgstr ""
 
-#: src/gai_strerror.c:84
+#: src/gai_strerror.c:75
 msgid "Name or service not known"
 msgstr ""
 
-#: src/gai_strerror.c:86
+#: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
 msgstr ""
 
-#: src/gai_strerror.c:88
+#: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
 msgstr ""
 
-#: src/gai_strerror.c:90
+#: src/gai_strerror.c:81
 msgid "System error"
 msgstr ""
 
-#: src/gai_strerror.c:92
+#: src/gai_strerror.c:83
 msgid "Unknown error"
 msgstr ""
 
@@ -137,30 +137,35 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: src/http.c:69
+#: src/http.c:71
 msgid "HTTP configuration is incomplete:"
 msgstr ""
 
-#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
-#: src/http.c:157
+#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
+#: src/http.c:166
 msgid "Option is missing:"
 msgstr ""
 
-#: src/http.c:82
+#: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
+#. Couldn't create temporary file for POST data
+#: src/http.c:195
+msgid "Unable to create temporary file"
+msgstr ""
+
 #. Go on and do something
-#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
 
-#: src/http.c:213
+#: src/http.c:272
 msgid "Unable to run web browser"
 msgstr ""
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
 msgstr ""
 
 #: src/init.c:117
@@ -214,7 +219,7 @@ msgid "Invalid port number"
 msgstr ""
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
 #: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr ""
@@ -231,11 +236,11 @@ msgstr ""
 msgid "Unexpected end of file on line"
 msgstr ""
 
-#: src/jconfig.c:421
+#: src/jconfig.c:423
 msgid "Multiple keys on line"
 msgstr ""
 
-#: src/jconfig.c:431
+#: src/jconfig.c:433
 msgid "Missing key on line"
 msgstr ""
 
@@ -259,7 +264,7 @@ msgstr ""
 msgid "Invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:407 src/lookup.c:411
+#: src/lookup.c:435 src/lookup.c:439
 msgid "Redirected to"
 msgstr ""
 

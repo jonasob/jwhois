@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2002-04-14 00:11+0100\n"
+"POT-Creation-Date: 2003-01-31 19:39+0100\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -33,51 +33,51 @@ msgstr "невозможно сохранить данные в базе данных"
 msgid "host not found"
 msgstr "хост не найден"
 
-#: src/gai_strerror.c:70
+#: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
 msgstr "Семейство адресов для хоста не поддерживается"
 
-#: src/gai_strerror.c:72
+#: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
 msgstr "Временный сбой в в распознавании имён"
 
-#: src/gai_strerror.c:74
+#: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
 msgstr "Неверное значение для ai_flags"
 
-#: src/gai_strerror.c:76
+#: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
 msgstr "Невосстановимый сбой в распознавании имён"
 
-#: src/gai_strerror.c:78
+#: src/gai_strerror.c:69
 msgid "ai_family not supported"
 msgstr "ai_family не поддерживается"
 
-#: src/gai_strerror.c:80
+#: src/gai_strerror.c:71
 msgid "Memory allocation failure"
 msgstr "Сбой при выделении памяти"
 
-#: src/gai_strerror.c:82
+#: src/gai_strerror.c:73
 msgid "No address associated with hostname"
 msgstr "Никакой адрес не связан с именем хоста"
 
-#: src/gai_strerror.c:84
+#: src/gai_strerror.c:75
 msgid "Name or service not known"
 msgstr "Имя или сервис неизвестны"
 
-#: src/gai_strerror.c:86
+#: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
 msgstr "Servname не поддерживаетсё для ai_socktype"
 
-#: src/gai_strerror.c:88
+#: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
 msgstr "ai_socktype не поддерживается"
 
-#: src/gai_strerror.c:90
+#: src/gai_strerror.c:81
 msgid "System error"
 msgstr "Системная ошибка"
 
-#: src/gai_strerror.c:92
+#: src/gai_strerror.c:83
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
@@ -140,31 +140,36 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: src/http.c:69
+#: src/http.c:71
 msgid "HTTP configuration is incomplete:"
 msgstr ""
 
-#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
-#: src/http.c:157
+#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
+#: src/http.c:166
 msgid "Option is missing:"
 msgstr ""
 
-#: src/http.c:82
+#: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
+#. Couldn't create temporary file for POST data
+#: src/http.c:195
+msgid "Unable to create temporary file"
+msgstr ""
+
 #. Go on and do something
-#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
 
-#: src/http.c:213
+#: src/http.c:272
 #, fuzzy
 msgid "Unable to run web browser"
 msgstr "невозможно открыть"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
 msgstr ""
 
 #: src/init.c:117
@@ -225,7 +230,7 @@ msgid "Invalid port number"
 msgstr "неверный номер порта"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
 #: src/utils.c:107 src/whois.c:76
 #, fuzzy
 msgid "Error allocating memory"
@@ -245,12 +250,12 @@ msgstr ""
 msgid "Unexpected end of file on line"
 msgstr "неожиданный конец файла в строке"
 
-#: src/jconfig.c:421
+#: src/jconfig.c:423
 #, fuzzy
 msgid "Multiple keys on line"
 msgstr "множественные ключи в строке"
 
-#: src/jconfig.c:431
+#: src/jconfig.c:433
 #, fuzzy
 msgid "Missing key on line"
 msgstr "отсутствует ключ в строке"
@@ -280,7 +285,7 @@ msgstr "фатальная ошибка записи в кэш"
 msgid "Invalid netmask on line"
 msgstr "неверный параметр netmask в строке"
 
-#: src/lookup.c:407 src/lookup.c:411
+#: src/lookup.c:435 src/lookup.c:439
 #, fuzzy
 msgid "Redirected to"
 msgstr "перенаправлено к"

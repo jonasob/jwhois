@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
-"POT-Creation-Date: 2002-04-14 00:11+0100\n"
+"POT-Creation-Date: 2003-01-31 19:39+0100\n"
 "PO-Revision-Date: 2002-1-12 19:19+8\n"
 "Last-Translator: Yuan0-Chen Cheng <ycheng@sinica.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -29,51 +29,51 @@ msgstr "無法將資料存近快取]\n"
 msgid "host not found"
 msgstr "主機找不到"
 
-#: src/gai_strerror.c:70
+#: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
 msgstr "主機名稱的位址類別不支援"
 
-#: src/gai_strerror.c:72
+#: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
 msgstr "在名稱解析上暫時失敗"
 
-#: src/gai_strerror.c:74
+#: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
 msgstr "ai_flags 的值錯誤"
 
-#: src/gai_strerror.c:76
+#: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
 msgstr "在名稱查詢上發生了不可回復的錯誤"
 
-#: src/gai_strerror.c:78
+#: src/gai_strerror.c:69
 msgid "ai_family not supported"
 msgstr "不支援 ai_family"
 
-#: src/gai_strerror.c:80
+#: src/gai_strerror.c:71
 msgid "Memory allocation failure"
 msgstr "記憶體分配失敗"
 
-#: src/gai_strerror.c:82
+#: src/gai_strerror.c:73
 msgid "No address associated with hostname"
 msgstr "沒有位址與該主機名稱有關"
 
-#: src/gai_strerror.c:84
+#: src/gai_strerror.c:75
 msgid "Name or service not known"
 msgstr "名稱或服務不詳的"
 
-#: src/gai_strerror.c:86
+#: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
 msgstr "ai_socktype 的 Servname 不支援"
 
-#: src/gai_strerror.c:88
+#: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
 msgstr "ai_socktype 不支援"
 
-#: src/gai_strerror.c:90
+#: src/gai_strerror.c:81
 msgid "System error"
 msgstr "系統錯誤"
 
-#: src/gai_strerror.c:92
+#: src/gai_strerror.c:83
 msgid "Unknown error"
 msgstr "未知的錯誤"
 
@@ -136,31 +136,36 @@ msgstr "%s：選項 `-W %s' 不明確\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s：選項 'W %s' 不允許一個引數\n"
 
-#: src/http.c:69
+#: src/http.c:71
 msgid "HTTP configuration is incomplete:"
 msgstr "HTTP 組態是不完整的："
 
-#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
-#: src/http.c:157
+#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
+#: src/http.c:166
 msgid "Option is missing:"
 msgstr "選擇遺漏："
 
-#: src/http.c:82
+#: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "選項 http-method 方法必須是\"GET\" 或是 \"POST\"。\n"
 
+#. Couldn't create temporary file for POST data
+#: src/http.c:195
+msgid "Unable to create temporary file"
+msgstr ""
+
 #. Go on and do something
-#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "查詢"
 
-#: src/http.c:213
+#: src/http.c:272
 msgid "Unable to run web browser"
 msgstr "無法執行瀏覽器"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
-msgstr "版權所有 (C) 1999-2002 自由軟體基金會。"
+msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
+msgstr "版權所有 (C) 1999-2003 自由軟體基金會。"
 
 #: src/init.c:117
 msgid ""
@@ -230,7 +235,7 @@ msgid "Invalid port number"
 msgstr "無效的埠數"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
 #: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "分派記憶體錯誤"
@@ -247,11 +252,11 @@ msgstr "找尋 '\"' 遇到檔案結束在行數"
 msgid "Unexpected end of file on line"
 msgstr "意外的檔案終點，在行數"
 
-#: src/jconfig.c:421
+#: src/jconfig.c:423
 msgid "Multiple keys on line"
 msgstr "多個鍵值在行數"
 
-#: src/jconfig.c:431
+#: src/jconfig.c:433
 msgid "Missing key on line"
 msgstr "沒有鍵值在行數"
 
@@ -275,7 +280,7 @@ msgstr "錯誤寫入快取"
 msgid "Invalid netmask on line"
 msgstr "無效的 netmask"
 
-#: src/lookup.c:407 src/lookup.c:411
+#: src/lookup.c:435 src/lookup.c:439
 msgid "Redirected to"
 msgstr "改方向到"
 

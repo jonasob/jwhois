@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU jwhois 3.2.0\n"
-"POT-Creation-Date: 2002-04-14 00:11+0100\n"
+"POT-Creation-Date: 2003-01-31 19:39+0100\n"
 "PO-Revision-Date: 2002-08-06 08:00-0500\n"
 "Last-Translator: Michel Robitaille <robitail@IRO.UMontreal.CA>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -30,51 +30,51 @@ msgstr "Incapable de stocker les données dans la cache]\n"
 msgid "host not found"
 msgstr "hôte non repéré"
 
-#: src/gai_strerror.c:70
+#: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
 msgstr "Famille d'adresses non supportées chez l'hôte"
 
-#: src/gai_strerror.c:72
+#: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
 msgstr "Échec temporaire dans la résolution de nom"
 
-#: src/gai_strerror.c:74
+#: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
 msgstr "Valeur erronée pour ai_flags"
 
-#: src/gai_strerror.c:76
+#: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
 msgstr "Erreur irrécupérable dans la résolution de nom"
 
-#: src/gai_strerror.c:78
+#: src/gai_strerror.c:69
 msgid "ai_family not supported"
 msgstr "ai_family non supporté"
 
-#: src/gai_strerror.c:80
+#: src/gai_strerror.c:71
 msgid "Memory allocation failure"
 msgstr "Mémoire épuisée"
 
-#: src/gai_strerror.c:82
+#: src/gai_strerror.c:73
 msgid "No address associated with hostname"
 msgstr "Aucune adresse associée avec le nom de l'hôte"
 
-#: src/gai_strerror.c:84
+#: src/gai_strerror.c:75
 msgid "Name or service not known"
 msgstr "Nom ou service inconnu"
 
-#: src/gai_strerror.c:86
+#: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
 msgstr "Servname non supporté pour ai_socktype"
 
-#: src/gai_strerror.c:88
+#: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
 msgstr "ai_socktype non supporté"
 
-#: src/gai_strerror.c:90
+#: src/gai_strerror.c:81
 msgid "System error"
 msgstr "Erreur système"
 
-#: src/gai_strerror.c:92
+#: src/gai_strerror.c:83
 msgid "Unknown error"
 msgstr "Erreur inconnue"
 
@@ -137,31 +137,36 @@ msgstr "%s: l'option « -W %s » est ambiguë\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: l'option « -W %s » ne permet pas d'argument\n"
 
-#: src/http.c:69
+#: src/http.c:71
 msgid "HTTP configuration is incomplete:"
 msgstr "Configuration HTTP est incomplète:"
 
-#: src/http.c:70 src/http.c:71 src/http.c:72 src/http.c:90 src/http.c:99
-#: src/http.c:157
+#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
+#: src/http.c:166
 msgid "Option is missing:"
 msgstr "Option manquante:"
 
-#: src/http.c:82
+#: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "L'option de http-method doit être « GET » ou « POST ».\n"
 
+#. Couldn't create temporary file for POST data
+#: src/http.c:195
+msgid "Unable to create temporary file"
+msgstr ""
+
 #. Go on and do something
-#: src/http.c:187 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Requête en cours"
 
-#: src/http.c:213
+#: src/http.c:272
 msgid "Unable to run web browser"
 msgstr "Incapable de lancer le fureteur du web"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2002  Free Software Foundation, Inc."
-msgstr "Copyright © 1999,2002  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
+msgstr "Copyright © 1999-2003  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
@@ -190,31 +195,38 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
 "  --version                    afficher le nom et la version du logiciel\n"
 "  --help                       afficher l'aide-mémoire\n"
-"  -v, --verbose                fournir des explications lors de la mise au point\n"
+"  -v, --verbose                fournir des explications lors de la mise au "
+"point\n"
 "  -c FICHIER, --config=FICHIER utiliser le FICHIER de configuration\n"
 "  -h HÔTE, --host=HÔTE         adresser les requêtes à l'HÔTE\n"
 "  -n, --no-redirect            déasactiver les redirections\n"
 "  -s, --no-whoisservers        désactivier les services whois-servers.net\n"
 "  -a, --raw                    désactiver le reformattage de requête\n"
-"  -i, --display-redirections   afficher toutes les redirections au lieu de les cacher\n"
-"  -p PORT, --port=PORT         utiliser le numéro de PORT (utilisé avec l'HÔTE)\n"
+"  -i, --display-redirections   afficher toutes les redirections au lieu de "
+"les cacher\n"
+"  -p PORT, --port=PORT         utiliser le numéro de PORT (utilisé avec "
+"l'HÔTE)\n"
 "  -r, --rwhois                 forcer les requêtes de type rwhois\n"
-"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes de type rwhois\n"
-"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à retourner\n"
+"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes "
+"de type rwhois\n"
+"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à "
+"retourner\n"
 
 #: src/init.c:141
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup           forcer la recherche même si l'entrée est dans la cache\n"
+"  -f, --force-lookup           forcer la recherche même si l'entrée est dans "
+"la cache\n"
 "  -d, --disable-cache          désactiver les fonctions de la cache\n"
 
 #: src/init.c:144
@@ -230,7 +242,7 @@ msgid "Invalid port number"
 msgstr "Numéro de port invalide"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:486 src/lookup.c:589 src/utils.c:97
+#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
 #: src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Erreur d'allocation mémoire"
@@ -247,11 +259,11 @@ msgstr "Fin de fichier recherche de « \" » en ligne"
 msgid "Unexpected end of file on line"
 msgstr "Fin de fichier inattendue en ligne"
 
-#: src/jconfig.c:421
+#: src/jconfig.c:423
 msgid "Multiple keys on line"
 msgstr "Clés mutliples en ligne"
 
-#: src/jconfig.c:431
+#: src/jconfig.c:433
 msgid "Missing key on line"
 msgstr "Clé manquante en ligne"
 
@@ -275,7 +287,7 @@ msgstr "Erreur d'écriture dans la cache"
 msgid "Invalid netmask on line"
 msgstr "netmasque invalide en ligne"
 
-#: src/lookup.c:407 src/lookup.c:411
+#: src/lookup.c:435 src/lookup.c:439
 msgid "Redirected to"
 msgstr "Redirigé vers"
 

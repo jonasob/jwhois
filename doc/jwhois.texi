@@ -27,7 +27,7 @@
 @ifinfo
 This file documents @sc{jwhois}, a Whois client.
 
-Copyright (C) 1999-2002  Free Software Foundation, Inc.
+Copyright (C) 1999-2003  Free Software Foundation, Inc.
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -50,13 +50,13 @@ notice identical to this one.
 
 @titlepage
 @title jwhois
-@subtitle Version 3.1
-@subtitle 2 August 2002
+@subtitle Version 3.2.1
+@subtitle 31 January 2003
 @author Jonas Öberg @code{(jonas@@gnu.org)}
 
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1999-2002  Free Software Foundation, Inc.
+Copyright @copyright{} 1999-2003  Free Software Foundation, Inc.
 
 @sp 2
 Permission is granted to make and distribute verbatim copies of
@@ -73,7 +73,7 @@ notice identical to this one.
 @node Top, Introduction, (dir), (dir)
 
 This file documents the GNU jwhois package, en extended Whois client.
-This is edition 3.1, for jwhois version 3.1, last updated 2 August 2002.
+This is edition 3.2.1, for jwhois version 3.2.1, last updated 31 January 2002.
 
 @menu
 * Introduction::                Introduction

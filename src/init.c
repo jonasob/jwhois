@@ -1,6 +1,6 @@
 /*
     This file is part of jwhois
-    Copyright (C) 1999,2001-2002  Free Software Foundation, Inc.
+    Copyright (C) 1999,2001-2003  Free Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -113,7 +113,7 @@ int enable_whoisservers;
 
 void help_version(int onlyversion)
 {
-  char *COPYRIGHT = _("Copyright (C) 1999-2002  Free Software Foundation, Inc.");
+  char *COPYRIGHT = _("Copyright (C) 1999-2003  Free Software Foundation, Inc.");
   char *LICENSE =  _("This program is free software with ABSOLUTELY NO WARRANTY; you may\n\
 redistribute it under the terms of the GNU General Public License.");
 
