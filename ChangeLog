@@ -1,6 +1,11 @@
+2002-04-10  peter karlsson <peter@softwolves.pp.se>
+
+	* examples/jwhois.conf: Added .bi, .cg and .rw.
+	  (Lee Maguire, Debian bug#141961)
+
 2002-04-08  peter karlsson <peter@softwolves.pp.se>
 
-	* examples/jwhois.c: Added .ag, .ai, .ec, .gi and .io.
+	* examples/jwhois.conf: Added .ag, .ai, .ec, .gi and .io.
 	  Changed .kz.
 	  (Lee Maguire, Debian bug#141817, #141818, #141819, #141822,
 	                          #141828, #141833)
