@@ -1,3 +1,8 @@
+2003-02-12  Peter Karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Added support for MNT handles (patch by
+	  Frank Altpeter)
+
 2003-02-04  Peter Karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf, src/lookup.c: Fixed problems with redirected
