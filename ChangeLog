@@ -1,3 +1,9 @@
+2003-07-18  Jonas Oberg <jonas@gnu.org>
+
+	* Upgraded to Automake 1.5
+	* src/jwhois.c: Added hostname to cache key, so that requests for
+	  the same query, but to different hosts, are cached individually.
+
 2003-06-30  Peter Karlsson <peter@softwolves.pp.se>
 
 	* po/pl.po: Added from TP.
