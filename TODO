@@ -1,0 +1,27 @@
+"J.J.Bailey" <jjb@bcc.com>:     i'd like to have an infinite cache someplace for reference.  i suggest
+    using zero as the expire time to do this.
+    
+    ip allocations change far less frequently than domain information.  i
+    suggest adding a second expire value for ip entries in the cache.  for
+    example, i'd use 720 hours for domain info and 4320 hours for ip info.
+
+* Make it a library! (From Bjorn.Borud@fast.no)
+
+* Paul Hoffman <phoffman@proper.com>: Fails to build on Mac OS X
+
+checking whether NLS is requested... yes
+checking whether included gettext is requested... no
+checking for libintl.h... no
+
+... compiles libintl.h, moves libgnuintl.h to libintl.h
+... 
+
+cc -DHAVE_CONFIG_H -I. -I. -I.. -I../include    -g -O2
+-DSYSCONFDIR="\"/usr/local/etc\"" -DLOCALSTATEDIR="\"/usr/local/var\""
+-DLOCALEDIR="\"/usr/local/share/locale\"" -c `test -f dns.c || echo
+'./'`dns.c
+dns.c:47: header file 'libintl.h' not found
+
+ * John Green <j.green@ukerna.ac.uk>: Sent patch to make rwhois work on
+solaris 2.7
+

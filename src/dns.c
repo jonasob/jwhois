@@ -72,6 +72,8 @@ lookup_host_saddr(struct sockaddr_in *res, const char *host, int port)
       res->sin_port = htons(IPPORT_WHOIS);
     else
       res->sin_port = sp->s_port;
+  } else {
+     res->sin_port = htons(port);
   }
 
 #ifdef HAVE_INET_ATON

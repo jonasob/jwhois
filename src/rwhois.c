@@ -133,7 +133,7 @@ rwhois_query_internal(struct s_whois_query *wq, char **text, struct s_referrals 
   info_on = 0;
 
   sockfd = make_connect(wq->host, wq->port);
-  if (!sockfd)
+  if (sockfd < 0)
     {
       printf(_("[Unable to connect to remote host]\n"));
       return -1;
@@ -153,7 +153,7 @@ rwhois_query_internal(struct s_whois_query *wq, char **text, struct s_referrals 
     {
       ret = rwhois_read_line(f, reply, text);
     }
-  while (ret != REP_OK && ret != REP_ERROR);
+  while (ret != REP_INIT && ret != REP_ERROR && ret != REP_OK);
 
   if (ret == REP_ERROR)
     printf(_("[RWHOIS: Protocol error while sending -rwhois option]\n"));
@@ -400,7 +400,9 @@ rwhois_read_line(FILE *f, char *ptr, char **text)
       exit(1);
     }
 
-  fgets(ptr, MAXBUFSIZE-1, f);
+  if (!fgets(ptr, MAXBUFSIZE-1, f))
+      return REP_ERROR;
+
   if (!ptr)
     {
       return REP_ERROR;
@@ -420,11 +422,12 @@ rwhois_parse_line(const char *reply, char **text)
   if (tmpptr)
     *tmpptr = '\0';
   
-  if (info_on)
+  if (info_on && strncasecmp(reply, "%info", 5) != 0)
     {
       add_text_to_buffer(text, create_string("%s\n", reply));
       return REP_CONT;
     }
+
   if (strncasecmp(reply, "%rwhois", 7) == 0) 
     {
       char *capab = (char *)strchr(reply, ':');

@@ -1,3 +1,9 @@
+2002-02-04  Jonas Oberg  <jonas@gnu.org>
+
+	* src/rwhois.c (rwhois_parse_line): Fix %info
+	(rwhois_query_internal): Check for correct return values from
+	rwhois_read_line
+
 2002-03-07  peter karlsson <peter@softwolves.pp.se>
 
 	* examples/jwhois.conf: Added .tt data.
@@ -23,6 +29,7 @@
 	* src/rwhois.c: Applied fix for segmentation fault on certain rwhois
 	  servers. (Colin Phipps, Debian bug#132607)
 
+>>>>>>> 1.101
 2002-01-13  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Updated .dk definition
