@@ -1,3 +1,8 @@
+2002-03-07  peter karlsson <peter@softwolves.pp.se>
+
+	* examples/jwhois.conf: Added .tt data.
+	  (Lee Maguire, Debian bug#137088)
+
 2002-03-03  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Fixed incorrect .dk data.
