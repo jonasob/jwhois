@@ -49,6 +49,21 @@ forces a query to be made to a host even if the object is stored in cache
 .TP
 .B \-d --disable-cache
 completely disable both reading and writing to cache
+
+.SS "RIPE EXTENSIONS"
+To use the options specified in
+.IR "RIPE Document 157" ,
+you need to change the format of thre query slightly.
+If you were to search for all entries in
+the RIPE database which lists the
+.IR admin-c ", " tech-c " or " zone-c " as " CO19-RIPE ,
+you could use the following command syntax:
+
+.B jwhois -h whois.ripe.net -- \-i admin-c,tech-c,zone-c CO19-RIPE
+
+.B --
+is used to separate the RIPE options from the jwhois options.
+
 .ll -8
 .SH "SEE ALSO"
 whois(1)
