@@ -4,7 +4,6 @@
 
 # Remove the cache on remove or purge.
 # Remove the jwhois group on purge.
-# Remove statoverride on purge.
 
 case "$1" in
   remove)
@@ -15,8 +14,6 @@ case "$1" in
     rm -f /var/cache/jwhois/jwhois.db.db /var/cache/jwhois/jwhois.db
     rmdir /var/cache/jwhois 2> /dev/null || true
     groupdel jwhois || echo "Failed removing group \`jwhois'"
-    dpkg-statoverride --remove /usr/bin/jwhois || echo "Failed removing statoverride for /usr/bin/jwhois"
-    dpkg-statoverride --remove /var/cache/jwhois || echo "Failed removing statoverride for /var/cache/jwhois"
     ;;
   upgrade)
     if dpkg --compare-versions "$2" ge 2.4.2-1; then
