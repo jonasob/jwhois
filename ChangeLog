@@ -1,7 +1,7 @@
 2002-04-08  peter karlsson <peter@softwolves.pp.se>
 
-	* examples/jwhois.c: Added .ag and .ai.
-	  (Lee Maguire, Debian bug#141817 and #141818)
+	* examples/jwhois.c: Added .ag, .ai and .io.
+	  (Lee Maguire, Debian bug#141817, #141818 and #141819)
 
 2002-04-02  peter karlsson <peter@softwolves.pp.se>
 
