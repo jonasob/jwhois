@@ -1,3 +1,7 @@
+2001-09-30  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Added .biz and .info data.
+
 2001-09-26  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jwhois.c (jwhois_query): Preserve old query string when
