@@ -1,3 +1,9 @@
+jwhois (2.3-0) unstable; urgency=low
+
+  * New upstream release.
+
+ -- peter karlsson <peter@softwolves.pp.se>  Tue, 23 Nov 1999 12:20:46 +0100
+
 jwhois (2.2-1) unstable; urgency=low
 
   * Initial Release.
