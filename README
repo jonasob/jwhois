@@ -13,6 +13,7 @@ material to bug-jwhois@gnu.org.
  3.  IPv6 support
  4.  What to do when things go wrong
  5.  Obtaining jwhois
+ 6.  What to do after you've gotten things to work
 
 1. Configuration File
 =====================
@@ -83,3 +84,10 @@ is enabled.
 ===================
 JWHOIS can be obtained via anonymous FTP from
 ftp://ftp.gnu.org/gnu/jwhois/
+
+6.  What to do after you've gotten things to work
+=================================================
+
+   If you use JWHOIS and find it useful, you could always send a message to
+us at help-jwhois@gnu.org to let us know. You don't have to do this, but we
+would appreciate the gesture :-)
