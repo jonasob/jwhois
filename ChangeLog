@@ -6,6 +6,10 @@
 
 	* configure.in: Add check for big endian machines.
 
+2001-12-02  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Added .museum data.
+
 2001-12-01  Jonas Oberg  <jonas@gnu.org>
 
 	* configure.in: Updated to version 3.0.2.
