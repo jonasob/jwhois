@@ -304,8 +304,6 @@ lookup_redirect(search_host, text, wq)
     {
       if (strncasecmp(j->key, "whois-redirect", 14) == 0)
 	{
-
-
 	  memcpy(bptr, text, strlen(text)+1);
 
 	  strptr = (char *)strtok(bptr, "\n");

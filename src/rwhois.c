@@ -27,11 +27,13 @@
 
 #include <errno.h>
 #include <fcntl.h>
+#include <string.h>
 
 #include <regex.h>
 #include <jwhois.h>
 #include <jconfig.h>
 #include <whois.h>
+
 
 #ifdef HAVE_LIBINTL_H
 # include <libintl.h>
@@ -56,7 +58,7 @@ struct s_referrals {
   int port;
   char *autharea;
   struct s_referrals *next;
-} *referrals;
+};
 
 #define CAP_CLASS       0x000001
 #define CAP_DIRECTIVE   0x000002
@@ -78,6 +80,7 @@ struct s_referrals {
 #define REP_ERROR    0x02
 #define REP_INIT     0x03
 #define REP_CONT     0x04
+#define REP_REFERRAL 0x05
 
 static struct {
   char *name;
@@ -112,9 +115,10 @@ static struct {
  *              0 Success
  */
 int
-rwhois_query_internal(wq, text)
+rwhois_query_internal(wq, text, referrals)
      struct s_whois_query *wq;
      char **text;
+     struct s_referrals **referrals;
 {
   int sockfd, ret, limit;
   FILE *f;
@@ -125,7 +129,6 @@ rwhois_query_internal(wq, text)
 
   rwhois_capab = 0;
   info_on = 0;
-  *text = NULL;
 
   sockfd = make_connect(wq->host, wq->port);
   if (!sockfd)
@@ -238,21 +241,88 @@ rwhois_query_internal(wq, text)
   do
     {
       ret = rwhois_read_line(f, reply, text);
+      if (ret == REP_REFERRAL)
+	{
+	  rwhois_insert_referral(reply, referrals);
+	}
     }
   while (ret != REP_OK && ret != REP_ERROR);
 
-  /*
   fprintf(f, "-quit\r\n");
   do
     {
       ret = rwhois_read_line(f, reply, text);
     }
   while (ret != REP_OK && ret != REP_ERROR);
-  */
+  
   fclose(f);
   return 0;
 }
 
+/*
+ *  This function accepts a referral reply in reply and populates
+ *  the refferals structure passed to it with the correct values.
+ */
+int
+rwhois_insert_referral(reply, referrals)
+     char *reply;
+     struct s_referrals **referrals;
+{
+  struct s_referrals *s;
+  char *tmpptr, *ret = NULL;
+  int len;
+
+  if (strncasecmp(strchr(reply, ' ')+1, "rwhois://", 9) != 0)
+    {
+      if (verbose) printf("[Debug: Unknown referral: %s]\n", strchr(reply, ' ')+1);
+      return -1;
+    }
+  if (!*referrals)
+    {
+      *referrals = malloc(sizeof(struct s_referrals));
+      (*referrals)->next = NULL;
+      s = *referrals;
+    }
+  else
+    {
+      s = malloc(sizeof(struct s_referrals));
+      s->next = *referrals;
+      *referrals = s;
+    }
+
+  len = strrchr(reply, ':')-strchr(reply, ' ')-10;
+  s->host = malloc(len+1);
+  strncpy(s->host, strchr(reply, ' ')+10, len);
+  s->host[len] = '\0';
+
+  len = strrchr(reply, '/')-strrchr(reply, ':')-1;
+  tmpptr = malloc(len+1);
+  strncpy(tmpptr, strrchr(reply, ':')+1, len);
+  tmpptr[len] = '\0';
+
+#ifdef HAVE_STRTOL
+  s->port = strtol(tmpptr, &ret, 10);
+  if (*ret != '\0')
+    {
+      *referrals = s->next;
+      return -1;
+    }
+#else
+  s->port = atoi(tmpptr);
+#endif
+
+  len = strlen(reply)-(strrchr(reply, '=')-reply)-1;
+
+  tmpptr = malloc(len+1);
+  strncpy(tmpptr, strrchr(reply, '=')+1, len);
+  s->autharea = tmpptr;
+  tmpptr[len] = '\0';
+
+  if (verbose)
+    printf("[Debug: Referral to %s:%d (autharea=%s)]\n", s->host, s->port, s->autharea);
+
+  return 0;
+}
 
 /*
  *  This function is the main loop for rwhois queries. It is the only one
@@ -267,33 +337,59 @@ rwhois_query(wq, text)
      struct s_whois_query *wq;
      char **text;
 {
-  struct s_referral *s, *s_start;
-  char *autharea;
+  struct s_referrals *referrals, *s;
+  struct s_referrals *authareas, *a;
+  int followed, ret, iret;
 
-  recursion_level = 1;
-  referrals = malloc(sizeof(struct s_referrals));
-  referrals[recursion_level-1].host = NULL;
+  if (!display_redirections)
+    {
+      *text = NULL;
+    }
 
-  rwhois_query_internal(wq, text);
-  if (referrals[recursion_level-1].host) {
-    /*    s = s_start = referrals[recursion_level-1]; */
-    autharea = NULL;
-    while (s)
-      {
-	if (autharea)
-	  if (strcasecmp(autharea, referrals[recursion_level-1].autharea) != 0)
+  referrals = NULL;
+  iret = rwhois_query_internal(wq, text, &referrals);
+
+  if (referrals)
+    {
+      authareas = NULL;
+
+      s = referrals;
+      while (s)
+	{
+	  followed = 0;
+	  if (authareas)
 	    {
-	      recursion_level++;
-	      rwhois_query(referrals[recursion_level-2].host,
-				    referrals[recursion_level-2].port,
-				    wq->query, text);
-	      recursion_level--;
+	      a = authareas;
+	      while (a)
+		{
+		  if (strcasecmp(s->autharea, a->autharea) == 0)
+		    followed = 1;
+		  a = a->next;
+		}
 	    }
-	autharea = referrals[recursion_level-1].autharea;
-	/*	s = s->next; */
-      }
-  }
-  return 0;
+	  if (!followed)
+	    {
+	      wq->host = referrals->host;
+	      wq->port = referrals->port;
+	      if (verbose)
+		printf("[Debug: Following referral to %s:%d (autharea=%s)]\n", wq->host, wq->port,
+		       referrals->autharea);
+
+	      ret = rwhois_query(wq, text);
+	      if (ret != -1)
+		{
+		  a = malloc(sizeof(struct s_referrals));
+		  a->autharea = s->autharea;
+		  a->next = NULL;
+		  authareas->next = a;
+		  authareas = a;
+		}
+	    }
+	  s = s->next;
+	}
+    }
+
+  return iret;
 }
 
 /*
@@ -329,6 +425,7 @@ rwhois_parse_line(reply, text)
      char **text;
 {
   char *capab, *tmpptr;
+  char *ret;
   int len;
 
   tmpptr = (char *)strchr(reply, '\n');
@@ -364,15 +461,7 @@ rwhois_parse_line(reply, text)
     }
   if (strncasecmp(reply, "%referral", 9) == 0)
     {
-      if (strncasecmp(strchr(reply, ' ')+1, "rwhois://", 9) != 0)
-	{
-	  if (verbose) printf("[Debug: Unknown referral: %s]\n", strchr(reply)+1);
-	  return REP_CONT;
-	}
-      len = strchr(reply, ':')-strchr(reply, ' ')+9;
-      referrals[recursion_level-1].host = malloc(len+1);
-      strncpy(referrals[recursion_level-1].host, strchr(reply, ' ')+9, len);
-
+      return REP_REFERRAL;
     }
   if (strncasecmp(reply, "%info on", 8) == 0)
     {

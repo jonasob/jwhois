@@ -146,7 +146,10 @@ main(argc, argv)
   else if ( (!tmp || (strncmp(tmp, "true", 4) == 0)) && (!rwhois) )
     ret = whois_query(&wq, &text);
   else
-    ret = rwhois_query(&wq, &text);
+    {
+      text = NULL;
+      ret = rwhois_query(&wq, &text);
+    }
 
   if (ret < 0)
     {

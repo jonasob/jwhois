@@ -44,11 +44,29 @@ outputs verbose debugging information while running
 .B \-n --no-redirect
 disable content redirection
 .TP
+.B \-s --no-whoisservers
+disable support for whois-servers.net
+.TP
+.B \-a --raw
+disable reformatting of query
+.TP
+.B \-i --display-redirections
+display all redirections
+.TP
 .B \-f --force-lookup
 forces a query to be made to a host even if the object is stored in cache
 .TP
 .B \-d --disable-cache
 completely disable both reading and writing to cache
+.TP
+.B \-r --rwhois
+force the query to use rwhois
+.TP
+.B \--rwhois-display=DISPLAY
+sets the display option to use in rwhois queries
+.TP
+.B \--rwhois-limit=LIMIT
+sets the maximum number of matches to return
 
 .SS "RIPE EXTENSIONS"
 To use the options specified in

@@ -1,3 +1,8 @@
+2001-09-06  Jonas Oberg  <jonas@gnu.org>
+
+	* src/rwhois.c (rwhois_query_internal): Rwhois queries now follows
+	referrals.
+
 2001-09-02  peter karlsson <peter@softwolves.pp.se>
 
 	* src/http.c, example/jwhois.conf: Changed name of the form element
@@ -98,8 +103,9 @@
 
 2001-06-27  Jonas Oberg  <jonas@gnu.org>
 
-	* src/init.c (parse_args) src/lookup.c (lookup_redirec): Added display-redirections option that
-	displays output from all redirections instead of hiding it.
+	* src/init.c (parse_args) src/lookup.c (lookup_redirec): Added
+	display-redirections option that displays output from all
+	redirections instead of hiding it.
 
 2001-05-25  peter karlsson <peter@softwolves.pp.se>
 

@@ -1,3 +1,16 @@
+Changes in jwhois 3.0
+
+ * Command line option to disable content redirection
+ * Lots of information added to the example configuration file
+ * IPv6 failover to IPv4
+ * Option to display redirections instead of hiding them
+ * Case insensitive hostname matching
+ * Introduced new host-specific configuration
+ * Limited support for rwhois
+ * Support for sending queries through a web interface via external browser
+ * Ability to rewrite queries before sending to whois server
+ * Support for whois-servers.net
+
 Changes in jwhois 2.4
 
  * Made it possible to use queries of the type foo@HOST
