@@ -2,13 +2,13 @@
 # Copyright © 1999
 # Peter Karlsson <peter@softwolves.pp.se>, 1999.
 #
-# $Id: sv.po,v 1.8 1999/12/19 02:14:43 jonas Exp $
+# $Id: sv.po,v 1.9 1999/12/20 18:30:41 peter Exp $
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 2.3.1\n"
+"Project-Id-Version: jwhois 2.4\n"
 "POT-Creation-Date: 1999-12-18 23:12+0100\n"
-"PO-Revision-Date: 1999-12-02 20:10+0100\n"
+"PO-Revision-Date: 1999-12-20 19:30+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -88,7 +88,7 @@ msgstr "Okänt fel"
 
 #: src/init.c:77
 msgid "Copyright (C) 1999  Free Software Foundation, Inc."
-msgstr "Copyright C 1999  Free Software Foundation, Inc."
+msgstr "Copyright © 1999  Free Software Foundation, Inc."
 
 #: src/init.c:78
 msgid ""
@@ -135,7 +135,7 @@ msgstr ""
 #, fuzzy
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
-"Rapportera fel till <jonas@coyote.org>\n"
+"Rapportera fel till <bug-jwhois@gnu.org>\n"
 "Skicka anmärkningar på översättningen till <peter@softwolves.pp.se>."
 
 #: src/init.c:157
