@@ -214,6 +214,7 @@ main(argc, argv)
   }
 #endif
 
+  printf("[%s]\n", host);
   while (1)
     {
       sockfd = make_connect(host, port);
@@ -247,6 +248,6 @@ main(argc, argv)
 #endif
 
   if (verbose) printf("[Debug: Searching for %s\n", qstring);
-  printf("[%s]\n%s", host, text);
+  printf("%s", text);
   exit(0);
 }

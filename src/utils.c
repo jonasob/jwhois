@@ -36,7 +36,8 @@ fdread(fd, ptr)
      int fd;
      char **ptr;
 {
-  unsigned int count, ret;
+  unsigned int count;
+  int ret;
   char data[MAXBUFSIZE];
   char *tmpptr;
 
@@ -46,14 +47,17 @@ fdread(fd, ptr)
   do
     {
       ret = read(fd, data, MAXBUFSIZE-1);
-      count += ret;
-      if (!*ptr)
-	*ptr = malloc(count+1);
-      else
-	*ptr = realloc(*ptr, count+1);
-      if (!*ptr)
-	return -1;
-      memcpy(*ptr+count-ret, data, ret);
+      if (ret >= 0)
+	{
+	  count += ret;
+	  if (!*ptr)
+	    *ptr = malloc(count+1);
+	  else
+	    *ptr = realloc(*ptr, count+1);
+	  if (!*ptr)
+	    return -1;
+	  memcpy(*ptr+count-ret, data, ret);
+	}
     }
   while (ret != 0);
 

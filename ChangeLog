@@ -1,5 +1,31 @@
+Tue Jan 25 16:10:48 2000  Jonas Oberg  <jonas@coyote.org>
+
+	* Released 2.4.1
+	
+	* example/jwhois.conf: Added more CIDR blocks
+	Changed registry for .no and added -NORID handles (from
+	Pål Løberg)
+
+	* configure.in: Added generation of jwhois.spec
+
+	* Makefile.am (EXTRA_DIST): Added distribution of jwhois.spec
+
+	* jwhois.spec.in: Added (from Ryan Weaver)
+
+Sat Jan 22 09:20:14 2000  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (make_connect): Output [host]\n -before- doing a
+	resolver query (speeds up output so the user doesn't think it's
+	hung)
+
+	* src/utils.c (fdread): Check return value from read correctly
+
+	* example/jwhois.conf: corrected \. to be \\.
+
 Sun Dec 12 03:58:23 1999  Jonas Oberg  <jonas@coyote.org>
 
+	* Released 2.4
+	
 	* src/jwhois.c (split_host_from_query): Added
 	(main): Added possibility to make 'foo@bar.org' queries
 

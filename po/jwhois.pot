@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-12-18 23:12+0100\n"
+"POT-Creation-Date: 2000-01-25 10:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,11 +169,11 @@ msgstr ""
 msgid "cached"
 msgstr ""
 
-#: src/jwhois.c:230
+#: src/jwhois.c:231
 msgid "error reading data from"
 msgstr ""
 
-#: src/jwhois.c:243
+#: src/jwhois.c:244
 msgid "fatal error writing to cache"
 msgstr ""
 
