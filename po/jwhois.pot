@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-08-28 21:28+0200\n"
+"POT-Creation-Date: 2001-09-06 18:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,8 +164,12 @@ msgstr ""
 msgid "Option %s is not configured: Cannot run web browser."
 msgstr ""
 
+#: src/http.c:158
+msgid "[Running "
+msgstr ""
+
 #. Go on and do something
-#: src/http.c:168 src/lookup.c:254 src/rwhois.c:124 src/whois.c:58
+#: src/http.c:168 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
 msgid "Querying"
 msgstr ""
 
@@ -232,28 +236,28 @@ msgstr ""
 msgid "unable to open"
 msgstr ""
 
-#: src/jconfig.c:250 src/jconfig.c:272 src/jconfig.c:326 src/jconfig.c:383
+#: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
 #: src/jwhois.c:89 src/whois.c:79
 msgid "error allocating memory"
 msgstr ""
 
-#: src/jconfig.c:280 src/jconfig.c:334
+#: src/jconfig.c:282 src/jconfig.c:336
 msgid "string out of bounds on line"
 msgstr ""
 
-#: src/jconfig.c:306
+#: src/jconfig.c:308
 msgid "end of file looking for '\"' on line"
 msgstr ""
 
-#: src/jconfig.c:363
+#: src/jconfig.c:365
 msgid "unexpected end of file on line"
 msgstr ""
 
-#: src/jconfig.c:431
+#: src/jconfig.c:433
 msgid "multiple keys on line"
 msgstr ""
 
-#: src/jconfig.c:441
+#: src/jconfig.c:443
 msgid "missing key on line"
 msgstr ""
 
@@ -269,7 +273,7 @@ msgstr ""
 msgid "cached"
 msgstr ""
 
-#: src/jwhois.c:161
+#: src/jwhois.c:165
 msgid "error writing to cache"
 msgstr ""
 
@@ -277,19 +281,32 @@ msgstr ""
 msgid "invalid netmask on line"
 msgstr ""
 
-#: src/lookup.c:359 src/lookup.c:363
+#: src/lookup.c:350 src/lookup.c:354
 msgid "Redirected to"
 msgstr ""
 
-#: src/rwhois.c:206
+#: src/rwhois.c:136 src/whois.c:73
+msgid "[Unable to connect to remote host]\n"
+msgstr ""
+
+#: src/rwhois.c:157
+msgid "[Protocol error while sending -rwhois option]\n"
+msgstr ""
+
+#: src/rwhois.c:209
 msgid "Invalid limit in configuration file"
 msgstr ""
 
-#: src/rwhois.c:311
+#: src/rwhois.c:407
 msgid "[Host terminated connection prematurely]\n"
 msgstr ""
 
-#: src/utils.c:234
+#: src/utils.c:96 src/utils.c:106
+#, c-format
+msgid "Can not allocate %d bytes of memory\n"
+msgstr ""
+
+#: src/utils.c:236
 msgid "error creating socket"
 msgstr ""
 

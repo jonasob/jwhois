@@ -1,6 +1,7 @@
 2001-09-06  peter karlsson <peter@softwolves.pp.se>
 
 	* src/http.c, rwhois.c, utils.c, whois.c: Gettext cleanups.
+	* po/jwhois.pot, sv.po: Updated translation files.
 
 2001-09-06  Jonas Oberg  <jonas@gnu.org>
 

@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4\n"
-"POT-Creation-Date: 2001-08-28 21:28+0200\n"
-"PO-Revision-Date: 2001-08-28 21:38+0100\n"
+"POT-Creation-Date: 2001-09-06 18:09+0200\n"
+"PO-Revision-Date: 2001-09-06 18:11+0200\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -162,8 +162,12 @@ msgstr "Inställningen http-method måste vara \"GET\" eller \"POST\".\n"
 msgid "Option %s is not configured: Cannot run web browser."
 msgstr "Inställningen %s ej konfigurerad: Kan inte köra webbläsare."
 
+#: src/http.c:158
+msgid "[Running "
+msgstr "[Kör "
+
 #. Go on and do something
-#: src/http.c:168 src/lookup.c:254 src/rwhois.c:124 src/whois.c:58
+#: src/http.c:168 src/lookup.c:247 src/rwhois.c:128 src/whois.c:58
 msgid "Querying"
 msgstr "Frågar"
 
@@ -252,28 +256,28 @@ msgstr "Felaktigt portnummer"
 msgid "unable to open"
 msgstr "kan ej öppna"
 
-#: src/jconfig.c:250 src/jconfig.c:272 src/jconfig.c:326 src/jconfig.c:383
+#: src/jconfig.c:252 src/jconfig.c:274 src/jconfig.c:328 src/jconfig.c:385
 #: src/jwhois.c:89 src/whois.c:79
 msgid "error allocating memory"
 msgstr "fel vid allokering av minne"
 
-#: src/jconfig.c:280 src/jconfig.c:334
+#: src/jconfig.c:282 src/jconfig.c:336
 msgid "string out of bounds on line"
 msgstr "sträng utanför gränserna på rad"
 
-#: src/jconfig.c:306
+#: src/jconfig.c:308
 msgid "end of file looking for '\"' on line"
 msgstr "filslut då '\"' förväntades på rad"
 
-#: src/jconfig.c:363
+#: src/jconfig.c:365
 msgid "unexpected end of file on line"
 msgstr "oväntat filslut på rad"
 
-#: src/jconfig.c:431
+#: src/jconfig.c:433
 msgid "multiple keys on line"
 msgstr "flera nycklar på rad"
 
-#: src/jconfig.c:441
+#: src/jconfig.c:443
 msgid "missing key on line"
 msgstr "saknad nyckel på rad"
 
@@ -289,7 +293,7 @@ msgstr "fel vid läsning av cache"
 msgid "cached"
 msgstr "cachad"
 
-#: src/jwhois.c:161
+#: src/jwhois.c:165
 msgid "error writing to cache"
 msgstr "fel vid skrivning till cache"
 
@@ -297,19 +301,32 @@ msgstr "fel vid skrivning till cache"
 msgid "invalid netmask on line"
 msgstr "ogiltig nätmask på rad"
 
-#: src/lookup.c:359 src/lookup.c:363
+#: src/lookup.c:350 src/lookup.c:354
 msgid "Redirected to"
 msgstr "Omdirigerad till"
 
-#: src/rwhois.c:206
+#: src/rwhois.c:136 src/whois.c:73
+msgid "[Unable to connect to remote host]\n"
+msgstr "[Kan inte ansluta mot fjärrvärd]\n"
+
+#: src/rwhois.c:157
+msgid "[Protocol error while sending -rwhois option]\n"
+msgstr "[Protokollfel vid sändning av flaggan -rwhois]\n"
+
+#: src/rwhois.c:209
 msgid "Invalid limit in configuration file"
 msgstr "Ogiltig gräns i konfigurationsfilen"
 
-#: src/rwhois.c:311
+#: src/rwhois.c:407
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Värden avbröt förbindelsen i förtid]\n"
 
-#: src/utils.c:234
+#: src/utils.c:96 src/utils.c:106
+#, c-format
+msgid "Can not allocate %d bytes of memory\n"
+msgstr "Kan inte allokera %d byte minne\n"
+
+#: src/utils.c:236
 msgid "error creating socket"
 msgstr "fel vid skapande av uttag (socket)"
 
