@@ -140,6 +140,7 @@ main(argc, argv)
 
   tmp = (char *)get_whois_server_option(wq.host, "rwhois");
   tmp2 = (char *)get_whois_server_option(wq.host, "http");
+
   if (tmp2 && 0 == strcmp(tmp2, "true"))
     ret = http_query(&wq, &text);
   else if ( (!tmp || (strncmp(tmp, "true", 4) == 0)) && (!rwhois) )

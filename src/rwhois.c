@@ -329,6 +329,7 @@ rwhois_parse_line(reply, text)
      char **text;
 {
   char *capab, *tmpptr;
+  int len;
 
   tmpptr = (char *)strchr(reply, '\n');
   if (tmpptr)
@@ -363,7 +364,15 @@ rwhois_parse_line(reply, text)
     }
   if (strncasecmp(reply, "%referral", 9) == 0)
     {
-      
+      if (strncasecmp(strchr(reply, ' ')+1, "rwhois://", 9) != 0)
+	{
+	  if (verbose) printf("[Debug: Unknown referral: %s]\n", strchr(reply)+1);
+	  return REP_CONT;
+	}
+      len = strchr(reply, ':')-strchr(reply, ' ')+9;
+      referrals[recursion_level-1].host = malloc(len+1);
+      strncpy(referrals[recursion_level-1].host, strchr(reply, ' ')+9, len);
+
     }
   if (strncasecmp(reply, "%info on", 8) == 0)
     {

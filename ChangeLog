@@ -1,3 +1,11 @@
+2001-09-01  Jonas Oberg  <jonas@gnu.org>
+
+	* src/lookup.c (find_regex): Fixed priority problem when mixing
+	old style and new style rules.
+
+	* src/jconfig.c (jconfig_parse_file): Changed domain separator
+	to '|' instead of '.'.
+
 2001-08-29  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jconfig.c (jconfig_getone): Make sure that it searches the

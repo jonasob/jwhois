@@ -129,7 +129,8 @@ get_whois_server_domain_path(hostname)
     case_fold[i] = toupper(i);
 
   jconfig_set();
-  while (j = jconfig_next_all("jwhois.server-options"))
+
+  while (j = jconfig_next_all("jwhois|server-options"))
     {
       rpb.allocated = 0;
       rpb.buffer = (unsigned char *)NULL;
@@ -165,6 +166,7 @@ get_whois_server_option(hostname, key)
 {
   struct jconfig *j;
   char *base;
+
   base = get_whois_server_domain_path(hostname);
 
   if (!base)

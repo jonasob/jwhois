@@ -1,4 +1,4 @@
-dnl aclocal.m4 generated automatically by aclocal 1.4-p4
+dnl aclocal.m4 generated automatically by aclocal 1.4
 
 dnl Copyright (C) 1994, 1995-8, 1999 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
@@ -129,13 +129,11 @@ changequote([,]))])
 # Ulrich Drepper <drepper@cygnus.com>, 1995.
 #
 # This file can be copied and used freely without restrictions.  It can
-# be used in projects which are not available under the GNU General Public
-# License but which still want to provide support for the GNU gettext
-# functionality.
-# Please note that the actual code of GNU gettext is covered by the GNU
-# General Public License and is *not* in the public domain.
+# be used in projects which are not available under the GNU Public License
+# but which still want to provide support for the GNU gettext functionality.
+# Please note that the actual code is *not* freely available.
 
-# serial 10
+# serial 9
 
 dnl Usage: AM_WITH_NLS([TOOLSYMBOL], [NEEDSYMBOL], [LIBDIR]).
 dnl If TOOLSYMBOL is specified and is 'use-libtool', then a libtool library
@@ -246,14 +244,14 @@ return (int) gettext ("")]ifelse([$2], need-ngettext, [ + (int) ngettext ("", ""
 	     AC_CHECK_FUNCS(dcgettext)
 	     LIBS="$gt_save_LIBS"
 
-	     dnl Search for GNU msgfmt in the PATH.
 	     AM_PATH_PROG_WITH_TEST(MSGFMT, msgfmt,
-	       [$ac_dir/$ac_word --statistics /dev/null >/dev/null 2>&1], :)
-	     AC_PATH_PROG(GMSGFMT, gmsgfmt, $MSGFMT)
+	       [test -z "`$ac_dir/$ac_word -h 2>&1 | grep 'dv '`"], no)dnl
+	     if test "$MSGFMT" != "no"; then
+	       AC_PATH_PROG(GMSGFMT, gmsgfmt, $MSGFMT)
+	     fi
 
-	     dnl Search for GNU xgettext in the PATH.
 	     AM_PATH_PROG_WITH_TEST(XGETTEXT, xgettext,
-	       [$ac_dir/$ac_word --omit-header /dev/null >/dev/null 2>&1], :)
+	       [test -z "`$ac_dir/$ac_word -h 2>&1 | grep '(HELP)'`"], :)
 
 	     CATOBJEXT=.gmo
 	   fi
@@ -270,10 +268,10 @@ return (int) gettext ("")]ifelse([$2], need-ngettext, [ + (int) ngettext ("", ""
         dnl Mark actions used to generate GNU NLS library.
         INTLOBJS="\$(GETTOBJS)"
         AM_PATH_PROG_WITH_TEST(MSGFMT, msgfmt,
-	  [$ac_dir/$ac_word --statistics /dev/null >/dev/null 2>&1], :)
+	  [test -z "`$ac_dir/$ac_word -h 2>&1 | grep 'dv '`"], msgfmt)
         AC_PATH_PROG(GMSGFMT, gmsgfmt, $MSGFMT)
         AM_PATH_PROG_WITH_TEST(XGETTEXT, xgettext,
-	  [$ac_dir/$ac_word --omit-header /dev/null >/dev/null 2>&1], :)
+	  [test -z "`$ac_dir/$ac_word -h 2>&1 | grep '(HELP)'`"], :)
         AC_SUBST(MSGFMT)
 	BUILD_INCLUDED_LIBINTL=yes
 	USE_INCLUDED_LIBINTL=yes
@@ -282,26 +280,11 @@ return (int) gettext ("")]ifelse([$2], need-ngettext, [ + (int) ngettext ("", ""
 	LIBS=`echo " $LIBS " | sed -e 's/ -lintl / /' -e 's/^ //' -e 's/ $//'`
       fi
 
-      dnl This could go away some day; the PATH_PROG_WITH_TEST already does it.
-      dnl Test whether we really found GNU msgfmt.
-      if test "$GMSGFMT" != ":"; then
-	dnl If it is no GNU msgfmt we define it as : so that the
-	dnl Makefiles still can work.
-	if $GMSGFMT --statistics /dev/null >/dev/null 2>&1; then
-	  : ;
-	else
-	  AC_MSG_RESULT(
-	    [found msgfmt program is not GNU msgfmt; ignore it])
-	  GMSGFMT=":"
-	fi
-      fi
-
-      dnl This could go away some day; the PATH_PROG_WITH_TEST already does it.
       dnl Test whether we really found GNU xgettext.
       if test "$XGETTEXT" != ":"; then
 	dnl If it is no GNU xgettext we define it as : so that the
 	dnl Makefiles still can work.
-	if $XGETTEXT --omit-header /dev/null >/dev/null 2>&1; then
+	if $XGETTEXT --omit-header /dev/null 2> /dev/null; then
 	  : ;
 	else
 	  AC_MSG_RESULT(
@@ -325,8 +308,6 @@ return (int) gettext ("")]ifelse([$2], need-ngettext, [ + (int) ngettext ("", ""
           ac_dir=`echo "$ac_file"|sed 's%/[^/][^/]*$%%'`
           ac_dir_suffix="/`echo "$ac_dir"|sed 's%^\./%%'`"
           ac_dots=`echo "$ac_dir_suffix"|sed 's%/[^/]*%../%g'`
-          # In autoconf-2.13 it is called $ac_given_srcdir.
-          # In autoconf-2.50 it is called $srcdir.
           test -n "$ac_given_srcdir" || ac_given_srcdir="$srcdir"
           case "$ac_given_srcdir" in
             .)  top_srcdir=`echo $ac_dots|sed 's%/$%%'` ;;
@@ -498,13 +479,11 @@ strdup strtoul tsearch __argz_count __argz_stringify __argz_next])
 # Ulrich Drepper <drepper@cygnus.com>, 1996.
 #
 # This file can be copied and used freely without restrictions.  It can
-# be used in projects which are not available under the GNU General Public
-# License but which still want to provide support for the GNU gettext
-# functionality.
-# Please note that the actual code of GNU gettext is covered by the GNU
-# General Public License and is *not* in the public domain.
+# be used in projects which are not available under the GNU Public License
+# but which still want to provide support for the GNU gettext functionality.
+# Please note that the actual code is *not* freely available.
 
-# serial 2
+# serial 1
 
 dnl AM_PATH_PROG_WITH_TEST(VARIABLE, PROG-TO-CHECK-FOR,
 dnl   TEST-PERFORMED-ON-FOUND_PROGRAM [, VALUE-IF-NOT-FOUND [, PATH]])
@@ -536,7 +515,7 @@ ifelse([$4], , , [  test -z "[$]ac_cv_path_$1" && ac_cv_path_$1="$4"
   ;;
 esac])dnl
 $1="$ac_cv_path_$1"
-if test ifelse([$4], , [-n "[$]$1"], ["[$]$1" != "$4"]); then
+if test -n "[$]$1"; then
   AC_MSG_RESULT([$]$1)
 else
   AC_MSG_RESULT(no)
@@ -681,11 +660,9 @@ AC_DEFUN([AM_LANGINFO_CODESET],
 # Ulrich Drepper <drepper@cygnus.com>, 1995.
 #
 # This file can be copied and used freely without restrictions.  It can
-# be used in projects which are not available under the GNU General Public
-# License but which still want to provide support for the GNU gettext
-# functionality.
-# Please note that the actual code of GNU gettext is covered by the GNU
-# General Public License and is *not* in the public domain.
+# be used in projects which are not available under the GNU Public License
+# but which still want to provide support for the GNU gettext functionality.
+# Please note that the actual code is *not* freely available.
 
 # serial 2
 

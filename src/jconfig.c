@@ -400,19 +400,19 @@ jconfig_parse_file(in)
 	    line++;
 	    break;
 	  case '{':
-	    domain = jconfig_safe_strcat(domain, ".");
+	    domain = jconfig_safe_strcat(domain, "|");
 	    domain = jconfig_safe_strcat(domain, token);
 	    break;
 	  case '}':
-	    t1 = (char *)strstr(domain, "\\.");
+	    /*	    t1 = (char *)strstr(domain, "\\.");
 	    if (t1)
 	      {
 		t1 -= 2;
 		*t1 = '\0';
 		t2 = (char *)strrchr(domain, '.');
 	      }
-	    else
-	      t2 = (char *)strrchr(domain, '.');
+	      else */
+	    t2 = (char *)strrchr(domain, '|');
 
 	    if (t2)
 	      *t2 = '\0';
@@ -443,7 +443,6 @@ jconfig_parse_file(in)
 		       _("missing key on line"), line);
 		exit(1);
 	      }
-	    /*	    printf("Adding %s|%s|%s\n", domain, key, token); */
 	    jconfig_add(domain, key, token, line);
 	    free(key);
 	    key = NULL;

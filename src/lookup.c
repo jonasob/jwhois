@@ -144,58 +144,51 @@ find_regex(wq, block)
   jconfig_set();
   while (j = jconfig_next_all(block))
     {
-      if ( (strcasecmp(j->key, "type") != 0) && (strlen(j->domain) > strlen(block))) {
-	rpb.allocated = 0;
-	rpb.buffer = (unsigned char *)NULL;
-	rpb.translate = case_fold;
-	rpb.fastmap = (char *)NULL;
-	if (error = (char *)re_compile_pattern(j->domain+strlen(block)+1,
-					       strlen(j->domain+strlen(block)+1), &rpb))
-	  {
-	    return NULL;
-	  }
-	ind = re_search(&rpb, wq->query, strlen(wq->query), 0, 0, NULL);
-	if (ind == 0)
-	  {
-	    wq->domain = j->domain;
-	    jconfig_set();
-	    j2 = jconfig_getone(j->domain, "whois-server");
-	    if (!j2)
-	      return NULL;
-	    return j2->value;
-	  }
-	else if (ind == -2)
-	  {
-	    return NULL;
-	  }
-      }
-    }
-  jconfig_end();
-  
-  /* If we havn't found a host yet, we continue by looking for
-     configuration options in the old format */
-
-  jconfig_set();
-  while (j = jconfig_next(block))
-    {
-      if (strcasecmp(j->key, "type") != 0) {
-	rpb.allocated = 0;
-	rpb.buffer = (unsigned char *)NULL;
-	rpb.translate = case_fold;
-        rpb.fastmap = (char *)NULL;
-	if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
-	  {
-	    return NULL;
-	  }
-	ind = re_search(&rpb, wq->query, strlen(wq->query), 0, 0, NULL);
-	if (ind == 0)
-	  {
-	    return j->value;
-	  }
-	else if (ind == -2)
-	  {
-	    return NULL;
-	  }
+      if (strcasecmp(j->key, "type") != 0)
+	{
+	  rpb.allocated = 0;
+	  rpb.buffer = (unsigned char *)NULL;
+	  rpb.translate = case_fold;
+	  rpb.fastmap = (char *)NULL;
+	  if (strlen(j->domain) > strlen(block))
+	    {
+	      if (error = (char *)re_compile_pattern(j->domain+strlen(block)+1,
+						     strlen(j->domain+strlen(block)+1),
+						     &rpb))
+		{
+		  return NULL;
+		}
+	      ind = re_search(&rpb, wq->query, strlen(wq->query), 0, 0, NULL);
+	      if (ind == 0)
+		{
+		  wq->domain = j->domain;
+		  jconfig_set();
+		  j2 = jconfig_getone(j->domain, "whois-server");
+		  if (!j2)
+		    return NULL;
+		  return j2->value;
+		}
+	      else if (ind == -2)
+		{
+		  return NULL;
+		}
+	    }
+	  else
+	    {
+	      if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
+		{
+		  return NULL;
+		}
+	      ind = re_search(&rpb, wq->query, strlen(wq->query), 0, 0, NULL);
+	      if (ind == 0)
+		{
+		  return j->value;
+		}
+	      else if (ind == -2)
+		{
+		  return NULL;
+		}
+	    }
       }
     }
   jconfig_end();
@@ -221,9 +214,9 @@ lookup_host(wq, block)
 
   if (!wq->query) return -1;
   if (!block)
-    strcpy(deepfreeze, "jwhois.whois-servers");
+    strcpy(deepfreeze, "jwhois|whois-servers");
   else
-    sprintf(deepfreeze, "jwhois.%s", block);
+    sprintf(deepfreeze, "jwhois|%s", block);
 
   jconfig_set();
   j = jconfig_getone("jwhois", "whois-servers-domain");
