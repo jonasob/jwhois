@@ -2,12 +2,11 @@
 # Copyright © 1999,2001
 # Peter Karlsson <peter@softwolves.pp.se>, 2001.
 #
-# $Id: sv.po,v 1.14 2001/02/12 20:36:42 peterk Exp $
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4\n"
-"POT-Creation-Date: 2001-01-09 20:11+0100\n"
-"PO-Revision-Date: 2001-02-12 21:00+0100\n"
+"POT-Creation-Date: 2001-01-28 14:53+0100\n"
+"PO-Revision-Date: 2001-02-13 20:10+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -21,7 +20,7 @@ msgstr "ogiltigt slutdatum"
 msgid "using defaults"
 msgstr "använder standardvärden"
 
-#: src/cache.c:155 src/init.c:180 src/init.c:189
+#: src/cache.c:155 src/init.c:189 src/init.c:198
 msgid "unable to open"
 msgstr "kan ej öppna"
 
@@ -85,11 +84,11 @@ msgstr "Systemfel"
 msgid "Unknown error"
 msgstr "Okänt fel"
 
-#: src/init.c:77
+#: src/init.c:81
 msgid "Copyright (C) 1999  Free Software Foundation, Inc."
 msgstr "Copyright © 1999  Free Software Foundation, Inc."
 
-#: src/init.c:78
+#: src/init.c:82
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -97,31 +96,33 @@ msgstr ""
 "Detta program är fri programvara UTAN NÅGON SOM HELST GARANTI; du kan\n"
 "distribuera det under villkoren i GNU General Public License."
 
-#: src/init.c:81
+#: src/init.c:85
 msgid "version"
 msgstr "version"
 
-#: src/init.c:85
+#: src/init.c:89
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Användning: jwhois [FLAGGOR] [FRÅGA]"
 
-#: src/init.c:87
+#: src/init.c:91
 msgid ""
 "  --version               display version number and patch level\n"
 "  --help                  display this help\n"
 "  -c FILE, --config=FILE  use FILE as configuration file\n"
 "  -h HOST, --host=HOST    explicitly query HOST\n"
+"  -n, --no-redirect       disable content redirection\n"
 "  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
 "  -v, --verbose           verbose debug output\n"
 msgstr ""
 "  --version               visa versionsnummer och patchnivå\n"
 "  --help                  visa denna hjälptext\n"
 "  -c FIL, --config=FIL    använd FIL som konfigurationsfil\n"
+"  -n, --no-redirect       deaktivera omdirigering av innehåll\n"
 "  -h VÄRD, --host=VÄRD    fråga explicit VÄRD\n"
 "  -p PORT, --port=PORT    använd portnummer PORT (i samband med VÄRD)\n"
 "  -v, --verbose           berättande felsökningsutdata\n"
 
-#: src/init.c:95
+#: src/init.c:100
 msgid ""
 "  -f, --force-lookup      force lookup even if the entry is cached\n"
 "  -d, --disable-cache     disable cache functions\n"
@@ -130,18 +131,18 @@ msgstr ""
 "cache\n"
 "  -d, --disable-cache     stäng av cachefunktionaliteten\n"
 
-#: src/init.c:98
+#: src/init.c:103
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr ""
 "Rapportera fel till <bug-jwhois@gnu.org>\n"
 "Skicka anmärkningar på översättningen till <peter@softwolves.pp.se>"
 
-#: src/init.c:157
+#: src/init.c:166
 msgid "invalid port number"
 msgstr "felaktigt portnummer"
 
 #: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
-#: src/jwhois.c:165
+#: src/jwhois.c:166
 msgid "error allocating memory"
 msgstr "fel vid allokering av minne"
 
@@ -169,23 +170,23 @@ msgstr "saknad nyckel på rad"
 msgid "error creating socket"
 msgstr "fel vid skapande av uttag (socket)"
 
-#: src/jwhois.c:195
+#: src/jwhois.c:196
 msgid "fatal error searching for host to query"
 msgstr "allvarligt fel under sökning värd att fråga"
 
-#: src/jwhois.c:206
+#: src/jwhois.c:207
 msgid "error reading cache"
 msgstr "fel vid läsning av cache"
 
-#: src/jwhois.c:211
+#: src/jwhois.c:212
 msgid "cached"
 msgstr "cachad"
 
-#: src/jwhois.c:231
+#: src/jwhois.c:232
 msgid "error reading data from"
 msgstr "fel vid läsning av data från"
 
-#: src/jwhois.c:244
+#: src/jwhois.c:252
 msgid "error writing to cache"
 msgstr "fel vid skrivning till cache"
 
