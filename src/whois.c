@@ -55,7 +55,7 @@ whois_query(wq, text)
   int ret, sockfd;
   char *tmpqstring;
 
-  printf(_("[Querying %s]\n"), wq->host);
+  printf("[%s %s]\n", _("Querying"), wq->host);
   *text = NULL;
   while (1)
     {
