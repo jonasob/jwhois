@@ -1,8 +1,8 @@
 Package: GNU jwhois
 Obtained from: ftp://ftp.gnu.org/pub/gnu/jwhois
-Packaged for Debian by: peter karlsson <peterk@debian.org>
+Packaged for Debian by: Peter Karlsson <peterk@debian.org>
 Upstream authors: Jonas Öberg <jonas@gnu.org>,
-                  peter karlsson <peterk@debian.org>
+                  Peter Karlsson <peterk@debian.org>
 
 Copyright (C) 1999-2002 Free Software Foundation, Inc.
 
