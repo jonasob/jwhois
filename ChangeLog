@@ -1,3 +1,8 @@
+2004-05-21  Jonas Oberg <jonas@gnu.org>
+
+	* example/jwhois.conf: Changed whois.denic.de to www.decnic.de
+	  with http POST.
+
 2004-01-24  Jonas Oberg <jonas@gnu.org>
 
 	* po/hu.po: Updated from TP.
