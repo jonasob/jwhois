@@ -48,11 +48,6 @@ static struct option long_options[] =
 # define _(s)  (s)
 #endif
 
-#define COPYRIGHT  _("Copyright (C) 1999 Jonas Öberg")
-#define LICENSE    _("This program is free software with ABSOLUTELY NO WARRANTY; you may\n\
-redistribute it under the terms of the GNU General Public License.")
-
-
 /* This is set if caching is enabled */
 int cache;
 
@@ -77,13 +72,19 @@ char *cfname;
 /* Default expire time for cached objects */
 int cfexpire;
 
-void help(void)
+void help_version(int onlyversion)
 {
+  char *COPYRIGHT = _("Copyright (C) 1999 Jonas Öberg");
+  char *LICENSE =  _("This program is free software with ABSOLUTELY NO WARRANTY; you may\n\
+redistribute it under the terms of the GNU General Public License.");
+
   printf("%s %s %s, %s\n", PACKAGE, _("version"), VERSION, COPYRIGHT );
   printf("%s\n\n", LICENSE);
-  printf("%s\n", _("Usage: jwhois [OPTIONS] [QUERY]"));
-
-  printf(_("  --version               display version number and patch level\n\
+  if (!onlyversion)
+    {
+      printf("%s\n", _("Usage: jwhois [OPTIONS] [QUERY]"));
+      
+      printf(_("  --version               display version number and patch level\n\
   --help                  display this help\n\
   -c FILE, --config=FILE  use FILE as configuration file\n\
   -h HOST, --host=HOST    explicitly query HOST\n\
@@ -91,10 +92,11 @@ void help(void)
   -v, --verbose           verbose debug output\n"));
 
 #ifndef NOCACHE
-  printf(_("  -f, --force-lookup      force lookup even if the entry is cached\n\
+   printf(_("  -f, --force-lookup      force lookup even if the entry is cached\n\
   -d, --disable-cache     disable cache functions\n"));
 #endif
-  printf("\n\n%s\n", _("Report bugs to jonas@coyote.org"));
+   printf("\n\n%s\n", _("Report bugs to jonas@coyote.org"));
+    }
 }
 
 int
@@ -122,12 +124,10 @@ parse_args(argc, argv)
       switch (optch)
 	{
 	case DO_VERSION:
-	  printf("%s %s\n\n", PACKAGE, VERSION);
-	  printf("%s\n", COPYRIGHT);
-          printf("%s\n", LICENSE);
+	  help_version(1);
 	  exit(0);
 	case DO_HELP:
-	  help();
+	  help_version(0);
 	  exit(0);
 	case 'v':
 	  verbose = 1;
@@ -167,7 +167,7 @@ parse_args(argc, argv)
 
   if (optind == *argc)
     {
-      help();
+      help_version(0);
       exit(0);
     }
 

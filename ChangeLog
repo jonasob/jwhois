@@ -1,5 +1,7 @@
 Thu Dec  2 19:28:35 1999  Jonas Oberg  <jonas@coyote.org>
 
+	* src/init.c (help_version): Added this to replace version and help
+
 	* example/jwhois.conf: Changed .de to whois.ripe.net
 
 	* src/jconfig.c (jconfig_parse_file): Fixed minor bugg in strncpy()
