@@ -1,3 +1,7 @@
+Wed Dec 01 23:59:59 1999  Peter Karlsson <peter@softwolves.pp.se>
+
+        * example/jwhois.conf: Added an entry for .no
+
 Wed Dec  1 20:23:06 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* Bumped to 2.3.1
