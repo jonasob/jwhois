@@ -51,7 +51,7 @@ notice identical to this one.
 @titlepage
 @title jwhois
 @subtitle Version 3.1
-@subtitle 9 January 2002
+@subtitle 2 August 2002
 @author Jonas Öberg @code{(jonas@@gnu.org)}
 
 @page
@@ -73,7 +73,7 @@ notice identical to this one.
 @node Top, Introduction, (dir), (dir)
 
 This file documents the GNU jwhois package, en extended Whois client.
-This is edition 3.1, for jwhois version 3.1, last updated 9 january 2002.
+This is edition 3.1, for jwhois version 3.1, last updated 2 August 2002.
 
 @menu
 * Introduction::                Introduction
@@ -271,7 +271,7 @@ is enabled, which means that the program,
 when passed the option specified in @option{browser-postarg},
 should accept one variable per line of input on standard input,
 terminated with three dashes.
-If set to @sc{false}, @{w3m}-style processing is enabled,
+If set to @sc{false}, @sc{w3m}-style processing is enabled,
 which means that the program, when passed this option,
 should consider the parameter that follows the one specified
 in @option{browser-postarg} as a file name from which to read
