@@ -4,6 +4,7 @@
 
 # Remove the cache on remove or purge.
 # Remove the jwhois group on purge.
+# Remove statoverride on purge.
 
 case "$1" in
   remove)
@@ -13,6 +14,12 @@ case "$1" in
   purge)
     rm -f /var/cache/jwhois/jwhois.db.db /var/cache/jwhois/jwhois.db
     rmdir /var/cache/jwhois 2> /dev/null || true
+    # Need to remove statoverride because of incorrect usage in
+    # 2.4.2-1 -- 2.4.2-3, which adds a statoverride with the jwhois
+    # group. Dpkg does not like to have a leftover statoverride with
+    # a non-existing group.
+    dpkg-statoverride --remove /usr/bin/jwhois || echo "Failed removing statoverride for /usr/bin/jwhois"
+    dpkg-statoverride --remove /var/cache/jwhois || echo "Failed removing statoverride for /var/cache/jwhois"
     groupdel jwhois || echo "Failed removing group \`jwhois'"
     ;;
   upgrade)
