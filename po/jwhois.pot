@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-11-27 16:04+0100\n"
+"POT-Creation-Date: 1999-11-29 00:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,94 +14,87 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: src/cache.c:142
+#: src/cache.c:140
 msgid "invalid expire time"
 msgstr ""
 
-#: src/cache.c:143
+#: src/cache.c:141
 msgid "using defaults"
 msgstr ""
 
-#: src/cache.c:157 src/init.c:162 src/init.c:171
+#: src/cache.c:155 src/init.c:180 src/init.c:189
 msgid "unable to open"
 msgstr ""
 
-#: src/cache.c:158 src/cache.c:167
+#: src/cache.c:156 src/cache.c:165
 msgid "disabling cache"
 msgstr ""
 
-#: src/cache.c:166
+#: src/cache.c:164
 msgid "unable to store data in database"
 msgstr ""
 
-#: src/dns.c:91
+#: src/dns.c:89
 msgid "host not found"
 msgstr ""
 
-#: src/gai_strerror.c:73
+#: src/gai_strerror.c:71
 msgid "Address family for hostname not supported"
 msgstr ""
 
-#: src/gai_strerror.c:75
+#: src/gai_strerror.c:73
 msgid "Temporary failure in name resolution"
 msgstr ""
 
-#: src/gai_strerror.c:77
+#: src/gai_strerror.c:75
 msgid "Bad value for ai_flags"
 msgstr ""
 
-#: src/gai_strerror.c:79
+#: src/gai_strerror.c:77
 msgid "Non-recoverable failure in name resolution"
 msgstr ""
 
-#: src/gai_strerror.c:81
+#: src/gai_strerror.c:79
 msgid "ai_family not supported"
 msgstr ""
 
-#: src/gai_strerror.c:83
+#: src/gai_strerror.c:81
 msgid "Memory allocation failure"
 msgstr ""
 
-#: src/gai_strerror.c:85
+#: src/gai_strerror.c:83
 msgid "No address associated with hostname"
 msgstr ""
 
-#: src/gai_strerror.c:87
+#: src/gai_strerror.c:85
 msgid "Name or service not known"
 msgstr ""
 
-#: src/gai_strerror.c:89
+#: src/gai_strerror.c:87
 msgid "Servname not supported for ai_socktype"
 msgstr ""
 
-#: src/gai_strerror.c:91
+#: src/gai_strerror.c:89
 msgid "ai_socktype not supported"
 msgstr ""
 
-#: src/gai_strerror.c:93
+#: src/gai_strerror.c:91
 msgid "System error"
 msgstr ""
 
-#: src/gai_strerror.c:95
+#: src/gai_strerror.c:93
 msgid "Unknown error"
 msgstr ""
 
-#: src/init.c:65
+#: src/init.c:82
 msgid "version"
 msgstr ""
 
-#: src/init.c:66
-msgid "Copyright (C) 1999 Jonas Öberg"
+#: src/init.c:84
+msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr ""
 
-#: src/init.c:67
-msgid ""
-"This is free software with ABSOLUTELY NO WARRANTY.\n"
-"\n"
-"Usage: jwhois [OPTIONS] [QUERIES...]\n"
-msgstr ""
-
-#: src/init.c:70
+#: src/init.c:86
 msgid ""
 "  --version               display version number and patch level\n"
 "  --help                  display this help\n"
@@ -111,46 +104,46 @@ msgid ""
 "  -v, --verbose           verbose debug output\n"
 msgstr ""
 
-#: src/init.c:78
+#: src/init.c:94
 msgid ""
 "  -f, --force-lookup      force lookup even if the entry is cached\n"
 "  -d, --disable-cache     disable cache functions\n"
 msgstr ""
 
-#: src/init.c:81
+#: src/init.c:97
 msgid "Report bugs to jonas@coyote.org"
 msgstr ""
 
-#: src/init.c:139
+#: src/init.c:157
 msgid "invalid port number"
 msgstr ""
 
-#: src/jconfig.c:210 src/jconfig.c:232 src/jconfig.c:286 src/jconfig.c:343
+#: src/jconfig.c:208 src/jconfig.c:230 src/jconfig.c:284 src/jconfig.c:341
 #: src/jwhois.c:137
 msgid "error allocating memory"
 msgstr ""
 
-#: src/jconfig.c:240 src/jconfig.c:294
+#: src/jconfig.c:238 src/jconfig.c:292
 msgid "string out of bounds on line"
 msgstr ""
 
-#: src/jconfig.c:266
+#: src/jconfig.c:264
 msgid "end of file looking for '\"' on line"
 msgstr ""
 
-#: src/jconfig.c:323
+#: src/jconfig.c:321
 msgid "unexpected end of file on line"
 msgstr ""
 
-#: src/jconfig.c:382
+#: src/jconfig.c:380
 msgid "multiple keys on line"
 msgstr ""
 
-#: src/jconfig.c:392
+#: src/jconfig.c:390
 msgid "missing key on line"
 msgstr ""
 
-#: src/jwhois.c:100
+#: src/jwhois.c:98
 msgid "error creating socket"
 msgstr ""
 
@@ -174,11 +167,11 @@ msgstr ""
 msgid "fatal error writing to cache"
 msgstr ""
 
-#: src/lookup.c:93
+#: src/lookup.c:91
 msgid "invalid netmask on line"
 msgstr ""
 
 #. regs.num_regs == 2
-#: src/lookup.c:347
+#: src/lookup.c:345
 msgid "redirected to"
 msgstr ""

@@ -41,10 +41,8 @@
 #include <jwhois.h>
 #include <regex.h>
 
-#ifdef ENABLE_NLS
-# ifdef HAVE_LIBINTL_H
-#  include <libintl.h>
-# endif
+#ifdef HAVE_LIBINTL_H
+# include <libintl.h>
 # define _(s)  gettext(s)
 #else
 # define _(s)  (s)
@@ -118,8 +116,10 @@ int main(argc, argv)
   int optind, count = 0, port, ret, sockfd;
   char *qstring = NULL, *host, *text;
 
+#ifdef HAVE_LIBINTL_H
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
+#endif
 
   re_syntax_options = RE_SYNTAX_EMACS;
   optind = parse_args(&argc, &argv);

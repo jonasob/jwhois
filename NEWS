@@ -1,8 +1,13 @@
-Changes in jwhois 2.3pre2
+Changes in jwhois 2.3
 
  * Support for redirection of a query to another server based on
    returned content from another
  * Support for cache functionality
+ * Bugfixes for little-endian machines
+ * Configuration parser rewritten -- you must now use \\ to get a
+   single \.
+ * ${datadir} no longer searched for global configuration file
+ * i18n support added
 
 Changes in jwhois 2.2
 

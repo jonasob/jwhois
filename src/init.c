@@ -41,31 +41,47 @@ static struct option long_options[] =
   {0, 0, 0, 0}
 };
 
-#ifdef ENABLE_NLS
-# ifdef HAVE_LIBINTL_H
-#  include <libintl.h>
-# endif
+#ifdef HAVE_LIBINTL_H
+# include <libintl.h>
 # define _(s)  gettext(s)
 #else
 # define _(s)  (s)
 #endif
 
+#define COPYRIGHT  _("Copyright (C) 1999 Jonas Öberg")
+#define LICENSE    _("This program is free software with ABSOLUTELY NO WARRANTY; you may\n\
+redistribute it under the terms of the GNU General Public License.")
+
+
+/* This is set if caching is enabled */
 int cache;
+
+/* Set if checking for a cached copy of a document should be bypassed */
 int forcelookup;
+
+/* Verbose debugging output */
 int verbose;
+
+/* Host specified on the command line */
 char *ghost;
+
+/* Port specified on the command line */
 int gport;
+
+/* Name of the current configuration file */
 char *config;
 
+/* Name of the cache database */
 char *cfname;
+
+/* Default expire time for cached objects */
 int cfexpire;
 
 void help(void)
 {
-  printf("%s %s %s, %s\n", PACKAGE, _("version"), VERSION,
-	 _("Copyright (C) 1999 Jonas Öberg"));
-  printf(_("This is free software with ABSOLUTELY NO WARRANTY.\n\n\
-Usage: jwhois [OPTIONS] [QUERIES...]\n"));
+  printf("%s %s %s, %s\n", PACKAGE, _("version"), VERSION, COPYRIGHT );
+  printf("%s\n\n", LICENSE);
+  printf("%s\n", _("Usage: jwhois [OPTIONS] [QUERY]"));
 
   printf(_("  --version               display version number and patch level\n\
   --help                  display this help\n\
@@ -106,7 +122,9 @@ parse_args(argc, argv)
       switch (optch)
 	{
 	case DO_VERSION:
-	  printf("%s %s\n", PACKAGE, VERSION);
+	  printf("%s %s\n\n", PACKAGE, VERSION);
+	  printf("%s\n", COPYRIGHT);
+          printf("%s\n", LICENSE);
 	  exit(0);
 	case DO_HELP:
 	  help();

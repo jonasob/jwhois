@@ -1,8 +1,15 @@
+Sun Nov 28 20:57:34 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* doc/jwhois.texi: Rewrote parts for new release
+
+	* src/init.c (parse_args): Fixed output of --version and --help
+
 Sat Nov 27 14:39:11 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* Went through and added i18n support
 
 	* src/jconfig.c (jconfig_parse_file): Added (replaces lexer.l)
+	Note: Must escape groups with \\ instead of \ now.
 
 	* src/init.c (parse_args): Removed datadir search of jwhois.conf
 

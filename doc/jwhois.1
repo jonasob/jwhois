@@ -1,7 +1,7 @@
 .PU
 .TH jwhois 1 local
 .SH NAME
-jwhois \- whois client
+jwhois \- client for the whois service
 .SH SYNOPSIS
 .ll +8
 .B whois
@@ -10,18 +10,21 @@ jwhois \- whois client
 .I "OPTIONS"
 ]...
 [
-.I "QUERIES"
-]...
+.I "QUERY"
+]
 .ll -8
 .SH DESCRIPTION
 .I jwhois
-queries Internet Whois servers for information. The Whois server
-contacted can be specified on the command line, or looked up via
-regexps in the configuration file.
+searches Whois servers for the object on the command line.
+
+The host to query is taken from a global configuration file,
+a configuration file specified on the command line, or selected
+directly on the command line.
+
 .SH OPTIONS
 .TP
 .B \--version
-display version level and patch level
+display version, authors and licensing information
 .TP
 .B \--help
 display a short help text
@@ -34,6 +37,15 @@ overrides any hosts in the configuration file and queries HOST directly
 .TP
 .B \-p PORT --port=PORT
 specifies a port number to use when querying a HOST
+.TP
+.B \-v --verbose
+outputs verbose debugging information while running
+.TP
+.B \-f --force-lookup
+forces a query to be made to a host even if the object is stored in cache
+.TP
+.B \-d --disable-cache
+completely disable both reading and writing to cache
 .ll -8
 .SH "SEE ALSO"
 whois(1)
