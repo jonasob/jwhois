@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4\n"
 "POT-Creation-Date: 2001-01-28 14:53+0100\n"
-"PO-Revision-Date: 2001-02-13 20:10+0100\n"
+"PO-Revision-Date: 2001-02-15 07:05+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -42,7 +42,7 @@ msgstr "Adressfamiljen stöds inte för värdnamnet"
 
 #: src/gai_strerror.c:72
 msgid "Temporary failure in name resolution"
-msgstr "Temporärt fel i namnuppslagning"
+msgstr "Tillfälligt fel i namnuppslagning"
 
 #: src/gai_strerror.c:74
 msgid "Bad value for ai_flags"
@@ -117,9 +117,9 @@ msgstr ""
 "  --version               visa versionsnummer och patchnivå\n"
 "  --help                  visa denna hjälptext\n"
 "  -c FIL, --config=FIL    använd FIL som konfigurationsfil\n"
-"  -n, --no-redirect       deaktivera omdirigering av innehåll\n"
 "  -h VÄRD, --host=VÄRD    fråga explicit VÄRD\n"
-"  -p PORT, --port=PORT    använd portnummer PORT (i samband med VÄRD)\n"
+"  -n, --no-redirect       deaktivera omdirigering av innehåll\n"
+"  -p PORT, --port=PORT    använd portnummer PORT (i kombination med VÄRD)\n"
 "  -v, --verbose           berättande felsökningsutdata\n"
 
 #: src/init.c:100
@@ -172,7 +172,7 @@ msgstr "fel vid skapande av uttag (socket)"
 
 #: src/jwhois.c:196
 msgid "fatal error searching for host to query"
-msgstr "allvarligt fel under sökning värd att fråga"
+msgstr "allvarligt fel under sökning efter värd att fråga"
 
 #: src/jwhois.c:207
 msgid "error reading cache"

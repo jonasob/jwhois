@@ -1,3 +1,7 @@
+2001-02-15  peter karlsson <peter@softwolves.pp.se>
+
+	* po/sv.po: Updated with comments from sv@li.org (Göran Uddeborg).
+
 2001-02-13  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Changed .br, .hu, .ie, .ro. Added .je, .kg
