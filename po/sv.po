@@ -2,7 +2,7 @@
 # Copyright © 1999
 # Peter Karlsson <peter@softwolves.pp.se>, 1999.
 #
-# $Id: sv.po,v 1.4 1999/12/01 23:23:45 peter Exp $
+# $Id: sv.po,v 1.5 1999/12/02 13:33:07 peter Exp $
 #, fuzzy
 msgid ""
 msgstr ""
@@ -181,7 +181,6 @@ msgstr "allvarligt fel vid skrivning till cache"
 msgid "invalid netmask on line"
 msgstr "ogiltig nätmask på rad"
 
-#. regs.num_regs == 2
-#: src/lookup.c:348
+#: src/lookup.c:348 src/lookup.c:356
 msgid "redirected to"
 msgstr "omdirigerad till"

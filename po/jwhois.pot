@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-12-01 20:58+0100\n"
+"POT-Creation-Date: 1999-12-01 23:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -171,7 +171,6 @@ msgstr ""
 msgid "invalid netmask on line"
 msgstr ""
 
-#. regs.num_regs == 2
-#: src/lookup.c:348
+#: src/lookup.c:352 src/lookup.c:356
 msgid "redirected to"
 msgstr ""
