@@ -1,3 +1,8 @@
+2001-08-29  Jonas Oberg  <jonas@gnu.org>
+
+	* src/jconfig.c (jconfig_getone): Make sure that it searches the
+	entire configuration file for options.
+
 2001-08-28  peter karlsson <peter@softwolves.pp.se>
 
 	* src/http.c, include/http.h: Added support for sending HTTP

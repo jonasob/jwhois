@@ -71,6 +71,8 @@ jconfig_getone(domain, key)
       return NULL;
     }
 
+  jconfig_set();
+
   while (jconfig_tmpptr)
     {
       if ( (char *)strcasecmp(jconfig_tmpptr->domain, domain) == 0)
