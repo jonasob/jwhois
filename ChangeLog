@@ -1,3 +1,8 @@
+2002-02-28  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Updated .int and .us data.
+	  (Lee Maguire, Debian bug#136200)
+
 2002-02-11  peter karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Added .name and .coop data.
