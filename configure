@@ -704,7 +704,7 @@ fi
 
 PACKAGE=jwhois
 
-VERSION=2.3pre2
+VERSION=2.3pre3
 
 if test "`cd $srcdir && pwd`" != "`pwd`" && test -f $srcdir/config.status; then
   { echo "configure: error: source directory already configured; run "make distclean" there first" 1>&2; exit 1; }
@@ -850,7 +850,7 @@ if test "${with_cache+set}" = set; then
   withval="$with_cache"
   if test x$withval = xyes; then
   cat >> confdefs.h <<\EOF
-#define CACHE 1
+#define WITH_CACHE 1
 EOF
 
   cache=yes
@@ -2471,7 +2471,7 @@ else
 
 	echo "configure: warning: "You don\'t have any dbm libraries installed.. disabling cache functions"" 1>&2
 	cat >> confdefs.h <<\EOF
-#define CACHE 0
+#define WITH_CACHE 0
 EOF
 
 fi

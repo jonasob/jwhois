@@ -22,7 +22,7 @@
 #undef HAVE_GETADDRINFO
 
 /* Define if you want the cache functionality */
-#undef CACHE
+#undef WITH_CACHE
 
 /* Define if you have the dbm_open function.  */
 #undef HAVE_DBM_OPEN

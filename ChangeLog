@@ -1,3 +1,19 @@
+Mon Nov 22 19:31:06 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/dns.c: Added
+
+	* src/cache.c: Rewritten to fit new structure
+
+	* src/jwhois.c (main): Changed to use new structure
+
+	* src/init.c: Added
+
+	* src/jwhois.c (make_connect): Added
+
+	* src/lookup.c: Added
+
+	* src/utils.c (fdread): Added
+
 Sat Nov 20 01:20:47 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* src/gai_strerror.c (EAI_*: Added definitions

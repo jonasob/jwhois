@@ -69,7 +69,8 @@ VERSION = @VERSION@
 cache = @cache@
 
 bin_PROGRAMS = jwhois
-jwhois_SOURCES = jwhois.c lexer.l jconfig.c string.c getopt.c getopt1.c regex.c gai_strerror.c cache.c
+jwhois_SOURCES = dns.c lookup.c init.c utils.c gai_strerror.c regex.c 	getopt.c getopt1.c jconfig.c lexer.l string.c cache.c jwhois.c
+
 
 CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(datadir)\""
 INCLUDES = -I$(top_srcdir)/include
@@ -83,8 +84,8 @@ DEFS = @DEFS@ -I. -I$(srcdir) -I..
 CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
-jwhois_OBJECTS =  jwhois.o lexer.o jconfig.o string.o getopt.o getopt1.o \
-regex.o gai_strerror.o cache.o
+jwhois_OBJECTS =  dns.o lookup.o init.o utils.o gai_strerror.o regex.o \
+getopt.o getopt1.o jconfig.o lexer.o string.o cache.o jwhois.o
 jwhois_LDADD = $(LDADD)
 jwhois_DEPENDENCIES = 
 jwhois_LDFLAGS = 
@@ -100,9 +101,10 @@ DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
 
 TAR = tar
 GZIP_ENV = --best
-DEP_FILES =  .deps/cache.P .deps/gai_strerror.P .deps/getopt.P \
-.deps/getopt1.P .deps/jconfig.P .deps/jwhois.P .deps/lexer.P \
-.deps/regex.P .deps/string.P
+DEP_FILES =  .deps/cache.P .deps/dns.P .deps/gai_strerror.P \
+.deps/getopt.P .deps/getopt1.P .deps/init.P .deps/jconfig.P \
+.deps/jwhois.P .deps/lexer.P .deps/lookup.P .deps/regex.P \
+.deps/string.P .deps/utils.P
 SOURCES = $(jwhois_SOURCES)
 OBJECTS = $(jwhois_OBJECTS)
 

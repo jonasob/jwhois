@@ -18,7 +18,7 @@ dnl Process this file with autoconf to produce a configure script.
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 AC_INIT(src/jconfig.c)
-AM_INIT_AUTOMAKE(jwhois,2.3pre2)
+AM_INIT_AUTOMAKE(jwhois,2.3pre3)
 AM_CONFIG_HEADER(config.h)
 
 AC_ARG_ENABLE(DEFAULTHOST,
@@ -48,7 +48,7 @@ AC_SUBST(GROUP)
 AC_ARG_WITH(cache,
 [  --with-cache                enable cache manager (see README for more info)],
 [if test x$withval = xyes; then
-  AC_DEFINE(CACHE,1)
+  AC_DEFINE(WITH_CACHE,1)
   cache=yes
  elif test x$withval = xno; then
   cache=no
@@ -90,7 +90,7 @@ if test x$cache = xyes; then
       AC_CHECK_LIB(ndbm, dbm_open, [AC_DEFINE(HAVE_DBM_OPEN)
 	LIBS="-lndbm $LIBS"],[
 	AC_MSG_WARN("You don\'t have any dbm libraries installed.. disabling cache functions")
-	AC_DEFINE(CACHE,0)])))
+	AC_DEFINE(WITH_CACHE,0)])))
   AC_CHECK_HEADERS(gdbm.h ndbm.h dbm.h)
 fi
 

@@ -45,12 +45,12 @@
 # include <sys/fcntl.h>
 #endif
 
-#if defined(CACHE) && defined(HAVE_GDBM_OPEN)
+#if defined(WITH_CACHE) && defined(HAVE_GDBM_OPEN)
 # ifdef HAVE_GDBM_H
 #  include <gdbm.h>
 # endif
 #else
-# if defined(CACHE) && defined(HAVE_DBM_OPEN)
+# if defined(WITH_CACHE) && defined(HAVE_DBM_OPEN)
 #  ifdef HAVE_NDBM_H
 #   include <ndbm.h>
 #  else
@@ -61,12 +61,12 @@
 # endif
 #endif
 
-#include <regex.h>
 #include <jconfig.h>
+#include <jwhois.h>
 
 #define DBM_MODE           S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP
 
-#if defined(CACHE) && defined(HAVE_GDBM_OPEN)
+#if defined(WITH_CACHE) && defined(HAVE_GDBM_OPEN)
 #define dbm_open(a,b,c)    gdbm_open(a, 0, b, c, 0)
 #define DBM_COPTIONS       GDBM_WRCREAT
 #define DBM_WOPTIONS       GDBM_WRITER
@@ -76,7 +76,7 @@
 #define dbm_close(a)       gdbm_close(a)
 #define dbm_fetch(a,b)     gdbm_fetch(a,b)
 #else
-# if defined(CACHE) && defined(HAVE_DBM_OPEN)
+# if defined(WITH_CACHE) && defined(HAVE_DBM_OPEN)
 # define DBM_COPTIONS       O_RDWR|O_CREAT
 # define DBM_WOPTIONS       O_RDWR
 # define DBM_ROPTIONS       O_RDONLY
@@ -84,26 +84,15 @@
 # endif
 #endif
 
-#define DSIZE 2048
-
-#ifndef HAVE_MEMCPY
-# define memcpy(d, s, n) bcopy ((s), (d), (n))
-#endif
-
-extern int cache;
-extern char *cfname;
-extern int cfexpire;
-extern int verbose;
-
 /*
  *  This function initialises the cache database and possibly converts it
- *  to a newer format if such exists.
+ *  to a newer format if such exists. Returns -1 on error. 0 on success.
  */
-void
+int
 cache_init()
 {
   int ret;
-#ifdef CACHE
+#ifdef WITH_CACHE
   datum dbkey = {"#jwhois#cacheversion#1", 22};
   datum dbstore = {"1", 1};
 #ifdef HAVE_GDBM_OPEN
@@ -112,20 +101,44 @@ cache_init()
   DBM *dbf;
 #endif
 
-  if (!cache) return;
+  if (!cache) return 0;
+
+  jconfig_set();
+  j = jconfig_getone("jwhois", "cachefile");
+  if (!j)
+    cfname = CACHEFILE;
+  else
+    cfname = j->value;
+
+  jconfig_set();
+  j = jconfig_getone("jwhois", "cacheexpire");
+  if (!j)
+    ret = CACHEEXPIRE;
+  else
+    ret = j->value;
+#ifdef HAVE_STRTOL
+  cfexpire = strtol(ret, &ret2, 10);
+  if (*ret2 != '\0')
+    {
+      fprintf(stderr, "%s: Invalid cache expire time (%s)\n",
+		      PACKAGE,
+		      ret);
+      exit(1);
+    }
+#else
+  cfexpire = atoi(ret2);
+#endif /* HAVE_STRTOL */
 
   umask(0);
   dbf = dbm_open(cfname, DBM_COPTIONS, DBM_MODE);
   if (!dbf)
     {
-      fprintf(stderr, "[Unable to initialise cache database]\n");
       cache = 0;
-      return;
+      return -1;
     }
   ret = dbm_store(dbf, dbkey, dbstore, DBM_IOPTIONS);
   if (ret < 0)
     {
-      fprintf(stderr, "[Unable to write to cache database]\n");
       cache = 0;
     }
   dbm_close(dbf);
@@ -133,179 +146,68 @@ cache_init()
 }
 
 /*
- *  This reads input from a file descriptor and stores the contents
- *  in the indicated pointer. Returns the number of bytes stored in
- *  memory.
+ *  This stores the passed text in the database with the key `key'.
+ *  Returns 0 on success and -1 on failure.
  */
 int
-cache_fdread(fd, ptr)
-     int fd;
-     char **ptr;
-{
-  unsigned int count, ret;
-  char data[DSIZE], *tptr;
-  time_t *timeptr;
-
-  count = sizeof(time_t);
-  *ptr = malloc(sizeof(time_t));
-  if (!*ptr)
-    {
-      fprintf(stderr, "[Error allocating %d bytes of memory]\n", sizeof(time_t));
-      exit(1);
-    }
-
-  do
-    {
-      ret = read(fd, data, DSIZE);
-      count += ret;
-      *ptr = realloc(*ptr, count+1);
-      if (!*ptr)
-	{
-	  fprintf(stderr, "[Error allocating %d bytes of memory]\n", count);
-	  exit(1);
-	}
-      memcpy(*ptr+count-ret, data, ret);
-    }
-  while (ret != 0);
-
-  timeptr = (time_t *)*ptr;
-  *timeptr = time(NULL);
-  tptr = *ptr + count;
-  *tptr = '\0';
-
-  return count;
-}
-
-/*
- *  This reads input from a file descriptor and stores the contents
- *  using the indicated key in the database pointed to by f and
- *  optionally prints it on stdout if print == 1.
- */
-void
-cache_store(fd, key, host, query, print)
-     int fd;
+cache_store(key, text)
      char *key;
-     char *host;
-     int print;
+     char *text;
 {
-  char *ptr, *strptr, *bptr, *error;
-  struct re_pattern_buffer rpb;
-  struct jconfig *j;
-  struct re_registers regs;
-  char *newhost;
-  int ind;
-#ifdef CACHE
+#ifdef WITH_CACHE
   datum dbkey;
   datum dbstore;
   int count, ret;
-  char data[DSIZE];
+  char data[MAXBUFSIZE];
 #ifdef HAVE_GDBM_OPEN
   GDBM_FILE dbf;
 #else
   DBM *dbf;
 #endif
-
-  dbkey.dptr = key;
-  dbkey.dsize = strlen(key);
-  dbstore.dptr = NULL;
-  dbstore.dsize = cache_fdread(fd, &dbstore.dptr);
+  time_t *timeptr;
+  char *ptr, *tptr;
 
   if (cache)
     {
+      dbkey.dptr = key;
+      dbkey.dsize = strlen(key);
+
+      ptr = malloc(strlen(text)+sizeof(time_t)+1);
+      if (!ptr)
+	return -1;
+      memcpy(ptr+sizeof(time_t), text, strlen(text)+1);
+      
+      timeptr = (time_t *)*ptr;
+      *timeptr = time(NULL);
+      
+      dbstore.dptr = ptr;
+      dbstore.dsize = strlen(text)+sizeof(time_t)+1;
+      
       dbf = dbm_open(cfname, DBM_WOPTIONS, DBM_MODE);
       if (!dbf)
-	{
-	  fprintf(stderr, "[Unable to write to cache database]\n");
-	}
+	return -1;
       else
 	{
 	  ret = dbm_store(dbf, dbkey, dbstore, DBM_IOPTIONS);
 	  if (ret < 0)
-	    {
-	      fprintf(stderr, "[Unable to write to cache database]\n");
-	    }
+	    return -1;
 	  dbm_close(dbf);
 	}
     }
-  ptr = dbstore.dptr + sizeof(time_t);
-#else
-  cache_fdread(fd, &ptr);
-  ptr += sizeof(time_t);
-#endif /* CACHE */
-
-  bptr = malloc(strlen(ptr)+1);
-  if (!bptr)
-    {
-      fprintf(stderr, "[Can not allocate %d bytes of memory]\n",
-	      strlen(ptr)+1);
-      exit(1);
-    }
-  memcpy(bptr, ptr, strlen(ptr)+1);
-
-  strptr = (char *)strtok(bptr, "\n");
-  while (strptr)
-    {
-      jconfig_set();
-      while (j = jconfig_next("jwhois.content-redirect"))
-	{
-	  if (strcasecmp(j->key, host) == 0)
-	    {
-	      rpb.allocated = 0;
-	      rpb.buffer = (unsigned char *)NULL;
-	      rpb.translate = rpb.fastmap = (char *)NULL;
-	      if (error = (char *)re_compile_pattern(j->value, strlen(j->value), &rpb))
-		{
-		  perror(error);
-		  exit(1);
-		}
-	      ind = re_search(&rpb, strptr, strlen(strptr), 0, 0, &regs);
-	      if (ind == 0)
-		{
-		  newhost = malloc(regs.end[1]-regs.start[1]+2);
-		  if (!newhost)
-		    {
-		      fprintf(stderr, "[Can not allocate %d bytes of memory]\n",
-			      regs.end[1]-regs.start[1]+2);
-		      exit(1);
-		    }
-		  strncpy(newhost, strptr+regs.start[1], regs.end[1]-regs.start[1]);
-		  newhost[regs.end[1]-regs.start[1]]='\0';
-		  if (print)
-		    {
-		      fprintf(stdout, "[%s: Redirecting to %s]\n", host, newhost);
-		    }
-		  query_host(key, newhost, 0);
-		  return;
-		}
-	      else if (ind == -2)
-		{
-		  fprintf(stderr, "[re_search internal error]\n");
-		  exit(1);
-		}
-	    }
-	}
-      strptr = (char *)strtok(NULL, "\n");
-    }
-
-  if (print)
-    {
-      fprintf(stdout, "[%s]\n", host);
-      fprintf(stdout, "%s", ptr);
-    }
+#endif
 }
 
 /*
- *  Given a key, this function prints the string containing
- *  the text from the entry. Returns 0 if the key wasn't found or is
- *  outdated. cfexpire is the number of hours we consider an entry to be
- *  current.
+ *  Given a key, this function retrieves the text from the database
+ *  and checks the expire time on it. If it is still valid data, it
+ *  returns the number of bytes in text, else 0 or -1 on error.
  */
 int
-cache_fetch(key, print)
+cache_read(key, text)
      char *key;
-     int print;
+     char **text;
 {
-#ifdef CACHE
+#ifdef WITH_CACHE
   datum dbkey;
   datum dbstore;
 #ifdef HAVE_GDBM_OPEN
@@ -319,33 +221,27 @@ cache_fetch(key, print)
   if (!cache)
     return 0;
 
-#ifdef CACHE
+#ifdef WITH_CACHE
   dbkey.dptr = key;
   dbkey.dsize = strlen(key);
 
   dbf = dbm_open(cfname, DBM_ROPTIONS, DBM_MODE);
   if (!dbf)
-    {
-      fprintf(stderr, "[Unable to read cache database]\n");
-    }
-  else
-    {
-      dbstore = dbm_fetch(dbf, dbkey);
-      timeptr = (time_t *)dbstore.dptr;
-      if ( (dbstore.dptr == NULL)
-	   || ( ((time(NULL)-*timeptr)/(60*60)) > cfexpire) ) {
-	dbm_close(dbf);
-	return 0;
-      }
-      dbm_close(dbf);
-    }
-
-  if (print) {
-    fprintf(stdout, "[Cached]\n");
-    fprintf(stdout, "%s", dbstore.dptr + sizeof(time_t));
+    return -1;
+  dbstore = dbm_fetch(dbf, dbkey);
+  timeptr = (time_t *)dbstore.dptr;
+  if ( (dbstore.dptr == NULL)
+       || ( ((time(NULL)-*timeptr)/(60*60)) > cfexpire) ) {
+    dbm_close(dbf);
+    return 0;
   }
-  return 1;
+  *text = malloc(dbstore.dsize);
+  if (!*text)
+    return -1;
+  memcpy(*text, dbstore.dptr+sizeof(time_t), dbstore.dsize-sizeof(time_t));
+  dbm_close(dbf);
+  return (dbstore.dsize-sizeof(time_t));
 #else
   return 0;
-#endif /* CACHE */
+#endif /* WITH_CACHE */
 }

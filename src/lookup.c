@@ -1,0 +1,329 @@
+/*
+    This file is part of jwhois
+    Copyright (C) 1999  Jonas Öberg
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+#ifdef STDC_HEADERS
+# include <stdio.h>
+# include <stdlib.h>
+#endif
+
+#include <regex.h>
+#include <jwhois.h>
+#include <jconfig.h>
+
+/*
+ *  Looks up an IP address `val' against `block' and returns a pointer
+ *  if an entry is found, otherwise NULL.
+ */
+char *
+find_cidr(val, block)
+     char *val;
+     char *block;
+{
+  struct in_addr ip;
+  struct in_addr ipmask;
+  struct jconfig *j;
+  unsigned int bits, res, a0, a1, a2, a3, ret;
+  char *host = NULL;
+
+  res = sscanf(val, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
+  if (res != 4)
+    {
+      fprintf(stderr, "Invalid IP-number (%s)", val);
+      exit(1);
+    }
+  ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+
+  jconfig_set();
+  while (j = jconfig_next(block))
+    {
+      if (strcasecmp(j->key, "type") != 0) {
+	if (!strcasecmp(j->key, "default"))
+	  {
+	    ipmask.s_addr = 0;
+	  }
+	else
+	  {
+	    res = sscanf(j->key, "%d.%d.%d.%d/%d", &a0, &a1, &a2, &a3,
+			 &bits);
+	    if (res != 5)
+	      {
+		fprintf(stderr, "Invalid netmask (%s) near line %d in"
+			" configuration file",
+			j->key, j->line);
+		exit(1);
+	      }
+	    ipmask.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
+	    ipmask.s_addr &= (0xffffffff>>bits);
+	  }
+	if ((ip.s_addr & ipmask.s_addr) == ipmask.s_addr)
+	  {
+	    host = j->value;
+	  }
+      }
+    }
+  jconfig_end();
+
+  return host;
+}
+
+/*
+ *  Looks up a string `val' against `block'. Returns a pointer to
+ *  a hostname if found, or else NULL.
+ */
+char *
+find_regex(val, block)
+     char *val;
+     char *block;
+{
+  struct jconfig *j;
+  struct re_pattern_buffer      rpb;
+  char *error, *ret, *host = NULL;
+  int ind;
+
+  jconfig_set();
+  while (j = jconfig_next(block))
+    {
+      if (strcasecmp(j->key, "type") != 0) {
+	rpb.allocated = 0;
+	rpb.buffer = (unsigned char *)NULL;
+	rpb.translate = rpb.fastmap = (char *)NULL;
+	if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
+	  {
+	    perror(error);
+	    exit(1);
+	  }
+	ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
+	if (ind == 0)
+	  {
+	    host = j->value;
+	  }
+	else if (ind == -2)
+	  {
+	    fprintf(stderr, "re_search internal error\n");
+	    exit(1);
+	  }
+      }
+    }
+  jconfig_end();
+
+  return host;
+}
+
+/*
+ *  Looks up a string `val' against `block'. Returns in list a pointer to
+ *  a list of entries or NULL if none found. Should return all
+ *  matches. Maximum of 128 matches.
+ *  Returns: -1  Memory allocation error
+ *           -2  Internal regex error
+ *           Any other  Success (number of entries found)
+ */
+int
+find_regex_all(val, block)
+     char *val;
+     char *block;
+     char **list;
+{
+  struct jconfig *j;
+  struct re_pattern_buffer      rpb;
+  char *error, *ret, *host = NULL;
+  int ind, num;
+
+  list = malloc(128);
+  if (!list)
+    return -1;
+  for (num = 0; num <= 127; num++)
+    *list[num] = NULL;
+  num = 0;
+
+  jconfig_set();
+  while (j = jconfig_next(block))
+    {
+      if (strcasecmp(j->key, "type") != 0) {
+	rpb.allocated = 0;
+	rpb.buffer = (unsigned char *)NULL;
+	rpb.translate = rpb.fastmap = (char *)NULL;
+	if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
+	  {
+	    perror(error);
+	    exit(1);
+	  }
+	ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
+	if (ind == 0)
+	  {
+	    *list[num++] = j->value;
+	  }
+	else if (ind == -2)
+	  {
+	    return -2;
+	  }
+      }
+    }
+  jconfig_end();
+
+  return num - 1;
+}
+
+/*
+ *  Looks up a host and port number from the material supplied in `val'
+ *  using `block' as starting point.  If `block' is NULL, use
+ *  "jwhois.whois-servers" as base.
+ *  
+ *  Returns: -1   Error
+ *           0    Success.
+ */
+int
+lookup_host(val, block, host, port)
+     char *val;
+     char *block;
+     char **host;
+     int *port;
+{
+  char deepfreeze[512];
+  char *tmpdeep, *tmphost;
+  struct jconfig *j;
+  char *ret;
+
+  if (!val) return -1;
+  if (!block)
+    strcpy(deepfreeze, "jwhois.whois-servers");
+  else
+    sprintf(deepfreeze, "jwhois.%500s", block);
+
+  jconfig_set();
+  j = jconfig_getone(deepfreeze, "type");
+  if (!j)
+    *host = find_regex(val, deepfreeze);
+  else
+    if (strncasecmp(j->value, "regex", 5) == 0)
+      *host = find_regex(val, deepfreeze);
+    else
+      *host = find_cidr(val, deepfreeze);
+
+  if (!*host) host = DEFAULTHOST;
+
+  if (strncasecmp(*host, "struct", 6) == 0) {
+    tmpdeep = *host+7;
+    return lookup_host(val, tmpdeep, host, port);
+  }
+
+  *port = 0;
+  if (strchr(*host, ' '))
+    {
+      tmphost = (char *)strchr(*host, ' ');
+#ifdef HAVE_STRTOL
+      *port = strtol((char *)(tmphost+1), &ret, 10);
+      if (*ret != '\0')
+	{
+	  return -1;
+	}
+#else
+      *port = atoi((char *)(tmphost+1));
+#endif
+      *tmphost = '\0';
+    }
+  return 0;
+}
+
+/*
+ *  This looks through `block' looking for matching hostnames and
+ *  then performs a regexp search on the contents of `text'. If found,
+ *  returns 1 and sets `host' and `port' accordingly. If `port' is not
+ *  found in the match context, sets `port' to 0.
+ *  If `block' is NULL, use "jwhois.content-redirect" as base.
+ *
+ *  Returns: -1   Error
+ *           0    None found
+ *           1    Match found
+ */
+int
+lookup_redirect(search_host, block, host, port)
+     char *search_host;
+     char *block;
+     char *text;
+     char **host;
+     int *port;
+{
+  int num, i, error, ind;
+  char **matches, *bptr = NULL, *strptr, *ascport, *ret;
+  struct re_pattern_buffer rpb;
+  struct re_registers regs;
+
+  bptr = malloc(strlen(text)+1);
+  if (!bptr)
+    return -1;
+
+  if (!block)
+    num = find_regex_all(search_host, "jwhois.content-redirect", matches);
+  else
+    num = find_regex_all(search_host, block, matches);
+
+  for (i = 0; i < num; i++)
+    {
+      memcpy(bptr, text, strlen(text)+1);
+
+      strptr = (char *)strtok(bptr, "\n");
+      while (strptr)
+	{
+	  rpb.allocated = 0;
+	  rpb.buffer = (unsigned char *)NULL;
+	  rpb.translate = rpb.fastmap = (char *)NULL;
+	  if (error = (char *)re_compile_pattern(*matches[i],
+						 strlen(*matches[i]), &rpb))
+	    return -1;
+	  ind = re_search(&rpb, strptr, strlen(strptr), 0, 0, &regs);
+	  if (ind == 0)
+	    {
+	      *host = malloc(regs.end[1]-regs.start[1]+2);
+	      if (!*host)
+		return -1;
+
+	      strncpy(*host, strptr+regs.start[1],
+		      regs.end[1]-regs.start[1]);
+	      *host[regs.end[1]-regs.start[1]]='\0';
+
+	      if (regs.num_regs == 2)
+		{
+		  ascport = malloc(regs.end[2]-regs.start[2]+2);
+		  if (!ascport)
+		    return -1;
+		  strncpy(ascport, strptr+regs.start[2],
+			  regs.end[2]-regs.start[2]);
+		  ascport[regs.end[2]-regs.start[2]]='\0';
+
+#ifdef HAVE_STRTOL
+		  *port = strtol(ascport, &ret, 10);
+		  if (*ret != '\0')
+		    {
+		      return -1;
+		    }
+#else
+		  *port = atoi(ascport);
+#endif
+		} /* regs.num_regs == 2 */
+	      return 1;
+	    }
+	  else if (ind == -2)
+	    return -1;
+	  strptr = (char *)strtok(NULL, "\n");
+	}
+    }
+  return 0;
+}
