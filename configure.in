@@ -18,7 +18,7 @@ dnl Process this file with autoconf to produce a configure script.
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 AC_INIT(src/jconfig.c)
-AM_INIT_AUTOMAKE(jwhois,2.3pre5)
+AM_INIT_AUTOMAKE(jwhois,2.3pre6)
 AM_CONFIG_HEADER(config.h)
 
 AC_ARG_ENABLE(DEFAULTHOST,
@@ -52,12 +52,11 @@ AC_SUBST(cache)
 
 AC_ARG_WITH(localedir,
 [  --with-localedir=DIR        locale info in DIR [PREFIX/share/locale]]
-,localedir=$withval,localedir=${prefix}/share/locale)
+,localedir=$withval,localedir='${prefix}/share/locale')
 AC_SUBST(localedir)
 
 AC_PROG_INSTALL
 AC_PROG_CC
-AM_PROG_LEX
 AM_GNU_GETTEXT
 AC_PATH_PROG(CHGRP, chgrp, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
 AC_PATH_PROG(CHMOD, chmod, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)

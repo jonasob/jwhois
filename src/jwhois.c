@@ -41,6 +41,15 @@
 #include <jwhois.h>
 #include <regex.h>
 
+#ifdef ENABLE_NLS
+# ifdef HAVE_LIBINTL_H
+#  include <libintl.h>
+# endif
+# define _(s)  gettext(s)
+#else
+# define _(s)  (s)
+#endif
+
 /*
  *  This function creates a connection to the indicated host/port and
  *  returns a file descriptor or -1 if error.
@@ -88,7 +97,7 @@ make_connect(host, port)
       sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
       if (sockfd == -1)
 	{
-	  printf(_("[Error creating socket]\n"));
+	  printf("[%s]\n", _("error creating socket"));
 	  return -1;
 	}
       error = connect(sockfd, res->ai_addr, res->ai_addrlen);
@@ -125,7 +134,7 @@ int main(argc, argv)
 	qstring = realloc(qstring, count+1);
       if (!qstring)
         {
-          printf(_("[Error allocating memory]\n"));
+          printf("[%s]\n", _("error allocating memory"));
           exit(1);
         }
       memcpy(qstring+count-strlen(argv[optind])-1,
@@ -151,7 +160,7 @@ int main(argc, argv)
       ret = lookup_host(qstring, NULL, &host, &port);
       if (ret < 0)
 	{
-	  printf("[%s]\n", _("Fatal error searching for host to query"));
+	  printf("[%s]\n", _("fatal error searching for host to query"));
 	  exit(1);
 	}
     }
@@ -162,12 +171,12 @@ int main(argc, argv)
     ret = cache_read(qstring, &text);
     if (ret < 0)
       {
-	printf("[%s]\n", _("Fatal error reading cache"));
+	printf("[%s]\n", _("fatal error reading cache"));
 	exit(1);
       }
     else if (ret > 0)
       {
-	printf("[%s]\n%s", _("Cached"), text);
+	printf("[%s]\n%s", _("cached"), text);
 	exit(0);
       }
   }
@@ -186,7 +195,7 @@ int main(argc, argv)
       ret = fdread(sockfd, &text);
       if (ret < 0)
 	{
-	  printf(_("[Error reading data from %s:%d]\n"), host, port);
+	  printf("[%s %s:%d]\n", _("error reading data from"), host, port);
 	  exit(1);
 	}
       ret = lookup_redirect(host, NULL, text, &host, &port);
@@ -199,7 +208,7 @@ int main(argc, argv)
     ret = cache_store(qstring, text);
     if (ret < 0)
       {
-	printf("[%s]\n", _("Fatal error writing to cache"));
+	printf("[%s]\n", _("fatal error writing to cache"));
 	exit(1);
       }
   }

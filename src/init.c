@@ -41,8 +41,10 @@ static struct option long_options[] =
   {0, 0, 0, 0}
 };
 
-#ifdef HAVE_LIBINTL_H
-# include <libintl.h>
+#ifdef ENABLE_NLS
+# ifdef HAVE_LIBINTL_H
+#  include <libintl.h>
+# endif
 # define _(s)  gettext(s)
 #else
 # define _(s)  (s)
@@ -60,25 +62,23 @@ int cfexpire;
 
 void help(void)
 {
+  printf("%s%s%s, %s\n", PACKAGE, _("version"), VERSION,
+	 _("Copyright (C) 1999 Jonas Öberg"));
+  printf(_("This is free software with ABSOLUTELY NO WARRANTY.\n\n\
+Usage: jwhois [OPTIONS] [QUERIES...]\n"));
+
+  printf(_("  --version               display version number and patch level\n\
+  --help                  display this help\n\
+  -c FILE, --config=FILE  use FILE as configuration file\n\
+  -h HOST, --host=HOST    explicitly query HOST\n\
+  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n\
+  -v, --verbose           verbose debug output\n"));
+
 #ifndef NOCACHE
-  printf("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
-#else
-  printf("%s%s%s%s%s%s%s%s%s%s%s%s%s", PACKAGE, " version ", VERSION,
+  printf(_("  -f, --force-lookup      force lookup even if the entry is cached\n\
+  -d, --disable-cache     disable cache functions\n"));
 #endif
-	 _(", Copyright (C) 1999 Jonas Öberg\n"),
-	 _("This is free software with ABSOLUTELY NO WARRANTY.\n\n"),
-	 _("Usage: jwhois [OPTIONS] [QUERIES...]\n"),
-	 _("  --version               display version number and patch level\n"),
-	 _("  --help                  display this help\n"),
-	 _("  -c FILE, --config=FILE  use FILE as configuration file\n"),
-	 _("  -h HOST, --host=HOST    explicitly query HOST\n"),
-	 _("  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"),
-#ifndef NOCACHE
-	 _("  -f, --force-lookup      force lookup even if the entry is cached\n"),
-	 _("  -d, --disable-cache     disable cache functions\n"),
-#endif
-	 _("  -v, --verbose           verbose debugging output\n"),
-	 _("\n\nReport bugs to jonas@coyote.org\n"));
+  printf("\n\n%s\n", _("Report bugs to jonas@coyote.org"));
 }
 
 int
@@ -136,7 +136,7 @@ parse_args(argc, argv)
 	  if (*ret != '\0')
 	    {
 	      printf("[%s (%s)]\n",
-		      _("Invalid port number"),
+		      _("invalid port number"),
 		      optarg);
 	      break;
 	    }
@@ -162,7 +162,6 @@ parse_args(argc, argv)
 		  config, _("unable to open"));
 	  exit(1);
 	}
-      cfname = config;
     }
   else
     {
@@ -171,7 +170,7 @@ parse_args(argc, argv)
 	printf("[%s: %s]\n",
 	       SYSCONFDIR "/jwhois.conf", _("unable to open"));
       else
-	cfname = SYSCONFDIR "/jwhois.conf";
+	config = SYSCONFDIR "/jwhois.conf";
     }
   if (in)
     jconfig_parse_file(in);

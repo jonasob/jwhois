@@ -30,6 +30,15 @@
 # include <netdb.h>
 #endif
 
+#ifdef ENABLE_NLS
+# ifdef HAVE_LIBINTL_H
+#  include <libintl.h>
+# endif
+# define _(s)  gettext(s)
+#else
+# define _(s)  (s)
+#endif
+
 #ifndef HAVE_GAI_STRERROR
 
 /* Error values for `getaddrinfo' function.  */

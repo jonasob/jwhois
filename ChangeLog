@@ -1,3 +1,11 @@
+Sat Nov 27 14:39:11 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* Went through and added i18n support
+
+	* src/jconfig.c (jconfig_parse_file): Added (replaces lexer.l)
+
+	* src/init.c (parse_args): Removed datadir search of jwhois.conf
+
 Thu Nov 25 13:33:47 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* src/jwhois.c (main): Fixed bug when creating qstring

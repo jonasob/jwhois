@@ -39,6 +39,15 @@
 
 #include <jwhois.h>
 
+#ifdef ENABLE_NLS
+# ifdef HAVE_LIBINTL_H
+#  include <libintl.h>
+# endif
+# define _(s)  gettext(s)
+#else
+# define _(s)  (s)
+#endif
+
 #ifndef HAVE_GETADDRINFO
 /*
  *  This function looks up a hostname or IP number and enters the information
@@ -79,7 +88,7 @@ lookup_host_saddr(res, host, port)
       hostent = gethostbyname(host);
       if (!hostent)
 	{
-	  printf("[%s: %s]\n", host, _("Host not found"));
+	  printf("[%s: %s]\n", host, _("host not found"));
 	  return -1;
 	}
       memcpy(&res->sin_addr.s_addr, hostent->h_addr_list[0],

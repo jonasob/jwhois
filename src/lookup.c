@@ -41,6 +41,15 @@
 #include <jwhois.h>
 #include <jconfig.h>
 
+#ifdef ENABLE_NLS
+# ifdef HAVE_LIBINTL_H
+#  include <libintl.h>
+# endif
+# define _(s)  gettext(s)
+#else
+# define _(s)  (s)
+#endif
+
 /*
  *  Looks up an IP address `val' against `block' and returns a pointer
  *  if an entry is found, otherwise NULL.
@@ -79,7 +88,10 @@ find_cidr(val, block)
 			 &bits);
 	    if (res != 5)
 	      {
-		if (verbose) printf(_("[Invalid netmask (%s) in configuration file]\n"), j->key);
+		if (verbose) printf("[%s: %s %d]",
+				    config,
+				    _("invalid netmask on line"),
+				    j->line);
 		return NULL;
 	      }
 	    ipmask.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
@@ -332,7 +344,7 @@ lookup_redirect(search_host, block, text, host, port)
 		  *port = atoi(ascport);
 #endif
 		} /* regs.num_regs == 2 */
-	      printf(_("[Redirected to %s:%d]\n"), *host, *port);
+	      printf("[%s %s:%d]\n", _("redirected to"), *host, *port);
 	      return 1;
 	    }
 	  else if (ind == -2)

@@ -27,8 +27,10 @@
 #include <jconfig.h>
 #include <jwhois.h>
 
-#ifdef HAVE_LIBINTL_H
-# include <libintl.h>
+#ifdef ENABLE_NLS
+# ifdef HAVE_LIBINTL_H
+#  include <libintl.h>
+# endif
 # define _(s)  gettext(s)
 #else
 # define _(s)  (s)
@@ -235,7 +237,7 @@ jconfig_get_quoted(in, line)
     {
       if (len >= (MAXBUFSIZE-1))
 	{
-	  printf("[%s: %s %d]\n", cfname, _("string out of bounds on line"),
+	  printf("[%s: %s %d]\n", config, _("string out of bounds on line"),
 		 line);
 	  exit(1);
 	}
@@ -261,7 +263,7 @@ jconfig_get_quoted(in, line)
 	  s1[len++] = ch;
 	}
     }
-  printf("[%s: %s %d]\n", cfname, _("end of file looking for '\"' on line"),
+  printf("[%s: %s %d]\n", config, _("end of file looking for '\"' on line"),
 	 line);
   exit(1);
 }
@@ -289,7 +291,7 @@ jconfig_get_unquoted(in, line)
     {
       if (len >= (MAXBUFSIZE-1))
 	{
-	  printf("[%s: %s %d]\n", cfname, _("string out of bounds on line"),
+	  printf("[%s: %s %d]\n", config, _("string out of bounds on line"),
 		 line);
 	  exit(1);
 	}
@@ -318,7 +320,7 @@ jconfig_get_unquoted(in, line)
 	  s1[len++] = ch;
 	}
     }
-  printf("[%s: %s %d]\n", cfname, _("unexpected end of file on line"),
+  printf("[%s: %s %d]\n", config, _("unexpected end of file on line"),
 	 line);
   exit(1);
 }
@@ -376,7 +378,7 @@ jconfig_parse_file(in)
 	  case '=':
 	    if (key)
 	      {
-		printf("[%s: %s %d]\n", cfname,
+		printf("[%s: %s %d]\n", config,
 		       _("multiple keys on line"),
 		       line);
 		free(key);
@@ -386,7 +388,7 @@ jconfig_parse_file(in)
 	  case ';':
 	    if (!key)
 	      {
-		printf("[%s: %s %d]\n", cfname,
+		printf("[%s: %s %d]\n", config,
 		       _("missing key on line"), line);
 		exit(1);
 	      }

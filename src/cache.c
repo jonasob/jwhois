@@ -68,17 +68,26 @@
 #include <jconfig.h>
 #include <jwhois.h>
 
+#ifdef ENABLE_NLS
+# ifdef HAVE_LIBINTL_H
+#  include <libintl.h>
+# endif
+# define _(s)  gettext(s)
+#else
+# define _(s)  (s)
+#endif
+
 #define DBM_MODE           S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP
 
 #if !defined(NOCACHE) && defined(HAVE_GDBM_OPEN)
-#define dbm_open(a,b,c)    gdbm_open(a, 0, b, c, 0)
-#define DBM_COPTIONS       GDBM_WRCREAT
-#define DBM_WOPTIONS       GDBM_WRITER
-#define DBM_ROPTIONS       GDBM_READER
-#define DBM_IOPTIONS       GDBM_REPLACE
-#define dbm_store(a,b,c,d) gdbm_store(a,b,c,d)
-#define dbm_close(a)       gdbm_close(a)
-#define dbm_fetch(a,b)     gdbm_fetch(a,b)
+# define dbm_open(a,b,c)    gdbm_open(a, 0, b, c, 0)
+# define DBM_COPTIONS       GDBM_WRCREAT
+# define DBM_WOPTIONS       GDBM_WRITER
+# define DBM_ROPTIONS       GDBM_READER
+# define DBM_IOPTIONS       GDBM_REPLACE
+# define dbm_store(a,b,c,d) gdbm_store(a,b,c,d)
+# define dbm_close(a)       gdbm_close(a)
+# define dbm_fetch(a,b)     gdbm_fetch(a,b)
 #else
 # if !defined(NOCACHE) && defined(HAVE_DBM_OPEN)
 # define DBM_COPTIONS       O_RDWR|O_CREAT
@@ -130,8 +139,8 @@ cache_init()
     {
       if (verbose)
 	{
-	  printf("[%s (%s) -- %s]\n", _("Invalid expire time"),
-		 ret, _("Using defaults"));
+	  printf("[%s (%s) -- %s]\n", _("invalid expire time"),
+		 ret, _("using defaults"));
 	  cfexpire = 168;
 	}
     }
@@ -145,8 +154,8 @@ cache_init()
   dbf = dbm_open(cfname, DBM_COPTIONS, DBM_MODE);
   if (!dbf)
     {
-      if (verbose) printf("[Debug: %s %s -- %s\n", _("Can't open"),
-			  cfname, _("Disabling cache"));
+      if (verbose) printf("[Debug: %s %s -- %s\n", _("unable to open"),
+			  cfname, _("disabling cache"));
       cache = 0;
       return -1;
     }
@@ -154,8 +163,8 @@ cache_init()
   if (iret < 0)
     {
       if (verbose) printf("[Debug: %s -- %s]\n",
-			  _("Unable to store data in database"),
-			  _("Disabling cache"));
+			  _("unable to store data in database"),
+			  _("disabling cache"));
       cache = 0;
     }
   dbm_close(dbf);
