@@ -83,7 +83,7 @@ according to RFC 954 - NICNAME/WHOIS. @sc{jwhois} can be configured to
 decide via regular expressions which servers to query for information, based
 on the information that the user wishes to retrieve.
 
-@node Invocation, Site Configuration, Introduction, Top
+@node Invocation, RIPE Extensions, Introduction, Top
 @chapter Invocation
 
 @sc{jwhois} uses the following command-line options:
@@ -132,7 +132,7 @@ $ jwhois -h whois.ripe.net -- "-i admin-c,tech-c,zone-c CO19-RIPE"
 
 @samp{--} is used to separate the RIPE options from the jwhois options.
 
-@node Site Configuration, Reporting bugs, Invocation, Top
+@node Site Configuration, Reporting bugs, RIPE Extensions, Top
 @chapter Site Configuration
 
 @sc{jwhois} is configurable via its @file{jwhois.conf} file. This file
