@@ -9,7 +9,7 @@ jwhois (3.0.0-1) unstable; urgency=low
    - Support for querying via http (requires Lynx) and rwhois.
    - Support for whois-servers.net.
    - for more info, see upstream NEWS file.
-  * Upped Standards-Version to 3.5.4.
+  * Upped to policy 3.5.6.
 
  -- peter karlsson <peterk@debian.org>  UNRELEASED
 
