@@ -32,6 +32,7 @@
 #include <whois.h>
 #include <http.h>
 #include <utils.h>
+#include <lookup.h>
 
 #ifdef ENABLE_NLS
 # include <libintl.h>
@@ -52,6 +53,7 @@ int http_query(struct s_whois_query *wq, char **text)
     const char *action = get_whois_server_option(wq->host, "http-action");
     const char *element= get_whois_server_option(wq->host, "form-element");
     const char *extra  = get_whois_server_option(wq->host, "form-extra");
+    const char *format = get_whois_server_option(wq->host, "query-format");
     char **command;
     char *url;
     char *browser;
@@ -62,12 +64,12 @@ int http_query(struct s_whois_query *wq, char **text)
     struct jconfig *j;
 
     /* Check host configuration */
-    if (!method || !action || !element)
+    if (!method || !action || !(element || format))
     {
         printf("[HTTP: %s: %s]\n", wq->host, _("HTTP configuration is incomplete:"));
-        if (!method) printf("[HTTP: %s: %s]\n", _("Option is missing:"), "http-method");
-        if (!action) printf("[HTTP: %s: %s]\n", _("Option is missing:"), "http-action");
-        if (!element) printf("[HTTP: %s: %s]\n", _("Option is missing:"), "form-element");
+        if (!method) printf("[HTTP: %s %s]\n", _("Option is missing:"), "http-method");
+        if (!action) printf("[HTTP: %s %s]\n", _("Option is missing:"), "http-action");
+        if (!element && !format) printf("[HTTP: %s %s]\n", _("Option is missing:"), "form-element");
         return -1;
     }
 
@@ -111,14 +113,29 @@ int http_query(struct s_whois_query *wq, char **text)
         command[1] = command[0];
         command[2] = browser_arg;
 
-        command[3] = (char *) malloc(strlen("http://") + strlen(wq->host) +
-                                     strlen(action) + 1 + strlen(element) + 1 +
-                                     strlen(wq->query) +
-                                     (extra ? strlen(extra) + 1 : 0) + 1);
-        if (!command[3]) return -1;
-        sprintf(command[3], "http://%s%s?%s=%s%s%s",
-                wq->host, action, element, wq->query,
-                extra ? "&" : "", extra ? extra : "");
+        if (format)
+        {
+            /* Query already formatted */
+            command[3] = (char *) malloc(strlen("http://") + strlen(wq->host) +
+                                         strlen(action) + 1 +
+                                         strlen(wq->query) + 1);
+            if (!command[3]) return -1;
+            sprintf(command[3], "http://%s%s?%s",
+                    wq->host, action, wq->query);
+        }
+        else
+        {
+            /* Format query using supplied data */
+            command[3] = (char *) malloc(strlen("http://") + strlen(wq->host) +
+                                         strlen(action) + 1 +
+                                         strlen(element) + 1 +
+                                         strlen(wq->query) +
+                                         (extra ? strlen(extra) + 1 : 0) + 1);
+            if (!command[3]) return -1;
+            sprintf(command[3], "http://%s%s?%s=%s%s%s",
+                    wq->host, action, element, wq->query,
+                    extra ? "&" : "", extra ? extra : "");
+        }
         command[4] = NULL;
 
         url = command[3];
@@ -153,7 +170,7 @@ int http_query(struct s_whois_query *wq, char **text)
         url = command[4];
     }
 
-    if (verbose>1)
+    if (verbose > 1)
     {
         int i;
 
@@ -212,9 +229,19 @@ int http_query(struct s_whois_query *wq, char **text)
         if (!isget)
         {
             /* Send POST data */
-            sprintf(data, "%s=%s%s%s\n---\n",
-                    element, wq->query,
-                    extra ? "&" : "", extra ? extra : "");
+            if (format)
+            {
+                /* Query already formatted */
+                snprintf(data, MAXBUFSIZE, "%s\n---\n",
+                         wq->query);
+            }
+            else
+            {
+                /* Format query using supplied data */
+                snprintf(data, MAXBUFSIZE, "%s=%s%s%s\n---\n",
+                         element, wq->query,
+                         extra ? "&" : "", extra ? extra : "");
+            }
             write(to_browser[1], data, strlen(data) + 1);
         }
 

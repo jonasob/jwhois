@@ -471,39 +471,223 @@ lookup_whois_servers(const char *val, struct s_whois_query *wq)
     }
 }
 
+/* Utility function for lookup_query_format; inserts a string into
+ * the allocated buffer, growing it if needed.
+ */
+static void
+add_string(char **bufpos, const char *string, size_t stringlen, char **bufstart, size_t *buflen)
+{
+  /* Check if string needs to be enlarged */
+  if ((*bufpos - *bufstart) + stringlen > *buflen)
+    {
+      char *new = realloc(*bufstart, *buflen * 2);
+      if (!new)
+        {
+          printf("[%s]\n", _("Error allocating memory"));
+          exit(1);
+        }
+      *buflen *= 2;
+      *bufpos = new + (*bufpos - *bufstart);
+      *bufstart = new;
+    }
+
+  /* Copy string */
+  strncpy(*bufpos, string, stringlen);
+  *bufpos += stringlen;
+}
+
+/* Utility function for lookup_query_format; selects the parts of the
+ * domain to add into the query string and calls add_string with it.
+ */
+static void
+add_part(char **bufpos, const char *string, size_t begin, size_t end, char **bufstart, size_t *buflen)
+{
+  size_t count = 1;
+  const char *first = string, *last = string, *p;
+
+  /* Find begin of first section to copy */
+  while (count < begin)
+    {
+      first = strchr(first, '.');
+      if (!first)
+        return;
+      count ++;
+      first ++;
+      if (!*first)
+        return;
+      last = first;
+    }
+
+  /* Find begin of last section to copy */
+  while (count < end)
+    {
+      last = strchr(last, '.');
+      if (!last)
+        break;
+      count ++;
+      last ++;
+      if (!*last)
+        break;
+    }
+
+  /* Find end of last section to copy */
+  if (last)
+    {
+      p = strchr(last, '.');
+      if (p)
+        last = p;
+      else
+        last = last + strlen(last);
+    }
+  else
+    last = string + strlen(string);
+
+  /* Copy */
+  add_string(bufpos, first, last - first, bufstart, buflen);
+}
+
 /*
  * This function looks into the query-format configuration and tries
  * to find out if we need any special considerations for the host we're
  * querying. If so, it returns the proper string for the query. If not,
- * it simply returns qstring.
+ * it simply returns a copy of qstring.
  */
 char *
 lookup_query_format(struct s_whois_query *wq)
 {
   char *ret = NULL, *tmpqstring, *tmpptr;
   struct jconfig *j = NULL;
+  size_t buflen, bufused, dots;
 
   if (wq->domain)
     j = jconfig_getone(wq->domain, "query-format");
   if (!j)
     {
-      ret = (char *)get_whois_server_option(wq->host, "query-format");
+      ret = get_whois_server_option(wq->host, "query-format");
       if (!ret)
-	return wq->query;
+	return strdup(wq->query);
     }
   else 
     {
       ret = j->value;
     }
-  tmpqstring = malloc(strlen(wq->query)+strlen(ret)+2);
-  strncpy(tmpqstring, ret, strlen(ret)+1);
 
-  tmpptr = (char *)strstr(tmpqstring, "$*");
-  if (!tmpptr)
-    return wq->query;
+  /* Count number of dots in domain name */
+  dots = 0;
+  tmpptr = wq->query;
+  while (NULL != (tmpptr = strchr(tmpptr, '.')))
+    {
+       dots ++;
+       tmpptr ++;
+    }
 
-  strncpy(tmpptr, wq->query, strlen(wq->query)+1);
-  strncat(tmpptr, strstr(ret, "$*")+2, strlen((char *)strstr(ret, "$*"))-1);
+  /* Allocate a buffer to work in, we grow it when needed */
+  buflen = strlen(ret) + strlen(wq->query) * 5;
+  tmpqstring = malloc(buflen);
+  if (!tmpqstring)
+    {
+      printf("[%s]\n", _("Error allocating memory"));
+      exit(1);
+    }
+  tmpptr = tmpqstring;
+
+  while (*ret)
+    {
+      /* Copy verbatim data */
+      const char *dollar = strchr(ret, '$');
+      size_t chars = dollar ? (dollar - ret) : strlen(ret);
+      if (chars)
+        add_string(&tmpptr, ret, chars, &tmpqstring, &buflen);
+      ret += chars;
+
+      /* Handle parameter */
+      if ('$' == *ret)
+        {
+          ret ++;
+          switch (*ret)
+            {
+              case '*': /* Entire hostname */
+                add_string(&tmpptr, wq->query, strlen(wq->query) - 1, &tmpqstring, &buflen);
+                ret ++;
+                break;
+
+              case '{': /* Field range */
+                {
+                  size_t startfield = 0, endfield = 0;
+                  int right = 0;
+                  char *p;
+                  ret ++;
+
+                  /* Parse start field */
+                  if (isdigit((unsigned char) *ret))
+                    {
+                      startfield = strtol(ret, &p, 10);
+                      if (*p) ret = p;
+                    }
+
+                  /* Check direction to count from */
+                  if ('+' == *ret)
+                    right = 1;
+
+                  /* Check if range */
+                  if ('+' == *ret || '-' == *ret)
+                    ret ++;
+                  else
+                    endfield = startfield;
+
+                  /* Parse end field */
+                  if (isdigit((unsigned char) *ret))
+                    {
+                      endfield = strtol(ret, &p, 10);
+                      if (*p) ret = p;
+                    }
+
+                  /* End parsing */
+                  if ('}' == *ret)
+                    {
+                      ret ++;
+                      /* Calculate field numbers */
+                      if (right)
+                        {
+                          if (startfield)
+                            {
+                              startfield = dots + 2 - startfield;
+                              if (startfield < 0)
+                                startfield = 1;
+                            }
+                          if (endfield)
+                            endfield = dots + 2 - endfield;
+                        }
+
+                      if (startfield && !endfield)
+                        {
+                          endfield = dots + 1;
+                        }
+
+                      if (!startfield && endfield)
+                        {
+                          startfield = 1;
+                        }
+
+                      /* Add fields if we have a valid range */
+                      if ((startfield || endfield) && startfield <= endfield)
+                        {
+                          add_part(&tmpptr, wq->query, startfield, endfield, &tmpqstring, &buflen);
+                        }
+                    }
+                  break;
+                }
+
+              case '$': /* Literal */
+                add_string(&tmpptr, "$", 1, &tmpqstring, &buflen);
+                ret ++;
+                break;
+            }
+        }
+    }
+
+  /* Null-terminate */
+  add_string(&tmpptr, "", 1, &tmpqstring, &buflen);
 
   return tmpqstring;
 }

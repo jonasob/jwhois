@@ -1,5 +1,13 @@
+2002-03-20  peter karlsson <peter@softwolves.pp.se>
+
+	* src/http.c, examples/jwhois.conf: Advanced queries for http.
+	* src/lookup.c: Bugfix for advanced queries.
+
 2002-03-19  peter karlsson <peter@softwolves.pp.se>
 
+	* src/lookup.c: Added code to split domain name for advanced
+	  queries.
+	* src/jwhois.c: Fix a memory leak.
 	* examples/jwhois.conf: Updated .mt data.
 	  (Lee Maguire, Debian bug#138488)
 
@@ -34,7 +42,6 @@
 	* src/rwhois.c: Applied fix for segmentation fault on certain rwhois
 	  servers. (Colin Phipps, Debian bug#132607)
 
->>>>>>> 1.101
 2002-01-13  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Updated .dk definition
