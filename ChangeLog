@@ -1,3 +1,8 @@
+2001-11-03  peter karlsson <peter@softwolves.pp.se>
+
+	* example/jwhois.conf: Updated information for .dk
+	  (Klaus Alexander Seistrup, Debian bug#117872)
+
 2001-11-02  Jonas Oberg  <jonas@gnu.org>
 
 	* configure.in: Fix so that it doesn't check for libintl.h if the
