@@ -2,7 +2,7 @@ Source: jwhois
 Section: net
 Priority: optional
 Maintainer: Peter Karlsson <peterk@debian.org>
-Build-Depends: debhelper, gettext, libgdbmg-dev, texinfo
+Build-Depends: debhelper, gettext, libgdbm-dev, texinfo
 Standards-Version: 3.5.10
 
 Package: jwhois
