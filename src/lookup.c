@@ -24,6 +24,19 @@
 # include <stdlib.h>
 #endif
 
+#ifdef HAVE_SYS_TYPES_H
+# include <sys/types.h>
+#endif
+#ifdef HAVE_SYS_SOCKET_H
+# include <sys/socket.h>
+#endif
+#ifdef HAVE_NETINET_IN_H
+# include <netinet/in.h>
+#endif
+#ifdef HAVE_NETDB_H
+# include <netdb.h>
+#endif
+
 #include <regex.h>
 #include <jwhois.h>
 #include <jconfig.h>
@@ -43,11 +56,12 @@ find_cidr(val, block)
   unsigned int bits, res, a0, a1, a2, a3, ret;
   char *host = NULL;
 
+  if (verbose) printf("[Debug: find_cidr(\"%s\", \"%s\")]\n", val, block);
+
   res = sscanf(val, "%d.%d.%d.%d", &a0, &a1, &a2, &a3);
   if (res != 4)
     {
-      fprintf(stderr, "Invalid IP-number (%s)", val);
-      exit(1);
+      return NULL;
     }
   ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
 
@@ -65,10 +79,8 @@ find_cidr(val, block)
 			 &bits);
 	    if (res != 5)
 	      {
-		fprintf(stderr, "Invalid netmask (%s) near line %d in"
-			" configuration file",
-			j->key, j->line);
-		exit(1);
+		if (verbose) printf("[Invalid netmask (%s) in configureation file]\n", j->key);
+		return NULL;
 	      }
 	    ipmask.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
 	    ipmask.s_addr &= (0xffffffff>>bits);
@@ -98,6 +110,8 @@ find_regex(val, block)
   char *error, *ret, *host = NULL;
   int ind;
 
+  if (verbose) printf("[Debug: find_regex(\"%s\", \"%s\")]\n", val, block);
+
   jconfig_set();
   while (j = jconfig_next(block))
     {
@@ -107,8 +121,7 @@ find_regex(val, block)
 	rpb.translate = rpb.fastmap = (char *)NULL;
 	if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
 	  {
-	    perror(error);
-	    exit(1);
+	    return NULL;
 	  }
 	ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
 	if (ind == 0)
@@ -117,8 +130,7 @@ find_regex(val, block)
 	  }
 	else if (ind == -2)
 	  {
-	    fprintf(stderr, "re_search internal error\n");
-	    exit(1);
+	    return NULL;
 	  }
       }
     }
@@ -128,7 +140,7 @@ find_regex(val, block)
 }
 
 /*
- *  Looks up a string `val' against `block'. Returns in list a pointer to
+ *  Looks up a string `val' against `block'. Returns in matches a pointer to
  *  a list of entries or NULL if none found. Should return all
  *  matches. Maximum of 128 matches.
  *  Returns: -1  Memory allocation error
@@ -136,49 +148,45 @@ find_regex(val, block)
  *           Any other  Success (number of entries found)
  */
 int
-find_regex_all(val, block)
+find_regex_all(val, block, matches)
      char *val;
      char *block;
-     char **list;
+     char **matches;
 {
   struct jconfig *j;
   struct re_pattern_buffer      rpb;
   char *error, *ret, *host = NULL;
   int ind, num;
 
-  list = malloc(128);
-  if (!list)
-    return -1;
+  if (verbose) printf("[Debug: find_regex_all(\"%s\", \"%s\")]\n", val, block);
+  
   for (num = 0; num <= 127; num++)
-    *list[num] = NULL;
+    matches[num] = NULL;
   num = 0;
-
+  
   jconfig_set();
   while (j = jconfig_next(block))
     {
-      if (strcasecmp(j->key, "type") != 0) {
-	rpb.allocated = 0;
-	rpb.buffer = (unsigned char *)NULL;
-	rpb.translate = rpb.fastmap = (char *)NULL;
-	if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
-	  {
-	    perror(error);
-	    exit(1);
-	  }
-	ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
-	if (ind == 0)
-	  {
-	    *list[num++] = j->value;
-	  }
-	else if (ind == -2)
-	  {
-	    return -2;
-	  }
-      }
+      if (verbose) printf("[Debug: j->key = \"%s\"]\n", j->key);
+      rpb.allocated = 0;
+      rpb.buffer = (unsigned char *)NULL;
+      rpb.translate = rpb.fastmap = (char *)NULL;
+      if (re_compile_pattern(j->key, strlen(j->key), &rpb))
+	return -2;
+      ind = re_search(&rpb, val, strlen(val), 0, 0, NULL);
+      if (ind == 0)
+	{
+	  if (verbose) printf("[Debug: Match j->value = \"%s\"]\n", j->value);
+	  matches[num++] = j->value;
+	}
+      else if (ind == -2)
+	{
+	  return -2;
+	}
     }
   jconfig_end();
 
-  return num - 1;
+  return num;
 }
 
 /*
@@ -205,7 +213,7 @@ lookup_host(val, block, host, port)
   if (!block)
     strcpy(deepfreeze, "jwhois.whois-servers");
   else
-    sprintf(deepfreeze, "jwhois.%500s", block);
+    sprintf(deepfreeze, "jwhois.%s", block);
 
   jconfig_set();
   j = jconfig_getone(deepfreeze, "type");
@@ -217,10 +225,11 @@ lookup_host(val, block, host, port)
     else
       *host = find_cidr(val, deepfreeze);
 
-  if (!*host) host = DEFAULTHOST;
+  if (!*host) *host = DEFAULTHOST;
 
   if (strncasecmp(*host, "struct", 6) == 0) {
     tmpdeep = *host+7;
+    if (verbose) printf("[Debug: Looking into struct %s]\n", tmpdeep);
     return lookup_host(val, tmpdeep, host, port);
   }
 
@@ -254,7 +263,7 @@ lookup_host(val, block, host, port)
  *           1    Match found
  */
 int
-lookup_redirect(search_host, block, host, port)
+lookup_redirect(search_host, block, text, host, port)
      char *search_host;
      char *block;
      char *text;
@@ -262,21 +271,27 @@ lookup_redirect(search_host, block, host, port)
      int *port;
 {
   int num, i, error, ind;
-  char **matches, *bptr = NULL, *strptr, *ascport, *ret;
+  char *matches[128], *bptr = NULL, *strptr, *ascport, *ret, *tmphost;
   struct re_pattern_buffer rpb;
   struct re_registers regs;
+
+  if (verbose) printf("[Debug: lookup_redirect(\"%s\", \"%s\", ...)]\n",
+		      search_host, block);
 
   bptr = malloc(strlen(text)+1);
   if (!bptr)
     return -1;
 
   if (!block)
-    num = find_regex_all(search_host, "jwhois.content-redirect", matches);
+    num = find_regex_all(search_host, "jwhois.content-redirect", &matches);
   else
-    num = find_regex_all(search_host, block, matches);
+    num = find_regex_all(search_host, block, &matches);
+  if (verbose) printf("[Debug: find_regex_all() = %d]\n", num);
 
-  for (i = 0; i < num; i++)
+  i = 0;
+  while (i < num)
     {
+      if (verbose) printf("[Debug: lookup_redirect \"%s\"]\n", matches[i]);
       memcpy(bptr, text, strlen(text)+1);
 
       strptr = (char *)strtok(bptr, "\n");
@@ -285,8 +300,7 @@ lookup_redirect(search_host, block, host, port)
 	  rpb.allocated = 0;
 	  rpb.buffer = (unsigned char *)NULL;
 	  rpb.translate = rpb.fastmap = (char *)NULL;
-	  if (error = (char *)re_compile_pattern(*matches[i],
-						 strlen(*matches[i]), &rpb))
+	  if (re_compile_pattern(matches[i], strlen(matches[i]), &rpb))
 	    return -1;
 	  ind = re_search(&rpb, strptr, strlen(strptr), 0, 0, &regs);
 	  if (ind == 0)
@@ -297,9 +311,10 @@ lookup_redirect(search_host, block, host, port)
 
 	      strncpy(*host, strptr+regs.start[1],
 		      regs.end[1]-regs.start[1]);
-	      *host[regs.end[1]-regs.start[1]]='\0';
+	      tmphost = *host + regs.end[1]-regs.start[1];
+	      *tmphost = '\0';
 
-	      if (regs.num_regs == 2)
+	      if (regs.num_regs >= 2)
 		{
 		  ascport = malloc(regs.end[2]-regs.start[2]+2);
 		  if (!ascport)
@@ -318,12 +333,14 @@ lookup_redirect(search_host, block, host, port)
 		  *port = atoi(ascport);
 #endif
 		} /* regs.num_regs == 2 */
+	      printf("[Redirected to %s:%d]\n", *host, *port);
 	      return 1;
 	    }
 	  else if (ind == -2)
 	    return -1;
 	  strptr = (char *)strtok(NULL, "\n");
 	}
+      i++;
     }
   return 0;
 }

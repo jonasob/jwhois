@@ -44,8 +44,8 @@ static struct option long_options[] =
 int cache;
 int forcelookup;
 int verbose;
-char *host;
-int port;
+char *ghost;
+int gport;
 char *config;
 
 char *cfname;
@@ -71,7 +71,7 @@ void help(void)
 	 "  -f, --force-lookup      force lookup even if the entry is cached\n",
 	 "  -d, --disable-cache     disable cache functions\n",
 #endif
-	 "  -v, --verbose           verbose output\n",
+	 "  -v, --verbose           verbose debugging output\n",
 	 "\n\nReport bugs to jonas@coyote.org\n");
 }
 
@@ -82,17 +82,18 @@ parse_args(argc, argv)
 {
   int optch, option_index;
   char *ret, *ret2;
+  FILE *in;
   
   cache = 1;
   forcelookup = 0;
   verbose = 0;
-  host = NULL;
-  port = 0;
-  config = NULL
+  ghost = NULL;
+  gport = 0;
+  config = NULL;
 
   while (1)
     {
-      optch = getopt_long(argc, argv, "vfdc:h:p:", long_options, &option_index);
+      optch = getopt_long(*argc, *argv, "vfdc:h:p:", long_options, &option_index);
       if (optch == EOF)
 	break;
       
@@ -119,29 +120,28 @@ parse_args(argc, argv)
 	  strncpy(config, optarg, strlen(optarg)+1);
 	  break;
 	case 'h':
-	  if (host) free(host);
-	  host = malloc(strlen(optarg)+1);
-	  strncpy(host, optarg, strlen(optarg)+1);
+	  if (ghost) free(ghost);
+	  ghost = malloc(strlen(optarg)+1);
+	  strncpy(ghost, optarg, strlen(optarg)+1);
 	  break;
 	case 'p':
 #ifdef HAVE_STRTOL
-	  port = strtol(optarg, &ret, 10);
+	  gport = strtol(optarg, &ret, 10);
 	  if (*ret != '\0')
 	    {
-	      fprintf(stderr, "%s: %s (%s)\n",
-		      PACKAGE,
+	      printf("[%s (%s)]\n",
 		      "Invalid port number",
 		      optarg);
-	      exit(1);
+	      break;
 	    }
 #else
-	  port = atoi(optarg);
+	  gport = atoi(optarg);
 #endif
 	  break;
 	}
     }
 
-  if (optind == argc)
+  if (optind == *argc)
     {
       help();
       exit(0);
@@ -152,10 +152,8 @@ parse_args(argc, argv)
       in = fopen(config, "r");
       if (!in)
 	{
-	  fprintf(stderr, "%s: %s (%s)\n",
-		  PACKAGE,
-		  config.
-		  strerror(errno));
+	  printf("[Unable to open %s]\n",
+		  config);
 	  exit(1);
 	}
     }
@@ -171,8 +169,7 @@ parse_args(argc, argv)
     parse_config(in);
   else
     if (verbose)
-      fprintf(stderr, "%s: %s\n",
-	      PACKAGE,
+      printf("[%s]\n",
 	      "No configuration file found -- using defaults");
 
   return optind;

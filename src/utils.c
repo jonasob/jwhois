@@ -39,21 +39,23 @@ fdread(fd, ptr)
   unsigned int count, ret;
   char data[MAXBUFSIZE];
 
-  count = sizeof(time_t);
-  *ptr = malloc(sizeof(time_t));
-  if (!*ptr)
-    return -1;
+  count = 0;
+  *ptr = NULL;
 
   do
     {
       ret = read(fd, data, MAXBUFSIZE);
       count += ret;
-      *ptr = realloc(*ptr, count+1);
+      if (!*ptr)
+	*ptr = malloc(count+1);
+      else
+	*ptr = realloc(*ptr, count+1);
       if (!*ptr)
 	return -1;
       memcpy(*ptr+count-ret, data, ret);
     }
   while (ret != 0);
 
+  if (verbose) printf("[Debug: fdread read %d bytes of data]\n", count);
   return count;
 }

@@ -91,7 +91,9 @@
 int
 cache_init()
 {
-  int ret;
+  int iret;
+  char *ret, *ret2;
+  struct jconfig *j;
 #ifdef WITH_CACHE
   datum dbkey = {"#jwhois#cacheversion#1", 22};
   datum dbstore = {"1", 1};
@@ -110,6 +112,8 @@ cache_init()
   else
     cfname = j->value;
 
+  if (verbose) printf("[Debug: cfname = \"%s\"]\n",cfname);
+
   jconfig_set();
   j = jconfig_getone("jwhois", "cacheexpire");
   if (!j)
@@ -120,25 +124,32 @@ cache_init()
   cfexpire = strtol(ret, &ret2, 10);
   if (*ret2 != '\0')
     {
-      fprintf(stderr, "%s: Invalid cache expire time (%s)\n",
-		      PACKAGE,
-		      ret);
-      exit(1);
+      if (verbose)
+	{
+	  printf("[Invalid cache expire time (%s) - using default]\n",
+		 ret);
+	  cfexpire = 168;
+	}
     }
 #else
   cfexpire = atoi(ret2);
 #endif /* HAVE_STRTOL */
 
+  if (verbose) printf("[Debug: cfexpire = %d]\n", cfexpire);
+
   umask(0);
   dbf = dbm_open(cfname, DBM_COPTIONS, DBM_MODE);
   if (!dbf)
     {
+      if (verbose) printf("[Debug: Can't open %s - disabling cache]\n",
+			  cfname);
       cache = 0;
       return -1;
     }
-  ret = dbm_store(dbf, dbkey, dbstore, DBM_IOPTIONS);
-  if (ret < 0)
+  iret = dbm_store(dbf, dbkey, dbstore, DBM_IOPTIONS);
+  if (iret < 0)
     {
+      if (verbose) printf("[Debug: Unable to store entries in database - disabling cache]\n");
       cache = 0;
     }
   dbm_close(dbf);
@@ -172,12 +183,13 @@ cache_store(key, text)
       dbkey.dptr = key;
       dbkey.dsize = strlen(key);
 
+      if (verbose) printf("[Debug: Storing \"%s\" in database]\n", key);
       ptr = malloc(strlen(text)+sizeof(time_t)+1);
       if (!ptr)
 	return -1;
       memcpy(ptr+sizeof(time_t), text, strlen(text)+1);
       
-      timeptr = (time_t *)*ptr;
+      timeptr = (time_t *)ptr;
       *timeptr = time(NULL);
       
       dbstore.dptr = ptr;
@@ -225,6 +237,8 @@ cache_read(key, text)
   dbkey.dptr = key;
   dbkey.dsize = strlen(key);
 
+  if (verbose) printf("[Debug: Reading \"%s\" from database]\n", key);
+
   dbf = dbm_open(cfname, DBM_ROPTIONS, DBM_MODE);
   if (!dbf)
     return -1;
@@ -240,6 +254,7 @@ cache_read(key, text)
     return -1;
   memcpy(*text, dbstore.dptr+sizeof(time_t), dbstore.dsize-sizeof(time_t));
   dbm_close(dbf);
+
   return (dbstore.dsize-sizeof(time_t));
 #else
   return 0;

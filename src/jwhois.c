@@ -39,6 +39,7 @@
 
 #include <jconfig.h>
 #include <jwhois.h>
+#include <regex.h>
 
 /*
  *  This function creates a connection to the indicated host/port and
@@ -87,6 +88,7 @@ make_connect(host, port)
       sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
       if (sockfd == -1)
 	{
+	  printf("[Error creating socket]\n");
 	  return -1;
 	}
       error = connect(sockfd, res->ai_addr, res->ai_addrlen);
@@ -94,6 +96,8 @@ make_connect(host, port)
 	break;
       res = res->ai_next;
     }
+  if (verbose) printf("[Debug: connect() = %d]\n", error);
+  if (error < 0) return -1;
 #endif
   return sockfd;
 }
@@ -107,60 +111,88 @@ int main(argc, argv)
 
   re_syntax_options = RE_SYNTAX_EMACS;
   optind = parse_args(&argc, &argv);
+  cache_init();
 
   while (optind < argc)
     {
-      count += strlen(argv[optind++])+1;
+      count += strlen(argv[optind])+1;
       if (!qstring)
 	qstring = malloc(count+1);
       else
 	qstring = realloc(qstring, count+1);
-      memcpy(qstring+count-strlen(argv[optind-1]),
-	     argv[optind-1],
-	     strlen(argv[optind-1]));
+      if (!qstring)
+        {
+          printf("[Error allocating memory]\n");
+          exit(1);
+        }
+      memcpy(qstring+count-strlen(argv[optind])-1,
+	     argv[optind],
+	     strlen(argv[optind]));
       strcat(qstring, " ");
+      optind++;
     }
   qstring[strlen(qstring)-1] = '\0';
 
-  ret = lookup_host(qstring, NULL, &host, &port);
-  if (ret < 0)
+  if (verbose)
+    printf("[Debug: qstring = \"%s\"]\n", qstring);
+
+  if (ghost)
     {
-      printf("[%s]\n", "Fatal error searching for host to query");
-      exit(1);
+      if (verbose) printf("[Debug: Calling %s:%d directly]\n", ghost, gport);
+      forcelookup = 1;
+      host = ghost;
+      port = gport;
+    }
+  else
+    {
+      ret = lookup_host(qstring, NULL, &host, &port);
+      if (ret < 0)
+	{
+	  printf("[%s]\n", "Fatal error searching for host to query");
+	  exit(1);
+	}
     }
 
 #ifdef WITH_CACHE
-  if (!forcelookup && cache)
+  if (!forcelookup && cache) {
+    if (verbose) printf("[Debug: Looking up entry in cache]\n");
     ret = cache_read(qstring, &text);
-  if (ret < 0)
-    {
-      printf("[%s]\n", "Fatal error reading cache");
-      exit(1);
-    }
-  else if (ret == 0)
-    {
-      printf("[Cached]\n%s", text);
-      exit(0);
-    }
+    if (ret < 0)
+      {
+	printf("[%s]\n", "Fatal error reading cache");
+	exit(1);
+      }
+    else if (ret > 0)
+      {
+	printf("[Cached]\n%s", text);
+	exit(0);
+      }
+  }
 #endif
 
-  sockfd = make_connect(host, port);
-  if (sockfd < 0)
+  while (1)
     {
-      printf("[%s %s:%d]\n", "Error connecting to", host, port);
-      exit(1);
+      sockfd = make_connect(host, port);
+      if (sockfd < 0)
+	{
+	  exit(1);
+	}
+      write(sockfd, qstring, strlen(qstring));
+      write(sockfd, "\r\n", 2);
+      if (verbose) printf("[Debug: Reading via fdread from file descriptor %d]\n",sockfd);
+      ret = fdread(sockfd, &text);
+      if (ret < 0)
+	{
+	  printf("[%s %s:%d]\n", "Error reading data from", host, port);
+	  exit(1);
+	}
+      ret = lookup_redirect(host, NULL, text, &host, &port);
+      if ((ret < 0) || (ret == 0)) break;
     }
-  write(sockfd, qstring, strlen(qstring));
-  write(sockfd, "\r\n", 2);
-  ret = fdread(sockfd, &text);
-  if (ret < 0)
-    {
-      printf("[%s %s:%d]\n", "Error reading data from", host, port);
-      exit(1);
-    }
-
+      
 #ifdef WITH_CACHE
   if (cache) {
+    if (verbose) printf("[Debug: Storing in cache]\n");
     ret = cache_store(qstring, text);
     if (ret < 0)
       {

@@ -16,8 +16,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#ifndef _JCONFIG_H
-#define _JCONFIG_H
+#ifndef _JWHOIS_H
+#define _JWHOIS_H
 
 #ifndef HAVE_MEMCPY
 # define memcpy(d, s, n) bcopy ((s), (d), (n))
@@ -27,15 +27,19 @@
 # define IPPORT_WHOIS 43
 #endif
 
+#ifndef MAXBUFSIZE
+# define MAXBUFSIZE 1024
+#endif
+
 extern int cache;
 extern int forcelookup;
 extern int verbose;
-extern char *host;
-extern int port;
+extern char *ghost;
+extern int gport;
 extern char *config;
 
 extern char *cfname;
 extern int cfexpire;
 
 
-#endif /* _JCONFIG_H */
+#endif /* _JWHOIS_H */
