@@ -1,4 +1,4 @@
-jwhois (2.4-0) unstable; urgency=low
+jwhois (2.4-0) frozen unstable; urgency=low
 
   * New upstream release.
   * Should build on all systems. Closes: #51644.
