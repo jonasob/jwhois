@@ -139,63 +139,112 @@ find_regex(wq, block)
 {
   struct jconfig *j, *j2;
   struct re_pattern_buffer      rpb, rpb2;
-  char *error, *ret, *host = NULL;
-  int ind, i;
+  struct re_registers regs;
+  char *error, *ret, *match = NULL, *pattern;
+  int ind, i, best_match;
   char case_fold[256];
 
   for (i = 0; i < 256; i++)
     case_fold[i] = toupper(i);
 
+  best_match = 0;
+
   jconfig_set();
   while (j = jconfig_next_all(block))
     {
-      if (strcasecmp(j->key, "type") != 0)
+      if ((strcasecmp(j->key, "default") == 0
+           || strcasecmp(j->domain+strlen(block)+1, ".*") == 0)
+          && !best_match)
+        {
+          if (strlen(j->domain) > strlen(block))
+            {
+              j2 = jconfig_getone(j->domain, "whois-server");
+              if (j2)
+                match = j2->value;
+            }
+          else
+            {
+              match = j->value;
+            }
+        }
+      else if (strcasecmp(j->key, "type") != 0)
 	{
 	  rpb.allocated = 0;
 	  rpb.buffer = (unsigned char *)NULL;
 	  rpb.translate = case_fold;
 	  rpb.fastmap = (char *)NULL;
+
 	  if (strlen(j->domain) > strlen(block))
 	    {
-	      if (error = (char *)re_compile_pattern(j->domain+strlen(block)+1,
-						     strlen(j->domain+strlen(block)+1),
+              pattern = malloc(strlen(j->domain+strlen(block))+6);
+              strncpy(pattern, "\\(", 3);
+
+              if (strncasecmp(j->domain+strlen(block)+1, ".*", 2) == 0)
+                strncat(pattern, j->domain+strlen(block)+3,
+                        strlen(j->domain+strlen(block)+3)+1);
+              else
+                strncat(pattern, j->domain+strlen(block)+1,
+                        strlen(j->domain+strlen(block)+1)+1);
+              strncat(pattern, "\\)", 3);
+
+	      if (error = (char *)re_compile_pattern(pattern, strlen(pattern),
 						     &rpb))
 		{
 		  return NULL;
 		}
-	      ind = re_search(&rpb, wq->query, strlen(wq->query), 0, 0, NULL);
-	      if (ind == 0)
+	      ind = re_search(&rpb, wq->query, strlen(wq->query), 0,
+                              strlen(wq->query), &regs);
+	      if (ind >= 0 && regs.num_regs >= 1)
 		{
 		  wq->domain = j->domain;
-		  jconfig_set();
 		  j2 = jconfig_getone(j->domain, "whois-server");
-		  if (!j2)
-		    return NULL;
-		  return j2->value;
+		  if (j2 && (regs.end[1] - regs.start[1]) >= best_match)
+                    {
+                      best_match = regs.end[1] - regs.start[1];
+                      match = j2->value;
+                    }
 		}
-	      else if (ind == -2)
+	      else if (ind == -2 || ind == 0)
 		{
 		  return NULL;
 		}
 	    }
 	  else
 	    {
-	      if (error = (char *)re_compile_pattern(j->key, strlen(j->key), &rpb))
+              pattern = malloc(strlen(j->key)+6);
+              strncpy(pattern, "\\(", 3);
+              if (strncasecmp(j->key, ".*", 2) == 0)
+                strncat(pattern, j->key + 2, strlen(j->key+2)+1);
+              else
+                strncat(pattern, j->key, strlen(j->key)+1);
+
+              strncat(pattern, "\\)", 3);
+              
+	      if (error = (char *)re_compile_pattern(pattern, strlen(pattern),
+                                                     &rpb))
 		{
 		  return NULL;
 		}
-	      ind = re_search(&rpb, wq->query, strlen(wq->query), 0, 0, NULL);
-	      if (ind == 0)
+	      ind = re_search(&rpb, wq->query, strlen(wq->query), 0,
+                              strlen(wq->query), &regs);
+
+	      if (ind >= 0 && regs.num_regs >= 1)
 		{
-		  return j->value;
+                  if ((regs.end[1]-regs.start[1]) >= best_match)
+                    {
+                      best_match = regs.end[1]-regs.start[1];
+                      match = j->value;
+                    }
 		}
-	      else if (ind == -2)
+	      else if (ind == -2 || ind == 0)
 		{
 		  return NULL;
 		}
 	    }
-      }
+        }
     }
+
+  return match;
   jconfig_end();
 }
 

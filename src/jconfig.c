@@ -65,24 +65,24 @@ jconfig_getone(domain, key)
      char *key;
 {
   struct jconfig *ptr;
-  
-  jconfig_set();
 
-  if (!jconfig_tmpptr)
+  if (!jconfig_ptr)
     {
       return NULL;
     }
 
-  while (jconfig_tmpptr)
+  ptr = jconfig_ptr;
+
+  while (ptr)
     {
-      if ( (char *)strcasecmp(jconfig_tmpptr->domain, domain) == 0)
+      if ( (char *)strcasecmp(ptr->domain, domain) == 0)
 	{
-	  if ( (char *)strcasecmp(jconfig_tmpptr->key, key) == 0)
+	  if ( (char *)strcasecmp(ptr->key, key) == 0)
 	    {
-	      return jconfig_tmpptr;
+	      return ptr;
 	    }
 	}
-      jconfig_tmpptr = jconfig_tmpptr->next;
+      ptr = ptr->next;
     }
   return NULL;
 }

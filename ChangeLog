@@ -1,5 +1,10 @@
 2001-12-08  Jonas Oberg  <jonas@gnu.org>
 
+	* example/jwhois.conf: Changed ".*" to "default" and removed .* in
+	front of domain names (obsolete).
+
+	* src/jconfig.c (jconfig_getone): Use private jconfig ptr.
+
 	* src/lookup.c (find_cidr): Fix to return best match instead of
 	first match.
 
