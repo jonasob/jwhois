@@ -5,8 +5,9 @@ jwhois (3.0.2-1) unstable; urgency=low
     (Closes: Bug#106130)
   * Fixes buffer overrun in HTTP GET method.
     (Closes: Bug#121743)
+  * For more info, see upstream NEWS file.
 
- -- peter karlsson <peterk@debian.org>  UNRELEASED
+ -- peter karlsson <peterk@debian.org>  Sat, 01 Dec 2001 13:30:00 +0100
 
 jwhois (3.0.1-2) unstable; urgency=low
 
