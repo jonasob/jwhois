@@ -23,6 +23,7 @@ struct jconfig {
 	char	*domain;
 	char	*key;
 	char	*value;
+	int	line;
 	struct jconfig	*next;
 };
 
