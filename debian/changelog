@@ -1,3 +1,12 @@
+jwhois (2.4.3-1) unstable; urgency=low
+
+  * New upstream release:
+   - Add option to not follow redirections.
+  * Removed misunderstood dpkg-statoverride usage from maintainer scripts.
+  * Updated Build-Depends and upped Standards-Version to 3.2.1.
+
+ -- peter karlsson <peterk@debian.org>  UNRELEASED
+
 jwhois (2.4.2-3) unstable; urgency=low
 
   * If DNS lookup finds IPv6 addresses and socket creation fails, try the
@@ -46,12 +55,12 @@ jwhois (2.4.1-1) frozen unstable; urgency=low
 
  -- Per Lundberg <plundis@debian.org>  Tue, 25 Jan 2000 16:29:58 +0100
 
-jwhois (2.4-0) frozen unstable; urgency=low
+jwhois (2.4-1) frozen unstable; urgency=low
 
   * New upstream release.
   * Should build on all systems. Closes: #51644.
 
- -- peter karlsson <peter@softwolves.pp.se>  Mon, 20 Dec 1999 17:03:40 +0100
+ -- Per Lundberg <plundis@debian.org>  Wed, 19 Jan 2000 13:05:01 +0100
 
 jwhois (2.2-1) unstable; urgency=low
 
