@@ -137,8 +137,7 @@ cache_init()
     {
       if (verbose)
 	{
-	  printf("[Debug: %s (%s) -- %s]\n", _("Invalid expire time"),
-		 ret, _("using defaults"));
+	  printf("[Debug: Invalid expire time (%s) -- using defaults]\n", ret);
 	  cfexpire = 168;
 	}
     }
@@ -152,17 +151,15 @@ cache_init()
   dbf = dbm_open(cfname, DBM_COPTIONS, DBM_MODE);
   if (!dbf)
     {
-      if (verbose) printf("[Debug: %s %s -- %s\n", _("Unable to open"),
-			  cfname, _("disabling cache"));
+      if (verbose) printf("[Debug: Unable to open %s -- disabling cache]\n"),
+			  cfname);
       cache = 0;
       return -1;
     }
   iret = dbm_store(dbf, dbkey, dbstore, DBM_IOPTIONS);
   if (iret < 0)
     {
-      if (verbose) printf("[Debug: %s -- %s]\n",
-			  _("Unable to store data in database"),
-			  _("disabling cache"));
+      if (verbose) printf("[Debug: Unable to store data in database -- disabling cache]\n");
       cache = 0;
     }
   dbm_close(dbf);
