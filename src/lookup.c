@@ -68,7 +68,7 @@ find_cidr(val, block)
   if (res == 3) a3 = 0;
   else if (res == 2) a2 = a3 = 0;
   else if (res == 1) a1 = a2 = a3 = 0;
-  else return NULL;
+  else if (res != 4) return NULL;
   ip.s_addr = (a3<<24)+(a2<<16)+(a1<<8)+a0;
 
   jconfig_set();
@@ -104,6 +104,8 @@ find_cidr(val, block)
     }
   jconfig_end();
 
+  if (verbose) printf("[Debug: find_cidr(\"%s\", \"%s\") == \"%s\"]\n",
+                      val, block, host);
   return host;
 }
 
