@@ -1,3 +1,17 @@
+jwhois (3.0.3-1) unstable; urgency=low
+
+  * New upstream release:
+   - Matches in jwhois.conf are now "best match".
+    (Closes: Bug#122271)
+   - Format of jwhois.conf changed slightly (but backwards compatible with
+     old files).
+   - Updates to default configuration.
+   - Add proper headers for all functions.
+    (Closes: Bug#126640)
+  * For more info, see upstream NEWS file.
+
+ -- peter karlsson <peterk@debian.org>  UNRELEASED
+
 jwhois (3.0.2-2) unstable; urgency=low
 
   * Fix build problems.
