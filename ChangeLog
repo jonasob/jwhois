@@ -2,6 +2,7 @@
 
 	* src/*.c, include/*.h: Added proper headers for all exported
 	  functions, and made all function definitions proper ISO C.
+	* po/jwhois.pot, *.po: Updated translation files.
 
 2001-12-08  Jonas Oberg  <jonas@gnu.org>
 
