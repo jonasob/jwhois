@@ -3,12 +3,21 @@ jwhois (2.4.3-1) unstable; urgency=low
   * New upstream release:
    - Add option to not follow redirections.
    - Updates to default configuration.
-    (Closes: Bug#97699)
    - Added rewrite possibilites for queries.
     (Closes: Bug#84192, #84161)
   * Upped Standards-Version to 3.5.4.
 
  -- peter karlsson <peterk@debian.org>  UNRELEASED
+
+jwhois (2.4.2-6) unstable; urgency=low
+
+  * Backported from upcoming version:
+    Send the entire whois query in one packet, to cater for broken servers.
+    (Closes: Bug#103306)
+  * Updates to default configuration.
+    (Closes: Bug#97699)
+
+ -- peter karlsson <peter@softwolves.pp.se>  Wed, 18 Jul 2001 20:30:00 +0200
 
 jwhois (2.4.2-5) unstable; urgency=low
 
