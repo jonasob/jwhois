@@ -1,3 +1,7 @@
+Thu Nov 25 13:33:47 1999  Jonas Oberg  <jonas@coyote.org>
+
+	* src/jwhois.c (main): Fixed bug when creating qstring
+
 Tue Nov 23 14:03:28 1999  Jonas Oberg  <jonas@coyote.org>
 
 	* configure.in: Check for db1/ndbm.h
