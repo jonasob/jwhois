@@ -179,7 +179,7 @@ parse_args(argc, argv)
 	  help_version(0);
 	  exit(0);
 	case 'v':
-	  verbose = 1;
+	  verbose += 1;
 	  break;
 	case 'f':
 	  forcelookup = 1;
@@ -236,7 +236,7 @@ parse_args(argc, argv)
 	  gport = strtol(optarg, &ret, 10);
 	  if (*ret != '\0')
 	    {
-	      printf("[%s (%s)]\n",
+	      printf("[%s: %s]\n",
 		      _("Invalid port number"),
 		      optarg);
 	      break;
@@ -260,7 +260,7 @@ parse_args(argc, argv)
       if (!in)
 	{
 	  printf("[%s: %s]\n",
-		  config, _("unable to open"));
+		  config, _("Unable to open"));
 	  exit(1);
 	}
     }
@@ -269,14 +269,14 @@ parse_args(argc, argv)
       in = fopen(SYSCONFDIR "/jwhois.conf", "r");
       if (!in && verbose)
 	printf("[%s: %s]\n",
-	       SYSCONFDIR "/jwhois.conf", _("unable to open"));
+	       SYSCONFDIR "/jwhois.conf", _("Unable to open"));
       else
 	config = SYSCONFDIR "/jwhois.conf";
     }
   if (in)
     jconfig_parse_file(in);
 
-  if (verbose)
+  if (verbose>1)
     {
       printf("[Debug: Cache = %s]\n", cache?"On":"Off");
       printf("[Debug: Force lookup = %s]\n", forcelookup?"Yes":"No");

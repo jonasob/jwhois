@@ -86,7 +86,7 @@ main(argc, argv)
 	qstring = realloc(qstring, count+1);
       if (!qstring)
         {
-          printf("[%s]\n", _("error allocating memory"));
+          printf("[%s]\n", _("Error allocating memory"));
           exit(1);
         }
       memcpy(qstring+count-strlen(argv[optind])-1,
@@ -100,20 +100,20 @@ main(argc, argv)
 
   if (ghost)
     {
-      if (verbose) printf("[Debug: Calling %s:%d directly]\n", ghost, gport);
+      if (verbose>1) printf("[Calling %s:%d directly]\n", ghost, gport);
       wq.host = ghost;
       wq.port = gport;
     }
   else if (split_host_from_query(&wq))
     {
-      if (verbose) printf("[Debug: Calling %s directly]\n", wq.host);
+      if (verbose>1) printf("[Calling %s directly]\n", wq.host);
     }
   else
     {
       ret = lookup_host(&wq, NULL);
       if (ret < 0)
 	{
-	  printf("[%s]\n", _("fatal error searching for host to query"));
+	  printf("[%s]\n", _("Fatal error searching for host to query"));
 	  exit(1);
 	}
     }
@@ -123,16 +123,16 @@ main(argc, argv)
 
 #ifndef NOCACHE
   if (!forcelookup && cache) {
-    if (verbose) printf("[Debug: Looking up entry in cache]\n");
+    if (verbose>1) printf("[Looking up entry in cache]\n");
     ret = cache_read(wq.query, &text);
     if (ret < 0)
       {
-	printf("[%s]\n", _("error reading cache"));
+	printf("[%s]\n", _("Error reading cache"));
 	exit(1);
       }
     else if (ret > 0)
       {
-	printf("[%s]\n%s", _("cached"), text);
+	printf("[%s]\n%s", _("Cached"), text);
 	exit(0);
       }
   }
@@ -140,11 +140,11 @@ main(argc, argv)
 
 #ifndef NOCACHE
   if (cache) {
-    if (verbose) printf("[Debug: Storing in cache]\n");
+    if (verbose>1) printf("[Storing in cache]\n");
     ret = cache_store(wq.query, text);
     if (ret < 0)
       {
-	printf("[%s]\n", _("error writing to cache"));
+	printf("[%s]\n", _("Error writing to cache"));
       }
   }
 #endif

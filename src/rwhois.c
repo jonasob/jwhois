@@ -154,18 +154,18 @@ rwhois_query_internal(wq, text, referrals)
   while (ret != REP_OK && ret != REP_ERROR);
 
   if (ret == REP_ERROR)
-    printf(_("[Protocol error while sending -rwhois option]\n"));
+    printf(_("[RWHOIS: Protocol error while sending -rwhois option]\n"));
 
-  if (verbose)
+  if (verbose>1)
     {
-      printf("[Debug: Rwhois server capabilities (%x):", rwhois_capab);
+      printf("[RWHOIS: Server capabilities (%x):", rwhois_capab);
       ret = 0;
       while (capabilities[ret].cap != 0)
 	{
 	  if (rwhois_capab & capabilities[ret].cap)
 	    {
 	      if (ret % 8 == 0)
-		printf("]\n[Debug:    ");
+		printf("]\n[       ");
 	      printf("%s ", capabilities[ret].name);
 	    }
 	  ret++;
@@ -182,7 +182,7 @@ rwhois_query_internal(wq, text, referrals)
     {
       if (rwhois_capab & CAP_DISPLAY)
 	{
-	  if (verbose) printf("[Debug: Setting display to %s]\n", tmpptr);
+	  if (verbose>1) printf("[RWHOIS: Setting display to %s]\n", tmpptr);
 	  fprintf(f, "-display %s\r\n", tmpptr);
 	  do
 	    {
@@ -191,7 +191,7 @@ rwhois_query_internal(wq, text, referrals)
 	  while (ret != REP_OK && ret != REP_ERROR);
 	}
       else
-	if (verbose) printf("[Debug: Server does not support display]\n");
+	if (verbose) printf("[RWHOIS: Server does not support display command]\n");
     }
 
   if (rwhois_limit)
@@ -205,7 +205,7 @@ rwhois_query_internal(wq, text, referrals)
 	  limit = strtol(tmpptr, &retptr, 10);
 	  if (*retptr != '\0')
 	    {
-	      printf("[%s (%s)]\n",
+	      printf("[RWHOIS: %s (%s)]\n",
 		     _("Invalid limit in configuration file"),
 		     tmpptr);
 	    }
@@ -221,7 +221,7 @@ rwhois_query_internal(wq, text, referrals)
     {
       if (rwhois_capab & CAP_LIMIT)
 	{
-	  if (verbose) printf("[Debug: Setting limit to %d]\n", limit);
+	  if (verbose>1) printf("[RWHOIS: Setting limit to %d]\n", limit);
 	  fprintf(f, "-limit %d\r\n", limit);
 	  do
 	    {
@@ -230,11 +230,11 @@ rwhois_query_internal(wq, text, referrals)
 	  while (ret != REP_OK && ret != REP_ERROR);
 	}
       else
-	if (verbose) printf("[Debug: Server does not support limit]\n");
+	if (verbose) printf("[RWHOIS: Server does not support limit]\n");
     }
 
-  if (verbose)
-    printf("[Debug: Sending query \"%s\"]\n", wq->query);
+  if (verbose>1)
+    printf("[RWHOIS: Sending query \"%s\"]\n", wq->query);
 
   fprintf(f, "%s\r\n", wq->query);
 
@@ -274,7 +274,7 @@ rwhois_insert_referral(reply, referrals)
 
   if (strncasecmp(strchr(reply, ' ')+1, "rwhois://", 9) != 0)
     {
-      if (verbose) printf("[Debug: Unknown referral: %s]\n", strchr(reply, ' ')+1);
+      if (verbose) printf("[RWHOIS: Unknown referral: %s]\n", strchr(reply, ' ')+1);
       return -1;
     }
   if (!*referrals)
@@ -318,8 +318,8 @@ rwhois_insert_referral(reply, referrals)
   s->autharea = tmpptr;
   tmpptr[len] = '\0';
 
-  if (verbose)
-    printf("[Debug: Referral to %s:%d (autharea=%s)]\n", s->host, s->port, s->autharea);
+  if (verbose>1)
+    printf("[RWHOIS: Referral to %s:%d (autharea=%s)]\n", s->host, s->port, s->autharea);
 
   return 0;
 }
@@ -367,7 +367,7 @@ rwhois_query(wq, text)
 	      wq->host = referrals->host;
 	      wq->port = referrals->port;
 	      if (verbose)
-		printf("[Debug: Following referral to %s:%d (autharea=%s)]\n",
+		printf("[RWHOIS: Following referral to %s:%d (autharea=%s)]\n",
 		       wq->host, wq->port, referrals->autharea);
 
 	      ret = rwhois_query(wq, text);
@@ -474,7 +474,7 @@ rwhois_parse_line(reply, text)
       if (!tmpptr)
 	return REP_ERROR;
       *tmpptr = '\0';
-      if (verbose) printf("[Debug: Unhandled reply: %s]\n", reply+1);
+      if (verbose) printf("[RWHOIS: Unhandled reply: %s]\n", reply+1);
       return REP_CONT;
     }
   add_text_to_buffer(text, create_string("%s\n", reply));

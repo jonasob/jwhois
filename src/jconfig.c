@@ -249,7 +249,7 @@ jconfig_safe_strcat(s1, s2)
   s3 = realloc(s1, strlen(s1)+strlen(s2)+1);
   if (!s3)
     {
-      printf("[%s]\n", _("error allocating memory"));
+      printf("[%s]\n", _("Error allocating memory"));
       exit(1);
     }
   strncat(s3, s2, strlen(s2)+1);
@@ -271,7 +271,7 @@ jconfig_get_quoted(in, line)
   s1 = malloc(MAXBUFSIZE);
   if (!s1)
     {
-      printf("[%s]\n", _("error allocating memory"));
+      printf("[%s]\n", _("Error allocating memory"));
       exit(1);
     }
   
@@ -279,7 +279,7 @@ jconfig_get_quoted(in, line)
     {
       if (len >= (MAXBUFSIZE-1))
 	{
-	  printf("[%s: %s %d]\n", config, _("string out of bounds on line"),
+	  printf("[%s: %s %d]\n", config, _("String out of bounds on line"),
 		 line);
 	  exit(1);
 	}
@@ -305,7 +305,7 @@ jconfig_get_quoted(in, line)
 	  s1[len++] = ch;
 	}
     }
-  printf("[%s: %s %d]\n", config, _("end of file looking for '\"' on line"),
+  printf("[%s: %s %d]\n", config, _("End of file looking for '\"' on line"),
 	 line);
   exit(1);
 }
@@ -325,7 +325,7 @@ jconfig_get_unquoted(in, line)
   s1 = malloc(MAXBUFSIZE);
   if (!s1)
     {
-      printf("[%s]\n", _("error allocating memory"));
+      printf("[%s]\n", _("Error allocating memory"));
       exit(1);
     }
   
@@ -333,7 +333,7 @@ jconfig_get_unquoted(in, line)
     {
       if (len >= (MAXBUFSIZE-1))
 	{
-	  printf("[%s: %s %d]\n", config, _("string out of bounds on line"),
+	  printf("[%s: %s %d]\n", config, _("String out of bounds on line"),
 		 line);
 	  exit(1);
 	}
@@ -362,7 +362,7 @@ jconfig_get_unquoted(in, line)
 	  s1[len++] = ch;
 	}
     }
-  printf("[%s: %s %d]\n", config, _("unexpected end of file on line"),
+  printf("[%s: %s %d]\n", config, _("Unexpected end of file on line"),
 	 line);
   exit(1);
 }
@@ -382,7 +382,7 @@ jconfig_parse_file(in)
   domain = malloc(MAXBUFSIZE);
   if (!domain)
     {
-      printf("[%s]\n", _("error allocating memory"));
+      printf("[%s]\n", _("Error allocating memory"));
       exit(1);
     }
   strncpy(domain, PACKAGE, strlen(PACKAGE)+1);
@@ -430,7 +430,7 @@ jconfig_parse_file(in)
 	    if (key)
 	      {
 		printf("[%s: %s %d]\n", config,
-		       _("multiple keys on line"),
+		       _("Multiple keys on line"),
 		       line);
 		free(key);
 	      }
@@ -440,7 +440,7 @@ jconfig_parse_file(in)
 	    if (!key)
 	      {
 		printf("[%s: %s %d]\n", config,
-		       _("missing key on line"), line);
+		       _("Missing key on line"), line);
 		exit(1);
 	      }
 	    jconfig_add(domain, key, token, line);

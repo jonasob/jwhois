@@ -24,6 +24,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <errno.h>
 
 #include <jwhois.h>
 #include <jconfig.h>
@@ -63,11 +64,10 @@ int http_query(struct s_whois_query *wq, char **text)
     /* Check host configuration */
     if (!method || !action || !element)
     {
-        printf(_("Web configuration for server %s is incomplete:\n"),
-               wq->host);
-        if (!method) printf(_("Option %s is missing.\n"), "http-method");
-        if (!action) printf(_("Option %s is missing.\n"), "http-action");
-        if (!element) printf(_("Option %s is missing.\n"), "form-element");
+        printf("[HTTP: %s: %s]\n", wq->host, _("HTTP configuration is incomplete:"));
+        if (!method) printf("[HTTP: %s: %s]\n", _("Option is missing:"), "http-method");
+        if (!action) printf("[HTTP: %s: %s]\n", _("Option is missing:"), "http-action");
+        if (!element) printf("[HTTP: %s: %s]\n", _("Option is missing:"), "form-element");
         return -1;
     }
 
@@ -77,7 +77,7 @@ int http_query(struct s_whois_query *wq, char **text)
     }
     else if (0 != strcmp(method, "GET"))
     {
-        puts(_("Option http-method must be \"GET\" or \"POST\".\n"));
+        printf("[HTTP: %s: %s]\n", wq->host, _("Option http-method must be \"GET\" or \"POST\".\n"));
         return -1;
     }
 
@@ -85,7 +85,7 @@ int http_query(struct s_whois_query *wq, char **text)
     j = jconfig_getone("jwhois", "browser-pathname");
     if (!j)
     {
-        printf(_("Option %s is not configured: Cannot run web browser."),
+        printf("[HTTP: %s: %s]\n", _("Option is missing:"),
                "browser-pathname");
         return -1;
     }
@@ -94,7 +94,7 @@ int http_query(struct s_whois_query *wq, char **text)
     j = jconfig_getone("jwhois", "browser-stdarg");
     if (!j)
     {
-        printf(_("Option %s is not configured: Cannot run web browser."),
+        printf("[HTTP: %s: %s]\n", _("Option is missing:"),
                "browser-stdarg");
         return -1;
     }
@@ -135,7 +135,7 @@ int http_query(struct s_whois_query *wq, char **text)
         j = jconfig_getone("jwhois", "browser-postarg");
         if (!j)
         {
-            printf(_("Option %s is not configured: Cannot run web browser."),
+            printf("[HTTP: %s: %s]\n", _("Option is missing:"),
                    "browser-postarg");
             return -1;
         }
@@ -189,7 +189,8 @@ int http_query(struct s_whois_query *wq, char **text)
         execv(command[0], &command[1]);
 
         /* Drats! */
-        perror(_("Unable to run web browser."));
+        if (errno)
+	  printf("[HTTP: %s: %s]\n", _("Unable to run web browser"), strerror(errno));
         close(to_browser[0]);
         close(from_browser[1]);
         exit(-1);

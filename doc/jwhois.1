@@ -24,49 +24,55 @@ directly on the command line.
 .SH OPTIONS
 .TP
 .B \--version
-display version, authors and licensing information
+display version, authors and licensing information.
 .TP
 .B \--help
-display a short help text
+display a short help text.
 .TP
 .B \-c FILE --config=FILE
-uses FILE as a configuration file instead of the default
+uses FILE as a configuration file instead of the default.
 .TP
 .B \-h HOST --host=HOST
-overrides any hosts in the configuration file and queries HOST directly
+overrides any hosts in the configuration file and queries HOST directly.
 .TP
 .B \-p PORT --port=PORT
-specifies a port number to use when querying a HOST
-.TP
-.B \-v --verbose
-outputs verbose debugging information while running
-.TP
-.B \-n --no-redirect
-disable content redirection
-.TP
-.B \-s --no-whoisservers
-disable support for whois-servers.net
-.TP
-.B \-a --raw
-disable reformatting of query
-.TP
-.B \-i --display-redirections
-display all redirections
+specifies a port number to use when querying a HOST.
 .TP
 .B \-f --force-lookup
-forces a query to be made to a host even if the object is stored in cache
+forces a query to be made to a host even if a current object
+is available from the cache.
+.TP
+.B \-v --verbose
+outputs verbose debugging information while running (use this before
+sending a bugreport to ensure that it's indeed a bug and not a 
+misconfiguration).
+.TP
+.B \-n --no-redirect
+disable features that redirect queries from one server to another.
+.TP
+.B \-s --no-whoisservers
+disable the built-in support for whois-servers.net.
+.TP
+.B \-a --raw
+send query verbatim to receiving hosts instead of rewriting them according
+to the configuration.
+.TP
+.B \-i --display-redirections
+display every step in a redirection (default is to display only the
+last answer).
 .TP
 .B \-d --disable-cache
 completely disable both reading and writing to cache
 .TP
 .B \-r --rwhois
-force the query to use rwhois
+force the query to use the rwhois protocoll instead of HTTP or whois.
 .TP
 .B \--rwhois-display=DISPLAY
-sets the display option to use in rwhois queries
+asks receiving rwhois servers to display the results in the DISPLAY display
+instead of the default dump display.
 .TP
 .B \--rwhois-limit=LIMIT
-sets the maximum number of matches to return
+asks receiving rwhois servers to limit their responses to LIMIT matches.
 
 .SS "RIPE EXTENSIONS"
 To use the options specified in

@@ -233,7 +233,7 @@ make_connect(host, port)
         }
       if (sockfd == -1)
 	{
-	  printf("[%s]\n", _("error creating socket"));
+	  printf("[%s]\n", _("Error creating socket"));
 	  return -1;
 	}
       error = connect(sockfd, res->ai_addr, res->ai_addrlen);

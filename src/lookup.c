@@ -99,7 +99,7 @@ find_cidr(wq, block)
 	      {
 		if (verbose) printf("[%s: %s %d]",
 				    config,
-				    _("invalid netmask on line"),
+				    _("Invalid netmask on line"),
 				    j->line);
 		return NULL;
 	      }
