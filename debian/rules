@@ -67,7 +67,9 @@ binary-arch: build install
 	dh_compress
 	dh_fixperms
 #	# You may want to make some executables suid here.
-	dh_suidregister
+	chmod 2755 debian/tmp/usr/bin/jwhois
+	chgrp users debian/tmp/usr/bin/jwhois
+	dh_suidregister /usr/bin/jwhois
 #	dh_makeshlibs
 	dh_installdeb
 #	dh_perl
