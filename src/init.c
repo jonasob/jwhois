@@ -62,7 +62,7 @@ int cfexpire;
 
 void help(void)
 {
-  printf("%s%s%s, %s\n", PACKAGE, _("version"), VERSION,
+  printf("%s %s %s, %s\n", PACKAGE, _("version"), VERSION,
 	 _("Copyright (C) 1999 Jonas Öberg"));
   printf(_("This is free software with ABSOLUTELY NO WARRANTY.\n\n\
 Usage: jwhois [OPTIONS] [QUERIES...]\n"));

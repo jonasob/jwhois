@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-11-27 15:48+0100\n"
+"POT-Creation-Date: 1999-11-27 15:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,7 +126,8 @@ msgid "invalid port number"
 msgstr ""
 
 #: src/jconfig.c:210 src/jconfig.c:232 src/jconfig.c:286 src/jconfig.c:343
-msgid "Error allocating memory"
+#: src/jwhois.c:137
+msgid "error allocating memory"
 msgstr ""
 
 #: src/jconfig.c:240 src/jconfig.c:294
@@ -151,10 +152,6 @@ msgstr ""
 
 #: src/jwhois.c:100
 msgid "error creating socket"
-msgstr ""
-
-#: src/jwhois.c:137
-msgid "error allocating memory"
 msgstr ""
 
 #: src/jwhois.c:163

@@ -207,7 +207,7 @@ jconfig_safe_strcat(s1, s2)
   s3 = realloc(s1, strlen(s1)+strlen(s2)+1);
   if (!s3)
     {
-      printf("[%s]\n", _("Error allocating memory"));
+      printf("[%s]\n", _("error allocating memory"));
       exit(1);
     }
   strncat(s3, s2, strlen(s2)+1);
@@ -229,7 +229,7 @@ jconfig_get_quoted(in, line)
   s1 = malloc(MAXBUFSIZE);
   if (!s1)
     {
-      printf("[%s]\n", _("Error allocating memory"));
+      printf("[%s]\n", _("error allocating memory"));
       exit(1);
     }
   
@@ -283,7 +283,7 @@ jconfig_get_unquoted(in, line)
   s1 = malloc(MAXBUFSIZE);
   if (!s1)
     {
-      printf("[%s]\n", _("Error allocating memory"));
+      printf("[%s]\n", _("error allocating memory"));
       exit(1);
     }
   
@@ -340,7 +340,7 @@ jconfig_parse_file(in)
   domain = malloc(MAXBUFSIZE);
   if (!domain)
     {
-      printf("[%s]\n", _("Error allocating memory"));
+      printf("[%s]\n", _("error allocating memory"));
       exit(1);
     }
   strncpy(domain, PACKAGE, strlen(PACKAGE));
