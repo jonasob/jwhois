@@ -1,0 +1,60 @@
+jwhois (2.4.2-3) unstable; urgency=low
+
+  * If DNS lookup finds IPv6 addresses and socket creation fails, try the
+    next available DNS entry, if any.
+    (Closes: Bug#85404)
+  * Fixes to the default configuration:
+   - Updated .br, .ca, .de, .dk, .hm, .hu, .ie, .lu and .ro domains.
+    (Closes: Bug#85095, #85409, #85411, #85700, #85727, #85731, #85732,
+             Bug#85777, #85782)
+  * Added a couple of new entries to the default configuration:
+   - The .fj, .do, .je, .kg, .gg, .gm, .il and .ws domains.
+   - AS numbers.
+    (Closes: Bug#85098, #85104, #85147, #85406, #85407, #85408, #85704,
+             Bug#85723)
+
+ -- peter karlsson <peterk@debian.org>  Fri, 13 Feb 2001 20:00:00 +0100
+
+jwhois (2.4.2-2) unstable; urgency=low
+
+  * 2.4.2 changed the name of the cache, but the installation scripts
+    were not updated properly, resulting in some mismatches.
+  * Added a couple of new entries to the default configuration
+    (from 2.4.3pre1):
+   - GANDI handles.
+   - The .nz domain.
+    (Closes: Bug#83130, #83280)
+
+ -- peter karlsson <peterk@debian.org>  Thu, 30 Jan 2001 17:30:00 +0100
+
+jwhois (2.4.2-1) unstable; urgency=low
+
+  * New upstream release:
+   - Russian translation.
+   - Fix for big-endian machines.
+   - Added info for .in, .nu, .hk, .as, .gov.uk, .at
+   - for more info, see upstream ChangeLog.
+  * New maintainer.
+  * Updated to newer debhelper usage.
+
+ -- peter karlsson <peterk@debian.org>  Thu, 11 Jan 2001 21:30:00 +0100
+
+jwhois (2.4.1-1) frozen unstable; urgency=low
+
+  * New upstream release.
+  * Should include correct info file. Closes: #56141
+
+ -- Per Lundberg <plundis@debian.org>  Tue, 25 Jan 2000 16:29:58 +0100
+
+jwhois (2.4-0) frozen unstable; urgency=low
+
+  * New upstream release.
+  * Should build on all systems. Closes: #51644.
+
+ -- peter karlsson <peter@softwolves.pp.se>  Mon, 20 Dec 1999 17:03:40 +0100
+
+jwhois (2.2-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Per Lundberg <plundis@debian.org>  Sun, 14 Nov 1999 16:37:27 +0100

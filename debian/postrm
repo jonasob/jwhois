@@ -1,0 +1,44 @@
+#!/bin/sh -e
+
+#DEBHELPER#
+
+# Remove the cache on remove or purge.
+# Remove the jwhois group on purge.
+# Remove statoverride on purge.
+
+case "$1" in
+  remove)
+    rm -f /var/cache/jwhois/jwhois.db.db /var/cache/jwhois/jwhois.db
+    rmdir /var/cache/jwhois 2> /dev/null || true
+    ;;
+  purge)
+    rm -f /var/cache/jwhois/jwhois.db.db /var/cache/jwhois/jwhois.db
+    rmdir /var/cache/jwhois 2> /dev/null || true
+    groupdel jwhois || echo "Failed removing group \`jwhois'"
+    dpkg-statoverride --remove /usr/bin/jwhois || echo "Failed removing statoverride for /usr/bin/jwhois"
+    dpkg-statoverride --remove /var/cache/jwhois || echo "Failed removing statoverride for /var/cache/jwhois"
+    ;;
+  upgrade)
+    if dpkg --compare-versions "$2" ge 2.4.2-1; then
+      # Breakage: <= 2.4.1 used jwhois.db.db, 2.4.2+ use jwhois.db
+      # If old cache exists, and new does not, move it
+      if test -e /var/cache/jwhois/jwhois.db.db -a ! -e /var/cache/jwhois/jwhois.db.db; then
+        mv -f /var/cache/jwhois/jwhois.db.db /var/cache/jwhois/jwhois.db
+      fi
+      # Remove possible left-over old cache
+      rm -f /var/cache/jwhois/jwhois.db.db
+    else
+      # We're downgrading, put cache back
+      # If new cache exists, and old does not, move it
+      if test -e /var/cache/jwhois/jwhois.db -a ! -e /var/cache/jwhois/jwhois.db.db; then
+        mv -f /var/cache/jwhois/jwhois.db /var/cache/jwhois/jwhois.db.db
+      fi
+      # Remove possible left-over new cache
+      rm -f /var/cache/jwhois/jwhois.db
+    fi
+    ;;
+  *)
+    echo "postrm called with unknown argument \`$1'" >&2
+    exit 0
+    ;;
+esac

@@ -1,0 +1,16 @@
+Source: jwhois
+Section: net
+Priority: optional
+Maintainer: peter karlsson <peterk@debian.org>
+Build-Depends: debhelper, gettext, libgdbmg1-dev
+Standards-Version: 3.0.1
+
+Package: jwhois
+Architecture: any
+Depends: ${shlibs:Depends}, adduser
+Conflicts: suidmanager (<< 0.50)
+Description: Improved Caching Whois client
+ This is jwhois, an improved Whois client capable of
+ selecting Whois server to query based on a flexible
+ configuration file using either regular expressions
+ or CIDR blocks.

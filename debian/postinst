@@ -1,0 +1,59 @@
+#!/bin/sh -e
+
+#DEBHELPER#
+
+# Breakage: <= 2.4.1 used jwhois.db.db, 2.4.2+ use jwhois.db
+# Breakage: 2.4.2-1 did not recognize this (so if we're upgrading
+# from it, we might get doubled caches)
+
+if test "$1" = "configure"; then
+  if dpkg --compare-versions "$2" le "2.4.2-1"; then
+    # If old cache exists, and new does not, move it
+    if test -e /var/cache/jwhois/jwhois.db.db -a ! -e /var/cache/jwhois/jwhois.db; then
+      mv -f /var/cache/jwhois/jwhois.db.db /var/cache/jwhois/jwhois.db
+    fi
+    # Remove possible left-over old cache
+    rm -f /var/cache/jwhois/jwhois.db.db
+  fi
+fi
+
+# Add the group 'jwhois' that the cache uses
+
+addgroup --system jwhois || true
+
+# Check if we have current overrides for the binary and cache
+
+jwhoisoverride=`dpkg-statoverride --list /usr/bin/jwhois`
+cacheoverride=`dpkg-statoverride --list /var/cache/jwhois`
+
+# Setgid binary to the jwhois group, and add it to dpkg-statoverride
+# unless it's already overriden.
+
+if chown root.jwhois /usr/bin/jwhois; then
+  chmod 02755 /usr/bin/jwhois
+fi
+
+if test "$jwhoisoverride" = ""; then
+  dpkg-statoverride --add root jwhois 02755 /usr/bin/jwhois || echo "Failed adding statoverride for /usr/bin/jwhois"
+else
+  echo Statoverride already set for /usr/bin/jwhois
+fi
+
+# Setgid cache directory to the jwhois group, and add it to
+# dpkg-statoverride unless it's already overridden.
+
+if chown root.jwhois /var/cache/jwhois; then
+  chmod 0775 /var/cache/jwhois
+fi
+
+if test "$cacheoverride" = ""; then
+  dpkg-statoverride --add root jwhois 0775 /var/cache/jwhois || echo "Failed adding statoverride for /var/cache/jwhois"
+else
+  echo Statoverride already set for /var/cache/jwhois
+fi
+
+# Make sure the cache, if it exists, has the correct group ownership
+
+if test -e /var/cache/jwhois/jwhois.db; then
+  chgrp jwhois /var/cache/jwhois/jwhois.db || echo "Failed setting ownership on cache file - cache functions will not work."
+fi
