@@ -1,3 +1,8 @@
+2001-11-22  Jonas Oberg  <jonas@gnu.org>
+
+	* src/jwhois.c (jwhois_query): Fix so that wq->query isn't changed
+	when doing raw queries.
+
 2001-11-19  Jonas Oberg <jonas@gnu.org>
 
 	* doc/sv/Makefile.am: Added installation instructions

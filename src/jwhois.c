@@ -201,7 +201,8 @@ jwhois_query(wq, text)
 	}
     }
 
-  wq->query = oldquery;
+  if (!raw_query)
+    wq->query = oldquery;
 
   if (ret < 0)
     {
