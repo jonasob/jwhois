@@ -11,6 +11,7 @@
 	* src/jwhois.c: Fixed double free on double redirection
 	  (Miloslav Trmac)
 	* TODO: IDNA wanted.
+	* configure.in, NEWS, doc/jwhois.texi: Released 3.2.3.
 
 2004-05-21  Jonas Oberg <jonas@gnu.org>
 
