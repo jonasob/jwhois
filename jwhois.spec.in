@@ -48,6 +48,10 @@ make prefix=${RPM_BUILD_ROOT}%{prefix} \
 
 install -d -m 755 ${RPM_BUILD_ROOT}/etc
 install -d -m 755 ${RPM_BUILD_ROOT}/var/cache/jwhois
+
+# Modify and install jwhois.conf
+perl -pi -e 's(^#cachefile.*$)(cachefile = "/var/cache/jwhois/jwhois.db";)g; \
+	    s(^#cacheexpire.*$)(cacheexpire = 24;)g' example/jwhois.conf
 install -m 644 example/jwhois.conf ${RPM_BUILD_ROOT}/etc
 
 %if %{provide_whois}
@@ -59,27 +63,24 @@ install -m 644 example/jwhois.conf ${RPM_BUILD_ROOT}/etc
 if [ -d ${RPM_BUILD_ROOT} ]; then rm -rf ${RPM_BUILD_ROOT}; fi
 
 %pre
-/usr/sbin/groupadd -r -f jwhois
+[ -f /var/cache/jwhois/jwhois.db ] && rm -f /var/cache/jwhois/jwhois.db
 
 %post
 /sbin/install-info %{prefix}/info/jwhois.info %{prefix}/info/dir
 
 %preun 
-if [ "$1" = 0 ]; then
-  /sbin/install-info --delete %{prefix}/info/jwhois.info %{prefix}/info/dir
-  /usr/sbin/groupdel jwhois
-  [ -f /var/cache/jwhois/jwhois.db ] && rm -f /var/cache/jwhois/jwhois.db
-fi  
+/sbin/install-info --delete %{prefix}/info/jwhois.info %{prefix}/info/dir
+[ -f /var/cache/jwhois/jwhois.db ] && rm -f /var/cache/jwhois/jwhois.db
 
 %files
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %config /etc/jwhois.conf
-%attr(2755,root,jwhois) %{prefix}/bin/jwhois
+%attr(6755,nobody,nobody) %{prefix}/bin/jwhois
 %{prefix}/man/man1/jwhois.1
 %{prefix}/info/jwhois.info
 %{prefix}/share/locale/*/LC_MESSAGES/jwhois.mo
-/var/cache/jwhois
+%attr(6755,nobody,nobody) /var/cache/jwhois
 
 %if %{provide_whois}
 	%{prefix}/bin/whois
@@ -87,11 +88,4 @@ fi
 %endif
 
 %changelog
-* Mon Jan 24 2000 Ryan Weaver <ryanw@infohwy.com>
-  [jwhois-2.4-2]
-- Made package relocatable.
-- Including available locales now.
-- Rewrote spec file.
-- Made patch against source to include spec it distribution and sent it
-  to the author.
 
