@@ -2,6 +2,8 @@
 
 	* examples/jwhois.conf: List .com, .net and .org explictly.
 	  (Lee Maguire, Debian bug#142181)
+	  Added/updated .lt, .mw, .pk, .ua, .uz and .vi.
+	  (Lee Maguire, Debian bug#142183)
 
 2002-04-10  peter karlsson <peter@softwolves.pp.se>
 
