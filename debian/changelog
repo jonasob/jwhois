@@ -1,4 +1,4 @@
-jwhois (3.1.1-1) unstable; urgency=low
+jwhois (3.2.0-1) unstable; urgency=low
 
   * New upstream release:
    - Changes to default configuration.
@@ -9,7 +9,7 @@ jwhois (3.1.1-1) unstable; urgency=low
    - Added advanced rewriting of queries.
     (Closes: Bug#137397)
 
- -- peter karlsson <peterk@debian.org>  UNRELEASED
+ -- peter karlsson <peterk@debian.org>  Thu, 02 May 2002 18:15:00 +0100
 
 jwhois (3.1.0-3) unstable; urgency=low
 
