@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-11-26 22:04+0100\n"
+"POT-Creation-Date: 1999-11-27 15:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,181 +14,174 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: src/cache.c:133
-msgid "Invalid expire time"
+#: src/cache.c:142
+msgid "invalid expire time"
 msgstr ""
 
-#: src/cache.c:134 src/init.c:179
-msgid "Using defaults"
+#: src/cache.c:143
+msgid "using defaults"
 msgstr ""
 
-#: src/cache.c:148
-msgid "Can't open"
+#: src/cache.c:157 src/init.c:162 src/init.c:171
+msgid "unable to open"
 msgstr ""
 
-#: src/cache.c:149 src/cache.c:158
-msgid "Disabling cache"
+#: src/cache.c:158 src/cache.c:167
+msgid "disabling cache"
 msgstr ""
 
-#: src/cache.c:157
-msgid "Unable to store data in database"
+#: src/cache.c:166
+msgid "unable to store data in database"
 msgstr ""
 
-#: src/dns.c:82
-msgid "Host not found"
-msgstr ""
-
-#: src/gai_strerror.c:55
-msgid "Address family for hostname not supported"
-msgstr ""
-
-#: src/gai_strerror.c:56
-msgid "Temporary failure in name resolution"
-msgstr ""
-
-#: src/gai_strerror.c:57
-msgid "Bad value for ai_flags"
-msgstr ""
-
-#: src/gai_strerror.c:58
-msgid "Non-recoverable failure in name resolution"
-msgstr ""
-
-#: src/gai_strerror.c:59
-msgid "ai_family not supported"
-msgstr ""
-
-#: src/gai_strerror.c:60
-msgid "Memory allocation failure"
-msgstr ""
-
-#: src/gai_strerror.c:61
-msgid "No address associated with hostname"
-msgstr ""
-
-#: src/gai_strerror.c:62
-msgid "Name or service not known"
-msgstr ""
-
-#: src/gai_strerror.c:63
-msgid "Servname not supported for ai_socktype"
+#: src/dns.c:91
+msgid "host not found"
 msgstr ""
 
 #: src/gai_strerror.c:64
-msgid "ai_socktype not supported"
+msgid "Address family for hostname not supported"
 msgstr ""
 
 #: src/gai_strerror.c:65
+msgid "Temporary failure in name resolution"
+msgstr ""
+
+#: src/gai_strerror.c:66
+msgid "Bad value for ai_flags"
+msgstr ""
+
+#: src/gai_strerror.c:67
+msgid "Non-recoverable failure in name resolution"
+msgstr ""
+
+#: src/gai_strerror.c:68
+msgid "ai_family not supported"
+msgstr ""
+
+#: src/gai_strerror.c:69
+msgid "Memory allocation failure"
+msgstr ""
+
+#: src/gai_strerror.c:70
+msgid "No address associated with hostname"
+msgstr ""
+
+#: src/gai_strerror.c:71
+msgid "Name or service not known"
+msgstr ""
+
+#: src/gai_strerror.c:72
+msgid "Servname not supported for ai_socktype"
+msgstr ""
+
+#: src/gai_strerror.c:73
+msgid "ai_socktype not supported"
+msgstr ""
+
+#: src/gai_strerror.c:74
 msgid "System error"
 msgstr ""
 
-#: src/gai_strerror.c:76
+#: src/gai_strerror.c:85
 msgid "Unknown error"
 msgstr ""
 
-#: src/init.c:68
-msgid ", Copyright (C) 1999 Jonas Öberg\n"
+#: src/init.c:65
+msgid "version"
 msgstr ""
 
-#: src/init.c:69
+#: src/init.c:66
+msgid "Copyright (C) 1999 Jonas Öberg"
+msgstr ""
+
+#: src/init.c:67
 msgid ""
 "This is free software with ABSOLUTELY NO WARRANTY.\n"
 "\n"
+"Usage: jwhois [OPTIONS] [QUERIES...]\n"
 msgstr ""
 
 #: src/init.c:70
-msgid "Usage: jwhois [OPTIONS] [QUERIES...]\n"
-msgstr ""
-
-#: src/init.c:71
-msgid "  --version               display version number and patch level\n"
-msgstr ""
-
-#: src/init.c:72
-msgid "  --help                  display this help\n"
-msgstr ""
-
-#: src/init.c:73
-msgid "  -c FILE, --config=FILE  use FILE as configuration file\n"
-msgstr ""
-
-#: src/init.c:74
-msgid "  -h HOST, --host=HOST    explicitly query HOST\n"
-msgstr ""
-
-#: src/init.c:75
 msgid ""
+"  --version               display version number and patch level\n"
+"  --help                  display this help\n"
+"  -c FILE, --config=FILE  use FILE as configuration file\n"
+"  -h HOST, --host=HOST    explicitly query HOST\n"
 "  -p PORT, --port=PORT    use port number PORT (in conjunction with HOST)\n"
-msgstr ""
-
-#: src/init.c:77
-msgid "  -f, --force-lookup      force lookup even if the entry is cached\n"
+"  -v, --verbose           verbose debug output\n"
 msgstr ""
 
 #: src/init.c:78
-msgid "  -d, --disable-cache     disable cache functions\n"
-msgstr ""
-
-#: src/init.c:80
-msgid "  -v, --verbose           verbose debugging output\n"
+msgid ""
+"  -f, --force-lookup      force lookup even if the entry is cached\n"
+"  -d, --disable-cache     disable cache functions\n"
 msgstr ""
 
 #: src/init.c:81
-msgid ""
-"\n"
-"\n"
-"Report bugs to jonas@coyote.org\n"
+msgid "Report bugs to jonas@coyote.org"
 msgstr ""
 
 #: src/init.c:139
-msgid "Invalid port number"
+msgid "invalid port number"
 msgstr ""
 
-#: src/init.c:161
-#, c-format
-msgid "[Unable to open %s]\n"
+#: src/jconfig.c:210 src/jconfig.c:232 src/jconfig.c:286 src/jconfig.c:343
+msgid "Error allocating memory"
 msgstr ""
 
-#: src/init.c:179
-msgid "No configuration file found"
+#: src/jconfig.c:240 src/jconfig.c:294
+msgid "string out of bounds on line"
 msgstr ""
 
-#: src/jwhois.c:91
-msgid "[Error creating socket]\n"
+#: src/jconfig.c:266
+msgid "end of file looking for '\"' on line"
 msgstr ""
 
-#: src/jwhois.c:128
-msgid "[Error allocating memory]\n"
+#: src/jconfig.c:323
+msgid "unexpected end of file on line"
 msgstr ""
 
-#: src/jwhois.c:154
-msgid "Fatal error searching for host to query"
+#: src/jconfig.c:382
+msgid "multiple keys on line"
 msgstr ""
 
-#: src/jwhois.c:165
-msgid "Fatal error reading cache"
+#: src/jconfig.c:392
+msgid "missing key on line"
 msgstr ""
 
-#: src/jwhois.c:170
-msgid "Cached"
+#: src/jwhois.c:100
+msgid "error creating socket"
 msgstr ""
 
-#: src/jwhois.c:189
-#, c-format
-msgid "[Error reading data from %s:%d]\n"
+#: src/jwhois.c:137
+msgid "error allocating memory"
 msgstr ""
 
-#: src/jwhois.c:202
-msgid "Fatal error writing to cache"
+#: src/jwhois.c:163
+msgid "fatal error searching for host to query"
 msgstr ""
 
-#: src/lookup.c:82
-#, c-format
-msgid "[Invalid netmask (%s) in configuration file]\n"
+#: src/jwhois.c:174
+msgid "fatal error reading cache"
+msgstr ""
+
+#: src/jwhois.c:179
+msgid "cached"
+msgstr ""
+
+#: src/jwhois.c:198
+msgid "error reading data from"
+msgstr ""
+
+#: src/jwhois.c:211
+msgid "fatal error writing to cache"
+msgstr ""
+
+#: src/lookup.c:93
+msgid "invalid netmask on line"
 msgstr ""
 
 #. regs.num_regs == 2
-#: src/lookup.c:335
-#, c-format
-msgid "[Redirected to %s:%d]\n"
+#: src/lookup.c:347
+msgid "redirected to"
 msgstr ""
