@@ -12,7 +12,7 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 
-	./configure --prefix=/usr --mandir=\$${prefix}/share/man --sysconfdir=/etc --infodir=\$${prefix}/share/info --datadir=\$${prefix}/share/jwhois --with-cache --enable-cachefile=/var/cache/jwhois/jwhois.db
+	./configure --prefix=/usr --mandir=\$${prefix}/share/man --sysconfdir=/etc --infodir=\$${prefix}/share/info --datadir=\$${prefix}/share/jwhois --with-cache --localstatedir=/var/cache/jwhois
 	# Add here commands to compile the package.
 	$(MAKE)
 
@@ -69,7 +69,9 @@ binary-arch: build install
 #	# You may want to make some executables suid here.
 	chmod 2755 debian/tmp/usr/bin/jwhois
 	chgrp users debian/tmp/usr/bin/jwhois
-	dh_suidregister /usr/bin/jwhois
+	chmod 0775 debian/tmp/var/cache/jwhois
+	chgrp users debian/tmp/var/cache/jwhois
+	dh_suidregister /usr/bin/jwhois /var/cache/jwhois
 #	dh_makeshlibs
 	dh_installdeb
 #	dh_perl
