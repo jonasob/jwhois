@@ -1,3 +1,10 @@
+2003-01-30  Jonas Oberg <jonas@gnu.org>
+
+	* examples/jwhois.conf: Fixed .org whois server to point to
+          the new Public Interest Registry. This might have to be
+          changed. Awaiting authoritative answer from PIR about the
+          issue.
+
 2003-01-14  Peter Karlsson <peter@softwolves.pp.se>
 
 	* changelog.in, po/nl.po: New Dutch translation from TP.
