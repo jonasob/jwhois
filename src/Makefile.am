@@ -23,9 +23,11 @@ jwhois_SOURCES = dns.c lookup.c init.c utils.c gai_strerror.c regex.c \
 	getopt.c getopt1.c jconfig.c string.c cache.c rwhois.c jwhois.c \
 	whois.c http.c
 
-CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
+jwhois_LIBS = @LIBINTL@ @LIBS@
+
+jwhois_CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
          -DLOCALSTATEDIR="\"$(localstatedir)\"" \
          -DLOCALEDIR="\"$(localedir)\""
 
+
 INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir)/intl
-LIBS = @LIBINTL@ @LIBS@

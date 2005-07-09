@@ -1,3 +1,11 @@
+2005-07-09  Peter Karlsson <peter@softwolves.pp.se>
+
+	* acconfig.h, autogen.sh, configure.in, INSTALL, install-sh,
+	  Makefile.am, missing, mkinstalldirs, doc/texinfo.tex, po/Makevars,
+	  src/Makefile.am:
+	  Updated build system with help from Rob Taylor
+	  <robtaylor.at.floppily.org>
+
 2005-06-27  Peter Karlsson <peter@softwolves.pp.se>
 
 	* example/jwhois.conf: Various updates (Adrian von Bidder, Christian
