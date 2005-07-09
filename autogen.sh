@@ -1,5 +1,10 @@
 #!/bin/sh
 # Run this to generate all the initial makefiles, etc.
+# Built upon the gnome-autogen.sh from gnome-common.
+# Martin Baulig <martin@home-of-linux.org>
+# This package is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 dated June, 1991.
 
 #name of package
 PKG_NAME=${PKG_NAME:-Package}
@@ -27,28 +32,6 @@ case `echo "testing\c"; echo 1,2,3`,`echo -n testing; echo 1,2,3` in
   *c*,*  ) ECHO_N=-n ;;
   *)       ECHO_N= ;;
 esac
-
-# if GNOME2_DIR or GNOME2_PATH is set, modify ACLOCAL_FLAGS ...
-# NOTE: GNOME2_DIR is deprecated (as of Jan 2004), but is left here for
-# backwards-compatibility. You should be using GNOME2_PATH, since that is also
-# understood by libraries such as libgnome.
-if [ -n "$GNOME2_DIR" ]; then
-    echo "Using GNOME2_DIR is deprecated in gnome-common."
-    echo "Please use GNOME2_PATH instead (for compatibility with other GNOME pieces)."
-    ACLOCAL_FLAGS="-I $GNOME2_DIR/share/aclocal $ACLOCAL_FLAGS"
-    LD_LIBRARY_PATH="$GNOME2_DIR/lib:$LD_LIBRARY_PATH"
-    PATH="$GNOME2_DIR/bin:$PATH"
-    export PATH
-    export LD_LIBRARY_PATH
-else
-    if [ -n "$GNOME2_PATH" ]; then
-        ACLOCAL_FLAGS="-I $GNOME2_PATH/share/aclocal $ACLOCAL_FLAGS"
-        LD_LIBRARY_PATH="$GNOME2_PATH/lib:$LD_LIBRARY_PATH"
-        PATH="$GNOME2_PATH/bin:$PATH"
-        export PATH
-        export LD_LIBRARY_PATH
-    fi
-fi
 
 # some terminal codes ...
 boldface="`tput bold 2>/dev/null`"
@@ -219,8 +202,6 @@ check_m4macros() {
 }
 
 # try to catch the case where the macros2/ directory hasn't been cleared out.
-forbid_m4macro gnome-cxx-check.m4
-
 want_libtool=false
 want_gettext=false
 want_glib_gettext=false
@@ -307,11 +288,6 @@ if $want_gtk_doc; then
     require_m4macro gtk-doc.m4
 fi
 
-if [ "x$USE_COMMON_DOC_BUILD" = "xyes" ]; then
-    version_check gnome-common DOC_COMMON gnome-doc-common \
-        $REQUIRED_DOC_COMMON_VERSION " " || DIE=1
-fi
-
 check_m4macros || DIE=1
 
 if [ "$DIE" -eq 1 ]; then
@@ -367,19 +343,10 @@ for configure_ac in $configure_files; do
 	    $GTKDOCIZE --copy || exit 1
 	fi
 
-	if [ "x$USE_COMMON_DOC_BUILD" = "xyes" ]; then
-	    printbold "Running gnome-doc-common..."
-	    gnome-doc-common --copy || exit 1
-	fi
-
         # Now run aclocal to pull in any additional macros needed
 	aclocalinclude="$ACLOCAL_FLAGS"
 	printbold "Running $ACLOCAL..."
 	$ACLOCAL $aclocalinclude || exit 1
-
-	if grep "GNOME_AUTOGEN_OBSOLETE" aclocal.m4 >/dev/null; then
-	    printerr "*** obsolete gnome macros were used in $configure_ac"
-	fi
 
 	# Now that all the macros are sorted, run autoconf and autoheader ...
 	printbold "Running $AUTOCONF..."
