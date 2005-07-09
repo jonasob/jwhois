@@ -4,9 +4,9 @@ jwhois (3.2.3-1) unstable; urgency=low
    - Added hostname to cache key.
    (Closes: Bug#188423)
    - Changes to default configuration.
-   (Closes: Bug#312063, #314504, #314505, #315312)
+   (Closes: Bug#312063, #314504, #314505, #315312, #316785, #316786)
 
- -- Peter Karlsson <peterk@debian.og>  UNRELEASED
+ -- Peter Karlsson <peterk@debian.og>  Sat, 09 Jul 2005 21:15:00 +0300
 
 jwhois (3.2.2-3) unstable; urgency=low
 
