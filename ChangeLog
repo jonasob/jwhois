@@ -8,6 +8,10 @@
 	* example/jwhois.conf: Various updates (Christian Kurz)
 	* doc/jwhois.texi: 3.2.3 release
 	* src/init.c: Removed copyright year from language string
+	* po/es.po, po/fr.po, po/hu.po, po/id.po, po/it.po, po/nl.po,
+	  po/pl.po, po/pt_BR.po, po/ro.po, po/rw.po, po/tr.po, po/vi.po,
+	  po/zh_TW.po: Updated from TP
+	* po/sv.po: Updated
 
 2005-06-27  Peter Karlsson <peter@softwolves.pp.se>
 

@@ -1,191 +1,226 @@
-# Messages français pour jwhois.
-# Copyright © 2004 Free Software Foundation, Inc.
-# Michel Robitaille <robitail@IRO.UMontreal.CA>, traducteur since/depuis 2000
-# Dominique Boucher a été le traducteur de 1996 à 2000
+# Kinyarwanda translations for jwhois package.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# Steve Murphy <murf@e-tools.com>, 2005.
+# Steve performed initial rough translation from compendium built from translations provided by the following translators:
+# Philibert Ndandali  <ndandali@yahoo.fr>, 2005.
+# Viateur MUGENZI <muvia1@yahoo.fr>, 2005.
+# NoÃ«lla Mupole <s24211045@tuks.co.za>, 2005.
+# Carole Karema <karemacarole@hotmail.com>, 2005.
+# JEAN BAPTISTE NGENDAHAYO <ngenda_denis@yahoo.co.uk>, 2005.
+# Augustin KIBERWA  <akiberwa@yahoo.co.uk>, 2005.
+# Donatien NSENGIYUMVA <ndonatienuk@yahoo.co.uk>, 2005.
+# Antoine Bigirimana <antoine@e-tools.com>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU jwhois 3.2.1\n"
-"POT-Creation-Date: 2003-01-31 19:39+0100\n"
-"PO-Revision-Date: 2004-05-10 08:00-0500\n"
-"Last-Translator: Michel Robitaille <robitail@IRO.UMontreal.CA>\n"
-"Language-Team: French <traduc@traduc.org>\n"
+"Project-Id-Version: jwhois 3.2.2\n"
+"POT-Creation-Date: 2003-06-30 18:33+0100\n"
+"PO-Revision-Date: 2005-04-04 10:55-0700\n"
+"Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
+"Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
-"Content-Transfer-Encoding: 8-bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: src/cache.c:140
+#, fuzzy
 msgid "Invalid expire time"
-msgstr "Temps d'expiration invalide"
+msgstr "Igihe"
 
 #: src/cache.c:153 src/init.c:266 src/init.c:275
+#, fuzzy
 msgid "Unable to open"
-msgstr "Incapable d'ouvrir"
+msgstr "Kuri Gufungura"
 
 #: src/cache.c:162
+#, fuzzy
 msgid "Unable to store data in cache]\n"
-msgstr "Incapable de stocker les données dans la cache]\n"
+msgstr "Kuri Ibyatanzwe in Ubwihisho"
 
+# # The following errors are for error codes other than LDAP-specific ones.
+# # Someday mozilla will actually have a system for mapping nsresults to
+# # error strings that's actually widely used, unlike nsIErrorService.  But
+# # until it does, these strings live here...
+# # @name HOST_NOT_FOUND
+# # @loc none
 #: src/dns.c:91
+#, fuzzy
 msgid "host not found"
-msgstr "hôte non repéré"
+msgstr "Inturo ntibonetse"
 
 #: src/gai_strerror.c:61
+#, fuzzy
 msgid "Address family for hostname not supported"
-msgstr "Famille d'adresses non supportées chez l'hôte"
+msgstr "kugirango Izina ry'inturo: OYA"
 
 #: src/gai_strerror.c:63
+#, fuzzy
 msgid "Temporary failure in name resolution"
-msgstr "Échec temporaire dans la résolution de nom"
+msgstr "in Izina: Imikemurire"
 
 #: src/gai_strerror.c:65
+#, fuzzy
 msgid "Bad value for ai_flags"
-msgstr "Valeur erronée pour ai_flags"
+msgstr "Agaciro kugirango"
 
 #: src/gai_strerror.c:67
+#, fuzzy
 msgid "Non-recoverable failure in name resolution"
-msgstr "Erreur irrécupérable dans la résolution de nom"
+msgstr "in Izina: Imikemurire"
 
 #: src/gai_strerror.c:69
+#, fuzzy
 msgid "ai_family not supported"
-msgstr "ai_family non supporté"
+msgstr "OYA"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "Mémoire épuisée"
+msgstr ""
 
 #: src/gai_strerror.c:73
+#, fuzzy
 msgid "No address associated with hostname"
-msgstr "Aucune adresse associée avec le nom de l'hôte"
+msgstr "Aderesi Na: Izina ry'inturo:"
 
 #: src/gai_strerror.c:75
+#, fuzzy
 msgid "Name or service not known"
-msgstr "Nom ou service inconnu"
+msgstr "Cyangwa Serivisi OYA"
 
 #: src/gai_strerror.c:77
+#, fuzzy
 msgid "Servname not supported for ai_socktype"
-msgstr "Servname non supporté pour ai_socktype"
+msgstr "OYA kugirango"
 
 #: src/gai_strerror.c:79
+#, fuzzy
 msgid "ai_socktype not supported"
-msgstr "ai_socktype non supporté"
+msgstr "OYA"
 
 #: src/gai_strerror.c:81
+#, fuzzy
 msgid "System error"
-msgstr "Erreur système"
+msgstr "Ikosa"
 
 #: src/gai_strerror.c:83
 msgid "Unknown error"
-msgstr "Erreur inconnue"
+msgstr "Ikosa itazwi"
 
 #: src/getopt.c:678
-#, c-format
+#, fuzzy, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: l'option « %s » est ambiguë\n"
+msgstr "%s:Ihitamo ni"
 
 #: src/getopt.c:703
-#, c-format
+#, fuzzy, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: l'option « --%s » ne permet pas d'argument\n"
+msgstr "%s:Ihitamo Kwemerera"
 
 #: src/getopt.c:708
-#, c-format
+#, fuzzy, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: l'option « %c%s » ne permet pas d'argument\n"
+msgstr "%s:Ihitamo Kwemerera"
 
 #: src/getopt.c:726 src/getopt.c:899
-#, c-format
+#, fuzzy, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: l'option « %s » requiert un argument\n"
+msgstr "%s:Ihitamo"
 
 #. --option
 #: src/getopt.c:755
-#, c-format
+#, fuzzy, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: option « --%s » non reconnue\n"
+msgstr "%s:Ihitamo"
 
 #. +option or -option
 #: src/getopt.c:759
-#, c-format
+#, fuzzy, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: option « %c%s » non reconnue\n"
+msgstr "%s:Ihitamo"
 
 #. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
-#, c-format
+#, fuzzy, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: option -- %c illégale\n"
+msgstr "%s:Ihitamo"
 
 #: src/getopt.c:788
-#, c-format
+#, fuzzy, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: option -- %c invalide\n"
+msgstr "%s:Sibyo Ihitamo"
 
 #. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
-#, c-format
+#, fuzzy, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: option -- %c requiert un argument\n"
+msgstr "%s:Ihitamo"
 
 #: src/getopt.c:865
-#, c-format
+#, fuzzy, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: l'option « -W %s » est ambiguë\n"
+msgstr "%s:Ihitamo ni"
 
 #: src/getopt.c:883
-#, c-format
+#, fuzzy, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: l'option « -W %s » ne permet pas d'argument\n"
+msgstr "%s:Ihitamo Kwemerera"
 
 #: src/http.c:71
+#, fuzzy
 msgid "HTTP configuration is incomplete:"
-msgstr "Configuration HTTP est incomplète:"
+msgstr "Iboneza ni"
 
 #: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
 #: src/http.c:166
+#, fuzzy
 msgid "Option is missing:"
-msgstr "Option manquante:"
+msgstr "ni Ibuze"
 
 #: src/http.c:84
+#, fuzzy
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "L'option de http-method doit être « GET » ou « POST ».\n"
+msgstr "HTTP Uburyo Cyangwa"
 
 #. Couldn't create temporary file for POST data
 #: src/http.c:195
+#, fuzzy
 msgid "Unable to create temporary file"
-msgstr "Incapable de créer un fichier temporaire"
+msgstr "Kuri Kurema By'igihe gito IDOSIYE"
 
 #. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
-msgstr "Requête en cours"
+msgstr ""
 
 #: src/http.c:272
+#, fuzzy
 msgid "Unable to run web browser"
-msgstr "Incapable de lancer le fureteur du web"
+msgstr "Kuri Gukoresha Urubuga Mucukumbuzi"
 
 #: src/init.c:116
+#, fuzzy
 msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
-msgstr "Copyright © 1999,2003  Free Software Foundation, Inc."
+msgstr "C"
 
 #: src/init.c:117
+#, fuzzy
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
-msgstr ""
-"Ce programme est un logiciel libre avec AUCUNE GARANTIE ABSOLUE;\n"
-"vous pouvez le redistriber selon les termes de la GNU General Public License."
+msgstr "Porogaramu ni Kigenga Na: i Bya i"
 
+# goodies/source\filter.vcl\eps\dlgeps.src:DLG_EXPORT_EPS.GRP_VERSION.text
 #: src/init.c:120
+#, fuzzy
 msgid "version"
-msgstr "version"
+msgstr "Verisiyo"
 
 #: src/init.c:124
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr "Usage: jwhois [OPTIONS] [REQUÊTE]"
+msgstr ""
 
 #: src/init.c:126
+#, fuzzy
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -200,131 +235,139 @@ msgid ""
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
-msgstr ""
-"  --version                    afficher le nom et la version du logiciel\n"
-"  --help                       afficher l'aide-mémoire\n"
-"  -v, --verbose                fournir des explications lors de la mise au point\n"
-"  -c FICHIER, --config=FICHIER utiliser le FICHIER de configuration\n"
-"  -h HÔTE, --host=HÔTE         adresser les requêtes à l'HÔTE\n"
-"  -n, --no-redirect            déasactiver les redirections\n"
-"  -s, --no-whoisservers        désactivier les services whois-servers.net\n"
-"  -a, --raw                    désactiver le reformattage de requête\n"
-"  -i, --display-redirections   afficher toutes les redirections au lieu de les cacher\n"
-"  -p PORT, --port=PORT         utiliser le numéro de PORT (utilisé avec l'HÔTE)\n"
-"  -r, --rwhois                 forcer les requêtes de type rwhois\n"
-"  --rwhois-display=AFFICHAGE   définir les options d'AFFICHAGE des requêtes de type rwhois\n"
-"  --rwhois-limit=MAXIMUM       définir le nombre MAXIMUM de concordances à retourner\n"
+msgstr "--Verisiyo Kugaragaza Verisiyo Umubare Na Ifashayobora Kugaragaza iyi v Kosora amakosa C Gukoresha Nka Iboneza h Ubuturo Ikibazo# N Oya Ibikubiyemo S Oya Cyuzuye Serivisi a Bya i i Kugaragaza Kugaragaza Byose Bya P Umuyoboro Gukoresha Umuyoboro Umubare in Na: R Ikibazo# Kuri Kugaragaza i Kugaragaza Ihitamo in i Kinini Umubare Bya Kuri"
 
 #: src/init.c:141
+#, fuzzy
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
-msgstr ""
-"  -f, --force-lookup           forcer la recherche même si l'entrée est dans la cache\n"
-"  -d, --disable-cache          désactiver les fonctions de la cache\n"
+msgstr "-F GUSHAKISHA GUSHAKISHA ATARIIGIHARWE NIBA i Icyinjijwe ni D Ubwihisho Ubwihisho"
 
 #: src/init.c:144
+#, fuzzy
 msgid "Report bugs to bug-jwhois@gnu.org"
-msgstr "Rapporter toutes anomalies à bug-jwhois@gnu.org"
+msgstr "Kuri org"
 
 #: src/init.c:229
 msgid "Invalid limit"
-msgstr "Limite invalide"
+msgstr ""
 
 #: src/init.c:243
+#, fuzzy
 msgid "Invalid port number"
-msgstr "Numéro de port invalide"
+msgstr "Umuyoboro Umubare"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
 #: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
 #: src/utils.c:107 src/whois.c:76
+#, fuzzy
 msgid "Error allocating memory"
-msgstr "Erreur d'allocation mémoire"
+msgstr "Ububiko"
 
 #: src/jconfig.c:273 src/jconfig.c:325
+#, fuzzy
 msgid "String out of bounds on line"
-msgstr "Chaîne hors bornes en ligne"
+msgstr "Inyuma Bya ku Umurongo"
 
 #: src/jconfig.c:299
+#, fuzzy
 msgid "End of file looking for '\"' on line"
-msgstr "Fin de fichier recherche de « \" » en ligne"
+msgstr "Impera Bya IDOSIYE kugirango ku Umurongo"
 
 #: src/jconfig.c:354
+#, fuzzy
 msgid "Unexpected end of file on line"
-msgstr "Fin de fichier inattendue en ligne"
+msgstr "Impera Bya IDOSIYE ku Umurongo"
 
 #: src/jconfig.c:423
+#, fuzzy
 msgid "Multiple keys on line"
-msgstr "Clés mutliples en ligne"
+msgstr "Utubuto ku Umurongo"
 
 #: src/jconfig.c:433
+#, fuzzy
 msgid "Missing key on line"
-msgstr "Clé manquante en ligne"
+msgstr "Urufunguzo ku Umurongo"
 
 #: src/jwhois.c:126
+#, fuzzy
 msgid "Fatal error searching for host to query"
-msgstr "Erreur fatale recherche de l'hôte pour lancer la requête"
+msgstr "Ikosa Ishakisha kugirango Ubuturo Kuri Ikibazo#"
 
 #: src/jwhois.c:139
+#, fuzzy
 msgid "Error reading cache"
-msgstr "Erreur de lecture de la cache"
+msgstr "Ubwihisho"
 
 #: src/jwhois.c:144
 msgid "Cached"
-msgstr "Dans la cache"
+msgstr ""
 
 #: src/jwhois.c:158
+#, fuzzy
 msgid "Error writing to cache"
-msgstr "Erreur d'écriture dans la cache"
+msgstr "Kuri Ubwihisho"
 
 #: src/lookup.c:111
+#, fuzzy
 msgid "Invalid netmask on line"
-msgstr "netmasque invalide en ligne"
+msgstr "ku Umurongo"
 
 #: src/lookup.c:435 src/lookup.c:439
+#, fuzzy
 msgid "Redirected to"
-msgstr "Redirigé vers"
+msgstr "Kuri"
 
 #: src/rwhois.c:138 src/whois.c:70
+#, fuzzy
 msgid "[Unable to connect to remote host]\n"
-msgstr "[Incapable de se connecter à l'hôte]\n"
+msgstr "[Kuri Kwihuza Kuri Ubuturo"
 
 #: src/rwhois.c:159
+#, fuzzy
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
-msgstr "[RWHOIS: erreur de protocol durant l'envoie de l'option -rwhois]\n"
+msgstr "[Ikosa Ihitamo"
 
 #: src/rwhois.c:197
+#, fuzzy
 msgid "Server does not support display command"
-msgstr "Le serveur de supporte pas la commande d'affichage."
+msgstr "OYA Gushigikira Kugaragaza Komandi:"
 
 #: src/rwhois.c:212
+#, fuzzy
 msgid "Invalid limit in configuration file"
-msgstr "Limite invalide dans el fichier de configuration"
+msgstr "in Iboneza IDOSIYE"
 
 #: src/rwhois.c:236
+#, fuzzy
 msgid "Server does not support limit"
-msgstr "Le serveur ne supporte pas la limite."
+msgstr "OYA Gushigikira"
 
 #: src/rwhois.c:278
 msgid "Unknown referral"
-msgstr "Reférence inconnue"
+msgstr ""
 
 #: src/rwhois.c:370
+#, fuzzy
 msgid "Following referral to"
-msgstr "Poursuite de la référence vers"
+msgstr "Kuri"
 
 #: src/rwhois.c:399
+#, fuzzy
 msgid "[Host terminated connection prematurely]\n"
-msgstr "[Fin prématurée de la connexion par l'hôte]\n"
+msgstr "[Ukwihuza"
 
 #: src/rwhois.c:475
+#, fuzzy
 msgid "Unhandled reply"
-msgstr "Réponse non traitée"
+msgstr "Subiza"
 
 #: src/utils.c:232
 msgid "Error creating socket"
-msgstr "Erreur de création du socket"
+msgstr ""
 
 #: src/whois.c:88
+#, fuzzy
 msgid "Error reading data from"
-msgstr "Erreur de lecture des données à partir de"
+msgstr "Ibyatanzwe Bivuye"
