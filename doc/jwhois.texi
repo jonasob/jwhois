@@ -51,12 +51,12 @@ notice identical to this one.
 @titlepage
 @title jwhois
 @subtitle Version 3.2.3
-@subtitle 15 January 2005
+@subtitle 9 July 2005
 @author Jonas Öberg @code{(jonas@@gnu.org)}
 
 @page
 @vskip 0pt plus 1filll
-Copyright @copyright{} 1999-2003  Free Software Foundation, Inc.
+Copyright @copyright{} 1999-2005  Free Software Foundation, Inc.
 
 @sp 2
 Permission is granted to make and distribute verbatim copies of

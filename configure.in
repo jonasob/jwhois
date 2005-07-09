@@ -153,7 +153,7 @@ fi
 OLDCFLAGS=$CFLAGS
 AC_SUBST(OLDCFLAGS)
 
-AC_OUTPUT([ 
+AC_OUTPUT([
 Makefile 
 doc/Makefile 
 doc/sv/Makefile 

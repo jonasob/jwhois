@@ -7,7 +7,7 @@
 # the Free Software Foundation; version 2 dated June, 1991.
 
 #name of package
-PKG_NAME=${PKG_NAME:-Package}
+PKG_NAME=jwhois
 srcdir=${srcdir:-.}
 
 # default version requirements ...

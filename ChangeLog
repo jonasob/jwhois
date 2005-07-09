@@ -5,6 +5,8 @@
 	  src/Makefile.am:
 	  Updated build system with help from Rob Taylor
 	  <robtaylor.at.floppily.org>
+	* example/jwhois.conf: Various updates (Christian Kurz)
+	* doc/jwhois.texi: 3.2.3 release
 
 2005-06-27  Peter Karlsson <peter@softwolves.pp.se>
 
