@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 2.4.1\n"
-"POT-Creation-Date: 2003-01-31 19:39+0100\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2005-07-09 19:37+0100\n"
 "PO-Revision-Date: 2000-10-07 23:03+0400\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: RU <RU@li.org>\n"
@@ -14,22 +15,22 @@ msgstr ""
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:140
+#: src/cache.c:142
 #, fuzzy
 msgid "Invalid expire time"
 msgstr "неверное время обновления"
 
-#: src/cache.c:153 src/init.c:266 src/init.c:275
+#: src/cache.c:155 src/init.c:267 src/init.c:276
 #, fuzzy
 msgid "Unable to open"
 msgstr "невозможно открыть"
 
-#: src/cache.c:162
+#: src/cache.c:164
 #, fuzzy
-msgid "Unable to store data in cache]\n"
+msgid "Unable to store data in cache\n"
 msgstr "невозможно сохранить данные в базе данных"
 
-#: src/dns.c:91
+#: src/dns.c:93
 msgid "host not found"
 msgstr "хост не найден"
 
@@ -101,19 +102,16 @@ msgstr ""
 msgid "%s: option `%s' requires an argument\n"
 msgstr ""
 
-#. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr ""
 
-#. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr ""
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
@@ -124,7 +122,6 @@ msgstr ""
 msgid "%s: invalid option -- %c\n"
 msgstr ""
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
@@ -153,12 +150,10 @@ msgstr ""
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 
-#. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
 msgstr ""
 
-#. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
@@ -169,7 +164,8 @@ msgid "Unable to run web browser"
 msgstr "невозможно открыть"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
 msgstr ""
 
 #: src/init.c:117
@@ -185,11 +181,12 @@ msgstr ""
 msgid "version"
 msgstr "версия"
 
-#: src/init.c:124
+#: src/init.c:125
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Использование: jwhois [ПАРАМЕТРЫ] [ЗАПРОС]"
 
-#: src/init.c:126
+#: src/init.c:127
+#, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -207,8 +204,8 @@ msgid ""
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
 
-#: src/init.c:141
-#, fuzzy
+#: src/init.c:142
+#, fuzzy, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
@@ -216,22 +213,22 @@ msgstr ""
 "  -f, --force-lookup      просматривать, даже если запись кэширована\n"
 "  -d, --disable-cache     запретить функции кэша\n"
 
-#: src/init.c:144
+#: src/init.c:145
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Сообщать об ошибкаx на bug-jwhois@gnu.org"
 
-#: src/init.c:229
+#: src/init.c:230
 msgid "Invalid limit"
 msgstr ""
 
-#: src/init.c:243
+#: src/init.c:244
 #, fuzzy
 msgid "Invalid port number"
 msgstr "неверный номер порта"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
-#: src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
+#: src/utils.c:97 src/utils.c:107 src/whois.c:76
 #, fuzzy
 msgid "Error allocating memory"
 msgstr "ошибка при выделении памяти"
@@ -265,17 +262,17 @@ msgstr "отсутствует ключ в строке"
 msgid "Fatal error searching for host to query"
 msgstr "фатальная ошибка при поиске хоста для запроса"
 
-#: src/jwhois.c:139
+#: src/jwhois.c:147
 #, fuzzy
 msgid "Error reading cache"
 msgstr "фатальная ошибка при чтении кэша"
 
-#: src/jwhois.c:144
+#: src/jwhois.c:152
 #, fuzzy
 msgid "Cached"
 msgstr "кэшировано"
 
-#: src/jwhois.c:158
+#: src/jwhois.c:166
 #, fuzzy
 msgid "Error writing to cache"
 msgstr "фатальная ошибка записи в кэш"
@@ -291,10 +288,12 @@ msgid "Redirected to"
 msgstr "перенаправлено к"
 
 #: src/rwhois.c:138 src/whois.c:70
+#, c-format
 msgid "[Unable to connect to remote host]\n"
 msgstr ""
 
 #: src/rwhois.c:159
+#, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr ""
 
@@ -320,6 +319,7 @@ msgid "Following referral to"
 msgstr ""
 
 #: src/rwhois.c:399
+#, c-format
 msgid "[Host terminated connection prematurely]\n"
 msgstr ""
 

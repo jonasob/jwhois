@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
-"POT-Creation-Date: 2002-01-09 19:51+0100\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2005-07-09 19:37+0100\n"
 "PO-Revision-Date: 2002-1-12 19:19+8\n"
 "Last-Translator: Yuan0-Chen Cheng <ycheng@sinica.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -13,67 +14,67 @@ msgstr ""
 "Content-Type: text/plain; charset=Big5\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:140
+#: src/cache.c:142
 msgid "Invalid expire time"
 msgstr "無效的到期時間"
 
-#: src/cache.c:153 src/init.c:266 src/init.c:275
+#: src/cache.c:155 src/init.c:267 src/init.c:276
 msgid "Unable to open"
 msgstr "無法打開的"
 
-#: src/cache.c:162
-msgid "Unable to store data in cache]\n"
-msgstr "無法將資料存近快取]\n"
+#: src/cache.c:164
+msgid "Unable to store data in cache\n"
+msgstr "無法將資料存近快取\n"
 
-#: src/dns.c:89
+#: src/dns.c:93
 msgid "host not found"
 msgstr "主機找不到"
 
-#: src/gai_strerror.c:70
+#: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
 msgstr "主機名稱的位址類別不支援"
 
-#: src/gai_strerror.c:72
+#: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
 msgstr "在名稱解析上暫時失敗"
 
-#: src/gai_strerror.c:74
+#: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
 msgstr "ai_flags 的值錯誤"
 
-#: src/gai_strerror.c:76
+#: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
 msgstr "在名稱查詢上發生了不可回復的錯誤"
 
-#: src/gai_strerror.c:78
+#: src/gai_strerror.c:69
 msgid "ai_family not supported"
 msgstr "不支援 ai_family"
 
-#: src/gai_strerror.c:80
+#: src/gai_strerror.c:71
 msgid "Memory allocation failure"
 msgstr "記憶體分配失敗"
 
-#: src/gai_strerror.c:82
+#: src/gai_strerror.c:73
 msgid "No address associated with hostname"
 msgstr "沒有位址與該主機名稱有關"
 
-#: src/gai_strerror.c:84
+#: src/gai_strerror.c:75
 msgid "Name or service not known"
 msgstr "名稱或服務不詳的"
 
-#: src/gai_strerror.c:86
+#: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
 msgstr "ai_socktype 的 Servname 不支援"
 
-#: src/gai_strerror.c:88
+#: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
 msgstr "ai_socktype 不支援"
 
-#: src/gai_strerror.c:90
+#: src/gai_strerror.c:81
 msgid "System error"
 msgstr "系統錯誤"
 
-#: src/gai_strerror.c:92
+#: src/gai_strerror.c:83
 msgid "Unknown error"
 msgstr "未知的錯誤"
 
@@ -97,19 +98,16 @@ msgstr "%s：選項 `%c%s' 不允許一個參數\n"
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s：選項 `%s' 需要一個參數\n"
 
-#. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s：無法辨認的選項 `--%s'\n"
 
-#. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s：無法辨認選項 `%c%s'\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
@@ -120,7 +118,6 @@ msgstr "%s：非法的選項 -- %c\n"
 msgid "%s: invalid option -- %c\n"
 msgstr "%s：無效的選擇 -- %c\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
@@ -136,30 +133,35 @@ msgstr "%s：選項 `-W %s' 不明確\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s：選項 'W %s' 不允許一個引數\n"
 
-#: src/http.c:67
+#: src/http.c:71
 msgid "HTTP configuration is incomplete:"
 msgstr "HTTP 組態是不完整的："
 
-#: src/http.c:68 src/http.c:69 src/http.c:70 src/http.c:88 src/http.c:97 src/http.c:140
+#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
+#: src/http.c:166
 msgid "Option is missing:"
 msgstr "選擇遺漏："
 
-#: src/http.c:80
+#: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "選項 http-method 方法必須是\"GET\" 或是 \"POST\"。\n"
 
-#. Go on and do something
-#: src/http.c:170 src/lookup.c:307 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:195
+msgid "Unable to create temporary file"
+msgstr ""
+
+#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "查詢"
 
-#: src/http.c:196
+#: src/http.c:272
 msgid "Unable to run web browser"
 msgstr "無法執行瀏覽器"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999,2001  Free Software Foundation, Inc."
-msgstr "版權所有 (C) 1999,2001 自由軟體基金會。"
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
+msgstr "版權所有 (C) 1999-%d 自由軟體基金會。"
 
 #: src/init.c:117
 msgid ""
@@ -173,11 +175,12 @@ msgstr ""
 msgid "version"
 msgstr "版本"
 
-#: src/init.c:124
+#: src/init.c:125
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "使用： jwhois [選項][查詢]"
 
-#: src/init.c:126
+#: src/init.c:127
+#, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -188,7 +191,8 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -207,7 +211,8 @@ msgstr ""
 "  --rwhois-display=DISPLAY   在 rwhois 查詢中設定 DISPLAY 選項\n"
 "  --rwhois-limit=LIMIT       設定找到個數上限\n"
 
-#: src/init.c:141
+#: src/init.c:142
+#, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
@@ -215,19 +220,21 @@ msgstr ""
 "  -f, --force-lookup         即便該資料被快取了，也強迫查詢\n"
 "  -d, --disable-cache        關掉快取功能\n"
 
-#: src/init.c:144
+#: src/init.c:145
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "回報錯誤點給 bug-jwhois@gnu.org"
 
-#: src/init.c:229
+#: src/init.c:230
 msgid "Invalid limit"
 msgstr "無效的界線"
 
-#: src/init.c:243
+#: src/init.c:244
 msgid "Invalid port number"
 msgstr "無效的埠數"
 
-#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373 src/jwhois.c:99 src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
+#: src/utils.c:97 src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "分派記憶體錯誤"
 
@@ -243,11 +250,11 @@ msgstr "找尋 '\"' 遇到檔案結束在行數"
 msgid "Unexpected end of file on line"
 msgstr "意外的檔案終點，在行數"
 
-#: src/jconfig.c:421
+#: src/jconfig.c:423
 msgid "Multiple keys on line"
 msgstr "多個鍵值在行數"
 
-#: src/jconfig.c:431
+#: src/jconfig.c:433
 msgid "Missing key on line"
 msgstr "沒有鍵值在行數"
 
@@ -255,15 +262,15 @@ msgstr "沒有鍵值在行數"
 msgid "Fatal error searching for host to query"
 msgstr "在找尋主機來查詢時遇到了嚴重的錯誤"
 
-#: src/jwhois.c:139
+#: src/jwhois.c:147
 msgid "Error reading cache"
 msgstr "讀取快取錯誤"
 
-#: src/jwhois.c:144
+#: src/jwhois.c:152
 msgid "Cached"
 msgstr "快取到了"
 
-#: src/jwhois.c:158
+#: src/jwhois.c:166
 msgid "Error writing to cache"
 msgstr "錯誤寫入快取"
 
@@ -271,15 +278,17 @@ msgstr "錯誤寫入快取"
 msgid "Invalid netmask on line"
 msgstr "無效的 netmask"
 
-#: src/lookup.c:407 src/lookup.c:411
+#: src/lookup.c:435 src/lookup.c:439
 msgid "Redirected to"
 msgstr "改方向到"
 
 #: src/rwhois.c:138 src/whois.c:70
+#, c-format
 msgid "[Unable to connect to remote host]\n"
 msgstr "[無法連線到遠端主機]\n"
 
 #: src/rwhois.c:159
+#, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr "[RWHOIS ：送 -rwhois 選項的通訊協定時錯誤]\n"
 
@@ -304,10 +313,11 @@ msgid "Following referral to"
 msgstr "下列事物指示到"
 
 #: src/rwhois.c:399
+#, c-format
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[主機連線提前被終止]\n"
 
-#: src/rwhois.c:471
+#: src/rwhois.c:475
 msgid "Unhandled reply"
 msgstr "未被處理答覆"
 

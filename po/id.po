@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.1\n"
-"POT-Creation-Date: 2003-01-31 19:39+0100\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2005-07-09 19:37+0100\n"
 "PO-Revision-Date: 2003-04-04 15:06GMT+0700\n"
 "Last-Translator: Tedi Heriyanto <tedi_h@gmx.net>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -14,19 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 0.9.6\n"
 
-#: src/cache.c:140
+#: src/cache.c:142
 msgid "Invalid expire time"
 msgstr "waktu kadaluarsa tidak valid"
 
-#: src/cache.c:153 src/init.c:266 src/init.c:275
+#: src/cache.c:155 src/init.c:267 src/init.c:276
 msgid "Unable to open"
 msgstr "Tidak dapat membuka"
 
-#: src/cache.c:162
-msgid "Unable to store data in cache]\n"
-msgstr "Tidak dapat menyimpan data dalam cache]\n"
+#: src/cache.c:164
+msgid "Unable to store data in cache\n"
+msgstr "Tidak dapat menyimpan data dalam cache\n"
 
-#: src/dns.c:91
+#: src/dns.c:93
 msgid "host not found"
 msgstr "host tidak ditemukan"
 
@@ -98,19 +99,16 @@ msgstr "%s: opsi `%c%s' tidak membolehkan sebuah argumen\n"
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: opsi `%s' membutuhkan sebuah argumen\n"
 
-#. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s: opsi tidak dikenali `--%s'\n"
 
-#. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: opsi tidak dikenali `%c%s'\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
@@ -121,7 +119,6 @@ msgstr "%s: opsi ilegal -- %c\n"
 msgid "%s: invalid option -- %c\n"
 msgstr "%s: opsi tidak valid -- %c\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
@@ -150,12 +147,10 @@ msgstr "Opsi hilang:"
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "Opsi http-method harus berupa \"GET\" atau \"POST\".\n"
 
-#. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
 msgstr "Tidak dapat membuat file sementara"
 
-#. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Meng-query"
@@ -165,8 +160,9 @@ msgid "Unable to run web browser"
 msgstr "Tidak dapat menjalankan browser web"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
-msgstr "Copyright (C) 1999-2003  Free Software Foundation, Inc."
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
@@ -180,11 +176,12 @@ msgstr ""
 msgid "version"
 msgstr "versi"
 
-#: src/init.c:124
+#: src/init.c:125
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Penggunaan: jwhois [OPTIONS] [QUERY]"
 
-#: src/init.c:126
+#: src/init.c:127
+#, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -195,7 +192,8 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -208,13 +206,15 @@ msgstr ""
 "  -n, --no-redirect          tiadakan content redirection\n"
 "  -s, --no-whoisservers      tiadakan dukungan layanan whois-servers.net\n"
 "  -a, --raw                  tiadakan pemformatan ulang query\n"
-"  -i, --display-redirections tampilkan semua redirect alih-alih menyembunyikannya\n"
+"  -i, --display-redirections tampilkan semua redirect alih-alih "
+"menyembunyikannya\n"
 "  -p PORT, --port=PORT       gunakan nomor port PORT (bersama dengan HOST)\n"
 "  -r, --rwhois               paksa query rwhois untuk dilakukan\n"
 "  --rwhois-display=DISPLAY   set opsi display dalam query rwhois\n"
 "  --rwhois-limit=LIMIT       set jumlah maksimum kecocokan yang ditampilkan\n"
 
-#: src/init.c:141
+#: src/init.c:142
+#, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
@@ -222,21 +222,21 @@ msgstr ""
 "  -f, --force-lookup         paksa pencarian bahkan bila entri di-cache\n"
 "  -d, --disable-cache        tiadakan fungsi cache\n"
 
-#: src/init.c:144
+#: src/init.c:145
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Laporkan kesalahan ke bug-jwhois@gnu.org"
 
-#: src/init.c:229
+#: src/init.c:230
 msgid "Invalid limit"
 msgstr "Batasan tidak valid"
 
-#: src/init.c:243
+#: src/init.c:244
 msgid "Invalid port number"
 msgstr "Nomor port tidak valid"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
-#: src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
+#: src/utils.c:97 src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Gagal mengalokasi memori"
 
@@ -264,15 +264,15 @@ msgstr "Kunci hilang pada baris"
 msgid "Fatal error searching for host to query"
 msgstr "Kesalahan fatal mencari host untuk query"
 
-#: src/jwhois.c:139
+#: src/jwhois.c:147
 msgid "Error reading cache"
 msgstr "Gagal membaca cache"
 
-#: src/jwhois.c:144
+#: src/jwhois.c:152
 msgid "Cached"
 msgstr "Di-cache"
 
-#: src/jwhois.c:158
+#: src/jwhois.c:166
 msgid "Error writing to cache"
 msgstr "Gagal menulis ke cache"
 
@@ -285,10 +285,12 @@ msgid "Redirected to"
 msgstr "Diredireksi ke"
 
 #: src/rwhois.c:138 src/whois.c:70
+#, c-format
 msgid "[Unable to connect to remote host]\n"
 msgstr "[Tidak dapat koneksi ke host remote]\n"
 
 #: src/rwhois.c:159
+#, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr "[RWHOIS: Kesalahan protokol saat mengirim opsi -rwhois]\n"
 
@@ -313,6 +315,7 @@ msgid "Following referral to"
 msgstr "Mengikuti referal ke"
 
 #: src/rwhois.c:399
+#, c-format
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Koneksi host diputus secara prematur]\n"
 

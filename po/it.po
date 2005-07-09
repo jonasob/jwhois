@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.1\n"
-"POT-Creation-Date: 2003-01-31 19:39+0100\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2005-07-09 19:37+0100\n"
 "PO-Revision-Date: 2003-03-05 10:09+0000\n"
 "Last-Translator: Leonardo Albrizio <albrizio@freemail.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -13,19 +14,19 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:140
+#: src/cache.c:142
 msgid "Invalid expire time"
 msgstr "Tempo di scadenza non valido"
 
-#: src/cache.c:153 src/init.c:266 src/init.c:275
+#: src/cache.c:155 src/init.c:267 src/init.c:276
 msgid "Unable to open"
 msgstr "Impossibile aprire"
 
-#: src/cache.c:162
-msgid "Unable to store data in cache]\n"
-msgstr "Impossibile salvare i dati in cache]\n"
+#: src/cache.c:164
+msgid "Unable to store data in cache\n"
+msgstr "Impossibile salvare i dati in cache\n"
 
-#: src/dns.c:91
+#: src/dns.c:93
 msgid "host not found"
 msgstr "host non trovato"
 
@@ -97,19 +98,16 @@ msgstr "%s: l'opzione \"%c%s\" non consente un parametro\n"
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: l'opzione \"%s\" richiede un parametro\n"
 
-#. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s: opzione non riconosciuta \"--%s\"\n"
 
-#. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: opzione non riconosciuta \"%c%s\"\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
@@ -120,7 +118,6 @@ msgstr "%s: opzione non lecita -- %c\n"
 msgid "%s: invalid option -- %c\n"
 msgstr "%s: opzione non valida -- %c\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
@@ -149,12 +146,10 @@ msgstr "Manca l'opzione:"
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "L'opzione http-method deve essere \"GET\" o \"POST\".\n"
 
-#. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
 msgstr "Impossibile creare il file temporaneo"
 
-#. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Interrogando"
@@ -164,8 +159,9 @@ msgid "Unable to run web browser"
 msgstr "Impossibile eseguire il browser web"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
-msgstr "Copyright (C) 1999-2003  Free Software Foundation, Inc."
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
@@ -180,11 +176,12 @@ msgstr ""
 msgid "version"
 msgstr "versione"
 
-#: src/init.c:124
+#: src/init.c:125
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Uso: jwhois [OPZIONI] [INTERROGAZIONE]"
 
-#: src/init.c:126
+#: src/init.c:127
+#, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -195,26 +192,34 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  visualizza numero di versione e livello di patch\n"
+"  --version                  visualizza numero di versione e livello di "
+"patch\n"
 "  --help                     visualizza questo help\n"
 "  -v, --verbose              output di debug prolisso\n"
 "  -c FILE, --config=FILE     usa FILE come file di configurazione\n"
 "  -h HOST, --host=HOST       interrogazione esplicita di HOST\n"
 "  -n, --no-redirect          disabilita la redirezione dei contenuti\n"
-"  -s, --no-whoisservers      disabilita il supporto del servizio whois-servers.net\n"
+"  -s, --no-whoisservers      disabilita il supporto del servizio whois-"
+"servers.net\n"
 "  -a, --raw                  disabilita la riformattazione della richiesta\n"
-"  -i, --display-redirections visualizza tutte le redirezioni invece di nasconderle\n"
-"  -p PORTA, --port=PORTA     usa il numero di porta PORTA (unitamente a HOST)\n"
+"  -i, --display-redirections visualizza tutte le redirezioni invece di "
+"nasconderle\n"
+"  -p PORTA, --port=PORTA     usa il numero di porta PORTA (unitamente a "
+"HOST)\n"
 "  -r, --rwhois               forza l'ottenimento di una richiesta rwhois\n"
-"  --rwhois-display=DISPLAY   imposta l'opzione display nelle richieste rwhois\n"
-"  --rwhois-limit=LIMITE      imposta il massimo numero di ricorrenze da restituire\n"
+"  --rwhois-display=DISPLAY   imposta l'opzione display nelle richieste "
+"rwhois\n"
+"  --rwhois-limit=LIMITE      imposta il massimo numero di ricorrenze da "
+"restituire\n"
 
-#: src/init.c:141
+#: src/init.c:142
+#, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
@@ -222,21 +227,21 @@ msgstr ""
 "  -f, --force-lookup         forza il lookup anche se la voce è in cache\n"
 "  -d, --disable-cache        disabilita le funzioni di cache\n"
 
-#: src/init.c:144
+#: src/init.c:145
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Segnalare i bug a bug-jwhois@gnu.org"
 
-#: src/init.c:229
+#: src/init.c:230
 msgid "Invalid limit"
 msgstr "Limit non valido"
 
-#: src/init.c:243
+#: src/init.c:244
 msgid "Invalid port number"
 msgstr "Numero di porta non valido"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
-#: src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
+#: src/utils.c:97 src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Errore nella allocazione di memoria"
 
@@ -264,15 +269,15 @@ msgstr "Chiave inesistente sulla riga"
 msgid "Fatal error searching for host to query"
 msgstr "Errore fatale nella ricerca di host da interrogare"
 
-#: src/jwhois.c:139
+#: src/jwhois.c:147
 msgid "Error reading cache"
 msgstr "Errore di lettura della cache"
 
-#: src/jwhois.c:144
+#: src/jwhois.c:152
 msgid "Cached"
 msgstr "Riportato in cache"
 
-#: src/jwhois.c:158
+#: src/jwhois.c:166
 msgid "Error writing to cache"
 msgstr "Errore di scrittura della cache"
 
@@ -285,10 +290,12 @@ msgid "Redirected to"
 msgstr "Redirezione verso"
 
 #: src/rwhois.c:138 src/whois.c:70
+#, c-format
 msgid "[Unable to connect to remote host]\n"
 msgstr "[Collegamento all'host remoto impossibile]\n"
 
 #: src/rwhois.c:159
+#, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr "[RWHOIS: Errore di protocollo nell'invio dell'opzione -rwhois]\n"
 
@@ -313,6 +320,7 @@ msgid "Following referral to"
 msgstr "Seguendo referral a"
 
 #: src/rwhois.c:399
+#, c-format
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[L'host ha chiuso la connessione in anticipo]\n"
 

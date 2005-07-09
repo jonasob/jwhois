@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
-"POT-Creation-Date: 2003-06-30 18:33+0100\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2005-07-09 19:37+0100\n"
 "PO-Revision-Date: 2004-01-21 23:04+0100\n"
 "Last-Translator: Andras Timar <timar@fsf.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -15,19 +16,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.2\n"
 
-#: src/cache.c:140
+#: src/cache.c:142
 msgid "Invalid expire time"
 msgstr "Érvénytelen lejárati idõ"
 
-#: src/cache.c:153 src/init.c:266 src/init.c:275
+#: src/cache.c:155 src/init.c:267 src/init.c:276
 msgid "Unable to open"
 msgstr "Nem lehet megnyitni"
 
-#: src/cache.c:162
-msgid "Unable to store data in cache]\n"
-msgstr "Nem lehet adatokat tárolni a gyorsítótárban]\n"
+#: src/cache.c:164
+msgid "Unable to store data in cache\n"
+msgstr "Nem lehet adatokat tárolni a gyorsítótárban\n"
 
-#: src/dns.c:91
+#: src/dns.c:93
 msgid "host not found"
 msgstr "a gép nem található"
 
@@ -99,19 +100,16 @@ msgstr "%s: a `%c%s' kapcsoló nem fogad el argumentumot\n"
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: a `%s' kapcsoló argumentumot igényel\n"
 
-#. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s: ismeretlen kapcsoló: `--%s'\n"
 
-#. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: ismeretlen kapcsoló: `%c%s'\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
@@ -122,7 +120,6 @@ msgstr "%s: szabálytalan kapcsoló: -- %c\n"
 msgid "%s: invalid option -- %c\n"
 msgstr "%s: érvénytelen kapcsoló: -- %c\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
@@ -151,12 +148,10 @@ msgstr "Hiányzó beállítás:"
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "A http-method beállítás értéke csak \"GET\" vagy \"POST\" lehet.\n"
 
-#. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
 msgstr "Ideiglenes fájl létrehozása sikertelen"
 
-#. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Lekérdezés"
@@ -166,8 +161,9 @@ msgid "Unable to run web browser"
 msgstr "Nem lehet elindítani a webböngészõt"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
-msgstr "Copyright (C) 1999-2003  Free Software Foundation, Inc."
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
+msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc."
 
 #: src/init.c:117
 msgid ""
@@ -181,11 +177,12 @@ msgstr ""
 msgid "version"
 msgstr "verzió"
 
-#: src/init.c:124
+#: src/init.c:125
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Használat: jwhois [KAPCSOLÓ] [LEKÉRDEZÉS]"
 
-#: src/init.c:126
+#: src/init.c:127
+#, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -196,7 +193,8 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -209,35 +207,40 @@ msgstr ""
 "  -n, --no-redirect          letiltja a tartalom átirányítást\n"
 "  -s, --no-whoisservers      letiltja a  whois-servers.net szolgáltatásait\n"
 "  -a, --raw                  letiltja az kérés újra formázását\n"
-"  -i, --display-redirections megjeleníti az összes átirányítást, ahelyett hogy elrejtené\n"
-"  -p PORT, --port=PORT       a PORT számot használja (együtt a KISZOLGÁLÓVAL)\n"
+"  -i, --display-redirections megjeleníti az összes átirányítást, ahelyett "
+"hogy elrejtené\n"
+"  -p PORT, --port=PORT       a PORT számot használja (együtt a "
+"KISZOLGÁLÓVAL)\n"
 "  -r, --rwhois               erõlteti a rwhois lekérdezést\n"
-"  --rwhois-display=DISPLAY   beállítja a DISPLAY kapcsolót az rwhois lekérdezéshez\n"
+"  --rwhois-display=DISPLAY   beállítja a DISPLAY kapcsolót az rwhois "
+"lekérdezéshez\n"
 "  --rwhois-limit=HATÁR       beállítja a maximális találatok számát\n"
 
-#: src/init.c:141
+#: src/init.c:142
+#, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         kikeresés kényszerítése akkor is, ha az elem a gyorsítótárban van\n"
+"  -f, --force-lookup         kikeresés kényszerítése akkor is, ha az elem a "
+"gyorsítótárban van\n"
 "  -d, --disable-cache        letiltja a gyorsítótárat\n"
 
-#: src/init.c:144
+#: src/init.c:145
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "A hibákat a bug-jwhois@gnu.org címre lehet bejelenteni"
 
-#: src/init.c:229
+#: src/init.c:230
 msgid "Invalid limit"
 msgstr "Érvénytelen határ"
 
-#: src/init.c:243
+#: src/init.c:244
 msgid "Invalid port number"
 msgstr "Érvénytelen portszám"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
-#: src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
+#: src/utils.c:97 src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Hiba a memórialefoglalás során"
 
@@ -265,15 +268,15 @@ msgstr "Hiányzó kulcs a sorban"
 msgid "Fatal error searching for host to query"
 msgstr "Végzetes hiba a lekérdezendõ kiszolgáló keresése közben"
 
-#: src/jwhois.c:139
+#: src/jwhois.c:147
 msgid "Error reading cache"
 msgstr "Hiba a gyorsítótár olvasása közben"
 
-#: src/jwhois.c:144
+#: src/jwhois.c:152
 msgid "Cached"
 msgstr "Gyorsítótárban"
 
-#: src/jwhois.c:158
+#: src/jwhois.c:166
 msgid "Error writing to cache"
 msgstr "Hiba a gyorsítótár olvasása közben"
 
@@ -286,10 +289,12 @@ msgid "Redirected to"
 msgstr "Átirányítva"
 
 #: src/rwhois.c:138 src/whois.c:70
+#, c-format
 msgid "[Unable to connect to remote host]\n"
 msgstr "[Nem lehet csatlakozni a kiszolgálóhoz]\n"
 
 #: src/rwhois.c:159
+#, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr "[RWHOIS: Protokollhiba a küldés során  -rwhois kapcsoló]\n"
 
@@ -314,6 +319,7 @@ msgid "Following referral to"
 msgstr "Hivatkozás követése"
 
 #: src/rwhois.c:399
+#, c-format
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[A kiszolgálóval a kapcsolat idõ elõtt megszakadt]\n"
 
