@@ -7,6 +7,7 @@
 	  <robtaylor.at.floppily.org>
 	* example/jwhois.conf: Various updates (Christian Kurz)
 	* doc/jwhois.texi: 3.2.3 release
+	* src/init.c: Removed copyright year from language string
 
 2005-06-27  Peter Karlsson <peter@softwolves.pp.se>
 
