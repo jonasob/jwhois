@@ -14,7 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
-"POT-Creation-Date: 2003-06-30 18:33+0100\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2005-07-09 19:37+0100\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -22,19 +23,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:140
+#: src/cache.c:142
 #, fuzzy
 msgid "Invalid expire time"
 msgstr "Igihe"
 
-#: src/cache.c:153 src/init.c:266 src/init.c:275
+#: src/cache.c:155 src/init.c:267 src/init.c:276
 #, fuzzy
 msgid "Unable to open"
 msgstr "Kuri Gufungura"
 
-#: src/cache.c:162
+#: src/cache.c:164
 #, fuzzy
-msgid "Unable to store data in cache]\n"
+msgid "Unable to store data in cache\n"
 msgstr "Kuri Ibyatanzwe in Ubwihisho"
 
 # # The following errors are for error codes other than LDAP-specific ones.
@@ -43,7 +44,7 @@ msgstr "Kuri Ibyatanzwe in Ubwihisho"
 # # until it does, these strings live here...
 # # @name HOST_NOT_FOUND
 # # @loc none
-#: src/dns.c:91
+#: src/dns.c:93
 #, fuzzy
 msgid "host not found"
 msgstr "Inturo ntibonetse"
@@ -126,19 +127,16 @@ msgstr "%s:Ihitamo Kwemerera"
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s:Ihitamo"
 
-#. --option
 #: src/getopt.c:755
 #, fuzzy, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s:Ihitamo"
 
-#. +option or -option
 #: src/getopt.c:759
 #, fuzzy, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s:Ihitamo"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, fuzzy, c-format
 msgid "%s: illegal option -- %c\n"
@@ -149,7 +147,6 @@ msgstr "%s:Ihitamo"
 msgid "%s: invalid option -- %c\n"
 msgstr "%s:Sibyo Ihitamo"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, fuzzy, c-format
 msgid "%s: option requires an argument -- %c\n"
@@ -181,13 +178,11 @@ msgstr "ni Ibuze"
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "HTTP Uburyo Cyangwa"
 
-#. Couldn't create temporary file for POST data
 #: src/http.c:195
 #, fuzzy
 msgid "Unable to create temporary file"
 msgstr "Kuri Kurema By'igihe gito IDOSIYE"
 
-#. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
@@ -198,8 +193,8 @@ msgid "Unable to run web browser"
 msgstr "Kuri Gukoresha Urubuga Mucukumbuzi"
 
 #: src/init.c:116
-#, fuzzy
-msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
+#, fuzzy, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
 msgstr "C"
 
 #: src/init.c:117
@@ -215,12 +210,12 @@ msgstr "Porogaramu ni Kigenga Na: i Bya i"
 msgid "version"
 msgstr "Verisiyo"
 
-#: src/init.c:124
+#: src/init.c:125
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr ""
 
-#: src/init.c:126
-#, fuzzy
+#: src/init.c:127
+#, fuzzy, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -231,36 +226,44 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
-msgstr "--Verisiyo Kugaragaza Verisiyo Umubare Na Ifashayobora Kugaragaza iyi v Kosora amakosa C Gukoresha Nka Iboneza h Ubuturo Ikibazo# N Oya Ibikubiyemo S Oya Cyuzuye Serivisi a Bya i i Kugaragaza Kugaragaza Byose Bya P Umuyoboro Gukoresha Umuyoboro Umubare in Na: R Ikibazo# Kuri Kugaragaza i Kugaragaza Ihitamo in i Kinini Umubare Bya Kuri"
+msgstr ""
+"--Verisiyo Kugaragaza Verisiyo Umubare Na Ifashayobora Kugaragaza iyi v "
+"Kosora amakosa C Gukoresha Nka Iboneza h Ubuturo Ikibazo# N Oya Ibikubiyemo "
+"S Oya Cyuzuye Serivisi a Bya i i Kugaragaza Kugaragaza Byose Bya P Umuyoboro "
+"Gukoresha Umuyoboro Umubare in Na: R Ikibazo# Kuri Kugaragaza i Kugaragaza "
+"Ihitamo in i Kinini Umubare Bya Kuri"
 
-#: src/init.c:141
-#, fuzzy
+#: src/init.c:142
+#, fuzzy, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
-msgstr "-F GUSHAKISHA GUSHAKISHA ATARIIGIHARWE NIBA i Icyinjijwe ni D Ubwihisho Ubwihisho"
+msgstr ""
+"-F GUSHAKISHA GUSHAKISHA ATARIIGIHARWE NIBA i Icyinjijwe ni D Ubwihisho "
+"Ubwihisho"
 
-#: src/init.c:144
+#: src/init.c:145
 #, fuzzy
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Kuri org"
 
-#: src/init.c:229
+#: src/init.c:230
 msgid "Invalid limit"
 msgstr ""
 
-#: src/init.c:243
+#: src/init.c:244
 #, fuzzy
 msgid "Invalid port number"
 msgstr "Umuyoboro Umubare"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
-#: src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
+#: src/utils.c:97 src/utils.c:107 src/whois.c:76
 #, fuzzy
 msgid "Error allocating memory"
 msgstr "Ububiko"
@@ -295,16 +298,16 @@ msgstr "Urufunguzo ku Umurongo"
 msgid "Fatal error searching for host to query"
 msgstr "Ikosa Ishakisha kugirango Ubuturo Kuri Ikibazo#"
 
-#: src/jwhois.c:139
+#: src/jwhois.c:147
 #, fuzzy
 msgid "Error reading cache"
 msgstr "Ubwihisho"
 
-#: src/jwhois.c:144
+#: src/jwhois.c:152
 msgid "Cached"
 msgstr ""
 
-#: src/jwhois.c:158
+#: src/jwhois.c:166
 #, fuzzy
 msgid "Error writing to cache"
 msgstr "Kuri Ubwihisho"
@@ -320,12 +323,12 @@ msgid "Redirected to"
 msgstr "Kuri"
 
 #: src/rwhois.c:138 src/whois.c:70
-#, fuzzy
+#, fuzzy, c-format
 msgid "[Unable to connect to remote host]\n"
 msgstr "[Kuri Kwihuza Kuri Ubuturo"
 
 #: src/rwhois.c:159
-#, fuzzy
+#, fuzzy, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr "[Ikosa Ihitamo"
 
@@ -354,7 +357,7 @@ msgid "Following referral to"
 msgstr "Kuri"
 
 #: src/rwhois.c:399
-#, fuzzy
+#, fuzzy, c-format
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Ukwihuza"
 

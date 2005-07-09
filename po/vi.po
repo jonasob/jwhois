@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
-"Report-Msgid-Bugs-To: <bug-jwhois@gnu.org>\n"
-"POT-Creation-Date: 2003-06-30 18:33+0100\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2005-07-09 19:37+0100\n"
 "PO-Revision-Date: 2005-02-06 15:27+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net> \n"
@@ -14,19 +14,20 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cache.c:140
+#: src/cache.c:142
 msgid "Invalid expire time"
 msgstr "Giờ hết hạn không hợp lệ"
 
-#: src/cache.c:153 src/init.c:266 src/init.c:275
+#: src/cache.c:155 src/init.c:267 src/init.c:276
 msgid "Unable to open"
 msgstr "Không mở được"
 
-#: src/cache.c:162
-msgid "Unable to store data in cache]\n"
+#: src/cache.c:164
+#, fuzzy
+msgid "Unable to store data in cache\n"
 msgstr "Không cất giữ dữ liệu được trong bộ nhớ tạm\n"
 
-#: src/dns.c:91
+#: src/dns.c:93
 msgid "host not found"
 msgstr "chưa tìm mấy chủ"
 
@@ -98,19 +99,16 @@ msgstr "%s: tùy chọn `%c%s' không cho phép đối số\n"
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: tùy chọn `%s' cần đến đối số\n"
 
-#. --option
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s: chưa chấp nhận tùy chọn `--%s'\n"
 
-#. +option or -option
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: chưa chấp nhận tùy chọn `%c%s'\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
@@ -121,7 +119,6 @@ msgstr "%s: không cho phép tùy chọn -- %c\n"
 msgid "%s: invalid option -- %c\n"
 msgstr "%s: tùy chọn không hợp lệ-- %c\n"
 
-#. 1003.2 specifies the format of this message.
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
@@ -148,14 +145,14 @@ msgstr "Thiếu tùy chọn:"
 
 #: src/http.c:84
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "Tùy chọn http-method (phương pháp) phải là \"GET\" (gọi) hay \"POST\" (đệ trình).\n"
+msgstr ""
+"Tùy chọn http-method (phương pháp) phải là \"GET\" (gọi) hay \"POST\" (đệ "
+"trình).\n"
 
-#. Couldn't create temporary file for POST data
 #: src/http.c:195
 msgid "Unable to create temporary file"
 msgstr "Không tạo được tập tin tạm"
 
-#. Go on and do something
 #: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Đang hỏi"
@@ -165,7 +162,8 @@ msgid "Unable to run web browser"
 msgstr "Không chạy được trình duyệt Mạng"
 
 #: src/init.c:116
-msgid "Copyright (C) 1999-2003  Free Software Foundation, Inc."
+#, fuzzy, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
 msgstr "Bản quyền (C) năm 1999-2003 của Free Software Foundation, Inc."
 
 #: src/init.c:117
@@ -180,11 +178,12 @@ msgstr ""
 msgid "version"
 msgstr "phiên bản"
 
-#: src/init.c:124
+#: src/init.c:125
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Cách sử dụng: jwhois [TÙY_CHỌN] [HỎI]"
 
-#: src/init.c:126
+#: src/init.c:127
+#, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -195,7 +194,8 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -208,13 +208,15 @@ msgstr ""
 "  -n, --no-redirect          _không chuyển hướng_ nội bộ\n"
 "  -s, --no-whoisservers      _không_ hỗ trợ dịch vụ whois-servers.net\n"
 "  -a, --raw                  không định dạng lại câu hỏi (_thô_)\n"
-"  -i, --display-redirections _hiển thị_ tất cả việc _chuyển hướng_ thay thế ẩn chúng\n"
+"  -i, --display-redirections _hiển thị_ tất cả việc _chuyển hướng_ thay thế "
+"ẩn chúng\n"
 "  -p CỔNG, --port=CỔNG    sử dụng số cổng ấy (chung với MÁY_CHỦ)\n"
 "  -r, --rwhois               buộc hỏi loại rwhois\n"
 "  --rwhois-display=TRÌNH_BÀY   lập tùy chọn trình bày khi hỏi loại rwhois\n"
 "  --rwhois-limit=HẠN_CHẾ       lập số tối đa sự khớp để gọi\n"
 
-#: src/init.c:141
+#: src/init.c:142
+#, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
@@ -222,21 +224,21 @@ msgstr ""
 "  -f, --force-lookup         _buộc tra cứu_ ngay cả mục trong bộ nhớ tạm\n"
 "  -d, --disable-cache        _không_ sử dụng _bộ nhớ tạm_\n"
 
-#: src/init.c:144
+#: src/init.c:145
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Hãy thông báo lỗi cho bug-jwhois@gnu.org"
 
-#: src/init.c:229
+#: src/init.c:230
 msgid "Invalid limit"
 msgstr "Sự hạn chế không hợp lệ"
 
-#: src/init.c:243
+#: src/init.c:244
 msgid "Invalid port number"
 msgstr "Số cổng không hợp lệ"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/lookup.c:514 src/lookup.c:617 src/utils.c:97
-#: src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
+#: src/utils.c:97 src/utils.c:107 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Gặp lỗi khi phân định bộ nhớ"
 
@@ -264,15 +266,15 @@ msgstr "Thiếu khóa trong đường"
 msgid "Fatal error searching for host to query"
 msgstr "Gặp lỗi nghiêm trọng khi tìm kiếm máy chủ để hỏi"
 
-#: src/jwhois.c:139
+#: src/jwhois.c:147
 msgid "Error reading cache"
 msgstr "Gặp lỗi khi đọc bộ nhớ tạm"
 
-#: src/jwhois.c:144
+#: src/jwhois.c:152
 msgid "Cached"
 msgstr "Trong bộ nhớ tạm"
 
-#: src/jwhois.c:158
+#: src/jwhois.c:166
 msgid "Error writing to cache"
 msgstr "Gặp lỗi khi ghi vào bộ nhớ tạm"
 
@@ -285,10 +287,12 @@ msgid "Redirected to"
 msgstr "Đã được chuyển hướng đến"
 
 #: src/rwhois.c:138 src/whois.c:70
+#, c-format
 msgid "[Unable to connect to remote host]\n"
 msgstr "[Không kết nối được đến mấy chủ từ xa]\n"
 
 #: src/rwhois.c:159
+#, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
 msgstr "[RWHOIS: Gặp lỗi giao thức khi gởi tùy chọn -rwhois]\n"
 
@@ -313,6 +317,7 @@ msgid "Following referral to"
 msgstr "Đang theo sự chuyến đến"
 
 #: src/rwhois.c:399
+#, c-format
 msgid "[Host terminated connection prematurely]\n"
 msgstr "[Máy chủ đã ngắt kết nối sớm]\n"
 
