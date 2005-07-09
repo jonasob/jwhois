@@ -22,6 +22,17 @@ AC_CONFIG_SRCDIR([src/jconfig.c])
 AM_INIT_AUTOMAKE(jwhois,3.2.3)
 AM_CONFIG_HEADER(config.h)
 
+AH_TEMPLATE([PACKAGE], [package name])
+AH_TEMPLATE([VERSION], [package version])
+AH_TEMPLATE([DEFAULTHOST], [Default Whois server])
+AH_TEMPLATE([CACHEFILE], [Default filename for the cache functionality])
+AH_TEMPLATE([CACHEEXPIRE], [Default expire time for the cache functionality])
+AH_TEMPLATE([HAVE_GETADDRINFO], [Define if you have the getaddrinfo function. ])
+AH_TEMPLATE([NOCACHE], [Define if you want to disable cache functionality])
+AH_TEMPLATE([HAVE_DBM_OPEN], [Define if you have the dbm_open function. ])
+AH_TEMPLATE([HAVE_GDBM_OPEN], [Define if you have the gdbm_open function. ])
+AH_TEMPLATE([WHOISSERVERS], [Default whois-servers.net domain for the whois-servers support])
+
 AC_ARG_ENABLE(DEFAULTHOST,
 [  --enable-DEFAULTHOST=HOST   default whois host (default whois.internic.net)],
 [AC_DEFINE_UNQUOTED(DEFAULTHOST, "$enable_DEFAULTHOST")],
@@ -142,13 +153,12 @@ fi
 OLDCFLAGS=$CFLAGS
 AC_SUBST(OLDCFLAGS)
 
-AC_OUTPUT([
+AC_OUTPUT([ 
 Makefile 
 doc/Makefile 
 doc/sv/Makefile 
 src/Makefile 
 po/Makefile.in 
-m4/Makefile
 example/Makefile 
 jwhois.spec
 ])
