@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU jwhois 3.2.1\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-09 19:37+0100\n"
+"POT-Creation-Date: 2005-07-10 06:57+0100\n"
 "PO-Revision-Date: 2004-05-10 08:00-0500\n"
 "Last-Translator: Michel Robitaille <robitail@IRO.UMontreal.CA>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -162,8 +162,8 @@ msgstr "Incapable de lancer le fureteur du web"
 
 #: src/init.c:116
 #, c-format
-msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
-msgstr "Copyright © 1999-%d  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Copyright © 1999-%d  Free Software Foundation, Inc.\n"
 
 #: src/init.c:117
 msgid ""

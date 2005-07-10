@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-09 19:37+0100\n"
+"POT-Creation-Date: 2005-07-10 06:57+0100\n"
 "PO-Revision-Date: 2005-02-06 15:27+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net> \n"
@@ -162,9 +162,9 @@ msgid "Unable to run web browser"
 msgstr "Không chạy được trình duyệt Mạng"
 
 #: src/init.c:116
-#, fuzzy, c-format
-msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
-msgstr "Bản quyền (C) năm 1999-2003 của Free Software Foundation, Inc."
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Bản quyền (C) năm 1999-2003 của Free Software Foundation, Inc.\n"
 
 #: src/init.c:117
 msgid ""

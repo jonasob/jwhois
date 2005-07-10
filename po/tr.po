@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-09 19:37+0100\n"
+"POT-Creation-Date: 2005-07-10 06:57+0100\n"
 "PO-Revision-Date: 2005-03-14 04:45+0200\n"
 "Last-Translator: İrfan Macit <imacit@mail.cu.edu.tr>\n"
 "Language-Team: Turkish <gnu-tr-u12a@lists.sourceforge.net>\n"
@@ -163,8 +163,8 @@ msgstr "Web tarayıcısı çalıştırılamıyor"
 
 #: src/init.c:116
 #, c-format
-msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
-msgstr "Telif Hakkı (C) 1999-%d  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Telif Hakkı (C) 1999-%d  Free Software Foundation, Inc.\n"
 
 #: src/init.c:117
 msgid ""

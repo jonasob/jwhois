@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-09 19:37+0100\n"
+"POT-Creation-Date: 2005-07-10 06:57+0100\n"
 "PO-Revision-Date: 2002-1-12 19:19+8\n"
 "Last-Translator: Yuan0-Chen Cheng <ycheng@sinica.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -160,8 +160,8 @@ msgstr "無法執行瀏覽器"
 
 #: src/init.c:116
 #, c-format
-msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
-msgstr "版權所有 (C) 1999-%d 自由軟體基金會。"
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "版權所有 (C) 1999-%d 自由軟體基金會。\n"
 
 #: src/init.c:117
 msgid ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.1\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-09 19:37+0100\n"
+"POT-Creation-Date: 2005-07-10 06:57+0100\n"
 "PO-Revision-Date: 2003-02-04 00:15-0300\n"
 "Last-Translator: Alexandre Folle de Menezes <afmenez@terra.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
@@ -160,8 +160,8 @@ msgstr "Impossível rodar o navegador web"
 
 #: src/init.c:116
 #, c-format
-msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
-msgstr "Copyright © 1999-%d  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Copyright © 1999-%d  Free Software Foundation, Inc.\n"
 
 #: src/init.c:117
 msgid ""

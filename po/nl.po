@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-09 19:37+0100\n"
+"POT-Creation-Date: 2005-07-10 06:57+0100\n"
 "PO-Revision-Date: 2003-08-04 22:18+0100\n"
 "Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
@@ -161,8 +161,8 @@ msgstr "Starten web bladerprogramma mislukt"
 
 #: src/init.c:116
 #, c-format
-msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc."
-msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc."
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
 
 #: src/init.c:117
 msgid ""
