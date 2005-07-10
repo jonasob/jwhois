@@ -164,7 +164,7 @@ msgstr "Không chạy được trình duyệt Mạng"
 #: src/init.c:116
 #, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
-msgstr "Bản quyền (C) năm 1999-2003 của Free Software Foundation, Inc.\n"
+msgstr "Bản quyền (C) năm 1999-%d của Free Software Foundation, Inc.\n"
 
 #: src/init.c:117
 msgid ""
