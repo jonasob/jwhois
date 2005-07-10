@@ -117,7 +117,7 @@ void help_version(int onlyversion)
   char *LICENSE =  _("This program is free software with ABSOLUTELY NO WARRANTY; you may\n\
 redistribute it under the terms of the GNU General Public License.");
 
-  printf("%s %s %s, \n", PACKAGE, _("version"), VERSION);
+  printf("%s %s %s, ", PACKAGE, _("version"), VERSION);
   printf(COPYRIGHT, 2005);
   printf("%s\n\n", LICENSE);
   if (!onlyversion)
