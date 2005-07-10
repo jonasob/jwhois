@@ -5,8 +5,10 @@ jwhois (3.2.3-1) unstable; urgency=low
    (Closes: Bug#188423)
    - Changes to default configuration.
    (Closes: Bug#312063, #314504, #314505, #315312, #316785, #316786)
+   - Rebuilt build infrastructure with modern tools.
+   (Closes: Bug#218978)
 
- -- Peter Karlsson <peterk@debian.org>  Sat, 09 Jul 2005 22:05:00 +0300
+ -- Peter Karlsson <peterk@debian.org>  Sun, 10 Jul 2005 15:20:00 +0300
 
 jwhois (3.2.2-3) unstable; urgency=low
 
