@@ -1,3 +1,8 @@
+2005-07-10  Peter Karlsson <peter@softwolves.pp.se>
+
+	* doc/jwhois.texi: 3.2.3 release
+	* src/init.c: Minor fix so that help page looks right
+
 2005-07-09  Peter Karlsson <peter@softwolves.pp.se>
 
 	* acconfig.h, autogen.sh, configure.in, INSTALL, install-sh,
@@ -6,7 +11,6 @@
 	  Updated build system with help from Rob Taylor
 	  <robtaylor.at.floppily.org>
 	* example/jwhois.conf: Various updates (Christian Kurz)
-	* doc/jwhois.texi: 3.2.3 release
 	* src/init.c: Removed copyright year from language string
 	* po/es.po, po/fr.po, po/hu.po, po/id.po, po/it.po, po/nl.po,
 	  po/pl.po, po/pt_BR.po, po/ro.po, po/rw.po, po/tr.po, po/vi.po,

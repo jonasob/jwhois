@@ -51,7 +51,7 @@ notice identical to this one.
 @titlepage
 @title jwhois
 @subtitle Version 3.2.3
-@subtitle 9 July 2005
+@subtitle 10 July 2005
 @author Jonas Öberg @code{(jonas@@gnu.org)}
 
 @page
