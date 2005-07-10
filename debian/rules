@@ -24,7 +24,6 @@ clean:
 	dh_testroot
 	rm -f build-stamp
 	-$(MAKE) distclean
-	-rm po/*.gmo
 	dh_clean
 
 install: build
@@ -46,7 +45,7 @@ binary-arch: build install
 	dh_testdir
 	dh_testroot
 	dh_installdocs
-	dh_installmanpages
+	dh_installman
 	dh_installinfo
 	dh_installchangelogs ChangeLog
 	dh_strip
