@@ -1,41 +1,55 @@
 #!/usr/bin/make -f
-# This is the rules for building Jwhois packages for Debian.
-# Based on sample: "GNU copyright 1997 to 1999 by Joey Hess".
+# These are the rules for building Jwhois packages for Debian.
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# This is the debhelper compatibility version to use.
-export DH_COMPAT=3
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+CFLAGS = -Wall -g
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+config.status: configure
+	dh_testdir
+	CFLAGS="$(CFLAGS)" ./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info --sysconfdir=/etc --datadir=\$${prefix}/share --with-cache --localstatedir=/var/cache/jwhois
+
 
 build: build-stamp
-build-stamp:
+
+build-stamp:  config.status
 	dh_testdir
-	test -f aclocal.m4 || aclocal -I macros
-	test -f configure || autoconf
-	test -f config.h.in || autoheader
-	test -f Makefile.in || automake
-	./configure --prefix=/usr --mandir=\$${prefix}/share/man --sysconfdir=/etc --infodir=\$${prefix}/share/info --datadir=\$${prefix}/share --with-cache --localstatedir=/var/cache/jwhois
 	$(MAKE)
 	touch build-stamp
 
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp
+	rm -f build-stamp 
 	-$(MAKE) distclean
-	dh_clean
+ifneq "$(wildcard /usr/share/misc/config.sub)" ""
+	cp -f /usr/share/misc/config.sub config.sub
+endif
+ifneq "$(wildcard /usr/share/misc/config.guess)" ""
+	cp -f /usr/share/misc/config.guess config.guess
+endif
+	dh_clean 
 
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_clean -k 
 	dh_installdirs
-	$(MAKE) install DESTDIR=`pwd`/debian/jwhois/
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/jwhois
 	install -d debian/jwhois/etc
 	install -m644 example/jwhois.conf debian/jwhois/etc
-
-	touch install-stamp
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -58,4 +72,4 @@ binary-arch: build install
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+.PHONY: build clean binary-indep binary-arch binary install 

@@ -1,3 +1,9 @@
+jwhois (3.2.3-2) unstable; urgency=low
+
+  * Updated Debianization.
+
+ -- Peter Karlsson <peterk@debian.org>  UNRELEASED
+
 jwhois (3.2.3-1) unstable; urgency=low
 
   * New upstream release:
