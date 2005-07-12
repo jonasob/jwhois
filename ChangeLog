@@ -1,3 +1,8 @@
+2005-07-12  Peter Karlsson <peter@softwolves.pp.se>
+
+	* doc/jwhois.1, doc/sv/jwhois.1: Fixed mixup in long and short
+	  hyphens in manual pages.
+
 2005-07-10  Peter Karlsson <peter@softwolves.pp.se>
 
 	* doc/jwhois.texi: 3.2.3 release

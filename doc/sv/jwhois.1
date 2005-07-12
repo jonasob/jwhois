@@ -24,58 +24,58 @@ på kommandoraden.
 
 .SH FLAGGOR
 .TP
-.B \--version
+.B \-\-version
 visar version, författare och licensinformation.
 .TP
-.B \--help
+.B \-\-help
 visar en kort hjälptext.
 .TP
-.B \-c FIL --config=FIL
+.B \-c FIL \-\-config=FIL
 använder FIL som konfigurationsfil istället för förvalet.
 .TP
-.B \-h VÄRD --host=VÄRD
+.B \-h VÄRD \-\-host=VÄRD
 ignorerar den värd som anges i konfigurationsfilen och frågar istället
 VÄRD direkt.
 .TP
-.B \-p PORT --port=PORT
+.B \-p PORT \-\-port=PORT
 anger vilket portnummer som skall användas när VÄRD frågas.
 .TP
-.B \-f --force-lookup
+.B \-f \-\-force-lookup
 framtvingar uppslagning mot värden även om det aktuella objektet
 är tillgänglig i cachen.
 .TP
-.B \-v --verbose
+.B \-v \-\-verbose
 skriver ut berättande felsökningsutdata vid körning (använd denna innan
 du sänder felrapporter för att försäkra dig om att det rör sig om
 ett fel och inte en felkonfigurering). 
 Du kan öka pratsamhetsnivån genom att ge flera sådana flaggor till jwhois,
-till exempel -vv.
+till exempel \-vv.
 .TP
-.B \-n --no-redirect
+.B \-n \-\-no-redirect
 deaktivera funktionen som omdirigerar frågor från en server till en annan.
 .TP
-.B \-s --no-whoisservers
+.B \-s \-\-no-whoisservers
 deaktivera det inbyggda stödet för whois-servers.net.
 .TP
-.B \-a --raw
+.B \-a \-\-raw
 sänd frågan ordagrannt till mottagande värd istället för att skriva om dem
 i enlighet med inställningen.
 .TP
-.B \-i --display-redirections
+.B \-i \-\-display\-redirections
 visa alla steg i omdirigeringen (förval är att visa endast det sista
 svaret).
 .TP
-.B \-d --disable-cache
+.B \-d \-\-disable\-cache
 helt deaktivera både läsning och skrivning av cachen.
 .TP
-.B \-r --rwhois
+.B \-r \-\-rwhois
 framtvinga användning av rwhois-protokollet istället för HTTP eller whois.
 .TP
-.B \--rwhois-display=VISNING
+.B \-\-rwhois\-display=VISNING
 ber de mottagande rwhoisservrarna att visa resultaten enligt VISNING
 istället för den normala dump-visningen.
 .TP
-.B \--rwhois-limit=GRÄNS
+.B \-\-rwhois\-limit=GRÄNS
 ber de mottagande rwhoisservrarna att begränsa sina svar till GRÄNS träffar.
 
 .SS "RIPE-UTÖKNINGAR"
@@ -86,9 +86,9 @@ Om du skulle söka efter alla poster i RIPE-databasen vilka listar
 .IR admin-c ", " tech-c " eller " zone-c " som " CO19-RIPE ,
 kan du använda följande kommandosyntax:
 
-.B jwhois -h whois.ripe.net -- \-i admin-c,tech-c,zone-c CO19-RIPE
+.B jwhois -h whois.ripe.net \-\- \-i admin-c,tech-c,zone-c CO19-RIPE
 
-.B --
+.B \-\-
 används för att separerar RIPE-flaggorna från jwhois egna flaggor.
 
 .ll -8

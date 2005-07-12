@@ -23,56 +23,56 @@ directly on the command line.
 
 .SH OPTIONS
 .TP
-.B \--version
+.B \-\-version
 display version, authors and licensing information.
 .TP
-.B \--help
+.B \-\-help
 display a short help text.
 .TP
-.B \-c FILE --config=FILE
+.B \-c FILE \-\-config=FILE
 uses FILE as a configuration file instead of the default.
 .TP
-.B \-h HOST --host=HOST
+.B \-h HOST \-\-host=HOST
 overrides any hosts in the configuration file and queries HOST directly.
 .TP
-.B \-p PORT --port=PORT
+.B \-p PORT \-\-port=PORT
 specifies a port number to use when querying a HOST.
 .TP
-.B \-f --force-lookup
+.B \-f \-\-force-lookup
 forces a query to be made to a host even if a current object
 is available from the cache.
 .TP
-.B \-v --verbose
+.B \-v \-\-verbose
 outputs verbose debugging information while running (use this before
 sending a bugreport to ensure that it's indeed a bug and not a 
 misconfiguration). You can increase the verbosity by giving several
-verbose commands to jwhois, such as -vv.
+verbose commands to jwhois, such as \-vv.
 .TP
-.B \-n --no-redirect
+.B \-n \-\-no-redirect
 disable features that redirect queries from one server to another.
 .TP
-.B \-s --no-whoisservers
+.B \-s \-\-no-whoisservers
 disable the built-in support for whois-servers.net.
 .TP
-.B \-a --raw
+.B \-a \-\-raw
 send query verbatim to receiving hosts instead of rewriting them according
 to the configuration.
 .TP
-.B \-i --display-redirections
+.B \-i \-\-display\-redirections
 display every step in a redirection (default is to display only the
 last answer).
 .TP
-.B \-d --disable-cache
+.B \-d \-\-disable\-cache
 completely disable both reading and writing to cache.
 .TP
-.B \-r --rwhois
+.B \-r \-\-rwhois
 force the query to use the rwhois protocoll instead of HTTP or whois.
 .TP
-.B \--rwhois-display=DISPLAY
+.B \-\-rwhois\-display=DISPLAY
 asks receiving rwhois servers to display the results in the DISPLAY display
 instead of the default dump display.
 .TP
-.B \--rwhois-limit=LIMIT
+.B \-\-rwhois\-limit=LIMIT
 asks receiving rwhois servers to limit their responses to LIMIT matches.
 
 .SS "RIPE EXTENSIONS"
@@ -84,9 +84,9 @@ the RIPE database which lists the
 .IR admin-c ", " tech-c " or " zone-c " as " CO19-RIPE ,
 you could use the following command syntax:
 
-.B jwhois -h whois.ripe.net -- \-i admin-c,tech-c,zone-c CO19-RIPE
+.B jwhois -h whois.ripe.net \-\- \-i admin-c,tech-c,zone-c CO19-RIPE
 
-.B --
+.B \-\-
 is used to separate the RIPE options from the jwhois options.
 
 .ll -8
