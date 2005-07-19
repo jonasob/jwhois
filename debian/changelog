@@ -3,7 +3,7 @@ jwhois (3.2.3-2) unstable; urgency=low
   * Rebuild Debian build infrastructure.
    (Closes: Bug#316293)
 
- -- Peter Karlsson <peterk@debian.org>  UNRELEASED
+ -- Peter Karlsson <peterk@debian.org>  Tue, 19 Jul 2005 08:20:00 +0200
 
 jwhois (3.2.3-1) unstable; urgency=low
 
