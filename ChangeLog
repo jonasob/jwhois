@@ -1,3 +1,8 @@
+2005-09-21  Peter Karlsson <peter@softwolves.pp.se>
+
+	* src/jwhois.c: Fix crash when using -f (closes Debian bug#325177,
+	  Romain Francoise <rfrancoise@debian.org>)
+
 2005-07-16  Peter Karlsson <peter@softwolves.pp.se>
 
 	* po/ru.po: Don't mark the PO header as fuzzy (Miloslav Trmac)

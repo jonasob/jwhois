@@ -131,16 +131,17 @@ main(int argc, char **argv)
   text = NULL;
 
 #ifndef NOCACHE
+  cachestr = malloc(strlen(wq.query) + strlen(wq.host) + 1);
+  if (!cachestr)
+    {
+      printf("[%s]\n", _("Error allocating memory"));
+      exit(1);
+    }
+  snprintf(cachestr, strlen(wq.query) + strlen(wq.host) + 1, "%s:%s",
+           wq.host, wq.query);
+
   if (!forcelookup && cache) {
     if (verbose>1) printf("[Looking up entry in cache]\n");
-    cachestr = malloc(strlen(wq.query) + strlen(wq.host) + 1);
-    if (!cachestr)
-      {
-        printf("[%s]\n", _("Error allocating memory"));
-        exit(1);
-      }
-    snprintf(cachestr, strlen(wq.query) + strlen(wq.host) + 1, "%s:%s",
-             wq.host, wq.query);
     ret = cache_read(cachestr, &text);
     if (ret < 0)
       {
