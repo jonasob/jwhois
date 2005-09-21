@@ -1,3 +1,10 @@
+jwhois (3.2.4-1) unstable; urgency=low
+
+  * Fixed crash when using -f
+   (Closes: Bug#325177)
+
+ -- Peter Karlsson <peterk@debian.org>  UNRELEASED
+
 jwhois (3.2.3-2) unstable; urgency=low
 
   * Rebuild Debian build infrastructure.
