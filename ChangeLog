@@ -1,3 +1,12 @@
+2006-04-08  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Added EURID for .eu lookups.
+
+2006-04-08  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Replaced HTTP query to DENIC with WHOIS
+	query (Andreas Thienemann)
+
 2005-09-21  Peter Karlsson <peter@softwolves.pp.se>
 
 	* src/jwhois.c: Fix crash when using -f (closes Debian bug#325177,
