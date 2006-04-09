@@ -263,6 +263,10 @@ int http_query(struct s_whois_query *wq, char **text)
         dup2(from_browser[1], 1); /* stdout */
         dup2(from_browser[1], 2); /* stderr */
 
+	/* Drop special privileges */
+	setreuid(getuid(), getuid());
+	setregid(getgid(), getgid());
+
         /* Run the browser */
         execv(command[0], &command[1]);
 

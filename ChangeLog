@@ -1,3 +1,9 @@
+2006-04-09  Jonas Oberg  <jonas@gnu.org>
+
+	* src/http.c (http_query): Reset euid and egid to uid and gid
+	before calling the user specified browser (Reported by Shaun
+	Colley).
+
 2006-04-08  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Added EURID for .eu lookups.
