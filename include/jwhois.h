@@ -56,5 +56,6 @@ extern int rwhois;
 extern int rwhois_limit;
 extern char *rwhois_display;
 extern int enable_whoisservers;
+extern int connect_timeout;
 
 #endif /* JWHOIS_H */

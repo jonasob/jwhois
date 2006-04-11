@@ -277,6 +277,12 @@ should consider the parameter that follows the one specified
 in @option{browser-postarg} as a file name from which to read
 POST data.
 
+@option{connect-timeout} enables a timeout on connects to remote
+hosts. It should be set to a positive integer value. When the specified
+number of seconds have elapsed and the remote host hasn't answered, the
+connection will be aborted. If this option is not set, the default timeout
+is 75 seconds.
+
 @end table
 
 Examples:
@@ -287,6 +293,7 @@ cacheexpire = 168;
 browser-pathname = "/usr/bin/lynx";
 browser-stdarg = "-dump";
 browser-postarg = "-post_data";
+connect-timeout = 3;
 @end example
 
 @node Whois servers, Server options, Global options, Top

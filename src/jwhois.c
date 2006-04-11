@@ -84,6 +84,7 @@ main(int argc, char **argv)
   /* Parse command line arguments and initialize the cache */
   optind = parse_args(&argc, &argv);
   cache_init();
+  timeout_init();
 
   /* Parse remaining arguments and place them into the wq
      structure. */

@@ -18,8 +18,8 @@
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 
-EXTRA_DIST = m4/ChangeLog config.rpath include/*.h example/jwhois.conf m4/*.m4 jwhois.spec.in jwhois.spec debian/*
-SUBDIRS = doc src example po
+EXTRA_DIST = config.rpath  m4/ChangeLog config.rpath include/*.h example/jwhois.conf m4/*.m4 jwhois.spec.in jwhois.spec debian/*
+SUBDIRS = m4 doc src example po
 
 
 ACLOCAL_AMFLAGS = -I m4

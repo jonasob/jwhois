@@ -1,3 +1,15 @@
+2006-04-11  Jonas Oberg  <jonas@gnu.org>
+
+	* src/utils.c (timeout_init): Added function that sets the default
+	timeout, or sets the timeout to a value specified in the configuration
+	file.
+
+	* src/utils.c (make_connect): Added calls to make a non-blocking
+	connect and use select to set a timeout value.
+
+	* doc/jwhois.texi, example/jwhois.conf: Added connect-timeout
+	configuration option.
+
 2006-04-09  Jonas Oberg  <jonas@gnu.org>
 
 	* src/http.c (http_query): Reset euid and egid to uid and gid

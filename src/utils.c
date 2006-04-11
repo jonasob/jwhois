@@ -38,6 +38,10 @@
 # include <netdb.h>
 #endif
 
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+
 #include <regex.h>
 #include <jwhois.h>
 #include <jconfig.h>
@@ -185,7 +189,10 @@ get_whois_server_option(const char *hostname, const char *key)
 int
 make_connect(const char *host, int port)
 {
-  int sockfd, error;
+  int sockfd, error, flags, retval, retlen;
+  fd_set fdset;
+  struct timeval timeout = { connect_timeout, 0 };
+
 #ifdef HAVE_GETADDRINFO
   struct addrinfo *res;
   struct sockaddr *sa;
@@ -204,8 +211,31 @@ make_connect(const char *host, int port)
       return -1;
     }
 
+  flags = fcntl(sockfd, F_GETFL, 0);
+  if (fcntl(sockfd, F_SETFL, flags|O_NONBLOCK) == -1)
+    {
+      return -1;
+    }
+
   error = connect(sockfd, (struct sockaddr *)&remote, sizeof(struct sockaddr));
-  if (error < 0)
+
+  if (error < 0 && errno != EINPROGRESS)
+    {
+      return -1;
+    }
+
+  FD_ZERO(&fdset);
+  FD_SET(sockfd, &fdset);
+
+  error = select(FD_SETSIZE, NULL, &fdset, NULL, &timeout);
+  if (error == 0)
+    {
+      return -1;
+    }
+
+  retlen = sizeof(retval);
+  error = getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &retval, &retlen);
+  if (error < 0 || retval)
     {
       return -1;
     }
@@ -232,13 +262,41 @@ make_connect(const char *host, int port)
 	  printf("[%s]\n", _("Error creating socket"));
 	  return -1;
 	}
+
+      flags = fcntl(sockfd, F_GETFL, 0);
+      if (fcntl(sockfd, F_SETFL, flags|O_NONBLOCK) == -1)
+	{
+	  return -1;
+	}
+
+
       error = connect(sockfd, res->ai_addr, res->ai_addrlen);
-      if (error >= 0)
-	break;
+
+      if (error < 0 && errno != EINPROGRESS)
+	{
+	  break;
+	}
+
+      FD_ZERO(&fdset);
+      FD_SET(sockfd, &fdset);
+
+      error = select(FD_SETSIZE, NULL, &fdset, NULL, &timeout);
+      if (error == 0)
+	{
+	  break;
+	}
+
+      retlen = sizeof(retval);
+      error = getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &retval, &retlen);
+      if (error < 0 || retval)
+	{
+	  break;
+	}
       res = res->ai_next;
     }
-  if (error < 0) return -1;
+  if (error < 0 || retval) return -1;
 #endif
+
   return sockfd;
 }
 
@@ -267,3 +325,30 @@ split_host_from_query(struct s_whois_query *wq)
   return 1;
 }
 
+/*
+ *  This initialises the timeout value from options in the configuration
+ *  file.
+ */
+void
+timeout_init()
+{
+  int iret;
+  char *ret = "75", *ret2;
+  struct jconfig *j;
+
+  jconfig_set();
+  j = jconfig_getone("jwhois", "connect-timeout");
+  if (j)
+    ret = j->value;
+#ifdef HAVE_STRTOL
+  connect_timeout = strtol(ret, &ret2, 10);
+  if (*ret2 != '\0')
+    {
+      if (verbose)
+        printf("[%s: %s]\n", _("Invalid connect timeout value"), ret);
+      connect_timeout = 75;
+    }
+#else
+  connect_timeout = atoi(ret2);
+#endif /* HAVE_STRTOL */
+}

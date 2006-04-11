@@ -111,6 +111,9 @@ int rwhois_limit;
 /* Set to 0 to completely disable whois-servers.net service support */
 int enable_whoisservers;
 
+/* Timeout value for connect calls in seconds */
+int connect_timeout;
+
 void help_version(int onlyversion)
 {
   char *COPYRIGHT = _("Copyright (C) 1999-%d  Free Software Foundation, Inc.\n");
