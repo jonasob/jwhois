@@ -1,3 +1,7 @@
+2006-04-12  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Changed whois server for .eu (Sander Eerkes)
+
 2006-04-11  Jonas Oberg  <jonas@gnu.org>
 
 	* src/utils.c (timeout_init): Added function that sets the default
