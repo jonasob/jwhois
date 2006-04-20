@@ -1,3 +1,9 @@
+2006-04-20  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Changed whois server for .in (Ajay Ramaswamy)
+	Added whois servers for .ae.org and .kr.com (Gavin Brown)
+	Changed whois servers for .com and .net (Chris Gordon)
+
 2006-04-16  Jonas Oberg  <jonas@gnu.org>
 
 	* doc/jwhois.texi: Changed license.
