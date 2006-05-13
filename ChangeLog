@@ -1,3 +1,7 @@
+2006-05-13  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Updated whois server for .bg (Yanko Kaneti)
+
 2006-04-22  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Updated with .cat (Salvador Caballé)
