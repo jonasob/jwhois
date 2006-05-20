@@ -53,6 +53,10 @@
 
 #include <string.h>
 
+#ifdef LIBIDN
+# include <idna.h>
+#endif
+
 #ifdef ENABLE_NLS
 # include <libintl.h>
 # define _(s)  gettext(s)
@@ -65,8 +69,8 @@ int jwhois_query(struct s_whois_query *, char **);
 int
 main(int argc, char **argv)
 {
-  int optind, count = 0, ret;
-  char *qstring = NULL, *text, *cachestr;
+  int optind, count = 0, ret, rc = 0;
+  char *qstring = NULL, *text, *cachestr, *idn;
   struct s_whois_query wq;
 
 #ifdef ENABLE_NLS
@@ -107,7 +111,18 @@ main(int argc, char **argv)
       optind++;
     }
   qstring[strlen(qstring)-1] = '\0';
+#ifdef LIBIDN
+  rc = idna_to_ascii_lz(qstring, &idn, 0);
+  if (rc != IDNA_SUCCESS)
+    {
+      printf("[IDN encoding of '%s' failed with error code %d]\n", qstring, rc);
+      exit(1);
+    }
+  wq.query = strdup(idn);
+  free(idn);
+#else
   wq.query = qstring;
+#endif
 
   if (ghost)
     {

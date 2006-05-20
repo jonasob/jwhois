@@ -117,7 +117,7 @@ AC_CHECK_LIB(inet6, main,
 AC_CHECK_FUNCS(memcpy strtol)
 AC_CHECK_FUNCS(strcasecmp strncasecmp getopt_long)
 AC_HEADER_STDC([])
-AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h sys/time.h sys/stat.h sys/fcntl.h malloc.h locale.h stdint.h inttypes.h)
+AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h sys/time.h sys/stat.h sys/fcntl.h malloc.h locale.h stdint.h inttypes.h idna.h)
 AC_HEADER_TIME
 
 
@@ -150,6 +150,28 @@ int main()
        AC_DEFINE_UNQUOTED(HAVE_INET_PTON_IPV6,1,[Define to 1 if inet_pton supports IPv6.])
      ], AC_MSG_RESULT(no),AC_MSG_RESULT(no))
 fi
+
+AC_ARG_WITH(libidn, AC_HELP_STRING([--with-libidn=[DIR]],
+                                     [Support IDN (needs GNU Libidn)]),
+       libidn=$withval, libidn=yes)
+ if test "$libidn" != "no"; then
+   if test "$libidn" != "yes"; then
+     LDFLAGS="${LDFLAGS} -L$libidn/lib"
+     CPPFLAGS="${CPPFLAGS} -I$libidn/include"
+   fi
+   AC_CHECK_HEADER(idna.h,
+     AC_CHECK_LIB(idn, stringprep_check_version,
+       [libidn=yes LIBS="${LIBS} -lidn"], libidn=no),
+     libidn=no)
+ fi
+ if test "$libidn" != "no" ; then
+  AC_DEFINE(LIBIDN, 1, [Define to 1 if you want IDN support.])
+ else
+  AC_MSG_WARN([Libidn not found])
+fi
+AC_MSG_CHECKING([if Libidn should be used])
+AC_MSG_RESULT($libidn)
+
 
 found=no
 if test x$cache = xyes; then

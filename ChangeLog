@@ -2,6 +2,8 @@
 
 	* configure.in: Added check for IPv6-aware inet_pton
 
+	* src/jwhois.c (main): Added support for libidn. (Robert Scheck)
+ 
 	* src/lookup.c (lookup_host): Added lookup to cidr6 blocks.
 	(Miloslav Trmac)
 
