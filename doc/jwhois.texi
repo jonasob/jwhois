@@ -307,10 +307,10 @@ A rule consists of a key and a value. The key can be either
 a special option, or a CIDR block or regular expression that
 is matched against the query that the user specified.
 
-The special option @option{type} takes one value, either
-@option{cidr} or @option{regex}. This defines the current
+The special option @option{type} takes one value:
+@option{cidr}, @option{cidr6} or @option{regex}. This defines the current
 blocks matching. Each block can match either with CIDR
-blocks or regular expressions, never both.
+blocks (IPv4 or IPv6) or regular expressions, never both.
 
 If the key is a regular expression, the value can take on
 of two forms. Either a single string containing the hostname

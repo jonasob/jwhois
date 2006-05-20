@@ -29,5 +29,6 @@ jwhois_CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
          -DLOCALSTATEDIR="\"$(localstatedir)\"" \
          -DLOCALEDIR="\"$(localedir)\""
 
+CFLAGS = $(jwhois_CFLAGS)
 
 INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir)/intl

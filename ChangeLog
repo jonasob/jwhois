@@ -1,3 +1,24 @@
+2006-05-20  Jonas Oberg  <jonas@gnu.org>
+
+	* configure.in: Added check for IPv6-aware inet_pton
+
+	* src/lookup.c (lookup_host): Added lookup to cidr6 blocks.
+	(Miloslav Trmac)
+
+	* example/jwhois.conf: Added cidr6-blocks structure and moved all
+	IPv6 addresses to it. (Miloslav Trmac)
+
+	* doc/jwhois.texi: Added documentation for cidr6 support. (Miloslav
+	Trmac)
+
+2006-05-17  Jonas Oberg  <jonas@gnu.org>
+
+	* src/lookup.c (find_cidr): Fixed handling of "default" type entries
+	(Miloslav Trmac)
+
+	* src/lookup.c (find_regex): Fixed handling of empty configuration
+	block (Miloslav Trmac)
+
 2006-05-13  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Updated whois server for .bg (Yanko Kaneti)

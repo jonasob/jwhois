@@ -40,6 +40,7 @@
 # include <malloc.h>
 #endif
 
+#include <arpa/inet.h>
 #include <regex.h>
 #include <jwhois.h>
 #include <jconfig.h>
@@ -61,7 +62,7 @@
 int lookup_whois_servers(const char *, struct s_whois_query *);
 
 /*
- *  Looks up an IP address `val' against `block' and returns a pointer
+ *  Looks up an IPv4 address `val' against `block' and returns a pointer
  *  if an entry is found, otherwise NULL.
  */
 char *
@@ -94,11 +95,9 @@ find_cidr(struct s_whois_query *wq, const char *block)
       if (strcasecmp(j->key, "type") != 0) {
 	if (!strcasecmp(j->key, "default"))
 	  {
-            if (!match_bits)
-              {
-                ipmaskip.s_addr = 0;
-                ipmask = 0;
-              }
+	    ipmaskip.s_addr = 0;
+	    ipmask = 0;
+	    bits = 0;
 	  }
 	else
 	  {
@@ -121,7 +120,7 @@ find_cidr(struct s_whois_query *wq, const char *block)
 #endif
 	  }
 	if (((ip.s_addr & ipmask) == (ipmaskip.s_addr & ipmask))
-            && (bits > match_bits))
+            && (bits >= match_bits))
 	  {
 	    host = j->value;
             match_bits = bits;
@@ -132,6 +131,121 @@ find_cidr(struct s_whois_query *wq, const char *block)
 
   return host;
 }
+
+/*
+ * Checks whether IPv6 address `addr` is in the network `net'/`bits`.
+ */
+#ifdef HAVE_INET_PTON_IPV6
+static int ipv6_address_is_in_network(const struct in6_addr *addr,
+				      const struct in6_addr *net,
+				      unsigned bits)
+{
+  size_t i;
+
+  for (i = 0; i < bits / 8; i++)
+    {
+      if (addr->s6_addr[i] != net->s6_addr[i])
+	return 0;
+    }
+  /* i == bits / 8 */
+  if (bits % 8 != 0
+      && (addr->s6_addr[i] & (0xFFu << (bits % 8))) != net->s6_addr[i])
+    return 0;
+  return 1;
+}
+#endif
+
+/*
+ *  Looks up an IPv6 address `val' against `block' and returns a pointer
+ *  if an entry is found, otherwise NULL.
+ */
+#ifdef HAVE_INET_PTON_IPV6
+static char *
+find_cidr6(struct s_whois_query *wq, const char *block)
+{
+  struct in6_addr query_ip;
+  struct in6_addr entry_ip;
+  struct jconfig *j;
+  unsigned int max_bits, bits, match_bits;
+  int res;
+  char *p, *addr, *host = NULL;
+
+  p = strchr(wq->query, '/');
+  if (p == NULL)
+    {
+      addr = strdup(wq->query);
+      max_bits = 128;
+    }
+  else
+    {
+      size_t len;
+
+      if (sscanf(p + 1, "%u", &max_bits) != 1)
+	return NULL;
+      len = p - wq->query;
+      addr = malloc(len + 1);
+      memcpy(addr, wq->query, len);
+      addr[len] = '\0';
+    }
+  res = inet_pton(AF_INET6, addr, &query_ip);
+  free(addr);
+  if (res != 1)
+    return NULL;
+
+  match_bits = 0;
+
+  jconfig_set();
+  while ((j = jconfig_next(block)) != NULL)
+    {
+      if (strcasecmp(j->key, "type") == 0)
+	continue;
+      if (!strcasecmp(j->key, "default"))
+	{
+	  memset(entry_ip.s6_addr, 0, sizeof(entry_ip.s6_addr));
+	  bits = 0;
+	}
+      else
+	{
+	  size_t len;
+
+	  p = strchr(j->key, '/');
+	  if (p == NULL)
+	    {
+	      printf(_("[%s: Missing prefix length on line %d]\n"),
+		     config, j->line);
+	      continue;
+	    }
+	  if (sscanf(p + 1, "%u", &bits) != 1 || bits > 128)
+	    {
+	      printf(_("[%s: Invalid prefix length on line %d]\n"), config,
+		     j->line);
+	      continue;
+	    }
+	  len = p - j->key;
+	  addr = malloc(len + 1);
+	  memcpy(addr, j->key, len);
+	  addr[len] = '\0';
+	  res = inet_pton(AF_INET6, addr, &entry_ip);
+	  free(addr);
+	  if (res != 1)
+	    {
+	      printf(_("[%s: Invalid network address on line %d]\n"), config,
+		     j->line);
+	      continue;
+	    }
+	}
+      if (ipv6_address_is_in_network(&query_ip, &entry_ip, bits)
+	  && bits <= max_bits && bits >= match_bits)
+	{
+	  host = j->value;
+	  match_bits = bits;
+	}
+    }
+  jconfig_end();
+
+  return host;
+}
+#endif
 
 /*
  *  Looks up a string `val' against `block'. Returns a pointer to
@@ -271,12 +385,11 @@ find_regex(struct s_whois_query *wq, const char *block)
       free(rpb.buffer);
       if (rpb.fastmap)
         free(rpb.fastmap);
-    }
-
-  if (rpb.regs_allocated != REGS_UNALLOCATED)
-    {
-      free(regs.start);
-      free(regs.end);
+      if (rpb.regs_allocated != REGS_UNALLOCATED)
+	{
+	  free(regs.start);
+	  free(regs.end);
+	}
     }
 
   jconfig_end();
@@ -315,13 +428,17 @@ lookup_host(struct s_whois_query *wq, const char *block)
 
   jconfig_set();
   j = jconfig_getone(deepfreeze, "type");
-  if (!j)
+  if (!j || strncasecmp(j->value, "regex", 5) == 0)
     wq->host = find_regex(wq, deepfreeze);
-  else
-    if (strncasecmp(j->value, "regex", 5) == 0)
-      wq->host = find_regex(wq, deepfreeze);
-    else
-      wq->host = find_cidr(wq, deepfreeze);
+  else if (strncasecmp(j->value, "cidr6", 5) == 0) {
+#ifdef HAVE_INET_PTON_IPV6
+    wq->host = find_cidr6(wq, deepfreeze);
+#else
+    printf("[%s]\n", _("Warning: Configuration file contains references to IPv6,"));
+    printf("[%s]\n", _("         but jwhois was compiled without IPv6 support."));
+#endif
+  } else
+    wq->host = find_cidr(wq, deepfreeze);
 
   if (!wq->host) wq->host = DEFAULTHOST;
 
