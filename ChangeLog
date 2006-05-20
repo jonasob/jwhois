@@ -1,5 +1,8 @@
 2006-05-20  Jonas Oberg  <jonas@gnu.org>
 
+	* Added patch to support conversion of whois server output to
+	local charset. Fixes Fedora Core bug #132362 (Miloslav Trmac)
+
 	* configure.in: Added check for IPv6-aware inet_pton
 
 	* src/jwhois.c (main): Added support for libidn. (Robert Scheck)

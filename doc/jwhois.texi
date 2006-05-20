@@ -425,6 +425,12 @@ You can use @option{query-format} also for HTTP based queries, but
 it cannot be combined with @option{http-action},
 @option{form-element} or @option{form-extra}.
 
+@item answer-charset
+Specifies a character set which the server uses to return data.
+You can list possible character set names by running @samp{iconv -l}.
+If character set conversion is not supported or not possible,
+the answer is printed without conversion.
+
 @item http
 The @option{http} option specifies that this server supports
 queries made via HTTP. The value should be set to @samp{true}

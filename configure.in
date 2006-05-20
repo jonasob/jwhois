@@ -93,6 +93,8 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
 AM_GNU_GETTEXT([external])
 
+AM_ICONV
+
 AC_PATH_PROG(CHGRP, chgrp, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
 AC_PATH_PROG(CHMOD, chmod, $PATH:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/libexec)
 

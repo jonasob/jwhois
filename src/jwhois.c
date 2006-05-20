@@ -51,7 +51,13 @@
 #include <rwhois.h>
 #include <utils.h>
 
+#include <errno.h>
 #include <string.h>
+
+#ifdef HAVE_ICONV
+# include <iconv.h>
+# include <langinfo.h>
+#endif
 
 #ifdef LIBIDN
 # include <idna.h>
@@ -73,8 +79,8 @@ main(int argc, char **argv)
   char *qstring = NULL, *text, *cachestr, *idn;
   struct s_whois_query wq;
 
-#ifdef ENABLE_NLS
   setlocale(LC_ALL, "");
+#ifdef ENABLE_NLS
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
 #endif
@@ -190,6 +196,68 @@ main(int argc, char **argv)
 }
 
 /*
+ * Attempt to convert string if result encoding is specified in the config
+ * file.
+ * */
+static char *
+convert_charset(struct s_whois_query *wq, char *curdata)
+{
+#ifdef HAVE_ICONV
+  const char *charset;
+
+  charset = get_whois_server_option(wq->host, "answer-charset");
+  if (charset != NULL)
+    {
+      iconv_t cd;
+
+      cd = iconv_open(nl_langinfo(CODESET), charset);
+      if (cd != (iconv_t)-1)
+	{
+	  char *buf, *src;
+	  size_t src_left, dest_size, dest_pos, res;
+
+	  src = curdata;
+	  src_left = strlen(src);
+	  dest_size = src_left;
+	  buf = malloc(dest_size);
+	  if (buf == NULL)
+	    goto error;
+	  dest_pos = 0;
+
+	  res = 0;
+	  while (src_left != 0)
+	    {
+	      char *dest;
+	      size_t dest_left;
+	      
+	      dest = buf + dest_pos;
+	      dest_left = dest_size - dest_pos;
+	      res = iconv(cd, &src, &src_left, &dest, &dest_left);
+	      if (res == (size_t)-1 && errno != E2BIG)
+		goto error;
+	      dest_pos = dest - buf;
+	      dest_size *= 2;
+	      buf = realloc(buf, dest_size);
+	      if (buf == NULL)
+		goto error;
+	    }
+	  buf[dest_pos] = 0;
+	  
+	  iconv_close(cd);
+	  free (curdata);
+	  return buf;
+	  
+	error:
+	  free(buf);
+	  iconv_close(cd);
+	}
+    }
+#endif
+  (void)wq;
+  return curdata;
+}
+
+/*
  *  This is the routine that actually performs a query. It selects
  *  the method to use for the host and then calls the correct routine
  *  to make the query. If the return value of the subroutine is above
@@ -199,7 +267,7 @@ main(int argc, char **argv)
 int
 jwhois_query(struct s_whois_query *wq, char **text)
 {
-  char *tmp, *tmp2, *oldquery;
+  char *tmp, *tmp2, *oldquery, *curdata;
   int ret;
 
   if (!display_redirections)
@@ -213,20 +281,21 @@ jwhois_query(struct s_whois_query *wq, char **text)
 
   tmp = (char *)get_whois_server_option(wq->host, "rwhois");
   tmp2 = (char *)get_whois_server_option(wq->host, "http");
+  curdata = NULL;
 
   if ( (tmp && 0 == strcasecmp(tmp, "true")) || rwhois )
     {
-      ret = rwhois_query(wq, text);
+      ret = rwhois_query(wq, &curdata);
     }
   else
     {
       if (tmp2 && 0 == strcasecmp(tmp2, "true"))
 	{
-	  ret = http_query(wq, text);
+	  ret = http_query(wq, &curdata);
 	}
       else
 	{
-	  ret = whois_query(wq, text);
+	  ret = whois_query(wq, &curdata);
 	}
     }
 
@@ -239,6 +308,20 @@ jwhois_query(struct s_whois_query *wq, char **text)
   if (ret < 0)
     {
       exit(1);
+    }
+  if (curdata != NULL)
+    {
+      curdata = convert_charset(wq, curdata);
+      if (*text == NULL)
+	*text = curdata;
+      else
+	{
+	  *text = realloc(*text, strlen (*text) + strlen (curdata) + 1);
+	  if (*text == NULL)
+	    exit(1);
+	  strcat(*text, curdata);
+	  free(curdata);
+	}
     }
   if (ret > 0)
     {
