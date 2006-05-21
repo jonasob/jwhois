@@ -1,3 +1,10 @@
+2006-05-21  Jonas Oberg  <jonas@gnu.org>
+
+	* Added patch to ignore SIGPIPE if the browser subprocess exits
+	without reading POST data (Miloslav Trmac)
+
+	* example/jwhois.conf: 82.101.128.0/18 delegation to Afrinic.
+
 2006-05-20  Jonas Oberg  <jonas@gnu.org>
 
 	* Added patch to support conversion of whois server output to

@@ -19,6 +19,7 @@
 
 #include <config.h>
 
+#include <signal.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -273,7 +274,8 @@ int http_query(struct s_whois_query *wq, char **text)
         /* Drats! */
         if (errno)
         {
-            printf("[HTTP: %s: %s]\n", _("Unable to run web browser"), strerror(errno));
+            printf("[HTTP: %s: %s: %s]\n", _("Unable to run web browser"),
+                   command[0], strerror(errno));
         }
         close(to_browser[0]);
         close(from_browser[1]);
@@ -291,6 +293,8 @@ int http_query(struct s_whois_query *wq, char **text)
 
         if (!isget && !post_as_file)
         {
+            struct sigaction sa, old_sa;
+
             /* Send POST data */
             if (format)
             {
@@ -305,7 +309,12 @@ int http_query(struct s_whois_query *wq, char **text)
                          element, wq->query,
                          extra ? "&" : "", extra ? extra : "");
             }
+            sa.sa_handler = SIG_IGN;
+            sigemptyset (&sa.sa_mask);
+            sa.sa_flags = 0;
+            sigaction (SIGPIPE, &sa, &old_sa);
             write(to_browser[1], data, strlen(data) + 1);
+            sigaction (SIGPIPE, &old_sa, NULL);
         }
 
         close(to_browser[1]);
