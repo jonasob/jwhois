@@ -1,3 +1,8 @@
+2006-06-11  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Added IPv4 delegations from Fernando Lopez
+	Santove~na
+
 2006-05-21  Jonas Oberg  <jonas@gnu.org>
 
 	* Added patch to ignore SIGPIPE if the browser subprocess exits
