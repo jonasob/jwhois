@@ -1,3 +1,7 @@
+2006-08-03  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Changed whois server for .bg (Miloslav Trmac)
+
 2006-06-11  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Added IPv4 delegations from Fernando Lopez
