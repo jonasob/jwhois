@@ -1,3 +1,7 @@
+2006-09-27  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Added .mobi whois server
+
 2006-09-14  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Changed whois server for .pk (Jeff Shaffer)
