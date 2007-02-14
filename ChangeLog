@@ -1,3 +1,12 @@
+2007-02-14  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Added redirect for centralnic (Gavin Brown)
+	Added redirect for verisign-grs (Wolfgang Rupprecht)
+
+	* doc/jwhois.texi (Global options) example/jwhois.conf:
+	Added information that the cache might have been disabled.
+	(Miloslav Trmac)
+
 2006-11-06  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Changed whois server for .tv (Stefano Biagiotti)

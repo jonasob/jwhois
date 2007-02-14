@@ -226,6 +226,9 @@ By default, the location of the cache file is
 at compile time. The option @option{cachefile} also
 changes the location.
 
+Note that the cache feature might have been disabled at compile time and
+thus not be available on this system.
+
 @item cacheexpire
 The default expire time for all cached objects it
 7 days (168 hours). this can be changed with the
