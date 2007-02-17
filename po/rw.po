@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-10 06:57+0100\n"
+"POT-Creation-Date: 2007-02-14 14:08+0530\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Invalid expire time"
 msgstr "Igihe"
 
-#: src/cache.c:155 src/init.c:267 src/init.c:276
+#: src/cache.c:155 src/init.c:270 src/init.c:279
 #, fuzzy
 msgid "Unable to open"
 msgstr "Kuri Gufungura"
@@ -162,42 +162,42 @@ msgstr "%s:Ihitamo ni"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s:Ihitamo Kwemerera"
 
-#: src/http.c:71
+#: src/http.c:72
 #, fuzzy
 msgid "HTTP configuration is incomplete:"
 msgstr "Iboneza ni"
 
-#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
-#: src/http.c:166
+#: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
+#: src/http.c:167
 #, fuzzy
 msgid "Option is missing:"
 msgstr "ni Ibuze"
 
-#: src/http.c:84
+#: src/http.c:85
 #, fuzzy
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "HTTP Uburyo Cyangwa"
 
-#: src/http.c:195
+#: src/http.c:196
 #, fuzzy
 msgid "Unable to create temporary file"
 msgstr "Kuri Kurema By'igihe gito IDOSIYE"
 
-#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr ""
 
-#: src/http.c:272
+#: src/http.c:277
 #, fuzzy
 msgid "Unable to run web browser"
 msgstr "Kuri Gukoresha Urubuga Mucukumbuzi"
 
-#: src/init.c:116
+#: src/init.c:119
 #, fuzzy, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
 msgstr "C"
 
-#: src/init.c:117
+#: src/init.c:120
 #, fuzzy
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
@@ -205,16 +205,16 @@ msgid ""
 msgstr "Porogaramu ni Kigenga Na: i Bya i"
 
 # goodies/source\filter.vcl\eps\dlgeps.src:DLG_EXPORT_EPS.GRP_VERSION.text
-#: src/init.c:120
+#: src/init.c:123
 #, fuzzy
 msgid "version"
 msgstr "Verisiyo"
 
-#: src/init.c:125
+#: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr ""
 
-#: src/init.c:127
+#: src/init.c:130
 #, fuzzy, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
@@ -238,7 +238,7 @@ msgstr ""
 "Gukoresha Umuyoboro Umubare in Na: R Ikibazo# Kuri Kugaragaza i Kugaragaza "
 "Ihitamo in i Kinini Umubare Bya Kuri"
 
-#: src/init.c:142
+#: src/init.c:145
 #, fuzzy, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
@@ -247,23 +247,23 @@ msgstr ""
 "-F GUSHAKISHA GUSHAKISHA ATARIIGIHARWE NIBA i Icyinjijwe ni D Ubwihisho "
 "Ubwihisho"
 
-#: src/init.c:145
+#: src/init.c:148
 #, fuzzy
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Kuri org"
 
-#: src/init.c:230
+#: src/init.c:233
 msgid "Invalid limit"
 msgstr ""
 
-#: src/init.c:244
+#: src/init.c:247
 #, fuzzy
 msgid "Invalid port number"
 msgstr "Umuyoboro Umubare"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
-#: src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
+#: src/utils.c:101 src/utils.c:111 src/whois.c:76
 #, fuzzy
 msgid "Error allocating memory"
 msgstr "Ububiko"
@@ -293,31 +293,54 @@ msgstr "Utubuto ku Umurongo"
 msgid "Missing key on line"
 msgstr "Urufunguzo ku Umurongo"
 
-#: src/jwhois.c:126
+#: src/jwhois.c:148
 #, fuzzy
 msgid "Fatal error searching for host to query"
 msgstr "Ikosa Ishakisha kugirango Ubuturo Kuri Ikibazo#"
 
-#: src/jwhois.c:147
+#: src/jwhois.c:170
 #, fuzzy
 msgid "Error reading cache"
 msgstr "Ubwihisho"
 
-#: src/jwhois.c:152
+#: src/jwhois.c:175
 msgid "Cached"
 msgstr ""
 
-#: src/jwhois.c:166
+#: src/jwhois.c:189
 #, fuzzy
 msgid "Error writing to cache"
 msgstr "Kuri Ubwihisho"
 
-#: src/lookup.c:111
+#: src/lookup.c:110
 #, fuzzy
 msgid "Invalid netmask on line"
 msgstr "ku Umurongo"
 
-#: src/lookup.c:435 src/lookup.c:439
+#: src/lookup.c:214
+#, c-format
+msgid "[%s: Missing prefix length on line %d]\n"
+msgstr ""
+
+#: src/lookup.c:220
+#, c-format
+msgid "[%s: Invalid prefix length on line %d]\n"
+msgstr ""
+
+#: src/lookup.c:232
+#, fuzzy, c-format
+msgid "[%s: Invalid network address on line %d]\n"
+msgstr "ku Umurongo"
+
+#: src/lookup.c:437
+msgid "Warning: Configuration file contains references to IPv6,"
+msgstr ""
+
+#: src/lookup.c:438
+msgid "         but jwhois was compiled without IPv6 support."
+msgstr ""
+
+#: src/lookup.c:552 src/lookup.c:556
 #, fuzzy
 msgid "Redirected to"
 msgstr "Kuri"
@@ -366,9 +389,14 @@ msgstr "[Ukwihuza"
 msgid "Unhandled reply"
 msgstr "Subiza"
 
-#: src/utils.c:232
+#: src/utils.c:262
 msgid "Error creating socket"
 msgstr ""
+
+#: src/utils.c:348
+#, fuzzy
+msgid "Invalid connect timeout value"
+msgstr "ku Umurongo"
 
 #: src/whois.c:88
 #, fuzzy

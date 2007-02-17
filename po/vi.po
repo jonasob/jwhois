@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-10 06:57+0100\n"
+"POT-Creation-Date: 2007-02-14 14:08+0530\n"
 "PO-Revision-Date: 2005-02-06 15:27+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net> \n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Invalid expire time"
 msgstr "Giờ hết hạn không hợp lệ"
 
-#: src/cache.c:155 src/init.c:267 src/init.c:276
+#: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
 msgstr "Không mở được"
 
@@ -134,39 +134,39 @@ msgstr "%s: tùy chọn `-W %s' mơ hồ\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: tùy chọn `-W %s' không cho phép đối số\n"
 
-#: src/http.c:71
+#: src/http.c:72
 msgid "HTTP configuration is incomplete:"
 msgstr "Chưa định cấu hình xong HTTP"
 
-#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
-#: src/http.c:166
+#: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
+#: src/http.c:167
 msgid "Option is missing:"
 msgstr "Thiếu tùy chọn:"
 
-#: src/http.c:84
+#: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr ""
 "Tùy chọn http-method (phương pháp) phải là \"GET\" (gọi) hay \"POST\" (đệ "
 "trình).\n"
 
-#: src/http.c:195
+#: src/http.c:196
 msgid "Unable to create temporary file"
 msgstr "Không tạo được tập tin tạm"
 
-#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Đang hỏi"
 
-#: src/http.c:272
+#: src/http.c:277
 msgid "Unable to run web browser"
 msgstr "Không chạy được trình duyệt Mạng"
 
-#: src/init.c:116
+#: src/init.c:119
 #, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
 msgstr "Bản quyền (C) năm 1999-%d của Free Software Foundation, Inc.\n"
 
-#: src/init.c:117
+#: src/init.c:120
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -174,15 +174,15 @@ msgstr ""
 "Chương trình này là phần mềm tự do mà không bảo đảm gì cả; cho phép bạn \n"
 "phân phối nó lại với điều kiện của Quyền công chung Gnu (GPL)."
 
-#: src/init.c:120
+#: src/init.c:123
 msgid "version"
 msgstr "phiên bản"
 
-#: src/init.c:125
+#: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Cách sử dụng: jwhois [TÙY_CHỌN] [HỎI]"
 
-#: src/init.c:127
+#: src/init.c:130
 #, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
@@ -215,7 +215,7 @@ msgstr ""
 "  --rwhois-display=TRÌNH_BÀY   lập tùy chọn trình bày khi hỏi loại rwhois\n"
 "  --rwhois-limit=HẠN_CHẾ       lập số tối đa sự khớp để gọi\n"
 
-#: src/init.c:142
+#: src/init.c:145
 #, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
@@ -224,21 +224,21 @@ msgstr ""
 "  -f, --force-lookup         _buộc tra cứu_ ngay cả mục trong bộ nhớ tạm\n"
 "  -d, --disable-cache        _không_ sử dụng _bộ nhớ tạm_\n"
 
-#: src/init.c:145
+#: src/init.c:148
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Hãy thông báo lỗi cho bug-jwhois@gnu.org"
 
-#: src/init.c:230
+#: src/init.c:233
 msgid "Invalid limit"
 msgstr "Sự hạn chế không hợp lệ"
 
-#: src/init.c:244
+#: src/init.c:247
 msgid "Invalid port number"
 msgstr "Số cổng không hợp lệ"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
-#: src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
+#: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Gặp lỗi khi phân định bộ nhớ"
 
@@ -262,27 +262,50 @@ msgstr "Có số nhiều khóa trong đường"
 msgid "Missing key on line"
 msgstr "Thiếu khóa trong đường"
 
-#: src/jwhois.c:126
+#: src/jwhois.c:148
 msgid "Fatal error searching for host to query"
 msgstr "Gặp lỗi nghiêm trọng khi tìm kiếm máy chủ để hỏi"
 
-#: src/jwhois.c:147
+#: src/jwhois.c:170
 msgid "Error reading cache"
 msgstr "Gặp lỗi khi đọc bộ nhớ tạm"
 
-#: src/jwhois.c:152
+#: src/jwhois.c:175
 msgid "Cached"
 msgstr "Trong bộ nhớ tạm"
 
-#: src/jwhois.c:166
+#: src/jwhois.c:189
 msgid "Error writing to cache"
 msgstr "Gặp lỗi khi ghi vào bộ nhớ tạm"
 
-#: src/lookup.c:111
+#: src/lookup.c:110
 msgid "Invalid netmask on line"
 msgstr "Mặt nạ mạng không hợp lệ trong đường"
 
-#: src/lookup.c:435 src/lookup.c:439
+#: src/lookup.c:214
+#, c-format
+msgid "[%s: Missing prefix length on line %d]\n"
+msgstr ""
+
+#: src/lookup.c:220
+#, c-format
+msgid "[%s: Invalid prefix length on line %d]\n"
+msgstr ""
+
+#: src/lookup.c:232
+#, fuzzy, c-format
+msgid "[%s: Invalid network address on line %d]\n"
+msgstr "Mặt nạ mạng không hợp lệ trong đường"
+
+#: src/lookup.c:437
+msgid "Warning: Configuration file contains references to IPv6,"
+msgstr ""
+
+#: src/lookup.c:438
+msgid "         but jwhois was compiled without IPv6 support."
+msgstr ""
+
+#: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
 msgstr "Đã được chuyển hướng đến"
 
@@ -325,9 +348,14 @@ msgstr "[Máy chủ đã ngắt kết nối sớm]\n"
 msgid "Unhandled reply"
 msgstr "Sự trả lời chưa được quản lý"
 
-#: src/utils.c:232
+#: src/utils.c:262
 msgid "Error creating socket"
 msgstr "Gặp lỗi khi tạo ổ cắm"
+
+#: src/utils.c:348
+#, fuzzy
+msgid "Invalid connect timeout value"
+msgstr "Mặt nạ mạng không hợp lệ trong đường"
 
 #: src/whois.c:88
 msgid "Error reading data from"

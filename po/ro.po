@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.2.2\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-10 06:57+0100\n"
+"POT-Creation-Date: 2007-02-14 14:08+0530\n"
 "PO-Revision-Date: 2003-07-21 16:55+0300\n"
 "Last-Translator: Eugen Hoanca <eugenh@urban-grafx.ro>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Invalid expire time"
 msgstr "Timp de expirare invalid"
 
-#: src/cache.c:155 src/init.c:267 src/init.c:276
+#: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
 msgstr "Nu s-a putut deschide"
 
@@ -133,37 +133,37 @@ msgstr "%s: opþiunea `-W %s' este ambiguã\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: opþiunea `-W %s' nu permite parametri\n"
 
-#: src/http.c:71
+#: src/http.c:72
 msgid "HTTP configuration is incomplete:"
 msgstr "Configuraþia HTTP este incmpletã"
 
-#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
-#: src/http.c:166
+#: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
+#: src/http.c:167
 msgid "Option is missing:"
 msgstr "Opþiunea lipseºte:"
 
-#: src/http.c:84
+#: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "Opþiunea http-method trebuie sã fie \"GET\" sau \"POST\".\n"
 
-#: src/http.c:195
+#: src/http.c:196
 msgid "Unable to create temporary file"
 msgstr "Nu s-a putut crea fiºierul temporar"
 
-#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "Interogare"
 
-#: src/http.c:272
+#: src/http.c:277
 msgid "Unable to run web browser"
 msgstr "Nu s-a putut rula browserul de web"
 
-#: src/init.c:116
+#: src/init.c:119
 #, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
 msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
 
-#: src/init.c:117
+#: src/init.c:120
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -171,15 +171,15 @@ msgstr ""
 "Acest program este free software fãrã ABSOLUT NICI O GARANÞIE; puteþi sã-l\n"
 "redistribuiþi sub termenii Licenþei Publice Generale GNU."
 
-#: src/init.c:120
+#: src/init.c:123
 msgid "version"
 msgstr "versiunea"
 
-#: src/init.c:125
+#: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "Folosire: jwhois [OPÞIUNI] [INTEROGARE]"
 
-#: src/init.c:127
+#: src/init.c:130
 #, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
@@ -216,7 +216,7 @@ msgstr ""
 "  --rwhois-limit=LIMITÃ       seteazã numãrul maxim de potriviri de "
 "raportat\n"
 
-#: src/init.c:142
+#: src/init.c:145
 #, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
@@ -225,21 +225,21 @@ msgstr ""
 "  -f, --force-lookup         forþeazã lookup chiar dacã intrarea e în cache\n"
 "  -d, --disable-cache        dezactiveazã funcþiile de caching\n"
 
-#: src/init.c:145
+#: src/init.c:148
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "Raportaþi bug-uri la bug-jwhois@gnu.org"
 
-#: src/init.c:230
+#: src/init.c:233
 msgid "Invalid limit"
 msgstr "Limitã invalidã"
 
-#: src/init.c:244
+#: src/init.c:247
 msgid "Invalid port number"
 msgstr "Numãr port invalid"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
-#: src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
+#: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "Eroare în alocarea memoriei"
 
@@ -263,27 +263,50 @@ msgstr "Chei(keys) multiple în linia"
 msgid "Missing key on line"
 msgstr "Cheie(key) lipsã în linia"
 
-#: src/jwhois.c:126
+#: src/jwhois.c:148
 msgid "Fatal error searching for host to query"
 msgstr "Eroare fatalã în cãutarea host-ului de interogat"
 
-#: src/jwhois.c:147
+#: src/jwhois.c:170
 msgid "Error reading cache"
 msgstr "Eroare în citirea cache-ului"
 
-#: src/jwhois.c:152
+#: src/jwhois.c:175
 msgid "Cached"
 msgstr "În cache(cached)"
 
-#: src/jwhois.c:166
+#: src/jwhois.c:189
 msgid "Error writing to cache"
 msgstr "Eroare în scrierea în cache"
 
-#: src/lookup.c:111
+#: src/lookup.c:110
 msgid "Invalid netmask on line"
 msgstr "Netmask invalid în linia"
 
-#: src/lookup.c:435 src/lookup.c:439
+#: src/lookup.c:214
+#, c-format
+msgid "[%s: Missing prefix length on line %d]\n"
+msgstr ""
+
+#: src/lookup.c:220
+#, c-format
+msgid "[%s: Invalid prefix length on line %d]\n"
+msgstr ""
+
+#: src/lookup.c:232
+#, fuzzy, c-format
+msgid "[%s: Invalid network address on line %d]\n"
+msgstr "Netmask invalid în linia"
+
+#: src/lookup.c:437
+msgid "Warning: Configuration file contains references to IPv6,"
+msgstr ""
+
+#: src/lookup.c:438
+msgid "         but jwhois was compiled without IPv6 support."
+msgstr ""
+
+#: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
 msgstr "Redirectat spre"
 
@@ -326,9 +349,14 @@ msgstr "[Host-ul a închis prematur conexiunea]\n"
 msgid "Unhandled reply"
 msgstr "Rãspuns nemanevrabil"
 
-#: src/utils.c:232
+#: src/utils.c:262
 msgid "Error creating socket"
 msgstr "Eroare în crearea de socket"
+
+#: src/utils.c:348
+#, fuzzy
+msgid "Invalid connect timeout value"
+msgstr "Netmask invalid în linia"
 
 #: src/whois.c:88
 msgid "Error reading data from"

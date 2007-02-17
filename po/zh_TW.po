@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 3.1.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
-"POT-Creation-Date: 2005-07-10 06:57+0100\n"
+"POT-Creation-Date: 2007-02-14 14:08+0530\n"
 "PO-Revision-Date: 2002-1-12 19:19+8\n"
 "Last-Translator: Yuan0-Chen Cheng <ycheng@sinica.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Invalid expire time"
 msgstr "無效的到期時間"
 
-#: src/cache.c:155 src/init.c:267 src/init.c:276
+#: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
 msgstr "無法打開的"
 
@@ -133,37 +133,37 @@ msgstr "%s：選項 `-W %s' 不明確\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s：選項 'W %s' 不允許一個引數\n"
 
-#: src/http.c:71
+#: src/http.c:72
 msgid "HTTP configuration is incomplete:"
 msgstr "HTTP 組態是不完整的："
 
-#: src/http.c:72 src/http.c:73 src/http.c:74 src/http.c:92 src/http.c:101
-#: src/http.c:166
+#: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
+#: src/http.c:167
 msgid "Option is missing:"
 msgstr "選擇遺漏："
 
-#: src/http.c:84
+#: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
 msgstr "選項 http-method 方法必須是\"GET\" 或是 \"POST\"。\n"
 
-#: src/http.c:195
+#: src/http.c:196
 msgid "Unable to create temporary file"
 msgstr ""
 
-#: src/http.c:246 src/lookup.c:335 src/rwhois.c:130 src/whois.c:62
+#: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
 msgstr "查詢"
 
-#: src/http.c:272
+#: src/http.c:277
 msgid "Unable to run web browser"
 msgstr "無法執行瀏覽器"
 
-#: src/init.c:116
+#: src/init.c:119
 #, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
 msgstr "版權所有 (C) 1999-%d 自由軟體基金會。\n"
 
-#: src/init.c:117
+#: src/init.c:120
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
@@ -171,15 +171,15 @@ msgstr ""
 "這個程式是一個完全沒有擔保的自由軟體；你可以\n"
 "在 GPL 版權聲明下任意的再散佈。"
 
-#: src/init.c:120
+#: src/init.c:123
 msgid "version"
 msgstr "版本"
 
-#: src/init.c:125
+#: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
 msgstr "使用： jwhois [選項][查詢]"
 
-#: src/init.c:127
+#: src/init.c:130
 #, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
@@ -211,7 +211,7 @@ msgstr ""
 "  --rwhois-display=DISPLAY   在 rwhois 查詢中設定 DISPLAY 選項\n"
 "  --rwhois-limit=LIMIT       設定找到個數上限\n"
 
-#: src/init.c:142
+#: src/init.c:145
 #, c-format
 msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
@@ -220,21 +220,21 @@ msgstr ""
 "  -f, --force-lookup         即便該資料被快取了，也強迫查詢\n"
 "  -d, --disable-cache        關掉快取功能\n"
 
-#: src/init.c:145
+#: src/init.c:148
 msgid "Report bugs to bug-jwhois@gnu.org"
 msgstr "回報錯誤點給 bug-jwhois@gnu.org"
 
-#: src/init.c:230
+#: src/init.c:233
 msgid "Invalid limit"
 msgstr "無效的界線"
 
-#: src/init.c:244
+#: src/init.c:247
 msgid "Invalid port number"
 msgstr "無效的埠數"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
-#: src/jwhois.c:99 src/jwhois.c:139 src/lookup.c:514 src/lookup.c:617
-#: src/utils.c:97 src/utils.c:107 src/whois.c:76
+#: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
+#: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
 msgstr "分派記憶體錯誤"
 
@@ -258,27 +258,50 @@ msgstr "多個鍵值在行數"
 msgid "Missing key on line"
 msgstr "沒有鍵值在行數"
 
-#: src/jwhois.c:126
+#: src/jwhois.c:148
 msgid "Fatal error searching for host to query"
 msgstr "在找尋主機來查詢時遇到了嚴重的錯誤"
 
-#: src/jwhois.c:147
+#: src/jwhois.c:170
 msgid "Error reading cache"
 msgstr "讀取快取錯誤"
 
-#: src/jwhois.c:152
+#: src/jwhois.c:175
 msgid "Cached"
 msgstr "快取到了"
 
-#: src/jwhois.c:166
+#: src/jwhois.c:189
 msgid "Error writing to cache"
 msgstr "錯誤寫入快取"
 
-#: src/lookup.c:111
+#: src/lookup.c:110
 msgid "Invalid netmask on line"
 msgstr "無效的 netmask"
 
-#: src/lookup.c:435 src/lookup.c:439
+#: src/lookup.c:214
+#, c-format
+msgid "[%s: Missing prefix length on line %d]\n"
+msgstr ""
+
+#: src/lookup.c:220
+#, c-format
+msgid "[%s: Invalid prefix length on line %d]\n"
+msgstr ""
+
+#: src/lookup.c:232
+#, fuzzy, c-format
+msgid "[%s: Invalid network address on line %d]\n"
+msgstr "無效的 netmask"
+
+#: src/lookup.c:437
+msgid "Warning: Configuration file contains references to IPv6,"
+msgstr ""
+
+#: src/lookup.c:438
+msgid "         but jwhois was compiled without IPv6 support."
+msgstr ""
+
+#: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
 msgstr "改方向到"
 
@@ -321,9 +344,14 @@ msgstr "[主機連線提前被終止]\n"
 msgid "Unhandled reply"
 msgstr "未被處理答覆"
 
-#: src/utils.c:232
+#: src/utils.c:262
 msgid "Error creating socket"
 msgstr "產生 socket 發生錯誤"
+
+#: src/utils.c:348
+#, fuzzy
+msgid "Invalid connect timeout value"
+msgstr "無效的 netmask"
 
 #: src/whois.c:88
 msgid "Error reading data from"
