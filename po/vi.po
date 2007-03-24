@@ -146,7 +146,9 @@ msgstr "Tùy chọn bị thiếu :"
 
 #: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "Tùy chọn http-method (phương pháp) phải là \"GET\" (lấy) hay \"POST\" (gửi).\n"
+msgstr ""
+"Tùy chọn http-method (phương pháp) phải là \"GET\" (lấy) hay \"POST"
+"\" (gửi).\n"
 
 #: src/http.c:196
 msgid "Unable to create temporary file"
@@ -193,7 +195,8 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -218,7 +221,8 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         _buộc tra cứu_ thậm chí nếu mục nhập đã được lưu tạm\n"
+"  -f, --force-lookup         _buộc tra cứu_ thậm chí nếu mục nhập đã được "
+"lưu tạm\n"
 "  -d, --disable-cache        _tắt_ các chức năng _lưu tạm_\n"
 
 #: src/init.c:148
