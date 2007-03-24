@@ -1,3 +1,14 @@
+2007-03-24  Jonas Oberg  <jonas@gnu.org>
+
+	* Imported gnulib for snprintf compatibility.
+	* example/jwhois.conf: Changed whois server for .se, .gs
+	.im, .tf, .tr and .ve (Johan Sare)
+	* po/it.po: Updated from TP.
+
+2007-02-21  Jonas Oberg  <jonas@gnu.org>
+
+	* po/es.po: Updates from TP.
+
 2007-02-14  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Added redirect for centralnic (Gavin Brown)

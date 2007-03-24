@@ -1,14 +1,14 @@
 # jwhois: Italian (it_IT) messages
-# Copyright (C) 2003 Free Software Foundation, Inc.
-# leonardo albrizio <albrizio@freemail.it>, 2003.
+# Copyright (C) 2007 Free Software Foundation, Inc.
+# leonardo albrizio <albrizio@freemail.it>, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.2.1\n"
+"Project-Id-Version: jwhois 4.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
 "POT-Creation-Date: 2007-02-14 14:08+0530\n"
-"PO-Revision-Date: 2003-03-05 10:09+0000\n"
-"Last-Translator: Leonardo Albrizio <albrizio@freemail.it>\n"
+"PO-Revision-Date: 2007-03-22 09:41+0100\n"
+"Last-Translator: leonardo albrizio <albrizio@freemail.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -192,31 +192,24 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  visualizza numero di versione e livello di "
-"patch\n"
+"  --version                  visualizza numero di versione e livello di patch\n"
 "  --help                     visualizza questo help\n"
 "  -v, --verbose              output di debug prolisso\n"
 "  -c FILE, --config=FILE     usa FILE come file di configurazione\n"
 "  -h HOST, --host=HOST       interrogazione esplicita di HOST\n"
 "  -n, --no-redirect          disabilita la redirezione dei contenuti\n"
-"  -s, --no-whoisservers      disabilita il supporto del servizio whois-"
-"servers.net\n"
+"  -s, --no-whoisservers      disabilita il supporto del servizio whois-servers.net\n"
 "  -a, --raw                  disabilita la riformattazione della richiesta\n"
-"  -i, --display-redirections visualizza tutte le redirezioni invece di "
-"nasconderle\n"
-"  -p PORTA, --port=PORTA     usa il numero di porta PORTA (unitamente a "
-"HOST)\n"
+"  -i, --display-redirections visualizza tutte le redirezioni invece di nasconderle\n"
+"  -p PORTA, --port=PORTA     usa il numero di porta PORTA (unitamente a HOST)\n"
 "  -r, --rwhois               forza l'ottenimento di una richiesta rwhois\n"
-"  --rwhois-display=DISPLAY   imposta l'opzione display nelle richieste "
-"rwhois\n"
-"  --rwhois-limit=LIMITE      imposta il massimo numero di ricorrenze da "
-"restituire\n"
+"  --rwhois-display=DISPLAY   imposta l'opzione display nelle richieste rwhois\n"
+"  --rwhois-limit=LIMITE      imposta il massimo numero di ricorrenze da restituire\n"
 
 #: src/init.c:145
 #, c-format
@@ -288,25 +281,25 @@ msgstr "Netmask non valida sulla riga"
 #: src/lookup.c:214
 #, c-format
 msgid "[%s: Missing prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: lunghezza del prefisso mancante sulla riga %d]\n"
 
 #: src/lookup.c:220
 #, c-format
 msgid "[%s: Invalid prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: lunghezza del prefisso non valida sulla riga %d]\n"
 
 #: src/lookup.c:232
-#, fuzzy, c-format
+#, c-format
 msgid "[%s: Invalid network address on line %d]\n"
-msgstr "Netmask non valida sulla riga"
+msgstr "[%s: Indirizzo di rete non valido sulla riga %d]\n"
 
 #: src/lookup.c:437
 msgid "Warning: Configuration file contains references to IPv6,"
-msgstr ""
+msgstr "Warning: Configuration file contains references to IPv6,"
 
 #: src/lookup.c:438
 msgid "         but jwhois was compiled without IPv6 support."
-msgstr ""
+msgstr "         ma jwhois è stato compilato senza il supporto IPV6."
 
 #: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
@@ -356,9 +349,8 @@ msgid "Error creating socket"
 msgstr "Errore nella creazione del socket"
 
 #: src/utils.c:348
-#, fuzzy
 msgid "Invalid connect timeout value"
-msgstr "Netmask non valida sulla riga"
+msgstr "Valore di timeout della connessione non valido"
 
 #: src/whois.c:88
 msgid "Error reading data from"

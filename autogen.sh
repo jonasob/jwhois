@@ -9,6 +9,7 @@
 #name of package
 PKG_NAME=jwhois
 srcdir=${srcdir:-.}
+ACLOCAL_FLAGS="-I gl/m4"
 
 # default version requirements ...
 REQUIRED_AUTOCONF_VERSION=2.59

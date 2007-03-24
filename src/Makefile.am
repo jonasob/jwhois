@@ -29,6 +29,9 @@ jwhois_CFLAGS = $(OLDCFLAGS) -DSYSCONFDIR="\"$(sysconfdir)\"" \
          -DLOCALSTATEDIR="\"$(localstatedir)\"" \
          -DLOCALEDIR="\"$(localedir)\""
 
-CFLAGS = $(jwhois_CFLAGS)
+jwhois_LDADD = $(top_srcdir)/gl/libgnu.a
 
-INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir)/intl
+AM_CFLAGS = $(jwhois_CFLAGS)
+
+
+INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir)/intl -I$(top_srcdir)/gl

@@ -3771,8 +3771,8 @@ re_match_2 (bufp, string1, size1, string2, size2, pos, regs, stop)
                           regstart[r] = old_regstart[r];
 
                           /* xx why this test?  */
-                          if ((uintptr_t) old_regend[r] >=
-                              (uintptr_t) regstart[r])
+                          if ((unsigned long int) old_regend[r] >=
+                              (unsigned long int) regstart[r])
                             regend[r] = old_regend[r];
                         }     
                     }

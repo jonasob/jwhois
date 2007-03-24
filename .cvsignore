@@ -11,3 +11,4 @@ config.log
 config.cache
 .cvsignore
 jwhois.spec
+link-warning.h

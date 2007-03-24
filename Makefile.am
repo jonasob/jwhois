@@ -19,7 +19,9 @@
 ##
 
 EXTRA_DIST = config.rpath  m4/ChangeLog config.rpath include/*.h example/jwhois.conf m4/*.m4 jwhois.spec.in jwhois.spec debian/*
-SUBDIRS = m4 doc src example po
+SUBDIRS = m4 doc gl src example po
 
+AM_CPPFLAGS = -I$(top_srcdir)/gl
+LDADD = lib/libgnu.a
 
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 -I gl/m4
