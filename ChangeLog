@@ -1,8 +1,13 @@
+2007-03-26  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Added whois servers for .af, .bj, .ci, .dm,
+	.gp, .ki, .ly, .mu, .pm, .re, .tl, .wf and .yt (Johan Säre)
+
 2007-03-24  Jonas Oberg  <jonas@gnu.org>
 
 	* Imported gnulib for snprintf compatibility.
 	* example/jwhois.conf: Changed whois server for .se, .gs
-	.im, .tf, .tr and .ve (Johan Sare)
+	.im, .tf, .tr and .ve (Johan Säre)
 	* po/it.po: Updated from TP.
 
 2007-02-21  Jonas Oberg  <jonas@gnu.org>
