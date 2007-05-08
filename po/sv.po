@@ -1,15 +1,15 @@
 # Swedish messages for jwhois
-# Copyright © 1999,2001-2003,2005
-# Peter Karlsson <peter@softwolves.pp.se>, 2005.
+# Copyright © 1999, 2001, 2002, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+# Peter Karlsson <peter@softwolves.pp.se>, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.2.3\n"
+"Project-Id-Version: jwhois 4.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
 "POT-Creation-Date: 2007-02-14 14:08+0530\n"
-"PO-Revision-Date: 2005-07-10 09:00+0300\n"
+"PO-Revision-Date: 2007-05-08 08:43+0100\n"
 "Last-Translator: Peter Karlsson <peter@softwolves.pp.se>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr "Kan inte öppna"
 
 #: src/cache.c:164
 msgid "Unable to store data in cache\n"
-msgstr "Kan inte lagra data i databasen\n"
+msgstr "Kan inte lagra data i cache\n"
 
 #: src/dns.c:93
 msgid "host not found"
@@ -191,8 +191,7 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -207,8 +206,7 @@ msgstr ""
 "  -a, --raw                  slå av omformatering av frågan\n"
 "  -i, --display-redirections visa alla omdirigeringar istället för att\n"
 "                             dölja dem\n"
-"  -p PORT, --port=PORT       använd portnummer PORT (i kombination med "
-"VÄRD)\n"
+"  -p PORT, --port=PORT       använd portnummer PORT (i kombination med VÄRD)\n"
 "  -r, --rwhois               tvinga fram en rwhois-fråga\n"
 "  --rwhois-display=VISNING   sätter visningsflaggan i rwhois-frågor\n"
 "  --rwhois-limit=GRÄNS       sötter max antal träffar att returnera\n"
@@ -219,8 +217,7 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         framtvinga uppslagning även om posten finns i "
-"cache\n"
+"  -f, --force-lookup         framtvinga uppslagning även om posten finns i cache\n"
 "  -d, --disable-cache        stäng av cachefunktionaliteten\n"
 
 #: src/init.c:148
@@ -286,25 +283,25 @@ msgstr "Ogiltig nätmask på rad"
 #: src/lookup.c:214
 #, c-format
 msgid "[%s: Missing prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: Prefixlängd saknas på rad %d]\n"
 
 #: src/lookup.c:220
 #, c-format
 msgid "[%s: Invalid prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: Ogiltig prefixlängd på rad %d]\n"
 
 #: src/lookup.c:232
-#, fuzzy, c-format
+#, c-format
 msgid "[%s: Invalid network address on line %d]\n"
-msgstr "Ogiltig nätmask på rad"
+msgstr "[%s: Felaktig nätverksadress på rad %d]\n"
 
 #: src/lookup.c:437
 msgid "Warning: Configuration file contains references to IPv6,"
-msgstr ""
+msgstr "Varning: Konfigurationsfilen innehåller referenser till IPv6,"
 
 #: src/lookup.c:438
 msgid "         but jwhois was compiled without IPv6 support."
-msgstr ""
+msgstr "         men jwhois har kompilerats utan IPv6-stöd."
 
 #: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
@@ -354,28 +351,9 @@ msgid "Error creating socket"
 msgstr "Fel vid skapande av uttag (socket)"
 
 #: src/utils.c:348
-#, fuzzy
 msgid "Invalid connect timeout value"
-msgstr "Ogiltig nätmask på rad"
+msgstr "Ogiltigt värde för tidsgräns"
 
 #: src/whois.c:88
 msgid "Error reading data from"
 msgstr "Fel vid läsning av data från"
-
-#~ msgid "using defaults"
-#~ msgstr "använder standardvärden"
-
-#~ msgid "disabling cache"
-#~ msgstr "stänger av cache"
-
-#~ msgid "Option %s is not configured: Cannot run web browser."
-#~ msgstr "Inställningen %s ej konfigurerad: Kan inte köra webbläsare."
-
-#~ msgid "[Running "
-#~ msgstr "[Kör "
-
-#~ msgid "unable to open"
-#~ msgstr "kan ej öppna"
-
-#~ msgid "Can not allocate %d bytes of memory\n"
-#~ msgstr "Kan inte allokera %d byte minne\n"
