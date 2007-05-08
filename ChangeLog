@@ -1,3 +1,7 @@
+2007-05-08  Jonas Oberg  <jonas@gnu.org>
+
+	* po/sv.po: Updated from TP.
+
 2007-03-26  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Added whois servers for .af, .bj, .ci, .dm,
