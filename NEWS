@@ -4,6 +4,7 @@ Changes in jwhois 4.0
  * New feature: Lookup of CIDR6 blocks
  * New feature: Added support for Libidn
  * New feature: Conversion of whois server output to local charset
+ * GPLv3
  * Updates of jwhois.conf
  * Various bugfixes
 
