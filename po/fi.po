@@ -1,0 +1,358 @@
+# Translation of jwhois.pot to Finnish.
+# Copyright © 2007 Free Software Foundation, Inc.
+# This file is distributed under the same license as the jwhois package.
+#
+# Jorma Karvonen <karvjorm@users.sf.net>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: jwhois 4.0\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2007-02-14 14:08+0530\n"
+"PO-Revision-Date: 2007-11-22 18:46+0200\n"
+"Last-Translator: Jorma Karvonen <karvjorm@users.sf.net>\n"
+"Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
+
+#: src/cache.c:142
+msgid "Invalid expire time"
+msgstr "Virheellinen vanhentumisaika"
+
+#: src/cache.c:155 src/init.c:270 src/init.c:279
+msgid "Unable to open"
+msgstr "Ei voida avata"
+
+#: src/cache.c:164
+msgid "Unable to store data in cache\n"
+msgstr "Ei voida tallentaa dataa välimuistiin\n"
+
+#: src/dns.c:93
+msgid "host not found"
+msgstr "kone ei löytynyt"
+
+#: src/gai_strerror.c:61
+msgid "Address family for hostname not supported"
+msgstr "Osoiteperhettä konenimelle ei tueta"
+
+#: src/gai_strerror.c:63
+msgid "Temporary failure in name resolution"
+msgstr "Tilapäinen virhe nimenselvityksessä"
+
+#: src/gai_strerror.c:65
+msgid "Bad value for ai_flags"
+msgstr "Virheellinen arvo ”ai_flags”-lipuille"
+
+#: src/gai_strerror.c:67
+msgid "Non-recoverable failure in name resolution"
+msgstr "Palautumaton virhe nimenselvityksessä"
+
+#: src/gai_strerror.c:69
+msgid "ai_family not supported"
+msgstr "”ai_family” ei ole tuettu"
+
+#: src/gai_strerror.c:71
+msgid "Memory allocation failure"
+msgstr "Muistin varausvirhe"
+
+#: src/gai_strerror.c:73
+msgid "No address associated with hostname"
+msgstr "Konenimeen ei ole yhdistetty osoitetta"
+
+#: src/gai_strerror.c:75
+msgid "Name or service not known"
+msgstr "Nimi tai palvelu tuntematon"
+
+#: src/gai_strerror.c:77
+msgid "Servname not supported for ai_socktype"
+msgstr "Palvelinnimi on tukematon ”ai_socktype”:lle"
+
+#: src/gai_strerror.c:79
+msgid "ai_socktype not supported"
+msgstr "”ai_socktype” ei ole tuettu"
+
+#: src/gai_strerror.c:81
+msgid "System error"
+msgstr "Järjestelmävirhe"
+
+#: src/gai_strerror.c:83
+msgid "Unknown error"
+msgstr "Tuntematon virhe"
+
+#: src/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: valitsin ”%s” on moniselitteinen\n"
+
+#: src/getopt.c:703
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: valitsin ”--%s” ei salli argumenttia\n"
+
+#: src/getopt.c:708
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: valitsin ”%c%s” ei salli argumenttia\n"
+
+#: src/getopt.c:726 src/getopt.c:899
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: valitsin ”%s” vaatii argumentin\n"
+
+#: src/getopt.c:755
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: tunnistamaton valitsin ”--%s”\n"
+
+#: src/getopt.c:759
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: tunnistamaton valitsin ”%c%s”\n"
+
+#: src/getopt.c:785
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: virheellinen valitsin – %c\n"
+
+#: src/getopt.c:788
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: virheellinen valitsin – %c\n"
+
+#: src/getopt.c:818 src/getopt.c:948
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: valitsin vaatii argumentin – %c\n"
+
+#: src/getopt.c:865
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: valitsin ”-W %s” on moniselitteinen\n"
+
+#: src/getopt.c:883
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: valitsin ”-W %s” ei salli argumenttia\n"
+
+#: src/http.c:72
+msgid "HTTP configuration is incomplete:"
+msgstr "HTTP-konfiguraatio ei ole valmis:"
+
+#: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
+#: src/http.c:167
+msgid "Option is missing:"
+msgstr "Valitsin puuttuu:"
+
+#: src/http.c:85
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
+msgstr "Valitsimen http-methodin on oltava ”GET” tai ”POST”.\n"
+
+#: src/http.c:196
+msgid "Unable to create temporary file"
+msgstr "Ei voida luoda tilapäistä tiedostoa"
+
+#: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
+msgid "Querying"
+msgstr "Kysellään"
+
+#: src/http.c:277
+msgid "Unable to run web browser"
+msgstr "Ei voida ajaa webbiselainta"
+
+#: src/init.c:119
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Tekijänoikeudet © 1999-%d  Free Software Foundation, Inc.\n"
+
+#: src/init.c:120
+msgid ""
+"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
+"redistribute it under the terms of the GNU General Public License."
+msgstr ""
+"Tämä ohjelma on vapaa ohjelmisto, jolla ei EHDOTTOMASTI OLE MITÄÄN TAKUUTA; saat\n"
+"jakaa sitä edelleen GNU General Public Lisenssin ehtojen mukaisesti."
+
+#: src/init.c:123
+msgid "version"
+msgstr "versio"
+
+#: src/init.c:128
+msgid "Usage: jwhois [OPTIONS] [QUERY]"
+msgstr "Käyttö: jwhois [VALITSIMET] [KYSELY]"
+
+#: src/init.c:130
+#, c-format
+msgid ""
+"  --version                  display version number and patch level\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
+msgstr ""
+"  --version                  näytä versionumero ja korjaustaso\n"
+"  --help                     näytä tämä opaste\n"
+"  -v, --verbose              lavea virheenjäljitystuloste\n"
+"  -c FILE, --config=TIEDOSTO käytä TIEDOSTOa konfiguraatiotiedostona\n"
+"  -h HOST, --host=KONE       eksplisiittisesti kysy tietoKONEtta\n"
+"  -n, --no-redirect          passivoi sisällön edelleenohjaus\n"
+"  -s, --no-whoisservers      passivoi ”whois-servers.net”-palvelutuki\n"
+"  -a, --raw                  passivoi kyselyn uudelleenmuotoilu\n"
+"  -i, --display-redirections näytä kaikki uudelleenohjaukset niiden kätkemisen sijasta\n"
+"  -p PORT, --port=PORTTI     käytä porttinumeroa PORTTI (yhdessä KONEen kanssa)\n"
+"  -r, --rwhois               pakota ”rwhois”-kysely tehtäväksi\n"
+"  --rwhois-display=NÄYTTÖ    asettaa näyttövalitsimen ”rwhois”-kyselyissä\n"
+"  --rwhois-limit=RAJA        asettaa täsmäävien paluuarvojen maksimimäärän\n"
+
+#: src/init.c:145
+#, c-format
+msgid ""
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
+msgstr ""
+"  -f, --force-lookup         pakota haku silloinkin kun hakusana on välimuistissa\n"
+"  -d, --disable-cache        passivoi välimuistitoiminnot\n"
+
+#: src/init.c:148
+msgid "Report bugs to bug-jwhois@gnu.org"
+msgstr "Ilmoita virheistä osoitteeseen bug-jwhois@gnu.org"
+
+#: src/init.c:233
+msgid "Invalid limit"
+msgstr "Virheellinen raja"
+
+#: src/init.c:247
+msgid "Invalid port number"
+msgstr "Virheellinen porttinumero"
+
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
+#: src/utils.c:101 src/utils.c:111 src/whois.c:76
+msgid "Error allocating memory"
+msgstr "Virhe muistinvarauksessa"
+
+#: src/jconfig.c:273 src/jconfig.c:325
+msgid "String out of bounds on line"
+msgstr "Merkkijono rajojen ulkopuolella rivillä"
+
+#: src/jconfig.c:299
+msgid "End of file looking for '\"' on line"
+msgstr "Tiedoston loppu tuli vastaan etsittäessä riviltä ”\"”-merkkiä"
+
+#: src/jconfig.c:354
+msgid "Unexpected end of file on line"
+msgstr "Odottamaton tiedoston loppu rivillä"
+
+#: src/jconfig.c:423
+msgid "Multiple keys on line"
+msgstr "Useita avaimia rivillä"
+
+#: src/jconfig.c:433
+msgid "Missing key on line"
+msgstr "Puuttuva avain rivillä"
+
+#: src/jwhois.c:148
+msgid "Fatal error searching for host to query"
+msgstr "Kohtalokas virhe etsittäessä konetta kyselylle"
+
+#: src/jwhois.c:170
+msgid "Error reading cache"
+msgstr "Virhe luettaessa välimuistia"
+
+#: src/jwhois.c:175
+msgid "Cached"
+msgstr "Välimuistissa"
+
+#: src/jwhois.c:189
+msgid "Error writing to cache"
+msgstr "Virhe kirjoitettaessa välimuistia"
+
+#: src/lookup.c:110
+msgid "Invalid netmask on line"
+msgstr "Virheellinen verkkopeite rivillä"
+
+#: src/lookup.c:214
+#, c-format
+msgid "[%s: Missing prefix length on line %d]\n"
+msgstr "[%s: Puuttuva prefiksipituus rivillä %d]\n"
+
+#: src/lookup.c:220
+#, c-format
+msgid "[%s: Invalid prefix length on line %d]\n"
+msgstr "[%s: Virheellinen prefiksipituus rivillä %d]\n"
+
+#: src/lookup.c:232
+#, c-format
+msgid "[%s: Invalid network address on line %d]\n"
+msgstr "[%s: Virheellinen verkko-osoite rivillä %d]\n"
+
+#: src/lookup.c:437
+msgid "Warning: Configuration file contains references to IPv6,"
+msgstr "Varoitus: Konfiguraatiotiedosto sisältää viitteitä IPv6-protokollaan,"
+
+#: src/lookup.c:438
+msgid "         but jwhois was compiled without IPv6 support."
+msgstr "         mutta ”jwhois” käännettiin ilman IPv6-tukea."
+
+#: src/lookup.c:552 src/lookup.c:556
+msgid "Redirected to"
+msgstr "Uudelleenohjattu kohteeseen"
+
+#: src/rwhois.c:138 src/whois.c:70
+#, c-format
+msgid "[Unable to connect to remote host]\n"
+msgstr "[Ei voitu yhdistää etäkoneeseen]\n"
+
+#: src/rwhois.c:159
+#, c-format
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
+msgstr "[RWHOIS: Protokollavirhe lähetettäessä ”-rwhois”-valitsinta]\n"
+
+#: src/rwhois.c:197
+msgid "Server does not support display command"
+msgstr "Palvelin ei tue näyttökäskyä"
+
+#: src/rwhois.c:212
+msgid "Invalid limit in configuration file"
+msgstr "Virheellinen raja konfiguraatiotiedostossa"
+
+#: src/rwhois.c:236
+msgid "Server does not support limit"
+msgstr "Palvelin ei tue rajaa"
+
+#: src/rwhois.c:278
+msgid "Unknown referral"
+msgstr "Tuntematon lähete"
+
+#: src/rwhois.c:370
+msgid "Following referral to"
+msgstr "Seuraava lähete kohteeseen"
+
+#: src/rwhois.c:399
+#, c-format
+msgid "[Host terminated connection prematurely]\n"
+msgstr "[Kone sulki yhteyden ennenaikaisesti]\n"
+
+#: src/rwhois.c:475
+msgid "Unhandled reply"
+msgstr "Käsittelemätön vastaus"
+
+#: src/utils.c:262
+msgid "Error creating socket"
+msgstr "Virhe luotaessa pistoketta"
+
+#: src/utils.c:348
+msgid "Invalid connect timeout value"
+msgstr "Virheellinen yhdistämisen aikakatkaisuarvo"
+
+#: src/whois.c:88
+msgid "Error reading data from"
+msgstr "Virhe luettaessa dataa kohteesta"
