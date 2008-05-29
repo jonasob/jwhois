@@ -1,31 +1,32 @@
-# Dutch translation jwhois.
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# Translation of jwhois-4.0 to Dutch.
+# Copyright (C) 2003, 2007 Free Software Foundation, Inc.
 # Taco Witte <T.C.Witte@phys.uu.nl>, 2003.
-# Elros Cyriatan <cyriatan@fastmail.fm>, 2003.
+# Benno Schulenberg <benno@vertaalt.nl>, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.2.2\n"
+"Project-Id-Version: jwhois-4.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
 "POT-Creation-Date: 2007-02-14 14:08+0530\n"
-"PO-Revision-Date: 2003-08-04 22:18+0100\n"
-"Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
-"Language-Team: Dutch <vertaling@nl.linux.org>\n"
+"PO-Revision-Date: 2007-07-28 17:12+0200\n"
+"Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
+"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: src/cache.c:142
 msgid "Invalid expire time"
-msgstr "Onjuist verlooptijd"
+msgstr "Onjuiste verlooptijd"
 
 #: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
-msgstr "Openen mislukt"
+msgstr "Openen is mislukt"
 
 #: src/cache.c:164
 msgid "Unable to store data in cache\n"
-msgstr "Opslaan gegevens in cache mislukt\n"
+msgstr "Opslaan van gegevens in cache is mislukt\n"
 
 #: src/dns.c:93
 msgid "host not found"
@@ -33,43 +34,43 @@ msgstr "host niet gevonden"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
-msgstr "Adresfamilie voor hostnaam niet ondersteund"
+msgstr "Adresfamilie voor hostnaam wordt niet ondersteund"
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
-msgstr "Tijdelijke fout in naamresolutie"
+msgstr "Tijdelijke storing in naamsherleiding"
 
 #: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
-msgstr "Slechte waarde voor ai_flags"
+msgstr "Ongeldige waarde voor 'ai_flags'"
 
 #: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
-msgstr "Niet-herstelbare fout bij naamresolutie"
+msgstr "Onherstelbare mislukking in naamsherleiding"
 
 #: src/gai_strerror.c:69
 msgid "ai_family not supported"
-msgstr "ai_family niet ondersteund"
+msgstr "'ai_family' wordt niet ondersteund"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "Geheugen reserveringsfout"
+msgstr "Onvoldoende geheugen"
 
 #: src/gai_strerror.c:73
 msgid "No address associated with hostname"
-msgstr "Geen adres geassocieerd met hostnaam"
+msgstr "Aan hostnaam is geen adres verbonden"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "Naam of voorziening niet bekend"
+msgstr "Naam of dienst is niet bekend"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
-msgstr "Servnaam niet ondersteund voor ai_socktype"
+msgstr "Servicenaam wordt niet ondersteund voor 'ai_socktype'"
 
 #: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
-msgstr "ai_socktype niet ondersteund"
+msgstr "'ai_socktype' wordt niet ondersteund"
 
 #: src/gai_strerror.c:81
 msgid "System error"
@@ -82,42 +83,43 @@ msgstr "Onbekende fout"
 #: src/getopt.c:678
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: optie `%s' is dubbelzinnig\n"
+msgstr "%s: optie '%s' is niet eenduidig\n"
 
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: optie `--%s' staat geen argument toe\n"
+msgstr "%s: optie '--%s' staat geen argument toe\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: optie `%c%s' staat geen argument toe\n"
+msgstr "%s: optie '%c%s' staat geen argument toe\n"
 
+# Als voorgaande groep maar dan met LF:
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: optie `%s' vereist een argument\n"
+msgstr "%s: optie '%s' vereist een argument\n"
 
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: onbekende optie `--%s'\n"
+msgstr "%s: onbekende optie '--%s'\n"
 
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: onbekende optie `%c%s'\n"
+msgstr "%s: onbekende optie '%c%s'\n"
 
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: onjuiste optie -- %c\n"
+msgstr "%s: ongeldige optie -- %c\n"
 
 #: src/getopt.c:788
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: onjuiste optie -- %c\n"
+msgstr "%s: ongeldige optie -- %c\n"
 
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
@@ -127,16 +129,16 @@ msgstr "%s: optie vereist een argument -- %c\n"
 #: src/getopt.c:865
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: optie `-W %s' is dubbelzinnig\n"
+msgstr "%s: optie '-W %s' is niet eenduidig\n"
 
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: optie `-W %s' staat geen argument toe\n"
+msgstr "%s: optie '-W %s' staat geen argument toe\n"
 
 #: src/http.c:72
 msgid "HTTP configuration is incomplete:"
-msgstr "HTTP configuratie is incompleet:"
+msgstr "HTTP-configuratie is incompleet:"
 
 #: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
 #: src/http.c:167
@@ -145,7 +147,7 @@ msgstr "Optie ontbreekt:"
 
 #: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "Optie http-method moet \"GET\" of \"POST\" zijn.\n"
+msgstr "De optie 'http-method' moet 'GET' of 'POST' zijn.\n"
 
 #: src/http.c:196
 msgid "Unable to create temporary file"
@@ -153,11 +155,11 @@ msgstr "Kan geen tijdelijk bestand aanmaken"
 
 #: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
-msgstr "Opzoeken"
+msgstr "Bevragen van"
 
 #: src/http.c:277
 msgid "Unable to run web browser"
-msgstr "Starten web bladerprogramma mislukt"
+msgstr "Kan browser niet starten"
 
 #: src/init.c:119
 #, c-format
@@ -169,8 +171,9 @@ msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
-"redistribute it under the terms of the GNU General Public License."
+"Dit programma is vrije software zonder ENIGE GARANTIE;\n"
+"u mag het vrijelijk verder verspreiden onder de\n"
+"voorwaarden van de GNU General Public License."
 
 #: src/init.c:123
 msgid "version"
@@ -178,7 +181,7 @@ msgstr "versie"
 
 #: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr "Gebruik: jwhois [OPTIES] [ZOEKOPDRACHT]"
+msgstr "Gebruik:  jwhois [OPTIES] [ZOEKOPDRACHT]"
 
 #: src/init.c:130
 #, c-format
@@ -192,30 +195,25 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  geef versienummer weer\n"
-"  --help                     geeft deze hulp weer\n"
-"  -v, --verbose              meer uitvoer voor debuggen\n"
-"  -c BESTAND, --config=BESTAND gebruik BESTAND als configuratiebestand\n"
-"  -h HOST, --host=HOST       expliciet opdracht versturen naar HOST\n"
-"  -n, --no-redirect          inhoud-doorverwijzing uit zetten\n"
-"  -s, --no-whoisservers      ondersteuning whois-servers.net voorziening uit "
-"zetten\n"
-"  -a, --raw                  opnieuw opmaken zoekopdracht uit zetten\n"
-"  -i, --display-redirections alle verwijzingen weergeven, in plaats van "
-"verbergen\n"
-"  -p POORT, --port=POORT     gebruik poortnummer POORT (samen met HOST)\n"
-"  -r, --rwhois               forceer dat een rwhois zoekopdracht moet worden "
-"gedaan\n"
-"  --rwhois-display=DISPLAY   weergave-optie instellen op rwhois "
-"zoekopdrachten\n"
-"  --rwhois-limit=LIMIT       maximum aantal overeenkomende resultaten "
-"instellen\n"
+"  --version                     versienummer tonen\n"
+"  --help                        deze hulptekst tonen\n"
+"  -v, --verbose                 breedsprakige uitvoer (voor debuggen)\n"
+"\n"
+"  -a, --raw                     heropmaken van de zoekopdracht uitschakelen\n"
+"  -c BESTAND, --config=BESTAND  te gebruiken configuratiebestand\n"
+"  -h HOST, --host=HOST          te bevragen host\n"
+"  -i, --display-redirections    doorverwijzingen weergeven, niet verbergen\n"
+"  -n, --no-redirect             inhoudsdoorverwijzing uitschakelen\n"
+"  -p POORT, --port=POORT        te gebruiken poortnummer (samen met HOST)\n"
+"  -r, --rwhois                  een 'rwhois'-zoekopdracht afdwingen\n"
+"  --rwhois-display=DISPLAY      te gebruiken display voor tonen van resultaten\n"
+"  --rwhois-limit=AANTAL         maximum aantal weer te geven resultaten\n"
+"  -s, --no-whoisservers         geen gebruik maken van 'whois-servers.net'\n"
 
 #: src/init.c:145
 #, c-format
@@ -223,39 +221,40 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         opzoeken forceren zelfs als gegevens gecached "
-"zijn\n"
-"  -d, --disable-cache        cache functies uit zetten\n"
+"  -f, --force-lookup         toch opzoeken, ook als gegevens gecached zijn\n"
+"  -d, --disable-cache        cache-functies uitschakelen\n"
 
 #: src/init.c:148
 msgid "Report bugs to bug-jwhois@gnu.org"
-msgstr "Rapporteer software fouten aan bug-jwhois@gnu.org"
+msgstr ""
+"Rapporteer gebreken in het programma aan <bug-jwhois@gnu.org>;\n"
+"meld fouten in de vertaling aan <vertaling@vrijschrift.org>."
 
 #: src/init.c:233
 msgid "Invalid limit"
-msgstr "Onjuiste grens"
+msgstr "Ongeldige grenswaarde"
 
 #: src/init.c:247
 msgid "Invalid port number"
-msgstr "Onjuist poortnummer"
+msgstr "Ongeldig poortnummer"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
 #: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
 #: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
-msgstr "Fout bij reserveren geheugen"
+msgstr "Onvoldoende geheugen"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
-msgstr "Tekst buiten bereik op regel"
+msgstr "Tekenreeks valt buiten grenzen op regel"
 
 #: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
-msgstr "Einde-bestand bij zoeken naar '\"' op regel"
+msgstr "Einde van bestand werd bereikt tijdens zoeken naar '\"' op regel"
 
 #: src/jconfig.c:354
 msgid "Unexpected end of file on line"
-msgstr "Onverwacht einde-bestand op regel"
+msgstr "Onverwacht einde van bestand op regel"
 
 #: src/jconfig.c:423
 msgid "Multiple keys on line"
@@ -267,11 +266,11 @@ msgstr "Ontbrekende sleutel op regel"
 
 #: src/jwhois.c:148
 msgid "Fatal error searching for host to query"
-msgstr "Fatale fout bij zoeken naar host voor opsturen zoekopdracht"
+msgstr "Fatale fout bij zoeken naar te bevragen host"
 
 #: src/jwhois.c:170
 msgid "Error reading cache"
-msgstr "Fout bij lezen cache"
+msgstr "Fout bij lezen van cache"
 
 #: src/jwhois.c:175
 msgid "Cached"
@@ -288,25 +287,25 @@ msgstr "Onjuiste netmask op regel"
 #: src/lookup.c:214
 #, c-format
 msgid "[%s: Missing prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: Ontbrekende prefixlengte op regel %d]\n"
 
 #: src/lookup.c:220
 #, c-format
 msgid "[%s: Invalid prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: Ongeldige prefixlengte op regel %d]\n"
 
 #: src/lookup.c:232
-#, fuzzy, c-format
+#, c-format
 msgid "[%s: Invalid network address on line %d]\n"
-msgstr "Onjuiste netmask op regel"
+msgstr "[%s: Ongeldig netwerkadres op regel %d]\n"
 
 #: src/lookup.c:437
 msgid "Warning: Configuration file contains references to IPv6,"
-msgstr ""
+msgstr "Waarschuwing: configuratiebestand bevat referenties aan IPv6, maar"
 
 #: src/lookup.c:438
 msgid "         but jwhois was compiled without IPv6 support."
-msgstr ""
+msgstr "              'jwhois' is gecompileerd zonder IPv6-ondersteuning."
 
 #: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
@@ -315,20 +314,20 @@ msgstr "Doorverwezen naar"
 #: src/rwhois.c:138 src/whois.c:70
 #, c-format
 msgid "[Unable to connect to remote host]\n"
-msgstr "[Verbinden met host op afstand mislukt]\n"
+msgstr "[Verbinden met host is mislukt]\n"
 
 #: src/rwhois.c:159
 #, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
-msgstr "[RWHOIS: Protocolfout bij verzenden -rwhois optie]\n"
+msgstr "[RWHOIS: Protocolfout bij verzenden van '-rwhois'-optie]\n"
 
 #: src/rwhois.c:197
 msgid "Server does not support display command"
-msgstr "Server ondersteunt niet de 'display' opdracht"
+msgstr "Server ondersteunt de opdracht 'display' niet"
 
 #: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
-msgstr "Onjuiste grens in configuratiebestand"
+msgstr "Onjuiste grenswaarde in configuratiebestand"
 
 #: src/rwhois.c:236
 msgid "Server does not support limit"
@@ -336,16 +335,16 @@ msgstr "Server ondersteunt de grens niet"
 
 #: src/rwhois.c:278
 msgid "Unknown referral"
-msgstr "Onbekende verwijzer"
+msgstr "Onbekende verwijzing"
 
 #: src/rwhois.c:370
 msgid "Following referral to"
-msgstr "De verwijzer wordt gevolgd naar"
+msgstr "Verwijzing wordt gevolgd naar"
 
 #: src/rwhois.c:399
 #, c-format
 msgid "[Host terminated connection prematurely]\n"
-msgstr "[Host brak de verbinding vroegtijdig af]\n"
+msgstr "[Host brak de verbinding voortijdig af]\n"
 
 #: src/rwhois.c:475
 msgid "Unhandled reply"
@@ -353,13 +352,12 @@ msgstr "Onverwerkt antwoord"
 
 #: src/utils.c:262
 msgid "Error creating socket"
-msgstr "Fout bij maken socket"
+msgstr "Fout bij aanmaken van socket"
 
 #: src/utils.c:348
-#, fuzzy
 msgid "Invalid connect timeout value"
-msgstr "Onjuiste netmask op regel"
+msgstr "Ongeldige waarde voor verbindingsverlooptijd"
 
 #: src/whois.c:88
 msgid "Error reading data from"
-msgstr "Fout bij lezen gegeven van"
+msgstr "Fout bij lezen van data van"

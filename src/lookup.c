@@ -149,7 +149,7 @@ static int ipv6_address_is_in_network(const struct in6_addr *addr,
     }
   /* i == bits / 8 */
   if (bits % 8 != 0
-      && (addr->s6_addr[i] & (0xFFu << (bits % 8))) != net->s6_addr[i])
+      && (addr->s6_addr[i] & (0xFFu << (8 - (bits % 8)))) != net->s6_addr[i])
     return 0;
   return 1;
 }
