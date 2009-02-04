@@ -1,3 +1,7 @@
+2009-02-04  Jonas Oberg  <jonas@gnu.org>
+
+	* src/jwhois.c: Bugfix (Dustin King, Ian Comfort)
+
 2008-05-29  Jonas Oberg  <jonas@gnu.org>
 
 	* src/lookup.c: Bugfix (Manuel Kasper)
