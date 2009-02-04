@@ -283,6 +283,8 @@ parse_args(int *argc, char ***argv)
   if (in)
     jconfig_parse_file(in);
 
+  fclose(in);
+
   if (verbose>1)
     {
       printf("[Debug: Cache = %s]\n", cache?"On":"Off");

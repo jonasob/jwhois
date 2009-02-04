@@ -1,7 +1,7 @@
 # Vietnamese Translation for JWhois.
 # Copyright © 2007 Free Software Foundation, Inc.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2007.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 4.0\n"

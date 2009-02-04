@@ -1,6 +1,9 @@
 2009-02-04  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jwhois.c: Bugfix (Dustin King, Ian Comfort)
+	* src/init.c: Close file descriptor (Vitezslav Crhonek)
+	* example/jwhois.conf: Added enum domains and .gi update (Vitezslav
+	Crhonek)
 
 2008-05-29  Jonas Oberg  <jonas@gnu.org>
 
