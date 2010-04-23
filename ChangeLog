@@ -1,3 +1,7 @@
+2010-04-23  Joans Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Changed .ae entry (Zain Al Abdeen Baig)
+
 2009-02-04  Jonas Oberg  <jonas@gnu.org>
 
 	* src/jwhois.c: Bugfix (Dustin King, Ian Comfort)
