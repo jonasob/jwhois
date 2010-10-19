@@ -1,4 +1,8 @@
-2010-04-23  Joans Oberg  <jonas@gnu.org>
+2010-10-19  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: updated dotEmarat TLD (Zain Al Abdeen Baig)
+
+2010-04-23  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Changed .ae entry (Zain Al Abdeen Baig)
 
