@@ -1,3 +1,7 @@
+2011-04-08  Jonas Oberg  <jonas@gnu.org>
+
+	* example/jwhois.conf: Updated .ua TLD (Svitlana Tkachenko)
+
 2010-10-19  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: updated dotEmarat TLD (Zain Al Abdeen Baig)
