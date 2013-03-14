@@ -12,11 +12,11 @@
 	(192): Update (#34252).
 	(.tel): New (Mike Frysinger: #37144).
 	(.asia): New (Michael Ionescu: #38114).
+	(.ae, 1.7.9.e164.arpa): Fix.
 
-2013-01-07  Niibe Yutaka  <gniibe@fsij.org>
+2013-03-13  Gavin Brown  <gavin.brown@uk.com>
 
-	* example/jwhois.conf: Update .ae TLD (Zain Al Abdeen Baig).
-	#26913.
+	* example/jwhois.conf (ccSLD): Update list of CentralNic ccSLDs.
 
 2011-04-14  Jonas Oberg  <jonas@gnu.org>
 
