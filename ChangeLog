@@ -1,3 +1,23 @@
+2013-03-14  Niibe Yutaka  <gniibe@fsij.org>
+
+	* src/utils.c (make_connect) [HAVE_GETADDRINFO]: Fix success
+	condition and try next on error (Alan Curry: #37135).
+
+	* src/utils.c (make_connect) [!HAVE_GETADDRINFO]: Fix leak of
+	sockfd on error.
+
+	* example/jwhois.conf (220.72.0.0): Update (#14800).
+	(.vc): Update (Ian Macfarlane: #28733).
+	(.fo, .gl): Update (#33578).
+	(192): Update (#34252).
+	(.tel): New (Mike Frysinger: #37144).
+	(.asia): New (Michael Ionescu: #38114).
+
+2013-01-07  Niibe Yutaka  <gniibe@fsij.org>
+
+	* example/jwhois.conf: Update .ae TLD (Zain Al Abdeen Baig).
+	#26913.
+
 2011-04-14  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Updated .rs TLD (Dusan Pancevac)
