@@ -281,9 +281,10 @@ parse_args(int *argc, char ***argv)
 	config = SYSCONFDIR "/jwhois.conf";
     }
   if (in)
-    jconfig_parse_file(in);
-
-  fclose(in);
+    {
+      jconfig_parse_file(in);
+      fclose(in);
+    }
 
   if (verbose>1)
     {

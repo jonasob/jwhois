@@ -1,3 +1,27 @@
+2013-03-15  Niibe Yutaka  <gniibe@fsij.org>
+
+	* src/init.c (parse_args): Call close only when IN is valid.
+
+2013-03-14  Niibe Yutaka  <gniibe@fsij.org>
+
+	* src/utils.c (make_connect) [HAVE_GETADDRINFO]: Fix success
+	condition and try next on error (Alan Curry: #37135).
+
+	* src/utils.c (make_connect) [!HAVE_GETADDRINFO]: Fix leak of
+	sockfd on error.
+
+	* example/jwhois.conf (220.72.0.0): Update (#14800).
+	(.vc): Update (Ian Macfarlane: #28733).
+	(.fo, .gl): Update (#33578).
+	(192): Update (#34252).
+	(.tel): New (Mike Frysinger: #37144).
+	(.asia): New (Michael Ionescu: #38114).
+	(.ae, 1.7.9.e164.arpa): Fix.
+
+2013-03-13  Gavin Brown  <gavin.brown@uk.com>
+
+	* example/jwhois.conf (ccSLD): Update list of CentralNic ccSLDs.
+
 2011-04-14  Jonas Oberg  <jonas@gnu.org>
 
 	* example/jwhois.conf: Updated .rs TLD (Dusan Pancevac)

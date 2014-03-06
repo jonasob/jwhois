@@ -214,13 +214,18 @@ make_connect(const char *host, int port)
   flags = fcntl(sockfd, F_GETFL, 0);
   if (fcntl(sockfd, F_SETFL, flags|O_NONBLOCK) == -1)
     {
+      close (sockfd);
       return -1;
     }
 
   error = connect(sockfd, (struct sockaddr *)&remote, sizeof(struct sockaddr));
 
+  if (error == 0)
+    return sockfd;
+
   if (error < 0 && errno != EINPROGRESS)
     {
+      close (sockfd);
       return -1;
     }
 
@@ -230,6 +235,7 @@ make_connect(const char *host, int port)
   error = select(FD_SETSIZE, NULL, &fdset, NULL, &timeout);
   if (error == 0)
     {
+      close (sockfd);
       return -1;
     }
 
@@ -237,9 +243,11 @@ make_connect(const char *host, int port)
   error = getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &retval, &retlen);
   if (error < 0 || retval)
     {
+      close (sockfd);
       return -1;
     }
 
+  return sockfd;
 #else /* HAVE_GETADDRINFO */
 
   error = lookup_host_addrinfo(&res, host, port);
@@ -247,14 +255,13 @@ make_connect(const char *host, int port)
     {
       return -1;
     }
-  while (res)
+  for (; res; res = res->ai_next)
     {
       sa = res->ai_addr;
       sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
       if (sockfd == -1 && res->ai_family == PF_INET6 && res->ai_next)
         {
           /* Operating system seems to lack IPv6 support, try next entry */
-          res = res->ai_next;
           continue;
         }
       if (sockfd == -1)
@@ -266,15 +273,22 @@ make_connect(const char *host, int port)
       flags = fcntl(sockfd, F_GETFL, 0);
       if (fcntl(sockfd, F_SETFL, flags|O_NONBLOCK) == -1)
 	{
+	  close (sockfd);
 	  return -1;
 	}
 
 
       error = connect(sockfd, res->ai_addr, res->ai_addrlen);
 
+      if (error == 0)
+	{
+	  return sockfd;
+	}
+
       if (error < 0 && errno != EINPROGRESS)
 	{
-	  break;
+	  close (sockfd);
+	  continue;
 	}
 
       FD_ZERO(&fdset);
@@ -283,21 +297,22 @@ make_connect(const char *host, int port)
       error = select(FD_SETSIZE, NULL, &fdset, NULL, &timeout);
       if (error == 0)
 	{
-	  break;
+	  close (sockfd);
+	  continue;
 	}
 
       retlen = sizeof(retval);
       error = getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &retval, &retlen);
-      if (error < 0 || retval)
+      if (error == 0 && retval == 0)
 	{
-	  break;
+	  return sockfd;
 	}
-      res = res->ai_next;
-    }
-  if (error < 0 || retval) return -1;
-#endif
 
-  return sockfd;
+      close (sockfd);
+    }
+
+  return -1;
+#endif
 }
 
 /*
