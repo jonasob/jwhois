@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: jwhois-4.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
 "POT-Creation-Date: 2007-02-14 14:08+0530\n"
-"PO-Revision-Date: 2007-07-28 17:12+0200\n"
+"PO-Revision-Date: 2007-08-14 11:37+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,7 @@ msgstr "'ai_family' wordt niet ondersteund"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "Onvoldoende geheugen"
+msgstr "Onvoldoende geheugen beschikbaar"
 
 #: src/gai_strerror.c:73
 msgid "No address associated with hostname"
@@ -95,7 +95,6 @@ msgstr "%s: optie '--%s' staat geen argument toe\n"
 msgid "%s: option `%c%s' doesn't allow an argument\n"
 msgstr "%s: optie '%c%s' staat geen argument toe\n"
 
-# Als voorgaande groep maar dan met LF:
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
@@ -195,8 +194,7 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -212,8 +210,7 @@ msgstr ""
 "  -n, --no-redirect             inhoudsdoorverwijzing uitschakelen\n"
 "  -p POORT, --port=POORT        te gebruiken poortnummer (samen met HOST)\n"
 "  -r, --rwhois                  een 'rwhois'-zoekopdracht afdwingen\n"
-"  --rwhois-display=DISPLAY      te gebruiken display voor tonen van "
-"resultaten\n"
+"  --rwhois-display=DISPLAY      te gebruiken display voor tonen van resultaten\n"
 "  --rwhois-limit=AANTAL         maximum aantal weer te geven resultaten\n"
 "  -s, --no-whoisservers         geen gebruik maken van 'whois-servers.net'\n"
 
@@ -244,7 +241,7 @@ msgstr "Ongeldig poortnummer"
 #: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
 #: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
-msgstr "Onvoldoende geheugen"
+msgstr "Onvoldoende geheugen beschikbaar"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
