@@ -82,16 +82,12 @@ This is edition 3.2.1, for jwhois version 3.2.3, last updated 30 June 2002.
 * RIPE Extensions::             Extensions for RIPE databases
 * Reporting bugs::              Reporting bugs
 
-@detailmenu
- --- The Detailed Node Listing ---
-
 Site Configuration
 
 * Global options::              Global configuration options
 * Whois servers::               Syntax for selecting whois servers
 * Server options::              Syntax for server options
 
-@end detailmenu
 @end menu
 
 @node Introduction, Invocation, Top, Top

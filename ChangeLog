@@ -1,3 +1,8 @@
+2015-01-20  Jonas Oberg  <jonas@gnu.org>
+
+	* Makefile.am autogen.sh doc/jwhois.texi po/Makevars src/Makefile.am:
+        updated to compile with modern auto-tools
+
 2013-03-15  Niibe Yutaka  <gniibe@fsij.org>
 
 	* src/init.c (parse_args): Call close only when IN is valid.

@@ -34,4 +34,4 @@ jwhois_LDADD = $(top_srcdir)/gl/libgnu.a
 AM_CFLAGS = $(jwhois_CFLAGS)
 
 
-INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir)/intl -I$(top_srcdir)/gl
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/intl -I$(top_srcdir)/gl
