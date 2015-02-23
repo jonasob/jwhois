@@ -1,188 +1,194 @@
-# Vietnamese Translation for JWhois.
-# Copyright © 2007 Free Software Foundation, Inc.
-# Clytie Siddall <clytie@riverland.net.au>, 2005-2007.
-# 
+# Galician translation of jwhois.
+# This file is distributed under the same license as the jwhois package.
+# Copyright (C) 2013 Free Software Foundation, Inc.
+# Copyright (C) 2013 Leandro Regueiro.
+#
+# Leandro Regueiro <leandro.regueiro@gmail.com>, 2013.
+#
+# Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
+# colaborar connosco, podes atopar máis información en <http://www.trasno.net>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: jwhois 4.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
 "POT-Creation-Date: 2007-02-14 14:08+0530\n"
-"PO-Revision-Date: 2007-02-27 13:31+1030\n"
-"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
-"Language-Team: Vietnamese <vi-VN@googlegroups.com> \n"
+"PO-Revision-Date: 2013-02-02 19:56+0200\n"
+"Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: LocFactoryEditor 1.6.3b1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/cache.c:142
 msgid "Invalid expire time"
-msgstr "Giờ hết hạn không hợp lệ"
+msgstr "O tempo de caducidade non é válido"
 
 #: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
-msgstr "Không thể mở được"
+msgstr "Non foi posíbel abrir"
 
 #: src/cache.c:164
 msgid "Unable to store data in cache\n"
-msgstr "Không thể cất giữ dữ liệu trong bộ nhớ tạm\n"
+msgstr "Foi imposíbel almacenar os datos na caché\n"
 
 #: src/dns.c:93
 msgid "host not found"
-msgstr "không tìm thấy mấy"
+msgstr "non se atopou o servidor"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
-msgstr "Không hỗ trợ nhóm địa chỉ đối với tên máy"
+msgstr ""
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
-msgstr "Tạm thời không thể quyết định tên"
+msgstr "Fallo temporal na resolución de nomes"
 
 #: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
-msgstr "Giá trị sai đối với « ai_flags »"
+msgstr "Valor incorrecto para ai_flags"
 
 #: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
-msgstr "Lỗi không thể phục hồi khi quyết định tên"
+msgstr "Fallo non recuperábel na resolución de nomes"
 
 #: src/gai_strerror.c:69
 msgid "ai_family not supported"
-msgstr "Không hỗ trợ « ai_family »"
+msgstr "ai_family non admitido"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "Lỗi phân cấp bộ nhớ"
+msgstr "Fallo de reserva de memoria"
 
 #: src/gai_strerror.c:73
 msgid "No address associated with hostname"
-msgstr "Không có địa chỉ nào liên quan đến tên máy"
+msgstr "Non hai ningún enderezo asociado ao nome de servidor"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "Không biết tên hay dịch vụ"
+msgstr "Nome ou servizo descoñecido"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
-msgstr "Tên máy không được hỗ trợ đối với « ai_socktype »"
+msgstr "Servname non permitido para ai_socktype"
 
 #: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
-msgstr "Không hỗ trợ « ai_socktype »"
+msgstr "ai_socktype non admitido"
 
 #: src/gai_strerror.c:81
 msgid "System error"
-msgstr "Lỗi hệ thống"
+msgstr "Erro do sistema"
 
 #: src/gai_strerror.c:83
 msgid "Unknown error"
-msgstr "Lỗi không rõ"
+msgstr "Erro descoñecido"
 
 #: src/getopt.c:678
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: tùy chọn « %s » mơ hồ\n"
+msgstr "%s: a opción «%s» é ambigua\n"
 
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: tùy chọn « --%s » không cho phép đối số\n"
+msgstr "%s: a opción «--%s» non permite ningún argumento\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: tùy chọn « %c%s » không cho phép đối số\n"
+msgstr "%s: a opción «%c%s» non permite ningún argumento\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: tùy chọn « %s » cần đến đối số\n"
+msgstr "%s: a opción «%s» require un argumento\n"
 
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: không nhận diện tùy chọn « --%s »\n"
+msgstr "%s: opción «--%s» non recoñecida\n"
 
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: không nhận diện tùy chọn « %c%s »\n"
+msgstr "%s: opción «%c%s» non recoñecida\n"
 
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: tùy chọn lậu -- %c\n"
+msgstr "%s: opción inaceptábel -- %c\n"
 
 #: src/getopt.c:788
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: tùy chọn không hợp lệ -- %c\n"
+msgstr "%s: opción incorrecta -- %c\n"
 
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: tùy chọn cần đến đối số -- %c\n"
+msgstr "%s: a opción require un argumento -- %c\n"
 
 #: src/getopt.c:865
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: tùy chọn « -W %s » mơ hồ\n"
+msgstr "%s: a opción «-W %s» é ambigua\n"
 
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: tùy chọn « -W %s » không cho phép đối số\n"
+msgstr "%s: a opción «-W %s» non permite ningún argumento\n"
 
 #: src/http.c:72
 msgid "HTTP configuration is incomplete:"
-msgstr "Cấu hình HTTP không hoàn thành:"
+msgstr "A configuración HTTP está incompleta:"
 
 #: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
 #: src/http.c:167
 msgid "Option is missing:"
-msgstr "Tùy chọn bị thiếu :"
+msgstr "Falta a opción:"
 
 #: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "Tùy chọn http-method (phương pháp) phải là \"GET\" (lấy) hay \"POST\" (gửi).\n"
+msgstr "A opción http-method debe ser «GET» ou «POST».\n"
 
 #: src/http.c:196
 msgid "Unable to create temporary file"
-msgstr "Không thể tạo tập tin tạm thời"
+msgstr "Non é posíbel crear un ficheiro temporal"
 
 #: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
-msgstr "Đang hỏi"
+msgstr "Consultando"
 
 #: src/http.c:277
 msgid "Unable to run web browser"
-msgstr "Không thể chạy trình duyệt Mạng"
+msgstr "Non é posíbel executar un navegador web"
 
 #: src/init.c:119
 #, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
-msgstr "Tác quyền © năm 1999-%d của Tổ chức Phần mềm Tự do.\n"
+msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
 
 #: src/init.c:120
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"Chương trình này là phần mềm tự do mà KHÔNG CÓ BẢO HÀNH GÌ CẢ;\n"
-"cho phép bạn phân phối lại với điều kiện của Giấy phép Công cộng GNU (GPL)."
+"Este programa é software libre e non ten NINGUNHA GARANTÍA; pode\n"
+"redistribuílo baixo os termos da Licenza Pública Xeral de GNU."
 
 #: src/init.c:123
 msgid "version"
-msgstr "phiên bản"
+msgstr "versión"
 
 #: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr "Cách sử dụng: jwhois [TÙY_CHỌN] [TRUY_VẤN]"
+msgstr "Modo de uso: jwhois [OPCIÓNS] [CONSULTA]"
 
 #: src/init.c:130
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "  --version                  display version number and patch level\n"
 "  --help                     display this help\n"
@@ -198,19 +204,19 @@ msgid ""
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  hiển thị số _phiên bản_ và cấp đắp vá\n"
-"  --help                     hiển thị _trợ giúp_ này\n"
-"  -v, --verbose              kết xuất gỡ lỗi _chi tiết_\n"
-"  -c TẬP_TIN, --config=TẬP_TIN     dùng tập tin này là _cấu hình_\n"
-"  -h MÁY, --host=MÁY       truy vấn _máy_ này một cách dứt khoát\n"
-"  -n, --no-redirect          _tắt khả năng chuyển hướng_ nội dung\n"
-"  -s, --no-whoisservers      tắt khả năng hỗ trợ dịch vụ whois-servers.net\n"
-"  -a, --raw                  tắt khả năng định dạng lại truy vấn (_thô_)\n"
-"  -i, --display-redirections \t_hiển thị mọi việc chuyển hướng_ thay vào ẩn\n"
-"  -p CỔNG, --port=CỔNG    dùng số hiệu cổng này (cùng với MÁY)\n"
-"  -r, --rwhois               ép buộc truy vấn kiểu rwhois\n"
-"  --rwhois-display=HIỂN_THỊ   lập tùy chọn hiển thị trong truy vấn rwhois\n"
-"  --rwhois-limit=HẠN_CHẾ       lập số kết quả tối đa cần trả lại\n"
+"  --version                  mostrar o número de versión e o nivel de parche\n"
+"  --help                     mostrar esta axuda\n"
+"  -v, --verbose              saída de depuración detallada\n"
+"  -c FICHEIRO, --config=FICHEIRO     usar FICHEIRO como ficheiro de configuración\n"
+"  -h SERVIDOR, --host=SERVIDOR       consultar explicitamente a SERVIDOR\n"
+"  -n, --no-redirect          desactivar o reenvío de contido\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections mostrar todos os reenvíos en vez de ocultalos\n"
+"  -p PORTO, --port=PORTO     use port number PORT (in conjunction with HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 
 #: src/init.c:145
 #, c-format
@@ -218,141 +224,142 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         _buộc tra cứu_ thậm chí nếu mục nhập đã được lưu tạm\n"
-"  -d, --disable-cache        _tắt_ các chức năng _lưu tạm_\n"
+"  -f, --force-lookup         forzar a busca incluso se a entrada está na caché\n"
+"  -d, --disable-cache        desactivar as funcións de caché\n"
 
 #: src/init.c:148
 msgid "Report bugs to bug-jwhois@gnu.org"
-msgstr "Hãy thông báo lỗi cho địa chỉ « bug-jwhois@gnu.org »"
+msgstr "Envíe informes de fallo a bug-jwhois@gnu.org"
 
 #: src/init.c:233
 msgid "Invalid limit"
-msgstr "Sự hạn chế không hợp lệ"
+msgstr "Límite incorrecto"
 
 #: src/init.c:247
 msgid "Invalid port number"
-msgstr "Số hiệu cổng không hợp lệ"
+msgstr "Número de porto incorrecto"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
 #: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
 #: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
-msgstr "Gặp lỗi khi phân cấp bộ nhớ"
+msgstr "Produciuse un erro ao asignar memoria"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
-msgstr "Chuỗi ở ngoại phạm vi trên dòng"
+msgstr ""
 
 #: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
-msgstr "Gặp kết thúc tập tin khi tìm '\"' trên dòng"
+msgstr "Atopouse fin de ficheiro buscando «\"» na liña"
 
 #: src/jconfig.c:354
 msgid "Unexpected end of file on line"
-msgstr "Gặp kết thúc tập tin bất thường trên dòng"
+msgstr "Fin de ficheiro inesperado na liña"
 
 #: src/jconfig.c:423
 msgid "Multiple keys on line"
-msgstr "Nhiều khoá trên dòng"
+msgstr "Varias claves na liña"
 
 #: src/jconfig.c:433
 msgid "Missing key on line"
-msgstr "Thiếu khóa trên dòng"
+msgstr "Falta a clave na liña"
 
 #: src/jwhois.c:148
 msgid "Fatal error searching for host to query"
-msgstr "Gặp lỗi nghiêm trọng khi tìm kiếm máy cần truy vấn"
+msgstr "Produciuse un erro moi grave ao buscar o servidor para consultalo"
 
 #: src/jwhois.c:170
 msgid "Error reading cache"
-msgstr "Gặp lỗi khi đọc bộ nhớ tạm"
+msgstr "Produciuse un erro ao ler a caché"
 
 #: src/jwhois.c:175
 msgid "Cached"
-msgstr "Đã lưu tạm"
+msgstr "Na caché"
 
 #: src/jwhois.c:189
 msgid "Error writing to cache"
-msgstr "Gặp lỗi khi ghi vào bộ nhớ tạm"
+msgstr "Produciuse un erro ao escribir na caché"
 
 #: src/lookup.c:110
 msgid "Invalid netmask on line"
-msgstr "Mặt nạ mạng không hợp lệ trên dòng"
+msgstr "Máscara de rede incorrecta na liña"
 
 #: src/lookup.c:214
 #, c-format
 msgid "[%s: Missing prefix length on line %d]\n"
-msgstr "[%s: Thiếu độ dài tiền tố trên dòng %d]\n"
+msgstr "[%s: Falta a lonxitude de prefixo na liña %d]\n"
 
 #: src/lookup.c:220
 #, c-format
 msgid "[%s: Invalid prefix length on line %d]\n"
-msgstr "[%s: Độ dài tiền tố không hợp lệ trên dòng %d]\n"
+msgstr "[%s: Lonxitude de prefixo incorrecta na liña %d]\n"
 
 #: src/lookup.c:232
 #, c-format
 msgid "[%s: Invalid network address on line %d]\n"
-msgstr "[%s: Địa chỉ mạng không hợp lệ trên dòng %d]\n"
+msgstr "[%s: Enderezo de rede incorrecto na liña %d]\n"
 
 #: src/lookup.c:437
 msgid "Warning: Configuration file contains references to IPv6,"
-msgstr "Cảnh báo : tập tin cấu hình chứa tham chiếu đến IPv6."
+msgstr "Advertencia: o ficheiro de configuración contén referencias a IPv6,"
 
 #: src/lookup.c:438
 msgid "         but jwhois was compiled without IPv6 support."
-msgstr "         còn jwhois đã được biên dịch không có khả năng hỗ trợ IPv6."
+msgstr "         pero jwhois compilouse sen compatibilidade con IPv6."
 
 #: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
-msgstr "Đã được chuyển hướng đến"
+msgstr "Reenviado a"
 
 #: src/rwhois.c:138 src/whois.c:70
 #, c-format
 msgid "[Unable to connect to remote host]\n"
-msgstr "[Không thể kết nối đến mấy từ xa]\n"
+msgstr "[Non é posíbel conectarse ao servidor remoto]\n"
 
 #: src/rwhois.c:159
 #, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
-msgstr "[RWHOIS: Gặp lỗi giao thức khi gửi tùy chọn « -rwhois »]\n"
+msgstr "[RWHOIS: Erro de protocolo ao enviar a opción -rwhois]\n"
 
 #: src/rwhois.c:197
 msgid "Server does not support display command"
-msgstr "Máy phục vụ không hỗ trợ lệnh hiển thị (display)"
+msgstr "O servidor non admite a orde display"
 
 #: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
-msgstr "Sự hạn chế không hợp lệ trong tập tin cấu hình"
+msgstr "Límite incorrecto no ficheiro de configuración"
 
 #: src/rwhois.c:236
 msgid "Server does not support limit"
-msgstr "Máy phục vụ không hỗ trợ sự hạn chế"
+msgstr "O servidor non admite o límite"
 
 #: src/rwhois.c:278
 msgid "Unknown referral"
-msgstr "Lời quy không rõ"
+msgstr "Referencia descoñecida"
 
 #: src/rwhois.c:370
 msgid "Following referral to"
-msgstr "Đang theo lời quy cho"
+msgstr "Seguindo a referencia a"
 
 #: src/rwhois.c:399
 #, c-format
 msgid "[Host terminated connection prematurely]\n"
-msgstr "[Máy đã ngắt sớm kết nối]\n"
+msgstr "[O servidor terminou a conexión de xeito prematuro]\n"
 
 #: src/rwhois.c:475
 msgid "Unhandled reply"
-msgstr "Đáp ứng không được xử lý"
+msgstr ""
 
 #: src/utils.c:262
+#, fuzzy
 msgid "Error creating socket"
-msgstr "Gặp lỗi khi tạo ổ cắm"
+msgstr "Produciuse un erro ao crear o socket"
 
 #: src/utils.c:348
 msgid "Invalid connect timeout value"
-msgstr "Giá trị thời hạn kết nối không hợp lệ"
+msgstr "Valor de tempo de expiración da conexión incorrecto"
 
 #: src/whois.c:88
 msgid "Error reading data from"
-msgstr "Gặp lỗi khi đọc dữ liệu từ"
+msgstr "Produciuse un erro ao ler os datos desde"

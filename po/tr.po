@@ -1,20 +1,24 @@
-# translation of jwhois-3.2.2.tr.po to Turkish
+# translation of jwhois-4.0.tr.po to Turkish
 # JWhois Turkish Translation
+# This file is distributed under the same license as the jwhois package.
 # Copyright (C) 2002, 2005 Free Software Foundation, Inc.
-# İrfan Macit <imacit@mail.cu.edu.tr>, 2002.
 #
+# İrfan Macit <imacit@mail.cu.edu.tr>, 2002.
+# Volkan Gezer <vlkngzr@gmail.com>, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.2.2\n"
+"Project-Id-Version: jwhois 4.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
 "POT-Creation-Date: 2007-02-14 14:08+0530\n"
-"PO-Revision-Date: 2005-03-14 04:45+0200\n"
-"Last-Translator: İrfan Macit <imacit@mail.cu.edu.tr>\n"
+"PO-Revision-Date: 2013-03-17 18:43+0100\n"
+"Last-Translator: Volkan Gezer <vlkngzr@gmail.com>\n"
 "Language-Team: Turkish <gnu-tr-u12a@lists.sourceforge.net>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/cache.c:142
 msgid "Invalid expire time"
@@ -25,7 +29,6 @@ msgid "Unable to open"
 msgstr "Açılamıyor"
 
 #: src/cache.c:164
-#, fuzzy
 msgid "Unable to store data in cache\n"
 msgstr "Veri arabellekte saklanamadı\n"
 
@@ -164,15 +167,14 @@ msgstr "Web tarayıcısı çalıştırılamıyor"
 #: src/init.c:119
 #, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
-msgstr "Telif Hakkı (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Telif Hakkı (C) 1999-%d  Özgür Yazılım Vakfı, Inc.\n"
 
 #: src/init.c:120
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"Bu, HİÇ BİR GARANTİ İÇERMEYEN bir serbest yazılımdır; GNU Genel Kamu "
-"Lisansı\n"
+"Bu, HİÇ BİR GARANTİ İÇERMEYEN bir serbest yazılımdır; GNU Genel Kamu Lisansı\n"
 "koşulları altında yeniden dağıtabilirsiniz."
 
 #: src/init.c:123
@@ -195,8 +197,7 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
@@ -207,15 +208,12 @@ msgstr ""
 "  -c DOSYA, --config=DOSYA   ayar dosyası olarak DOSYA'yı kullanır\n"
 "  -h MAK, --host=MAK         özellikle MAK makinasını sorgular\n"
 "  -n, --no-redirect          içerik yönlendirmesini etkisizleştirir\n"
-"  -s, --no-whoisservers      whois-servers.net servis desteğini "
-"etkisizleştirir\n"
+"  -s, --no-whoisservers      whois-servers.net servis desteğini etkisizleştirir\n"
 "  -a, --raw                  sorgunun tekrar biçemlenmesini etkisizleştirir\n"
-"  -i, --display-redirections tekrar yönlendirmeleri gizlemek yerine "
-"gösterir\n"
+"  -i, --display-redirections tekrar yönlendirmeleri gizlemek yerine gösterir\n"
 "  -p PORT, --port=PORT       PORT numarasını kullanır (MAK ile birlikte)\n"
 "  -r, --rwhois               rwhois sorgusuna zorlar\n"
-"  --rwhois-display=EKRAN     rwhois sorgularında ekran seçeneklerini "
-"ayarlar\n"
+"  --rwhois-display=EKRAN     rwhois sorgularında ekran seçeneklerini ayarlar\n"
 "  --rwhois-limit=SINIR       verilecek cevap sayısını sınırlar\n"
 
 #: src/init.c:145
@@ -290,25 +288,25 @@ msgstr "Satırda geçersiz ağ maskesi"
 #: src/lookup.c:214
 #, c-format
 msgid "[%s: Missing prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: %d. satırda eksik önek uzunluğu]\n"
 
 #: src/lookup.c:220
 #, c-format
 msgid "[%s: Invalid prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: %d. satırda geçersiz önek uzunluğu]\n"
 
 #: src/lookup.c:232
-#, fuzzy, c-format
+#, c-format
 msgid "[%s: Invalid network address on line %d]\n"
-msgstr "Satırda geçersiz ağ maskesi"
+msgstr "[%s: %d. satırda geçersiz ağ adresi]\n"
 
 #: src/lookup.c:437
 msgid "Warning: Configuration file contains references to IPv6,"
-msgstr ""
+msgstr "Uyarı: Yapılandırma dosyası IPv6 başvuruları içeriyor,"
 
 #: src/lookup.c:438
 msgid "         but jwhois was compiled without IPv6 support."
-msgstr ""
+msgstr "         ancak jwhois IPv6 desteği olmadan derlenmiş."
 
 #: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
@@ -358,9 +356,8 @@ msgid "Error creating socket"
 msgstr "Soket oluşturma hatası"
 
 #: src/utils.c:348
-#, fuzzy
 msgid "Invalid connect timeout value"
-msgstr "Satırda geçersiz ağ maskesi"
+msgstr "Geçersiz bağlantı zamanaşımı değeri"
 
 #: src/whois.c:88
 msgid "Error reading data from"

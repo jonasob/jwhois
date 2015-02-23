@@ -16,27 +16,28 @@ msgstr ""
 
 #: src/cache.c:142
 msgid "Invalid expire time"
-msgstr "Horário de expiração inválido"
+msgstr "Horï¿½rio de expiraï¿½ï¿½o invï¿½lido"
 
 #: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
-msgstr "Impossível abrir"
+msgstr "Impossï¿½vel abrir"
 
 #: src/cache.c:164
+#, fuzzy
 msgid "Unable to store data in cache\n"
-msgstr "Impossível guardar dados no cache\n"
+msgstr "Impossï¿½vel guardar dados no cache]\n"
 
 #: src/dns.c:93
 msgid "host not found"
-msgstr "host não encontrado"
+msgstr "host nï¿½o encontrado"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
-msgstr "Família de endereços para o hostname não é suportada"
+msgstr "Famï¿½lia de endereï¿½os para o hostname nï¿½o ï¿½ suportada"
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
-msgstr "Falha temporária na resolução de nomes"
+msgstr "Falha temporï¿½ria na resoluï¿½ï¿½o de nomes"
 
 #: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
@@ -44,31 +45,31 @@ msgstr "Valor ilegal para ai_flags"
 
 #: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
-msgstr "Falha irrecuperável na resolução de nomes"
+msgstr "Falha irrecuperï¿½vel na resoluï¿½ï¿½o de nomes"
 
 #: src/gai_strerror.c:69
 msgid "ai_family not supported"
-msgstr "ai_family não é suportado"
+msgstr "ai_family nï¿½o ï¿½ suportado"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "Falha de alocação de memória"
+msgstr "Falha de alocaï¿½ï¿½o de memï¿½ria"
 
 #: src/gai_strerror.c:73
 msgid "No address associated with hostname"
-msgstr "Nenhum endereço associado com o hostname"
+msgstr "Nenhum endereï¿½o associado com o hostname"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "Nome ou serviço desconhecido"
+msgstr "Nome ou serviï¿½o desconhecido"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
-msgstr "Servname não é suportado para ai_socktype"
+msgstr "Servname nï¿½o ï¿½ suportado para ai_socktype"
 
 #: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
-msgstr "ai_socktype não é suportado"
+msgstr "ai_socktype nï¿½o ï¿½ suportado"
 
 #: src/gai_strerror.c:81
 msgid "System error"
@@ -81,74 +82,74 @@ msgstr "Erro desconhecido"
 #: src/getopt.c:678
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: opção `%s' é ambígua\n"
+msgstr "%s: opï¿½ï¿½o `%s' ï¿½ ambï¿½gua\n"
 
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: opção `--%s' não permite argumentos\n"
+msgstr "%s: opï¿½ï¿½o `--%s' nï¿½o permite argumentos\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: opção `%c%s' não permite argumentos\n"
+msgstr "%s: opï¿½ï¿½o `%c%s' nï¿½o permite argumentos\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: opção `%s' exige um argumento\n"
+msgstr "%s: opï¿½ï¿½o `%s' exige um argumento\n"
 
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: opção `--%s' não reconhecida\n"
+msgstr "%s: opï¿½ï¿½o `--%s' nï¿½o reconhecida\n"
 
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: opção `%c%s' não reconhecida\n"
+msgstr "%s: opï¿½ï¿½o `%c%s' nï¿½o reconhecida\n"
 
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: opção ilegal -- %c\n"
+msgstr "%s: opï¿½ï¿½o ilegal -- %c\n"
 
 #: src/getopt.c:788
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: opção inválida -- %c\n"
+msgstr "%s: opï¿½ï¿½o invï¿½lida -- %c\n"
 
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: opção exige um argumento -- %c\n"
+msgstr "%s: opï¿½ï¿½o exige um argumento -- %c\n"
 
 #: src/getopt.c:865
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: opção `-W %s' é ambígua\n"
+msgstr "%s: opï¿½ï¿½o `-W %s' ï¿½ ambï¿½gua\n"
 
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: opção `-W %s' não permite argumentos\n"
+msgstr "%s: opï¿½ï¿½o `-W %s' nï¿½o permite argumentos\n"
 
 #: src/http.c:72
 msgid "HTTP configuration is incomplete:"
-msgstr "Configuração HTTP está incompleta:"
+msgstr "Configuraï¿½ï¿½o HTTP estï¿½ incompleta:"
 
 #: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
 #: src/http.c:167
 msgid "Option is missing:"
-msgstr "Opção faltando:"
+msgstr "Opï¿½ï¿½o faltando:"
 
 #: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "Opção http-method deve ser \"GET\" ou \"POST\".\n"
+msgstr "Opï¿½ï¿½o http-method deve ser \"GET\" ou \"POST\".\n"
 
 #: src/http.c:196
 msgid "Unable to create temporary file"
-msgstr "Impossível criar arquivo temporário"
+msgstr "Impossï¿½vel criar arquivo temporï¿½rio"
 
 #: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
@@ -156,24 +157,24 @@ msgstr "Consulta"
 
 #: src/http.c:277
 msgid "Unable to run web browser"
-msgstr "Impossível rodar o navegador web"
+msgstr "Impossï¿½vel rodar o navegador web"
 
 #: src/init.c:119
-#, c-format
+#, fuzzy, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
-msgstr "Copyright © 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Copyright ï¿½ 1999-2003  Free Software Foundation, Inc."
 
 #: src/init.c:120
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"Este programa é software livre SEM NENHUMA GARANTIA; você pode\n"
-"redistribuí-lo nos termos da Licensa Pública Geral GNU."
+"Este programa ï¿½ software livre SEM NENHUMA GARANTIA; vocï¿½ pode\n"
+"redistribuï¿½-lo nos termos da Licensa Pï¿½blica Geral GNU."
 
 #: src/init.c:123
 msgid "version"
-msgstr "versão"
+msgstr "versï¿½o"
 
 #: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
@@ -191,27 +192,25 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  exibe número de versão e nível de patch\n"
+"  --version                  exibe nï¿½mero de versï¿½o e nï¿½vel de patch\n"
 "  --help                     exibe esta ajuda\n"
-"  -v, --verbose              saída de depuração verborrágica\n"
-"  -c ARQ, --config=ARQ       usa ARQ como arquivo de configuração\n"
+"  -v, --verbose              saï¿½da de depuraï¿½ï¿½o verborrï¿½gica\n"
+"  -c ARQ, --config=ARQ       usa ARQ como arquivo de configuraï¿½ï¿½o\n"
 "  -h HOST, --host=HOST       consulta HOST explicitamente\n"
-"  -n, --no-redirect          desabilita rejeição de conteúdo\n"
-"  -s, --no-whoisservers      desabilita suporte ao serviço whois-servers."
-"net\n"
-"  -a, --raw                  desabilita reformatação da consulta\n"
-"  -i, --display-redirections exibe todos os redirecionamentos ao invés de\n"
-"                             escondê-los\n"
+"  -n, --no-redirect          desabilita rejeiï¿½ï¿½o de conteï¿½do\n"
+"  -s, --no-whoisservers      desabilita suporte ao serviï¿½o whois-servers.net\n"
+"  -a, --raw                  desabilita reformataï¿½ï¿½o da consulta\n"
+"  -i, --display-redirections exibe todos os redirecionamentos ao invï¿½s de\n"
+"                             escondï¿½-los\n"
 "  -p PORT, --port=PORTA      usa a a porta PORTA (em conjunto com HOST)\n"
-"  -r, --rwhois               força a execução de uma consulta rwhois\n"
-"  --rwhois-display=DISPLAY   seta a opção display nas consultas rwhois\n"
-"  --rwhois-limit=LIMIT       seta o número máximo de resultados a retornar\n"
+"  -r, --rwhois               forï¿½a a execuï¿½ï¿½o de uma consulta rwhois\n"
+"  --rwhois-display=DISPLAY   seta a opï¿½ï¿½o display nas consultas rwhois\n"
+"  --rwhois-limit=LIMIT       seta o nï¿½mero mï¿½ximo de resultados a retornar\n"
 
 #: src/init.c:145
 #, c-format
@@ -219,9 +218,9 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         força a consulta mesmo que a entrada esteja\n"
+"  -f, --force-lookup         forï¿½a a consulta mesmo que a entrada esteja\n"
 "                             no cache\n"
-"  -d, --disable-cache        desabilita as funções de cache\n"
+"  -d, --disable-cache        desabilita as funï¿½ï¿½es de cache\n"
 
 #: src/init.c:148
 msgid "Report bugs to bug-jwhois@gnu.org"
@@ -229,17 +228,17 @@ msgstr "Reporte bugs para bug-jwhois@gnu.org"
 
 #: src/init.c:233
 msgid "Invalid limit"
-msgstr "Limite inválido"
+msgstr "Limite invï¿½lido"
 
 #: src/init.c:247
 msgid "Invalid port number"
-msgstr "Número de porta inválido"
+msgstr "Nï¿½mero de porta invï¿½lido"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
 #: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
 #: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
-msgstr "Erro alocando memória"
+msgstr "Erro alocando memï¿½ria"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
@@ -251,11 +250,11 @@ msgstr "Final do arquivo procurando por '\"' na linha"
 
 #: src/jconfig.c:354
 msgid "Unexpected end of file on line"
-msgstr "Final do arquivo não esperado na linha"
+msgstr "Final do arquivo nï¿½o esperado na linha"
 
 #: src/jconfig.c:423
 msgid "Multiple keys on line"
-msgstr "Chaves múltiplas na linha"
+msgstr "Chaves mï¿½ltiplas na linha"
 
 #: src/jconfig.c:433
 msgid "Missing key on line"
@@ -279,7 +278,7 @@ msgstr "Erro escrevendo no cache"
 
 #: src/lookup.c:110
 msgid "Invalid netmask on line"
-msgstr "Máscara de rede inválida na linha"
+msgstr "Mï¿½scara de rede invï¿½lida na linha"
 
 #: src/lookup.c:214
 #, c-format
@@ -294,7 +293,7 @@ msgstr ""
 #: src/lookup.c:232
 #, fuzzy, c-format
 msgid "[%s: Invalid network address on line %d]\n"
-msgstr "Máscara de rede inválida na linha"
+msgstr "Mï¿½scara de rede invï¿½lida na linha"
 
 #: src/lookup.c:437
 msgid "Warning: Configuration file contains references to IPv6,"
@@ -311,41 +310,41 @@ msgstr "Redirecionado para"
 #: src/rwhois.c:138 src/whois.c:70
 #, c-format
 msgid "[Unable to connect to remote host]\n"
-msgstr "[Impossível conectar ao host remoto]\n"
+msgstr "[Impossï¿½vel conectar ao host remoto]\n"
 
 #: src/rwhois.c:159
 #, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
-msgstr "[RWHOIS: Erro de protocolo durante envio da opção -rwhois]\n"
+msgstr "[RWHOIS: Erro de protocolo durante envio da opï¿½ï¿½o -rwhois]\n"
 
 #: src/rwhois.c:197
 msgid "Server does not support display command"
-msgstr "O servidor não suporta o comando display"
+msgstr "O servidor nï¿½o suporta o comando display"
 
 #: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
-msgstr "Limite inválido no arquivo de configuração"
+msgstr "Limite invï¿½lido no arquivo de configuraï¿½ï¿½o"
 
 #: src/rwhois.c:236
 msgid "Server does not support limit"
-msgstr "O servidor não suporta limite"
+msgstr "O servidor nï¿½o suporta limite"
 
 #: src/rwhois.c:278
 msgid "Unknown referral"
-msgstr "Referência inválida"
+msgstr "Referï¿½ncia invï¿½lida"
 
 #: src/rwhois.c:370
 msgid "Following referral to"
-msgstr "Seguindo referência para"
+msgstr "Seguindo referï¿½ncia para"
 
 #: src/rwhois.c:399
 #, c-format
 msgid "[Host terminated connection prematurely]\n"
-msgstr "[O host encerrou a conexão prematuramente]\n"
+msgstr "[O host encerrou a conexï¿½o prematuramente]\n"
 
 #: src/rwhois.c:475
 msgid "Unhandled reply"
-msgstr "Resposta não tratada"
+msgstr "Resposta nï¿½o tratada"
 
 #: src/utils.c:262
 msgid "Error creating socket"
@@ -354,7 +353,7 @@ msgstr "Erro criando o socket"
 #: src/utils.c:348
 #, fuzzy
 msgid "Invalid connect timeout value"
-msgstr "Máscara de rede inválida na linha"
+msgstr "Mï¿½scara de rede invï¿½lida na linha"
 
 #: src/whois.c:88
 msgid "Error reading data from"

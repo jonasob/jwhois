@@ -16,135 +16,136 @@ msgstr ""
 
 #: src/cache.c:142
 msgid "Invalid expire time"
-msgstr "µL®Äªº¨ì´Á®É¶¡"
+msgstr "ï¿½Lï¿½Äªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¶ï¿½"
 
 #: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
-msgstr "µLªk¥´¶}ªº"
+msgstr "ï¿½Lï¿½kï¿½ï¿½ï¿½}ï¿½ï¿½"
 
 #: src/cache.c:164
+#, fuzzy
 msgid "Unable to store data in cache\n"
-msgstr "µLªk±N¸ê®Æ¦sªñ§Ö¨ú\n"
+msgstr "ï¿½Lï¿½kï¿½Nï¿½ï¿½ï¿½Æ¦sï¿½ï¿½ï¿½Ö¨ï¿½]\n"
 
 #: src/dns.c:93
 msgid "host not found"
-msgstr "¥D¾÷§ä¤£¨ì"
+msgstr "ï¿½Dï¿½ï¿½ï¿½ä¤£ï¿½ï¿½"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
-msgstr "¥D¾÷¦WºÙªº¦ì§}Ãþ§O¤£¤ä´©"
+msgstr "ï¿½Dï¿½ï¿½ï¿½Wï¿½Ùªï¿½ï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ä´©"
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
-msgstr "¦b¦WºÙ¸ÑªR¤W¼È®É¥¢±Ñ"
+msgstr "ï¿½bï¿½Wï¿½Ù¸ÑªRï¿½Wï¿½È®É¥ï¿½ï¿½ï¿½"
 
 #: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
-msgstr "ai_flags ªº­È¿ù»~"
+msgstr "ai_flags ï¿½ï¿½ï¿½È¿ï¿½ï¿½~"
 
 #: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
-msgstr "¦b¦WºÙ¬d¸ß¤Wµo¥Í¤F¤£¥i¦^´_ªº¿ù»~"
+msgstr "ï¿½bï¿½Wï¿½Ù¬dï¿½ß¤Wï¿½oï¿½Í¤Fï¿½ï¿½ï¿½iï¿½^ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½~"
 
 #: src/gai_strerror.c:69
 msgid "ai_family not supported"
-msgstr "¤£¤ä´© ai_family"
+msgstr "ï¿½ï¿½ï¿½ä´© ai_family"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "°O¾ÐÅé¤À°t¥¢±Ñ"
+msgstr "ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½"
 
 #: src/gai_strerror.c:73
 msgid "No address associated with hostname"
-msgstr "¨S¦³¦ì§}»P¸Ó¥D¾÷¦WºÙ¦³Ãö"
+msgstr "ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½Pï¿½Ó¥Dï¿½ï¿½ï¿½Wï¿½Ù¦ï¿½ï¿½ï¿½"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "¦WºÙ©ÎªA°È¤£¸Ôªº"
+msgstr "ï¿½Wï¿½Ù©ÎªAï¿½È¤ï¿½ï¿½Ôªï¿½"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
-msgstr "ai_socktype ªº Servname ¤£¤ä´©"
+msgstr "ai_socktype ï¿½ï¿½ Servname ï¿½ï¿½ï¿½ä´©"
 
 #: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
-msgstr "ai_socktype ¤£¤ä´©"
+msgstr "ai_socktype ï¿½ï¿½ï¿½ä´©"
 
 #: src/gai_strerror.c:81
 msgid "System error"
-msgstr "¨t²Î¿ù»~"
+msgstr "ï¿½tï¿½Î¿ï¿½ï¿½~"
 
 #: src/gai_strerror.c:83
 msgid "Unknown error"
-msgstr "¥¼ª¾ªº¿ù»~"
+msgstr "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~"
 
 #: src/getopt.c:678
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s¡G¿ï¶µ `%s' ¬O¤£©ú½Tªº\n"
+msgstr "%sï¿½Gï¿½ï¶µ `%s' ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½ï¿½\n"
 
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s¡G¿ï¾Ü `--%s' ¤£¤¹³\¤@­Ó°Ñ¼Æ\n"
+msgstr "%sï¿½Gï¿½ï¿½ï¿½ï¿½ `--%s' ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½@ï¿½Ó°Ñ¼ï¿½\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s¡G¿ï¶µ `%c%s' ¤£¤¹³\¤@­Ó°Ñ¼Æ\n"
+msgstr "%sï¿½Gï¿½ï¶µ `%c%s' ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½@ï¿½Ó°Ñ¼ï¿½\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s¡G¿ï¶µ `%s' »Ý­n¤@­Ó°Ñ¼Æ\n"
+msgstr "%sï¿½Gï¿½ï¶µ `%s' ï¿½Ý­nï¿½@ï¿½Ó°Ñ¼ï¿½\n"
 
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s¡GµLªk¿ë»{ªº¿ï¶µ `--%s'\n"
+msgstr "%sï¿½Gï¿½Lï¿½kï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ï¶µ `--%s'\n"
 
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s¡GµLªk¿ë»{¿ï¶µ `%c%s'\n"
+msgstr "%sï¿½Gï¿½Lï¿½kï¿½ï¿½ï¿½{ï¿½ï¶µ `%c%s'\n"
 
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s¡G«Dªkªº¿ï¶µ -- %c\n"
+msgstr "%sï¿½Gï¿½Dï¿½kï¿½ï¿½ï¿½ï¶µ -- %c\n"
 
 #: src/getopt.c:788
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s¡GµL®Äªº¿ï¾Ü -- %c\n"
+msgstr "%sï¿½Gï¿½Lï¿½Äªï¿½ï¿½ï¿½ï¿½ï¿½ -- %c\n"
 
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s¡G¿ï¶µ»Ý­n¤@­Ó¤Þ¼Æ -- %c\n"
+msgstr "%sï¿½Gï¿½ï¶µï¿½Ý­nï¿½@ï¿½Ó¤Þ¼ï¿½ -- %c\n"
 
 #: src/getopt.c:865
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s¡G¿ï¶µ `-W %s' ¤£©ú½T\n"
+msgstr "%sï¿½Gï¿½ï¶µ `-W %s' ï¿½ï¿½ï¿½ï¿½ï¿½T\n"
 
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s¡G¿ï¶µ 'W %s' ¤£¤¹³\¤@­Ó¤Þ¼Æ\n"
+msgstr "%sï¿½Gï¿½ï¶µ 'W %s' ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½@ï¿½Ó¤Þ¼ï¿½\n"
 
 #: src/http.c:72
 msgid "HTTP configuration is incomplete:"
-msgstr "HTTP ²ÕºA¬O¤£§¹¾ãªº¡G"
+msgstr "HTTP ï¿½ÕºAï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ãªºï¿½G"
 
 #: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
 #: src/http.c:167
 msgid "Option is missing:"
-msgstr "¿ï¾Ü¿òº|¡G"
+msgstr "ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½|ï¿½G"
 
 #: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "¿ï¶µ http-method ¤èªk¥²¶·¬O\"GET\" ©Î¬O \"POST\"¡C\n"
+msgstr "ï¿½ï¶µ http-method ï¿½ï¿½ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½O\"GET\" ï¿½Î¬O \"POST\"ï¿½C\n"
 
 #: src/http.c:196
 msgid "Unable to create temporary file"
@@ -152,32 +153,32 @@ msgstr ""
 
 #: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
-msgstr "¬d¸ß"
+msgstr "ï¿½dï¿½ï¿½"
 
 #: src/http.c:277
 msgid "Unable to run web browser"
-msgstr "µLªk°õ¦æÂsÄý¾¹"
+msgstr "ï¿½Lï¿½kï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½"
 
 #: src/init.c:119
-#, c-format
+#, fuzzy, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
-msgstr "ª©Åv©Ò¦³ (C) 1999-%d ¦Û¥Ñ³nÅé°òª÷·|¡C\n"
+msgstr "ï¿½ï¿½ï¿½vï¿½Ò¦ï¿½ (C) 1999,2001 ï¿½Û¥Ñ³nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½C"
 
 #: src/init.c:120
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"³o­Óµ{¦¡¬O¤@­Ó§¹¥þ¨S¦³¾á«Oªº¦Û¥Ñ³nÅé¡F§A¥i¥H\n"
-"¦b GPL ª©ÅvÁn©ú¤U¥ô·Nªº¦A´²§G¡C"
+"ï¿½oï¿½Óµ{ï¿½ï¿½ï¿½Oï¿½@ï¿½Ó§ï¿½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Û¥Ñ³nï¿½ï¿½ï¿½Fï¿½Aï¿½iï¿½H\n"
+"ï¿½b GPL ï¿½ï¿½ï¿½vï¿½nï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Gï¿½C"
 
 #: src/init.c:123
 msgid "version"
-msgstr "ª©¥»"
+msgstr "ï¿½ï¿½ï¿½ï¿½"
 
 #: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr "¨Ï¥Î¡G jwhois [¿ï¶µ][¬d¸ß]"
+msgstr "ï¿½Ï¥Î¡G jwhois [ï¿½ï¶µ][ï¿½dï¿½ï¿½]"
 
 #: src/init.c:130
 #, c-format
@@ -191,25 +192,24 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --ª©¥»                     Åã¥Ü¥»ª©¥»»P­×¸É½s¸¹\n"
-"  --¨D§U                     Åã¥Ü¥»¨D§U­¶\n"
-"  -v, --verbose              Ác½Æªº°£¿ù¿é¥X\n"
-"  -c FILE, --config=FILE     ¥HÀÉ®× FILE §@¬°³]©wÀÉ\n"
-"  -h HOST, --host=HOST       ©ú¥Õ«ü©w¬d¸ß¥D¾÷ HOST\n"
-"  -n, --no-redirect          °±¤î¤º®e­«·s¾É¦V\n"
-"  -s, --no-whoisservers      °±¤î¨Ï¥Î whois-servers.net ªA°È¤ä´©\n"
-"  -a, --raw                  °±¤î¹ï©ó¬d¸ß®æ¦¡­«¾ã\n"
-"  -i, --display-redirections Åã¥Ü©Ò¦³ªº¬d¸ß­«¾É¡A¦Ó«DÁôÂÃ¥L­Ì\n"
-"  -p PORT, --port=PORT       ¨Ï¥Î°ð¸¹ PORT (¦b¨ä¹ïÀ³ªº¥D¾÷ HOST)\n"
-"  -r, --rwhois               ±j­¢¨Ï¥Î rwhois ¬d¸ß\n"
-"  --rwhois-display=DISPLAY   ¦b rwhois ¬d¸ß¤¤³]©w DISPLAY ¿ï¶µ\n"
-"  --rwhois-limit=LIMIT       ³]©w§ä¨ì­Ó¼Æ¤W­­\n"
+"  --ï¿½ï¿½ï¿½ï¿½                     ï¿½ï¿½ï¿½Ü¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½×¸É½sï¿½ï¿½\n"
+"  --ï¿½Dï¿½U                     ï¿½ï¿½ï¿½Ü¥ï¿½ï¿½Dï¿½Uï¿½ï¿½\n"
+"  -v, --verbose              ï¿½cï¿½Æªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½X\n"
+"  -c FILE, --config=FILE     ï¿½Hï¿½É®ï¿½ FILE ï¿½@ï¿½ï¿½ï¿½]ï¿½wï¿½ï¿½\n"
+"  -h HOST, --host=HOST       ï¿½ï¿½ï¿½Õ«ï¿½ï¿½wï¿½dï¿½ß¥Dï¿½ï¿½ HOST\n"
+"  -n, --no-redirect          ï¿½ï¿½ï¿½î¤ºï¿½eï¿½ï¿½ï¿½sï¿½É¦V\n"
+"  -s, --no-whoisservers      ï¿½ï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ whois-servers.net ï¿½Aï¿½È¤ä´©\n"
+"  -a, --raw                  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ß®æ¦¡ï¿½ï¿½ï¿½ï¿½\n"
+"  -i, --display-redirections ï¿½ï¿½ï¿½Ü©Ò¦ï¿½ï¿½ï¿½ï¿½dï¿½ß­ï¿½ï¿½É¡Aï¿½Ó«Dï¿½ï¿½ï¿½Ã¥Lï¿½ï¿½\n"
+"  -p PORT, --port=PORT       ï¿½Ï¥Î°ï¿½ï¿½ï¿½ PORT (ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½ HOST)\n"
+"  -r, --rwhois               ï¿½jï¿½ï¿½ï¿½Ï¥ï¿½ rwhois ï¿½dï¿½ï¿½\n"
+"  --rwhois-display=DISPLAY   ï¿½b rwhois ï¿½dï¿½ß¤ï¿½ï¿½]ï¿½w DISPLAY ï¿½ï¶µ\n"
+"  --rwhois-limit=LIMIT       ï¿½]ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½Ó¼Æ¤Wï¿½ï¿½\n"
 
 #: src/init.c:145
 #, c-format
@@ -217,66 +217,66 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         §Y«K¸Ó¸ê®Æ³Q§Ö¨ú¤F¡A¤]±j­¢¬d¸ß\n"
-"  -d, --disable-cache        Ãö±¼§Ö¨ú¥\¯à\n"
+"  -f, --force-lookup         ï¿½Yï¿½Kï¿½Ó¸ï¿½ï¿½Æ³Qï¿½Ö¨ï¿½ï¿½Fï¿½Aï¿½]ï¿½jï¿½ï¿½ï¿½dï¿½ï¿½\n"
+"  -d, --disable-cache        ï¿½ï¿½ï¿½ï¿½ï¿½Ö¨ï¿½ï¿½\ï¿½ï¿½\n"
 
 #: src/init.c:148
 msgid "Report bugs to bug-jwhois@gnu.org"
-msgstr "¦^³ø¿ù»~ÂIµ¹ bug-jwhois@gnu.org"
+msgstr "ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Iï¿½ï¿½ bug-jwhois@gnu.org"
 
 #: src/init.c:233
 msgid "Invalid limit"
-msgstr "µL®Äªº¬É½u"
+msgstr "ï¿½Lï¿½Äªï¿½ï¿½É½u"
 
 #: src/init.c:247
 msgid "Invalid port number"
-msgstr "µL®Äªº°ð¼Æ"
+msgstr "ï¿½Lï¿½Äªï¿½ï¿½ï¿½ï¿½ï¿½"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
 #: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
 #: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
-msgstr "¤À¬£°O¾ÐÅé¿ù»~"
+msgstr "ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
-msgstr "¦r¦ê¶W¥X¬É½u¦b¦æ¼Æ"
+msgstr "ï¿½rï¿½ï¿½ï¿½Wï¿½Xï¿½É½uï¿½bï¿½ï¿½ï¿½ï¿½"
 
 #: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
-msgstr "§ä´M '\"' ¹J¨ìÀÉ®×µ²§ô¦b¦æ¼Æ"
+msgstr "ï¿½ï¿½ï¿½M '\"' ï¿½Jï¿½ï¿½ï¿½É®×µï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½"
 
 #: src/jconfig.c:354
 msgid "Unexpected end of file on line"
-msgstr "·N¥~ªºÀÉ®×²×ÂI¡A¦b¦æ¼Æ"
+msgstr "ï¿½Nï¿½~ï¿½ï¿½ï¿½É®×²ï¿½ï¿½Iï¿½Aï¿½bï¿½ï¿½ï¿½ï¿½"
 
 #: src/jconfig.c:423
 msgid "Multiple keys on line"
-msgstr "¦h­ÓÁä­È¦b¦æ¼Æ"
+msgstr "ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½È¦bï¿½ï¿½ï¿½ï¿½"
 
 #: src/jconfig.c:433
 msgid "Missing key on line"
-msgstr "¨S¦³Áä­È¦b¦æ¼Æ"
+msgstr "ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½È¦bï¿½ï¿½ï¿½ï¿½"
 
 #: src/jwhois.c:148
 msgid "Fatal error searching for host to query"
-msgstr "¦b§ä´M¥D¾÷¨Ó¬d¸ß®É¹J¨ì¤FÄY­«ªº¿ù»~"
+msgstr "ï¿½bï¿½ï¿½ï¿½Mï¿½Dï¿½ï¿½ï¿½Ó¬dï¿½ß®É¹Jï¿½ï¿½ï¿½Fï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~"
 
 #: src/jwhois.c:170
 msgid "Error reading cache"
-msgstr "Åª¨ú§Ö¨ú¿ù»~"
+msgstr "Åªï¿½ï¿½ï¿½Ö¨ï¿½ï¿½ï¿½ï¿½~"
 
 #: src/jwhois.c:175
 msgid "Cached"
-msgstr "§Ö¨ú¨ì¤F"
+msgstr "ï¿½Ö¨ï¿½ï¿½ï¿½ï¿½F"
 
 #: src/jwhois.c:189
 msgid "Error writing to cache"
-msgstr "¿ù»~¼g¤J§Ö¨ú"
+msgstr "ï¿½ï¿½ï¿½~ï¿½gï¿½Jï¿½Ö¨ï¿½"
 
 #: src/lookup.c:110
 msgid "Invalid netmask on line"
-msgstr "µL®Äªº netmask"
+msgstr "ï¿½Lï¿½Äªï¿½ netmask"
 
 #: src/lookup.c:214
 #, c-format
@@ -291,7 +291,7 @@ msgstr ""
 #: src/lookup.c:232
 #, fuzzy, c-format
 msgid "[%s: Invalid network address on line %d]\n"
-msgstr "µL®Äªº netmask"
+msgstr "ï¿½Lï¿½Äªï¿½ netmask"
 
 #: src/lookup.c:437
 msgid "Warning: Configuration file contains references to IPv6,"
@@ -303,56 +303,56 @@ msgstr ""
 
 #: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
-msgstr "§ï¤è¦V¨ì"
+msgstr "ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½ï¿½"
 
 #: src/rwhois.c:138 src/whois.c:70
 #, c-format
 msgid "[Unable to connect to remote host]\n"
-msgstr "[µLªk³s½u¨ì»·ºÝ¥D¾÷]\n"
+msgstr "[ï¿½Lï¿½kï¿½sï¿½uï¿½ì»·ï¿½Ý¥Dï¿½ï¿½]\n"
 
 #: src/rwhois.c:159
 #, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
-msgstr "[RWHOIS ¡G°e -rwhois ¿ï¶µªº³q°T¨ó©w®É¿ù»~]\n"
+msgstr "[RWHOIS ï¿½Gï¿½e -rwhois ï¿½ï¶µï¿½ï¿½ï¿½qï¿½Tï¿½ï¿½ï¿½wï¿½É¿ï¿½ï¿½~]\n"
 
 #: src/rwhois.c:197
 msgid "Server does not support display command"
-msgstr "¦øªA¾¹¤£¤ä´©®i¥Ü«ü¥O"
+msgstr "ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ä´©ï¿½iï¿½Ü«ï¿½ï¿½O"
 
 #: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
-msgstr "²ÕºAÀÉ¥]§tµL®Äªº­­¨î"
+msgstr "ï¿½ÕºAï¿½É¥]ï¿½tï¿½Lï¿½Äªï¿½ï¿½ï¿½ï¿½ï¿½"
 
 #: src/rwhois.c:236
 msgid "Server does not support limit"
-msgstr "¦øªA¾¹¤£¤ä´©­­¨î"
+msgstr "ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ä´©ï¿½ï¿½ï¿½ï¿½"
 
 #: src/rwhois.c:278
 msgid "Unknown referral"
-msgstr "¥¼ª¾ªº¤Þ¥Î"
+msgstr "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¥ï¿½"
 
 #: src/rwhois.c:370
 msgid "Following referral to"
-msgstr "¤U¦C¨Æª««ü¥Ü¨ì"
+msgstr "ï¿½Uï¿½Cï¿½Æªï¿½ï¿½ï¿½ï¿½Ü¨ï¿½"
 
 #: src/rwhois.c:399
 #, c-format
 msgid "[Host terminated connection prematurely]\n"
-msgstr "[¥D¾÷³s½u´£«e³Q²×¤î]\n"
+msgstr "[ï¿½Dï¿½ï¿½ï¿½sï¿½uï¿½ï¿½ï¿½eï¿½Qï¿½×¤ï¿½]\n"
 
 #: src/rwhois.c:475
 msgid "Unhandled reply"
-msgstr "¥¼³Q³B²zµªÂÐ"
+msgstr "ï¿½ï¿½ï¿½Qï¿½Bï¿½zï¿½ï¿½ï¿½ï¿½"
 
 #: src/utils.c:262
 msgid "Error creating socket"
-msgstr "²£¥Í socket µo¥Í¿ù»~"
+msgstr "ï¿½ï¿½ï¿½ï¿½ socket ï¿½oï¿½Í¿ï¿½ï¿½~"
 
 #: src/utils.c:348
 #, fuzzy
 msgid "Invalid connect timeout value"
-msgstr "µL®Äªº netmask"
+msgstr "ï¿½Lï¿½Äªï¿½ netmask"
 
 #: src/whois.c:88
 msgid "Error reading data from"
-msgstr "Åª¸ê®Æªº¿ù»~±q"
+msgstr "Åªï¿½ï¿½ï¿½Æªï¿½ï¿½ï¿½ï¿½~ï¿½q"

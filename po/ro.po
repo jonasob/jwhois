@@ -23,8 +23,9 @@ msgid "Unable to open"
 msgstr "Nu s-a putut deschide"
 
 #: src/cache.c:164
+#, fuzzy
 msgid "Unable to store data in cache\n"
-msgstr "Nu s-au putut stoca datele în cache\n"
+msgstr "Nu s-au putut stoca datele în cache]\n"
 
 #: src/dns.c:93
 msgid "host not found"
@@ -159,9 +160,9 @@ msgid "Unable to run web browser"
 msgstr "Nu s-a putut rula browserul de web"
 
 #: src/init.c:119
-#, c-format
+#, fuzzy, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
-msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Copyright (C) 1999-2003  Free Software Foundation, Inc."
 
 #: src/init.c:120
 msgid ""
@@ -191,14 +192,12 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  afiºeazã numãrul versiunii ºi nivelul de "
-"patchl\n"
+"  --version                  afiºeazã numãrul versiunii ºi nivelul de patchl\n"
 "  --help                     afiºeazã acest ajutor\n"
 "  -v, --verbose              output detaliat cu debug\n"
 "  -c FILE, --config=FIªIER     foloseºte FIªIER ca fiºier de configurare\n"
@@ -206,15 +205,11 @@ msgstr ""
 "  -n, --no-redirect          dezactiveazã redirectarea de conþinut\n"
 "  -s, --no-whoisservers      dezactiveazã serviciul whois-servers.net\n"
 "  -a, --raw                  dezactiveazã reformatarea interogãrii\n"
-"  -i, --display-redirections afiºeazã toate redirectãrile în loc sã le "
-"ascundã\n"
-"  -p PORT, --port=PORT       foloseºte numãrul de port PORT (în folosire cu "
-"HOST)\n"
+"  -i, --display-redirections afiºeazã toate redirectãrile în loc sã le ascundã\n"
+"  -p PORT, --port=PORT       foloseºte numãrul de port PORT (în folosire cu HOST)\n"
 "  -r, --rwhois               forþeazã efectuarea unei interogãri rwhois\n"
-"  --rwhois-display=AFIªARE   seteazã opþiuni de afiºare în interogare "
-"rwhois\n"
-"  --rwhois-limit=LIMITÃ       seteazã numãrul maxim de potriviri de "
-"raportat\n"
+"  --rwhois-display=AFIªARE   seteazã opþiuni de afiºare în interogare rwhois\n"
+"  --rwhois-limit=LIMITÃ       seteazã numãrul maxim de potriviri de raportat\n"
 
 #: src/init.c:145
 #, c-format

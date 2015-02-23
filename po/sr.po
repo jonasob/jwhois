@@ -1,0 +1,358 @@
+# Serbian translation of jwhois.
+# Copyright (C) 2012 Free Software Foundation, Inc.
+# This file is distributed under the same license as the jwhois package.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: jwhois-4.0\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2007-02-14 14:08+0530\n"
+"PO-Revision-Date: 2012-01-05 02:36+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <gnu@prevod.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/cache.c:142
+msgid "Invalid expire time"
+msgstr "Неисправно време истека"
+
+#: src/cache.c:155 src/init.c:270 src/init.c:279
+msgid "Unable to open"
+msgstr "Не могу да отворим"
+
+#: src/cache.c:164
+msgid "Unable to store data in cache\n"
+msgstr "Не могу да сместим податке у оставу\n"
+
+#: src/dns.c:93
+msgid "host not found"
+msgstr "нисам пронашао домаћина"
+
+#: src/gai_strerror.c:61
+msgid "Address family for hostname not supported"
+msgstr "Породица адреса за назив домаћина није подржана"
+
+#: src/gai_strerror.c:63
+msgid "Temporary failure in name resolution"
+msgstr "Привремени неуспех одређивања имена"
+
+#: src/gai_strerror.c:65
+msgid "Bad value for ai_flags"
+msgstr "Неисправна вредност за аи_опције"
+
+#: src/gai_strerror.c:67
+msgid "Non-recoverable failure in name resolution"
+msgstr "Непоправљива грешка при одређивању имена"
+
+#: src/gai_strerror.c:69
+msgid "ai_family not supported"
+msgstr "аи_породица није подржана"
+
+#: src/gai_strerror.c:71
+msgid "Memory allocation failure"
+msgstr "Расподела меморије није успела"
+
+#: src/gai_strerror.c:73
+msgid "No address associated with hostname"
+msgstr "Ниједна адреса није придружена називу домаћина"
+
+#: src/gai_strerror.c:75
+msgid "Name or service not known"
+msgstr "Није познат назив или сервер"
+
+#: src/gai_strerror.c:77
+msgid "Servname not supported for ai_socktype"
+msgstr "Назив сервера није подржан за аи_врступрикључка"
+
+#: src/gai_strerror.c:79
+msgid "ai_socktype not supported"
+msgstr "аи_врстаприкључка није подржана"
+
+#: src/gai_strerror.c:81
+msgid "System error"
+msgstr "Системска грешка"
+
+#: src/gai_strerror.c:83
+msgid "Unknown error"
+msgstr "Непозната грешка"
+
+#: src/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: опција „%s“ је нејасна\n"
+
+#: src/getopt.c:703
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: опција „--%s“ не дозвољава аргумент\n"
+
+#: src/getopt.c:708
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: опција „%c%s“ не дозвољава аргумент\n"
+
+#: src/getopt.c:726 src/getopt.c:899
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: опција „%s“ захтева аргумент\n"
+
+#: src/getopt.c:755
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: непрепознатљива опција „--%s“\n"
+
+#: src/getopt.c:759
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: непрепознатљива опција „%c%s“\n"
+
+#: src/getopt.c:785
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: неисправна опција —— „%c“\n"
+
+#: src/getopt.c:788
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: неисправна опција —— „%c“\n"
+
+#: src/getopt.c:818 src/getopt.c:948
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: опција захтева аргумент —— „%c“\n"
+
+#: src/getopt.c:865
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: опција „-W %s“ је нејасна\n"
+
+#: src/getopt.c:883
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: опција „-W %s“ не дозвољава аргумент\n"
+
+#: src/http.c:72
+msgid "HTTP configuration is incomplete:"
+msgstr "Подешавање ХТТП-а је недовршено:"
+
+#: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
+#: src/http.c:167
+msgid "Option is missing:"
+msgstr "Недостаје опција:"
+
+#: src/http.c:85
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
+msgstr "Опција „http-method“ мора бити „GET“ или „POST“.\n"
+
+#: src/http.c:196
+msgid "Unable to create temporary file"
+msgstr "Не могу да направим привремену датотеку"
+
+#: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
+msgid "Querying"
+msgstr "Постављам упит"
+
+#: src/http.c:277
+msgid "Unable to run web browser"
+msgstr "Не могу да покренем прегледника веба"
+
+#: src/init.c:119
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Ауторска права (C) 1999-%d Задужбина слободног софтвера\n"
+
+#: src/init.c:120
+msgid ""
+"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
+"redistribute it under the terms of the GNU General Public License."
+msgstr ""
+"Овај програм је слободан софтвер који нема АПСОЛУТНО НИКАКВУ ГАРАНЦИЈУ;\n"
+"можете да га расподељујете под условима ГНУ опште јавне лиценце."
+
+#: src/init.c:123
+msgid "version"
+msgstr "издање"
+
+#: src/init.c:128
+msgid "Usage: jwhois [OPTIONS] [QUERY]"
+msgstr "Употрба: jwhois [ОПЦИЈЕ] [УПИТ]"
+
+#: src/init.c:130
+#, c-format
+msgid ""
+"  --version                  display version number and patch level\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
+msgstr ""
+"  --version                       приказује број издања и ниво закрпе\n"
+"  --help                          приказује ову помоћ\n"
+"  -v, --verbose                   опширан излаз уклањања грешака\n"
+"  -c ДАТОТЕКА, --config=ДАТОТЕКА  користи ДАТОТЕКУ као датотеку подешавања\n"
+"  -h ДОМАЋИН, --host=ДОМАЋИН      изричито пропитује ДОМАЋИН-а\n"
+"  -n, --no-redirect               искључује преусмеравање садржаја\n"
+"  -s, --no-whoisservers           искључује подршку услуге „whois-servers.net“\n"
+"  -a, --raw                       искључује поновно оформљавање упита\n"
+"  -i, --display-redirections      приказује сва преусмеравања уместо да их крије\n"
+"  -p ПОРТ, --port=ПОРТ            користи број порта ПОРТ (у споју са ДОМАЋИН-ом)\n"
+"  -r, --rwhois                    присиљава извршавање упита програма\n"
+"  --rwhois-display=ПРИКАЗ         подешава опцију приказа у упитима рвкоје\n"
+"  --rwhois-limit=ОГРАНИЧЕЊЕ       поставља највећи број поклапања који ће бити исписан у резултату\n"
+
+#: src/init.c:145
+#, c-format
+msgid ""
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
+msgstr ""
+"  -f, --force-lookup              присиљава претраживање чак и ако је унос одложен у оставу\n"
+"  -d, --disable-cache             искључује функције смештања у оставу\n"
+
+#: src/init.c:148
+msgid "Report bugs to bug-jwhois@gnu.org"
+msgstr "Грешке пријавите на bug-jwhois@gnu.org"
+
+#: src/init.c:233
+msgid "Invalid limit"
+msgstr "Неисправно ограничење"
+
+#: src/init.c:247
+msgid "Invalid port number"
+msgstr "Неисправан број порта"
+
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
+#: src/utils.c:101 src/utils.c:111 src/whois.c:76
+msgid "Error allocating memory"
+msgstr "Грешка при додељивању меморије"
+
+#: src/jconfig.c:273 src/jconfig.c:325
+msgid "String out of bounds on line"
+msgstr "Ниска је ван граница на реду"
+
+#: src/jconfig.c:299
+msgid "End of file looking for '\"' on line"
+msgstr "Крај датотеке приликом тражења „\"“ у реду"
+
+#: src/jconfig.c:354
+msgid "Unexpected end of file on line"
+msgstr "Неочекиван крај датотеке у реду"
+
+#: src/jconfig.c:423
+msgid "Multiple keys on line"
+msgstr "Више кључева у реду"
+
+#: src/jconfig.c:433
+msgid "Missing key on line"
+msgstr "Недостаје кључ у реду"
+
+#: src/jwhois.c:148
+msgid "Fatal error searching for host to query"
+msgstr "Кобна грешка приликом тражења домаћина за упит"
+
+#: src/jwhois.c:170
+msgid "Error reading cache"
+msgstr "Грешка при читању оставе"
+
+#: src/jwhois.c:175
+msgid "Cached"
+msgstr "У остави"
+
+#: src/jwhois.c:189
+msgid "Error writing to cache"
+msgstr "Грешка при писању у оставу"
+
+#: src/lookup.c:110
+msgid "Invalid netmask on line"
+msgstr "Неисправна маска мреже у реду"
+
+#: src/lookup.c:214
+#, c-format
+msgid "[%s: Missing prefix length on line %d]\n"
+msgstr "[%s: Недостаје дужина префикса у реду %d]\n"
+
+#: src/lookup.c:220
+#, c-format
+msgid "[%s: Invalid prefix length on line %d]\n"
+msgstr "[%s: Неисправна дужина префикса у реду %d]\n"
+
+#: src/lookup.c:232
+#, c-format
+msgid "[%s: Invalid network address on line %d]\n"
+msgstr "[%s: Неисправна адреса мреже у %d. реду]\n"
+
+#: src/lookup.c:437
+msgid "Warning: Configuration file contains references to IPv6,"
+msgstr "Упозорење: Датотека подешавања садржи упуте на ИПв6,"
+
+#: src/lookup.c:438
+msgid "         but jwhois was compiled without IPv6 support."
+msgstr "         али јвкоје је преведен без ИПв6 подршке."
+
+#: src/lookup.c:552 src/lookup.c:556
+msgid "Redirected to"
+msgstr "Преусмерен сам на"
+
+#: src/rwhois.c:138 src/whois.c:70
+#, c-format
+msgid "[Unable to connect to remote host]\n"
+msgstr "[Не могу да се повежем на удаљеног домаћина]\n"
+
+#: src/rwhois.c:159
+#, c-format
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
+msgstr "[RWHOIS: Грешка протокола приликом слања „-rwhois“ опције]\n"
+
+#: src/rwhois.c:197
+msgid "Server does not support display command"
+msgstr "Сервер не подржава наредбу приказа"
+
+#: src/rwhois.c:212
+msgid "Invalid limit in configuration file"
+msgstr "Неисправно ограничење у датотеци подешавања"
+
+#: src/rwhois.c:236
+msgid "Server does not support limit"
+msgstr "Сервер не подржава ограничење"
+
+#: src/rwhois.c:278
+msgid "Unknown referral"
+msgstr "Непозната препорука"
+
+#: src/rwhois.c:370
+msgid "Following referral to"
+msgstr "Пратим препоруку до"
+
+#: src/rwhois.c:399
+#, c-format
+msgid "[Host terminated connection prematurely]\n"
+msgstr "[Домаћин је прерано окончао везу]\n"
+
+#: src/rwhois.c:475
+msgid "Unhandled reply"
+msgstr "Непознат одговор"
+
+#: src/utils.c:262
+msgid "Error creating socket"
+msgstr "Грешка при прављењу прикључнице"
+
+#: src/utils.c:348
+msgid "Invalid connect timeout value"
+msgstr "Неисправна вредност истека при повезивању"
+
+#: src/whois.c:88
+msgid "Error reading data from"
+msgstr "Грешка приликом читања података из"

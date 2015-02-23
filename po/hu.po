@@ -1,24 +1,28 @@
-# Translation of the GNU jwhois.
+# Hungarian translation of the GNU jwhois.
+# This file is distributed under the same license as the jwhois package.
 # Copyright (C) 2002 Free Software Foundation, Inc.
-# G·bor Istv·n <stive@mezobereny.hu>, 2002.
-# TÌm·r Andr·s <timar@fsf.hu>, 2003.
 #
+# G√°bor Istv√°n <stive@mezobereny.hu>, 2002.
+# T√≠m√°r Andr√°s <timar@fsf.hu>, 2003.
+# √ör Bal√°zs <urbalazs@gmail.com>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: jwhois 3.2.2\n"
+"Project-Id-Version: jwhois 4.0\n"
 "Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
 "POT-Creation-Date: 2007-02-14 14:08+0530\n"
-"PO-Revision-Date: 2004-01-21 23:04+0100\n"
-"Last-Translator: Andras Timar <timar@fsf.hu>\n"
+"PO-Revision-Date: 2014-05-23 21:23+0200\n"
+"Last-Translator: Bal√°zs √ör <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.2\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/cache.c:142
 msgid "Invalid expire time"
-msgstr "…rvÈnytelen lej·rati idı"
+msgstr "√ârv√©nytelen lej√°rati id≈ë"
 
 #: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
@@ -26,51 +30,51 @@ msgstr "Nem lehet megnyitni"
 
 #: src/cache.c:164
 msgid "Unable to store data in cache\n"
-msgstr "Nem lehet adatokat t·rolni a gyorsÌtÛt·rban\n"
+msgstr "Nem lehet adatokat t√°rolni a gyors√≠t√≥t√°rban\n"
 
 #: src/dns.c:93
 msgid "host not found"
-msgstr "a gÈp nem tal·lhatÛ"
+msgstr "a g√©p nem tal√°lhat√≥"
 
 #: src/gai_strerror.c:61
 msgid "Address family for hostname not supported"
-msgstr "A kiszolg·lÛ cÌmÈnek a tÌpusa nem t·mogatott"
+msgstr "A kiszolg√°l√≥ c√≠m√©nek a t√≠pusa nem t√°mogatott"
 
 #: src/gai_strerror.c:63
 msgid "Temporary failure in name resolution"
-msgstr "¡tmeneti hiba a nÈvfelbont·sn·l"
+msgstr "√Åtmeneti hiba a n√©vfelbont√°sn√°l"
 
 #: src/gai_strerror.c:65
 msgid "Bad value for ai_flags"
-msgstr "Hib·s ÈrtÈk az ai_flags-ben"
+msgstr "Hib√°s √©rt√©k az ai_flags-ben"
 
 #: src/gai_strerror.c:67
 msgid "Non-recoverable failure in name resolution"
-msgstr "Nem helyrehozhatÛ hiba a nÈvfelold·s kˆzben"
+msgstr "Nem helyrehozhat√≥ hiba a n√©vfelold√°s k√∂zben"
 
 #: src/gai_strerror.c:69
 msgid "ai_family not supported"
-msgstr "ai_family nem t·mogatott"
+msgstr "ai_family nem t√°mogatott"
 
 #: src/gai_strerror.c:71
 msgid "Memory allocation failure"
-msgstr "MemÛrialefoglal·s nem siker¸lt"
+msgstr "Mem√≥rialefoglal√°s nem siker√ºlt"
 
 #: src/gai_strerror.c:73
 msgid "No address associated with hostname"
-msgstr "Nincs cÌm hozz·rendelve a kiszolg·lÛnÈvhez"
+msgstr "Nincs c√≠m hozz√°rendelve a kiszolg√°l√≥n√©vhez"
 
 #: src/gai_strerror.c:75
 msgid "Name or service not known"
-msgstr "A nÈv vagy a szolg·ltat·s ismeretlen"
+msgstr "A n√©v vagy a szolg√°ltat√°s ismeretlen"
 
 #: src/gai_strerror.c:77
 msgid "Servname not supported for ai_socktype"
-msgstr "A szolg·ltat·snÈv nem t·mogatott a megadott ai_socktype-n·l"
+msgstr "A szolg√°ltat√°sn√©v nem t√°mogatott a megadott ai_socktype-n√°l"
 
 #: src/gai_strerror.c:79
 msgid "ai_socktype not supported"
-msgstr "ai_socktype nem t·mogatott"
+msgstr "ai_socktype nem t√°mogatott"
 
 #: src/gai_strerror.c:81
 msgid "System error"
@@ -83,103 +87,103 @@ msgstr "Ismeretlen hiba"
 #: src/getopt.c:678
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: a `%s' kapcsolÛ nem egyÈrtelm˚\n"
+msgstr "%s: a ‚Äû%s‚Äù kapcsol√≥ nem egy√©rtelm≈±\n"
 
 #: src/getopt.c:703
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: a `--%s' kapcsolÛ nem fogad el argumentumot\n"
+msgstr "%s: a ‚Äû--%s‚Äù kapcsol√≥ nem fogad el argumentumot\n"
 
 #: src/getopt.c:708
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: a `%c%s' kapcsolÛ nem fogad el argumentumot\n"
+msgstr "%s: a ‚Äû%c%s‚Äù kapcsol√≥ nem fogad el argumentumot\n"
 
 #: src/getopt.c:726 src/getopt.c:899
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: a `%s' kapcsolÛ argumentumot igÈnyel\n"
+msgstr "%s: a ‚Äû%s‚Äù kapcsol√≥ argumentumot ig√©nyel\n"
 
 #: src/getopt.c:755
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: ismeretlen kapcsolÛ: `--%s'\n"
+msgstr "%s: ismeretlen kapcsol√≥: ‚Äû--%s‚Äù\n"
 
 #: src/getopt.c:759
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: ismeretlen kapcsolÛ: `%c%s'\n"
+msgstr "%s: ismeretlen kapcsol√≥: ‚Äû%c%s‚Äù\n"
 
 #: src/getopt.c:785
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: szab·lytalan kapcsolÛ: -- %c\n"
+msgstr "%s: szab√°lytalan kapcsol√≥: -- %c\n"
 
 #: src/getopt.c:788
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: ÈrvÈnytelen kapcsolÛ: -- %c\n"
+msgstr "%s: √©rv√©nytelen kapcsol√≥: -- %c\n"
 
 #: src/getopt.c:818 src/getopt.c:948
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: a kapcsolÛ argumentumot igÈnyel -- %c\n"
+msgstr "%s: a kapcsol√≥ argumentumot ig√©nyel -- %c\n"
 
 #: src/getopt.c:865
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: a `-W %s' kapcsolÛ nem egyÈrtelm˚\n"
+msgstr "%s: a ‚Äû-W %s‚Äù kapcsol√≥ nem egy√©rtelm≈±\n"
 
 #: src/getopt.c:883
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: a `-W %s' kapcsolÛ nem fogad el argumentumot\n"
+msgstr "%s: a ‚Äû-W %s‚Äù kapcsol√≥ nem fogad el argumentumot\n"
 
 #: src/http.c:72
 msgid "HTTP configuration is incomplete:"
-msgstr "A HTTP-be·llÌt·sok elÈgtelenek:"
+msgstr "A HTTP-be√°ll√≠t√°sok el√©gtelenek:"
 
 #: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
 #: src/http.c:167
 msgid "Option is missing:"
-msgstr "Hi·nyzÛ be·llÌt·s:"
+msgstr "Hi√°nyz√≥ be√°ll√≠t√°s:"
 
 #: src/http.c:85
 msgid "Option http-method must be \"GET\" or \"POST\".\n"
-msgstr "A http-method be·llÌt·s ÈrtÈke csak \"GET\" vagy \"POST\" lehet.\n"
+msgstr "A http-method be√°ll√≠t√°s √©rt√©ke csak ‚ÄûGET‚Äù vagy ‚ÄûPOST‚Äù lehet.\n"
 
 #: src/http.c:196
 msgid "Unable to create temporary file"
-msgstr "Ideiglenes f·jl lÈtrehoz·sa sikertelen"
+msgstr "Ideiglenes f√°jl l√©trehoz√°sa sikertelen"
 
 #: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
 msgid "Querying"
-msgstr "LekÈrdezÈs"
+msgstr "Lek√©rdez√©s"
 
 #: src/http.c:277
 msgid "Unable to run web browser"
-msgstr "Nem lehet elindÌtani a webbˆngÈszıt"
+msgstr "Nem lehet elind√≠tani a webb√∂ng√©sz≈ët"
 
 #: src/init.c:119
 #, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
-msgstr "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Copyright ¬© 1999-%d  Free Software Foundation, Inc.\n"
 
 #: src/init.c:120
 msgid ""
 "This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
 "redistribute it under the terms of the GNU General Public License."
 msgstr ""
-"Ez a program szabad szoftver, Ès nem vonatkozik r· SEMMILYEN GARANCIA;\n"
-"a GNU General Public License szerint szabadon terjeszthetı."
+"Ez a program szabad szoftver, √©s nem vonatkozik r√° SEMMILYEN GARANCIA;\n"
+"a GNU General Public License szerint szabadon terjeszthet≈ë."
 
 #: src/init.c:123
 msgid "version"
-msgstr "verziÛ"
+msgstr "verzi√≥"
 
 #: src/init.c:128
 msgid "Usage: jwhois [OPTIONS] [QUERY]"
-msgstr "Haszn·lat: jwhois [KAPCSOL”] [LEK…RDEZ…S]"
+msgstr "Haszn√°lat: jwhois [KAPCSOL√ì] [LEK√âRDEZ√âS]"
 
 #: src/init.c:130
 #, c-format
@@ -193,28 +197,24 @@ msgid ""
 "  -s, --no-whoisservers      disable whois-servers.net service support\n"
 "  -a, --raw                  disable reformatting of the query\n"
 "  -i, --display-redirections display all redirects instead of hiding them\n"
-"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
-"HOST)\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with HOST)\n"
 "  -r, --rwhois               force an rwhois query to be made\n"
 "  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
 "  --rwhois-limit=LIMIT       sets the maximum number of matches to return\n"
 msgstr ""
-"  --version                  megjelenÌti a verziÛsz·mot Ès a foltverziÛt\n"
-"  --help                     ezt a segÌtsÈget jelenÌti meg\n"
-"  -v, --verbose              bıbeszÈd˚ ¸zemmÛd\n"
-"  -c F¡JL, --config=F¡JL     a F¡JL-t haszn·lja konfigur·ciÛs ·llom·nykÈnt\n"
-"  -h KISZOLG¡L”, --host=KISZOLG¡L”    cÈlir·nyosan a KISZOLG¡L”T kÈrdezi\n"
-"  -n, --no-redirect          letiltja a tartalom ·tir·nyÌt·st\n"
-"  -s, --no-whoisservers      letiltja a  whois-servers.net szolg·ltat·sait\n"
-"  -a, --raw                  letiltja az kÈrÈs ˙jra form·z·s·t\n"
-"  -i, --display-redirections megjelenÌti az ˆsszes ·tir·nyÌt·st, ahelyett "
-"hogy elrejtenÈ\n"
-"  -p PORT, --port=PORT       a PORT sz·mot haszn·lja (egy¸tt a "
-"KISZOLG¡L”VAL)\n"
-"  -r, --rwhois               erılteti a rwhois lekÈrdezÈst\n"
-"  --rwhois-display=DISPLAY   be·llÌtja a DISPLAY kapcsolÛt az rwhois "
-"lekÈrdezÈshez\n"
-"  --rwhois-limit=HAT¡R       be·llÌtja a maxim·lis tal·latok sz·m·t\n"
+"  --version                  megjelen√≠ti a verzi√≥sz√°mot √©s a foltverzi√≥t\n"
+"  --help                     ezt a seg√≠ts√©get jelen√≠ti meg\n"
+"  -v, --verbose              b≈ëbesz√©d≈± √ºzemm√≥d\n"
+"  -c F√ÅJL, --config=F√ÅJL     a F√ÅJL-t haszn√°lja konfigur√°ci√≥s √°llom√°nyk√©nt\n"
+"  -h KISZOLG√ÅL√ì, --host=KISZOLG√ÅL√ì    c√©lir√°nyosan a KISZOLG√ÅL√ìT k√©rdezi\n"
+"  -n, --no-redirect          letiltja a tartalom √°tir√°ny√≠t√°st\n"
+"  -s, --no-whoisservers      letiltja a  whois-servers.net szolg√°ltat√°sait\n"
+"  -a, --raw                  letiltja az k√©r√©s √∫jra form√°z√°s√°t\n"
+"  -i, --display-redirections megjelen√≠ti az √∂sszes √°tir√°ny√≠t√°st, ahelyett hogy elrejten√©\n"
+"  -p PORT, --port=PORT       a PORT sz√°mot haszn√°lja (egy√ºtt a KISZOLG√ÅL√ìVAL)\n"
+"  -r, --rwhois               er≈ëlteti a rwhois lek√©rdez√©st\n"
+"  --rwhois-display=DISPLAY   be√°ll√≠tja a DISPLAY kapcsol√≥t az rwhois lek√©rdez√©shez\n"
+"  --rwhois-limit=HAT√ÅR       be√°ll√≠tja a maxim√°lis tal√°latok sz√°m√°t\n"
 
 #: src/init.c:145
 #, c-format
@@ -222,143 +222,141 @@ msgid ""
 "  -f, --force-lookup         force lookup even if the entry is cached\n"
 "  -d, --disable-cache        disable cache functions\n"
 msgstr ""
-"  -f, --force-lookup         kikeresÈs kÈnyszerÌtÈse akkor is, ha az elem a "
-"gyorsÌtÛt·rban van\n"
-"  -d, --disable-cache        letiltja a gyorsÌtÛt·rat\n"
+"  -f, --force-lookup         kikeres√©s k√©nyszer√≠t√©se akkor is, ha az elem a gyors√≠t√≥t√°rban van\n"
+"  -d, --disable-cache        letiltja a gyors√≠t√≥t√°rat\n"
 
 #: src/init.c:148
 msgid "Report bugs to bug-jwhois@gnu.org"
-msgstr "A hib·kat a bug-jwhois@gnu.org cÌmre lehet bejelenteni"
+msgstr "A hib√°kat a bug-jwhois@gnu.org c√≠mre lehet bejelenteni"
 
 #: src/init.c:233
 msgid "Invalid limit"
-msgstr "…rvÈnytelen hat·r"
+msgstr "√ârv√©nytelen hat√°r"
 
 #: src/init.c:247
 msgid "Invalid port number"
-msgstr "…rvÈnytelen portsz·m"
+msgstr "√ârv√©nytelen portsz√°m"
 
 #: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
 #: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
 #: src/utils.c:101 src/utils.c:111 src/whois.c:76
 msgid "Error allocating memory"
-msgstr "Hiba a memÛrialefoglal·s sor·n"
+msgstr "Hiba a mem√≥rialefoglal√°s sor√°n"
 
 #: src/jconfig.c:273 src/jconfig.c:325
 msgid "String out of bounds on line"
-msgstr "A karakterl·nc t˙lÈrt a soron"
+msgstr "A karakterl√°nc t√∫l√©rt a soron"
 
 #: src/jconfig.c:299
 msgid "End of file looking for '\"' on line"
-msgstr "A f·jl vÈget Èrt, mielıtt meglett volna az '\"' a sorban"
+msgstr "A f√°jl v√©get √©rt, miel≈ëtt meglett volna az ‚Äû\"‚Äù a sorban"
 
 #: src/jconfig.c:354
 msgid "Unexpected end of file on line"
-msgstr "V·ratlan f·jlvÈg a sorban"
+msgstr "V√°ratlan f√°jlv√©g a sorban"
 
 #: src/jconfig.c:423
 msgid "Multiple keys on line"
-msgstr "Tˆbb kulcs a sorban"
+msgstr "T√∂bb kulcs a sorban"
 
 #: src/jconfig.c:433
 msgid "Missing key on line"
-msgstr "Hi·nyzÛ kulcs a sorban"
+msgstr "Hi√°nyz√≥ kulcs a sorban"
 
 #: src/jwhois.c:148
 msgid "Fatal error searching for host to query"
-msgstr "VÈgzetes hiba a lekÈrdezendı kiszolg·lÛ keresÈse kˆzben"
+msgstr "V√©gzetes hiba a lek√©rdezend≈ë kiszolg√°l√≥ keres√©se k√∂zben"
 
 #: src/jwhois.c:170
 msgid "Error reading cache"
-msgstr "Hiba a gyorsÌtÛt·r olvas·sa kˆzben"
+msgstr "Hiba a gyors√≠t√≥t√°r olvas√°sa k√∂zben"
 
 #: src/jwhois.c:175
 msgid "Cached"
-msgstr "GyorsÌtÛt·rban"
+msgstr "Gyors√≠t√≥t√°rban"
 
 #: src/jwhois.c:189
 msgid "Error writing to cache"
-msgstr "Hiba a gyorsÌtÛt·r olvas·sa kˆzben"
+msgstr "Hiba a gyors√≠t√≥t√°r olvas√°sa k√∂zben"
 
 #: src/lookup.c:110
 msgid "Invalid netmask on line"
-msgstr "…rvÈnytelen h·lÛzati maszk a sorban"
+msgstr "√ârv√©nytelen h√°l√≥zati maszk a sorban"
 
 #: src/lookup.c:214
 #, c-format
 msgid "[%s: Missing prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: Hi√°nyz√≥ el≈ëtaghossz a(z) %d. sorban]\n"
 
 #: src/lookup.c:220
 #, c-format
 msgid "[%s: Invalid prefix length on line %d]\n"
-msgstr ""
+msgstr "[%s: √ârv√©nytelen el≈ëtaghossz a(z) %d. sorban]\n"
 
 #: src/lookup.c:232
-#, fuzzy, c-format
+#, c-format
 msgid "[%s: Invalid network address on line %d]\n"
-msgstr "…rvÈnytelen h·lÛzati maszk a sorban"
+msgstr "[%s: √ârv√©nytelen h√°l√≥zati c√≠m a(z) %d. sorban]\n"
 
 #: src/lookup.c:437
 msgid "Warning: Configuration file contains references to IPv6,"
-msgstr ""
+msgstr "Figyelem: a be√°ll√≠t√≥f√°jl IPv6-ra mutat√≥ hivatkoz√°st tartalmaz,"
 
 #: src/lookup.c:438
 msgid "         but jwhois was compiled without IPv6 support."
-msgstr ""
+msgstr "         de a jwhois IPv6 t√°mogat√°s n√©lk√ºl lett leford√≠tva."
 
 #: src/lookup.c:552 src/lookup.c:556
 msgid "Redirected to"
-msgstr "¡tir·nyÌtva"
+msgstr "√Åtir√°ny√≠tva"
 
 #: src/rwhois.c:138 src/whois.c:70
 #, c-format
 msgid "[Unable to connect to remote host]\n"
-msgstr "[Nem lehet csatlakozni a kiszolg·lÛhoz]\n"
+msgstr "[Nem lehet csatlakozni a kiszolg√°l√≥hoz]\n"
 
 #: src/rwhois.c:159
 #, c-format
 msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
-msgstr "[RWHOIS: Protokollhiba a k¸ldÈs sor·n  -rwhois kapcsolÛ]\n"
+msgstr "[RWHOIS: Protokollhiba a -rwhois kapcsol√≥ k√ºld√©se sor√°n]\n"
 
 #: src/rwhois.c:197
 msgid "Server does not support display command"
-msgstr "A kiszolg·lÛ nem t·mogatja a display parancsot"
+msgstr "A kiszolg√°l√≥ nem t√°mogatja a display parancsot"
 
 #: src/rwhois.c:212
 msgid "Invalid limit in configuration file"
-msgstr "…rvÈnytelen hat·r a konfigur·ciÛs ·llom·nyban"
+msgstr "√ârv√©nytelen hat√°r a konfigur√°ci√≥s √°llom√°nyban"
 
 #: src/rwhois.c:236
 msgid "Server does not support limit"
-msgstr "A kiszolg·lÛ nem t·mogatja a hat·rokat"
+msgstr "A kiszolg√°l√≥ nem t√°mogatja a hat√°rokat"
 
 #: src/rwhois.c:278
 msgid "Unknown referral"
-msgstr "Ismeretlen hivatkoz·s"
+msgstr "Ismeretlen hivatkoz√°s"
 
 #: src/rwhois.c:370
 msgid "Following referral to"
-msgstr "Hivatkoz·s kˆvetÈse"
+msgstr "Hivatkoz√°s k√∂vet√©se"
 
 #: src/rwhois.c:399
 #, c-format
 msgid "[Host terminated connection prematurely]\n"
-msgstr "[A kiszolg·lÛval a kapcsolat idı elıtt megszakadt]\n"
+msgstr "[A kiszolg√°l√≥val a kapcsolat id≈ë el≈ëtt megszakadt]\n"
 
 #: src/rwhois.c:475
 msgid "Unhandled reply"
-msgstr "Kezeletlen v·lasz"
+msgstr "Kezeletlen v√°lasz"
 
 #: src/utils.c:262
 msgid "Error creating socket"
-msgstr "Hiba a socket lÈtrehoz·sakor"
+msgstr "Hiba a socket l√©trehoz√°sakor"
 
 #: src/utils.c:348
-#, fuzzy
 msgid "Invalid connect timeout value"
-msgstr "…rvÈnytelen h·lÛzati maszk a sorban"
+msgstr "√ârv√©nytelen csatlakoz√°si id≈ët√∫ll√©p√©s √©rt√©k"
 
 #: src/whois.c:88
 msgid "Error reading data from"
-msgstr "Hiba tˆrtÈnt adatolvas·s kˆzben:"
+msgstr "Hiba t√∂rt√©nt adatolvas√°s k√∂zben:"
