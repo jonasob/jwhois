@@ -244,7 +244,10 @@ make_connect(const char *host, int port)
   if (error < 0 || retval)
     {
       close (sockfd);
-      return -1;
+      if (retval == ENETUNREACH)
+        continue;
+      else
+        return -1;
     }
 
   return sockfd;

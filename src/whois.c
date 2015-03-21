@@ -115,6 +115,7 @@ whois_read(int fd, char **ptr, const char *host)
   unsigned int count, start_count;
   int ret;
   char data[MAXBUFSIZE];
+  fd_set rfds;
 
   count = 0;
 
@@ -124,7 +125,15 @@ whois_read(int fd, char **ptr, const char *host)
 
   do
     {
+      FD_ZERO(&rfds);
+      FD_SET(fd, &rfds);
+      ret = select(fd + 1, &rfds, NULL, NULL, NULL);
+
+      if (ret <= 0)
+        return -1;
+
       ret = read(fd, data, MAXBUFSIZE-1);
+
       if (ret >= 0)
 	{
 	  count += ret;
