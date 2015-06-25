@@ -72,26 +72,18 @@ Software Foundation raise funds for GNU development.''
 
 @node Top, Introduction, (dir), (dir)
 
-This file documents the GNU jwhois package, en extended Whois client.
+This file documents the GNU jwhois package, an extended Whois client.
 This is edition 3.2.1, for jwhois version 3.2.3, last updated 30 June 2002.
 
 @menu
 * Introduction::                Introduction
 * Invocation::                  How to invoke jwhois
 * Site Configuration::          Syntax of the configuration file
-* RIPE Extensions::             Extensions for RIPE databases
-* Reporting bugs::              Reporting bugs
-
-@detailmenu
- --- The Detailed Node Listing ---
-
-Site Configuration
-
 * Global options::              Global configuration options
 * Whois servers::               Syntax for selecting whois servers
 * Server options::              Syntax for server options
-
-@end detailmenu
+* RIPE Extensions::             Extensions for RIPE databases
+* Reporting bugs::              Reporting bugs
 @end menu
 
 @node Introduction, Invocation, Top, Top
@@ -103,10 +95,10 @@ queries to foreign hosts either through the RFC 954 - NICNAME/WHOIS
 protocol, the RFC 2167 - Referral Whois 1.5 protocol, or HTTP using
 an external browser.
 
-Upon execution, @sc{jwhois} searches through the its configuration
+Upon execution, @sc{jwhois} searches through its configuration
 to find the most specific whois server to query. Depending upon the
 reply from that whois server, @sc{jwhois} can assume the query was
-successfull and display the result to the user, or optionally redirect
+successful and display the result to the user, or optionally redirect
 the query to another server to find more specific information.
 
 @node Invocation, Site Configuration, Introduction, Top
@@ -133,7 +125,7 @@ directly.
 
 @item -p PORT
 @item --port=PORT
-Specifies a port number to use when querying a HOST
+Specifies a port number to use when querying a HOST.
 
 @item -f
 @item --force-lookup
@@ -171,7 +163,7 @@ Completely disable both reading and writing to cache
 
 @item -r
 @item --rwhois
-Force the query to use the rwhois protocoll instead of HTTP or whois.
+Force the query to use the rwhois protocol instead of HTTP or whois.
 
 @item --rwhois-display=DISPLAY
 Asks receiving rwhois servers to display the results in the DISPLAY display
@@ -230,10 +222,10 @@ Note that the cache feature might have been disabled at compile time and
 thus not be available on this system.
 
 @item cacheexpire
-The default expire time for all cached objects it
+The default expire time for all cached objects is
 7 days (168 hours). this can be changed with the
 @option{cacheexpire} option. The value is the number
-of hours that objects is considered to be current.
+of hours that objects are considered to be current.
 
 @item whois-servers-domain
 Whois-servers.net is a service offered by the
