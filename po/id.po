@@ -20,7 +20,7 @@ msgstr ""
 
 #: src/cache.c:142
 msgid "Invalid expire time"
-msgstr "waktu kadaluarsa tidak valid"
+msgstr "Waktu kadaluarsa tidak valid"
 
 #: src/cache.c:155 src/init.c:270 src/init.c:279
 msgid "Unable to open"
@@ -165,7 +165,7 @@ msgstr "Tidak dapat menjalankan browser web"
 #: src/init.c:119
 #, c-format
 msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
-msgstr "Hak Cipta 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Hak Cipta (C) 1999-%d  Free Software Foundation, Inc.\n"
 
 #: src/init.c:120
 msgid ""
