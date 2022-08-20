@@ -1,0 +1,369 @@
+# jwhois translation to Georgian.
+# Copyright (C) 2022 Free Software Foundation, Inc.
+# This file is distributed under the same license as the jwhois package.
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jwhois\n"
+"Report-Msgid-Bugs-To: bug-jwhois@gnu.org\n"
+"POT-Creation-Date: 2007-02-14 14:08+0530\n"
+"PO-Revision-Date: 2022-08-20 12:18+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: src/cache.c:142
+msgid "Invalid expire time"
+msgstr "ვადის არასწორი ფორმატი"
+
+#: src/cache.c:155 src/init.c:270 src/init.c:279
+msgid "Unable to open"
+msgstr "გახსნის შეცდომა"
+
+#: src/cache.c:164
+msgid "Unable to store data in cache\n"
+msgstr "ქეშში მონაცემების შენახვის შეცდომა\n"
+
+#: src/dns.c:93
+msgid "host not found"
+msgstr "ჰოსტი ნაპოვნი არაა"
+
+#: src/gai_strerror.c:61
+msgid "Address family for hostname not supported"
+msgstr "ამ ჰოსტის მისამართის ტიპი მხარდაუჭერელია"
+
+#: src/gai_strerror.c:63
+msgid "Temporary failure in name resolution"
+msgstr "სახელის გადაწყვეტის დროებითი შეცდომა"
+
+#: src/gai_strerror.c:65
+msgid "Bad value for ai_flags"
+msgstr "არასწორი მნიშვნელობა: ai_flags"
+
+#: src/gai_strerror.c:67
+msgid "Non-recoverable failure in name resolution"
+msgstr "სახელის გადაწყვეტის აღუდგენელი შეცდომა"
+
+#: src/gai_strerror.c:69
+msgid "ai_family not supported"
+msgstr "ai_family მხარდაუჭერელია"
+
+#: src/gai_strerror.c:71
+msgid "Memory allocation failure"
+msgstr "მეხსიერების გამოყოფის შეცდომა"
+
+#: src/gai_strerror.c:73
+msgid "No address associated with hostname"
+msgstr "ჰოსტის სახელზე მიბმული არაა"
+
+#: src/gai_strerror.c:75
+msgid "Name or service not known"
+msgstr "სახელი ან სერვისი უცნობია"
+
+#: src/gai_strerror.c:77
+msgid "Servname not supported for ai_socktype"
+msgstr "Ai_socktype-ის სერვერის სახელი მხარდაუჭერელია"
+
+#: src/gai_strerror.c:79
+msgid "ai_socktype not supported"
+msgstr "ai_socket-ი მხარდაუჭერელია"
+
+#: src/gai_strerror.c:81
+msgid "System error"
+msgstr "სისტემური შეცდომა"
+
+#: src/gai_strerror.c:83
+msgid "Unknown error"
+msgstr "უცნობი შეცდომა"
+
+#: src/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: პარამეტრი '%s' გაურკვეველია\n"
+
+#: src/getopt.c:703
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: პარამეტრი '--%s' არგუმენტებს არ იღებს\n"
+
+#: src/getopt.c:708
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: პარამეტრი '%c%s' არგუმენტებს არ იღებს\n"
+
+#: src/getopt.c:726 src/getopt.c:899
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: პარამეტრი '--%s' საჭიროებს არგუმენტს.\n"
+
+#: src/getopt.c:755
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: უცნობი პარამეტრი '--%s'\n"
+
+#: src/getopt.c:759
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: უცნობი პარამეტრი '%c'%s'\n"
+
+#: src/getopt.c:785
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: დაუშვებელი პარამეტრი -- %c\n"
+
+#: src/getopt.c:788
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: არასწორი პარამეტრი -- '%c'\n"
+
+#: src/getopt.c:818 src/getopt.c:948
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: პარამეტრს ესაჭიროება არგუმენტი -- '%c'\n"
+
+#: src/getopt.c:865
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: პარამეტრი '-W %s' ბუნდოვანია\n"
+
+#: src/getopt.c:883
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: პარამეტრი '-W %s' არგუმენტს არ იღებს\n"
+
+#: src/http.c:72
+msgid "HTTP configuration is incomplete:"
+msgstr "HTTP კონფიგურაცია არასრულია:"
+
+#: src/http.c:73 src/http.c:74 src/http.c:75 src/http.c:93 src/http.c:102
+#: src/http.c:167
+msgid "Option is missing:"
+msgstr "აკლია პარამეტრი:"
+
+#: src/http.c:85
+msgid "Option http-method must be \"GET\" or \"POST\".\n"
+msgstr "პარამეტრი http-method უნდა იყოს \"GET\" ან \"POST\".\n"
+
+#: src/http.c:196
+msgid "Unable to create temporary file"
+msgstr "დროებითი ფაილის შექმნის შეცდომა"
+
+#: src/http.c:247 src/lookup.c:452 src/rwhois.c:130 src/whois.c:62
+msgid "Querying"
+msgstr "მოთხოვნა"
+
+#: src/http.c:277
+msgid "Unable to run web browser"
+msgstr "ბრაუზერის გაშვების შეცდომა"
+
+#: src/init.c:119
+#, c-format
+msgid "Copyright (C) 1999-%d  Free Software Foundation, Inc.\n"
+msgstr "Copyright (C) 1999-%d Free Software Foundation, Inc.\n"
+
+#: src/init.c:120
+msgid ""
+"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
+"redistribute it under the terms of the GNU General Public License."
+msgstr ""
+"This program is free software with ABSOLUTELY NO WARRANTY; you may\n"
+"redistribute it under the terms of the GNU General Public License."
+
+#: src/init.c:123
+msgid "version"
+msgstr "ვერსია"
+
+#: src/init.c:128
+msgid "Usage: jwhois [OPTIONS] [QUERY]"
+msgstr "გამოყენება: jwhois [პარამერები] [მოთხოვნა]"
+
+#: src/init.c:130
+#, c-format
+msgid ""
+"  --version                  display version number and patch level\n"
+"  --help                     display this help\n"
+"  -v, --verbose              verbose debug output\n"
+"  -c FILE, --config=FILE     use FILE as configuration file\n"
+"  -h HOST, --host=HOST       explicitly query HOST\n"
+"  -n, --no-redirect          disable content redirection\n"
+"  -s, --no-whoisservers      disable whois-servers.net service support\n"
+"  -a, --raw                  disable reformatting of the query\n"
+"  -i, --display-redirections display all redirects instead of hiding "
+"them\n"
+"  -p PORT, --port=PORT       use port number PORT (in conjunction with "
+"HOST)\n"
+"  -r, --rwhois               force an rwhois query to be made\n"
+"  --rwhois-display=DISPLAY   sets the display option in rwhois queries\n"
+"  --rwhois-limit=LIMIT       sets the maximum number of matches to "
+"return\n"
+msgstr ""
+"  --version          ვერსიის ნომრისა და პატჩის დონის ჩვენება\n"
+"  --help               ამ დახმარების ჩვენება\n"
+"  -v, --verbose დამატებითი შეტყობინებების გამოტანა\n"
+"  -C ფაილი, --config=ფაილი   მითითებული ფაილის, როგორც კონფიგურაციის "
+"ფაილის გამოყენება\n"
+"  -h ჰოსტი, --host=ჰოსტი          ჰოსტის სახელს მითითება\n"
+"  -n, --no-redirect შემცველობის გადამისამართების გამორთვა\n"
+"  -s, --no-whoisservers               whois-servers.net სერვისის "
+"მხარდაჭერის გამორთვა\n"
+"  -a, --raw             მოთხოვნის თავიდან ფორმატირების გამორთვა\n"
+"  -i, --display-redirections ყველა გადაისამართების ჩვენება, დამალვის "
+"მაგიერ\n"
+"  -p PORT, --port=PORT პორტის მითითებული ნომრის გამოყენება (ჰოსტთან "
+"ერთად)\n"
+"  -r, --rwhois               rwhois მოთხოვნის გამოყენება\n"
+"  --rwhois-display= whois მოთხოვნების ჩვენების ფორმატირება\n"
+"  --rwhois-limit=LIMIT დაბრუნებული პასუხების მაქსიმალური რაოდენობა\n"
+
+#: src/init.c:145
+#, c-format
+msgid ""
+"  -f, --force-lookup         force lookup even if the entry is cached\n"
+"  -d, --disable-cache        disable cache functions\n"
+msgstr ""
+"  -f, --force-lookup         მოთხოვნის გაგზავნა ობიექტის ქეშში "
+"არსებობის შემთხვევაშიც კი\n"
+"  -d, --disable-cache        ქეშის ფუნქციების გამორთვა\n"
+
+#: src/init.c:148
+msgid "Report bugs to bug-jwhois@gnu.org"
+msgstr "შეცდომების ანგარიშები გააგზავნეთ ელფოსტაზე  bug-jwhois@gnu.org"
+
+#: src/init.c:233
+msgid "Invalid limit"
+msgstr "არასწორი ლიმიტი"
+
+#: src/init.c:247
+msgid "Invalid port number"
+msgstr "პორტის არასწორი ნომერი"
+
+#: src/jconfig.c:245 src/jconfig.c:265 src/jconfig.c:317 src/jconfig.c:373
+#: src/jwhois.c:110 src/jwhois.c:159 src/lookup.c:631 src/lookup.c:734
+#: src/utils.c:101 src/utils.c:111 src/whois.c:76
+msgid "Error allocating memory"
+msgstr "მეხსიერების გამოყოფის შეცდომა"
+
+#: src/jconfig.c:273 src/jconfig.c:325
+msgid "String out of bounds on line"
+msgstr "სტრიქონი საზღვრებს გარეთაა. ხაზი"
+
+#: src/jconfig.c:299
+msgid "End of file looking for '\"' on line"
+msgstr "ფაილი დასრულდა '\"'-ის ძებნისას ხაზზე"
+
+#: src/jconfig.c:354
+msgid "Unexpected end of file on line"
+msgstr "ფაილი მოულოდნელად დასრულდა ხაზზე"
+
+#: src/jconfig.c:423
+msgid "Multiple keys on line"
+msgstr "ბევრი გასაღები ხაზზე"
+
+#: src/jconfig.c:433
+msgid "Missing key on line"
+msgstr "აკლია გასაღები ხაზზე"
+
+#: src/jwhois.c:148
+msgid "Fatal error searching for host to query"
+msgstr "ფატალური შეცდომა მოთხოვნის გასაგზავნი ჰოსტის ძებნისას"
+
+#: src/jwhois.c:170
+msgid "Error reading cache"
+msgstr "ქეშის წაკითხვის შეცდომა"
+
+#: src/jwhois.c:175
+msgid "Cached"
+msgstr "დაქეშილი"
+
+#: src/jwhois.c:189
+msgid "Error writing to cache"
+msgstr "ქეშში ჩაწერის შეცდომა"
+
+#: src/lookup.c:110
+msgid "Invalid netmask on line"
+msgstr "ქსელის არასწორი ნიღაბი ხაზზე"
+
+#: src/lookup.c:214
+#, c-format
+msgid "[%s: Missing prefix length on line %d]\n"
+msgstr "[%s: აკლია პრეფიქსის სიგრძე ხაზზე %d]\n"
+
+#: src/lookup.c:220
+#, c-format
+msgid "[%s: Invalid prefix length on line %d]\n"
+msgstr "[%s: პრეფიქსის არასწორი სიგრძე ხაზზე %d]\n"
+
+#: src/lookup.c:232
+#, c-format
+msgid "[%s: Invalid network address on line %d]\n"
+msgstr "[%s: არასწორი ქსელის მისამართი ხაზზე %d]\n"
+
+#: src/lookup.c:437
+msgid "Warning: Configuration file contains references to IPv6,"
+msgstr "გაფრთხილება: კონფიგურაციის ფაილი შეიცავს IPv6-ს,"
+
+#: src/lookup.c:438
+msgid "         but jwhois was compiled without IPv6 support."
+msgstr ""
+"               მაგრამ jwhois-ი IPv6-ის მხარდაჭერის გარეშეა აგებული."
+
+#: src/lookup.c:552 src/lookup.c:556
+msgid "Redirected to"
+msgstr "გადამისამართებულია"
+
+#: src/rwhois.c:138 src/whois.c:70
+#, c-format
+msgid "[Unable to connect to remote host]\n"
+msgstr "[დაშორებულ ჰოსტთან დაკავშირების შეცდომა]\n"
+
+#: src/rwhois.c:159
+#, c-format
+msgid "[RWHOIS: Protocol error while sending -rwhois option]\n"
+msgstr "[RWHOIS: პროტოკოლის შეცდომა -rwhois პარამეტრის გაგზავნისას]\n"
+
+#: src/rwhois.c:197
+msgid "Server does not support display command"
+msgstr "სერვერს display ბრძანების მხარდაჭერა არ გააჩნია"
+
+#: src/rwhois.c:212
+msgid "Invalid limit in configuration file"
+msgstr "არასწორი ლიმიტი კონფიგურაციის ფალში"
+
+#: src/rwhois.c:236
+msgid "Server does not support limit"
+msgstr "სერვერს ლიმიტის მხარდაწერაარ გააჩნია"
+
+#: src/rwhois.c:278
+msgid "Unknown referral"
+msgstr "უცნობი რეფერალი"
+
+#: src/rwhois.c:370
+msgid "Following referral to"
+msgstr "რეფერალზე მიყოლა ობიექტამდე"
+
+#: src/rwhois.c:399
+#, c-format
+msgid "[Host terminated connection prematurely]\n"
+msgstr "[ჰოსტმა შეერთება ნაადრევად დახურა]\n"
+
+#: src/rwhois.c:475
+msgid "Unhandled reply"
+msgstr "დაუმუშავებელი პასუხი"
+
+#: src/utils.c:262
+msgid "Error creating socket"
+msgstr "სოკეტის შექმნის შეცდომა"
+
+#: src/utils.c:348
+msgid "Invalid connect timeout value"
+msgstr "დაკავშირების მოლოდინის არასწორი მნიშვნელობა"
+
+#: src/whois.c:88
+msgid "Error reading data from"
+msgstr "მონაცემების კითხვის შეცდომა წყაროდან"
