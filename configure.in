@@ -119,7 +119,7 @@ AC_CHECK_LIB(inet6, main,
 AC_CHECK_FUNCS(memcpy strtol)
 AC_CHECK_FUNCS(strcasecmp strncasecmp getopt_long)
 AC_HEADER_STDC([])
-AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h sys/time.h sys/stat.h sys/fcntl.h malloc.h locale.h stdint.h inttypes.h idna.h)
+AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netdb.h sys/time.h sys/stat.h sys/fcntl.h malloc.h locale.h stdint.h inttypes.h idna.h arpa/inet.h)
 AC_HEADER_TIME
 
 
@@ -139,13 +139,16 @@ AC_TRY_RUN(
 #ifdef HAVE_NETINET_IN_H
 #include <netinet/in.h>
 #endif
+#ifdef HAVE_ARPA_INET_H
+#include <arpa/inet.h>
+#endif
 int main()
   {
     struct in6_addr addr6;
     if (inet_pton(AF_INET6, "::1", &addr6) < 1)
-      exit(1);
+      return 1;
     else
-      exit(0);
+      return 0;
   }
   ], [
        AC_MSG_RESULT(yes)
