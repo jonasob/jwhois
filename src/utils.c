@@ -348,7 +348,7 @@ split_host_from_query(struct s_whois_query *wq)
  *  file.
  */
 void
-timeout_init()
+timeout_init(void)
 {
   int iret;
   char *ret = "75", *ret2;

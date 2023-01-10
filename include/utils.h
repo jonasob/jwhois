@@ -28,6 +28,7 @@ char *create_string(const char *fmt, ...);
 int split_host_from_query(struct s_whois_query *wq);
 int make_connect(const char *, int);
 int add_text_to_buffer(char **, const char *);
+void timeout_init(void);
 
 
 #endif
